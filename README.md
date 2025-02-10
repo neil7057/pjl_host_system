@@ -94,22 +94,29 @@ Administrators can
 
 -   ### User stories
 
-    -   #### First Time Visitor Goals
+- #### As a first time user I want to:
+    -    Immediately understand the main purpose and use of the site
+    -    Be able easily navigate through the page
+    -    Be able search for the products on the page
+    -    Contact the company with any queries
+    -    Buy products without registration
+    -    See the reviews left by other users
+    -    Be able use the page on any devices and screen sizes
+    -    Login/create an user account
 
-        1. As a First Time Visitor, I want to see what the site is about.
-        2. As a First Time Visitor, I want to get an indication of the types of content. 
-        3. As a First Time Visitor, I want to be able to sign up and post.
+- #### As a registered user I want to:
+    -   Have access to my profile page
+    -   Be able to leave the reviews for purchased products
+    -   See my order history
+    -   Be able to update and save my personal info
+    -   Be able to change my password
+    -   Make purchase with my delivery info always filled
 
-    -   #### Returning Visitor Goals
-
-        1. As a Returning Visitor, I want to be able to log in and view posts.
-        2. As a Returning Visitor, I want to see a list of the latest forum posts.
-        3. As a Returning Visitor, I want to be able to view all my posts.
-
-    -   #### Frequent User Goals
-        1. As a Frequent User, I want to be able to search for on topic content by keyword.
-        2. As a Frequent User, I want to be abe to manage my account settings.
-        3. As a Frequent User, I want to be able to post and comment on my and other threads.
+- #### As an admin I want to:
+    -   Be able to add, edit and delete products
+    -   View and manage customer reviews
+    -   Delete customer review if not appropriate
+    -   Have easy access to admin controls
 
 -   ### Design
     -   #### Colour Scheme
