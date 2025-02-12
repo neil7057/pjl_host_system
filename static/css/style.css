@@ -70,6 +70,10 @@ body {
 	z-index: -1;
 }
 
+.fa-star {
+    color: gold;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
