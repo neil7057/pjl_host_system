@@ -107,7 +107,9 @@ a.category-badge > span.badge:hover {
     right: 10px;
 }
 
-.top-link {
+.top-link,
+.update-link,
+.remove-item {
     cursor: pointer;
     color: rgb(4, 85, 4);
 }
