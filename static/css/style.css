@@ -3,11 +3,12 @@ html {
 }
 
 body {
-    background: url('/media/oreo2.jpg') no-repeat center center fixed;
+    background: url('/media/oreo2.jpg')  no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
+    /* background-size: 90%; */
 }
 
 /* from Bulma */
@@ -72,6 +73,10 @@ body {
 
 .text-oreo {
     color: #4956c9 !important;
+}
+
+.text-logo {
+    color: #c2c2e5;
 }
 
 .border-black {
