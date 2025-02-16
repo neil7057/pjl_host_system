@@ -28,13 +28,18 @@ body {
 }
 
 .shop-now-button {
-    background: black;
+    background: #4956c9;
     color: white;
     min-width: 260px;
 }
 
 .btn-black {
     background: black;
+    color: white;
+}
+
+.btn-oreo {
+    background: #4956c9;
     color: white;
 }
 
@@ -57,12 +62,16 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
+    background: green;
     color: white;
 }
 
 .text-black {
     color: #000 !important;
+}
+
+.text-oreo {
+    color: #4956c9 !important;
 }
 
 .border-black {
@@ -112,6 +121,10 @@ a.category-badge > span.badge:hover {
 .remove-item {
     cursor: pointer;
     color: rgb(4, 85, 4);
+}
+
+.rounded-15 {
+    border-radius: 15px !important;
 }
 
 /* ------------------------------- bootstrap toasts */
