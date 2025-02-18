@@ -3,12 +3,11 @@ html {
 }
 
 body {
-    background: url('/media/oreo2.jpg')  no-repeat center center fixed;
+    background: url('/media/oreo-backg.jpg')  no-repeat center center;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
-    /* background-size: 90%; */
 }
 
 /* from Bulma */
@@ -29,9 +28,17 @@ body {
 }
 
 .shop-now-button {
-    background: #4956c9;
-    color: white;
-    min-width: 260px;
+    background: #4e51d3;
+    color: #fff;
+    font-weight: 700;
+    min-width: 200px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: solid 3px black;
 }
 
 .btn-black {
@@ -63,8 +70,8 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: green;
-    color: white;
+    background: #0e9375;
+    color: #fff;
 }
 
 .text-black {
@@ -76,7 +83,8 @@ body {
 }
 
 .text-logo {
-    color: #c2c2e5;
+    color: #6868fd;
+    font-weight: 700;
 }
 
 .border-black {
@@ -85,6 +93,10 @@ body {
 
 .bg-black {
     background: #000 !important;
+}
+
+.bg-oreo {
+    background: #d5ddf9 !important;
 }
 
 .overlay {
@@ -110,6 +122,11 @@ a.category-badge > span.badge:hover {
     color: #fff !important;
 }
 
+.badge {
+    background-color: #4956c9;
+    color: #fff;
+}
+
 .top-button {
     background-color: rgb(204, 235, 245);
     height: 42px;
@@ -119,6 +136,7 @@ a.category-badge > span.badge:hover {
     position: fixed;
     bottom: 50px;
     right: 10px;
+    z-index: 999999;
 }
 
 .top-link,
@@ -132,6 +150,18 @@ a.category-badge > span.badge:hover {
     border-radius: 15px !important;
 }
 
+.rounded-tb15 {
+    border-radius: 0 0 15px 15px !important;
+}
+
+.spaced-out {
+    line-height: 100px;
+}
+
+.rounded-bt15 {
+    border-radius: 15px 15px 0 0 !important;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
@@ -139,6 +169,7 @@ a.category-badge > span.badge:hover {
     top: 72px;
     right: 15px;
     z-index: 99999999999;
+    border: 1px solid blue;
 }
 
 .custom-toast {
@@ -200,6 +231,48 @@ a.category-badge > span.badge:hover {
     overflow-y: auto;
 }
 
+/* -------------------------------- Footer */
+footer {
+    min-height: 120px;
+}
+
+.social-links {
+    padding-left: 1em;
+    padding-top: 1em;
+}
+
+.social-links li a i {
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 7px;
+    text-align: center;
+    color: #fff;
+    background: #007bff;
+    transition: all 0.35s ease-in-out;
+}
+
+#footer-details {
+    background-color: #d5ddf9;
+    text-align: center;
+}
+
+.solid-border {
+    border-style: solid;
+    border-width: 2px 0 0;
+    border-color:#4203bf;
+}
+
+.copyright {
+    font-family: 'Original Surfer', sans-serif;
+    text-align: center;
+    color: #743011; 
+    font-weight: 500;
+    font-size: 1.15rem;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -218,11 +291,11 @@ a.category-badge > span.badge:hover {
         left: 0;
         z-index: 1030;
     }
-
+ 
     .header-container {
-        padding-top: 164px;
+        padding-top: 180px;
     }
-}
+} 
 
 @media (max-width: 991px) {
     .header-container {
@@ -231,5 +304,33 @@ a.category-badge > span.badge:hover {
 
     body {
         height: calc(100vh -116px);
+    }
+
+    .header-container {
+        padding-top: 124px;
+    }
+}
+
+@media (max-width: 480px) {
+    h4 {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: .4rem;
+    }
+
+    ul {
+        padding: 0;
+    }
+}
+
+@media (max-width: 330px) {
+    h4 {
+        font-size: .8rem;
+    }
+    
+    .header-container {
+        padding-top: 144px;
     }
 }

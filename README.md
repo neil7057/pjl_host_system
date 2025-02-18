@@ -650,7 +650,17 @@ This confirmed that:
 
 ### Bugs and Fixes
 
-*  
+*  Link to top button not active in footer.
+    -   added z-index to bring to front.
+
+*   env.py not working for storing secret keys
+    -   used python dotenv and created root .env file
+    
+*   Webhook not working with new secret key
+    -   stripe test keys had also changed in admin
+
+*   Stripe payments not being recorded
+    -   Public key had changed in admin interface. .env updated with new key info.
 
 -   WCAG contrast issues.
     - 
