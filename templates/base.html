@@ -63,7 +63,7 @@
                   <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <div class="text-center">
                           <div><i class="fas fa-user text-info fa-lg"></i></div>
-                          <p class="my-0 text-black">My Account</p>
+                          <h3 class="my-0 text-black">My Account</h3>
                       </div>
                   </a>
                   <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -83,13 +83,13 @@
                   <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
                       <div class="text-center">
                           <div><i class="fa-solid text-info fa-cart-shopping fa-lg"></i></div>
-                          <p class="my-0 text-black">
+                          <h3 class="my-0 text-black">
                               {% if grand_total %}
                                   £{{ grand_total|floatformat:2 }}
                               {% else %}
                                   £0.00
                               {% endif %}
-                          </p>
+                          </h3>
                       </div>
                   </a>
               </li>

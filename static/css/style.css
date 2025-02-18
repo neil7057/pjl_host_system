@@ -316,18 +316,24 @@ footer {
         font-size: 1rem;
     }
 
-    p {
-        font-size: .4rem;
-    }
-
     ul {
         padding: 0;
     }
 }
 
-@media (max-width: 330px) {
+@media (max-width: 550px) {
+    h3 {
+        font-size: .8rem !important;
+    }
+}
+
+@media (max-width: 345px) {
     h4 {
         font-size: .8rem;
+    }
+
+    h3 {
+        font-size: .4rem !important;
     }
     
     .header-container {
