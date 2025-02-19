@@ -33,8 +33,8 @@ SECRET_KEY = 'django-insecure-=k@e&t05ok$bhl&o@klws5h)xec48eh$=oqfgsjrdi1a5'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1', # vs code preview
-     'localhost', # listen for stripe webhooks
+                '127.0.0.1',  # vs code preview
+                'localhost',  # listen for stripe webhooks
 ]
 
 
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
+    'profiles',
 
     # Other Apps
     'crispy_forms',

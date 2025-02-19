@@ -662,6 +662,13 @@ This confirmed that:
 *   Stripe payments not being recorded
     -   Public key had changed in admin interface. .env updated with new key info.
 
+*   makemigrations fails after django_countries install with error on 'pkg-resources'
+    -   found solution online. install 'setuptools'
+
+*   django countries fails to integrate with 'len' error
+    -   online solution to replace syntax in order model
+    -   choices=CountryField().choices + [('', 'Select Country')]
+
 -   WCAG contrast issues.
     - 
 
