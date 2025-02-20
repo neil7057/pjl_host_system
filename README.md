@@ -160,12 +160,41 @@ Administrators can
     <details><summary>Data Structure</summary>
     <img src="">
 
--   ### Wireframes
-    -   
+-   ### Wireframes   
     
 -   #### Base
-    <details><summary>Base Template</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/base-html.png">
+    <details><summary>Index - Home</summary>
+    <img src="leos_oreos\docs\images\wireframes\index.html.png">
+    </details>
+
+-   #### Products
+    <details><summary>All products</summary>
+    <img src="leos_oreos\docs\images\wireframes\all-products.png">
+    </details>
+
+-   #### Details
+    <details><summary>Product Detail</summary>
+    <img src="leos_oreos\docs\images\wireframes\product-detail.png">
+    </details>
+
+-   #### Category
+    <details><summary>Products - Selected by Category</summary>
+    <img src="leos_oreos\docs\images\wireframes\products-selectedby-category.png">
+    </details>
+
+-   #### Shopping Cart
+    <details><summary>Shopping Cart</summary>
+    <img src="leos_oreos\docs\images\wireframes\shopping-cart.png">
+    </details>
+
+-   #### Checkout
+    <details><summary>Checkout</summary>
+    <img src="leos_oreos\docs\images\wireframes\checkout.png">
+    </details>
+
+-   #### Checkout Success
+    <details><summary>Checkout Success</summary>
+    <img src="leos_oreos\docs\images\wireframes\checkout-success.png">
     </details>
 
 -   
