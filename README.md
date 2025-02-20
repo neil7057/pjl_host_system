@@ -698,6 +698,10 @@ This confirmed that:
     -   online solution to replace syntax in order model
     -   choices=CountryField().choices + [('', 'Select Country')]
 
+*   django allauth templates not inheriting from base.html on V 65.4.1
+    -   manually added 'extend root base.html' to allauth base.html
+
+
 -   WCAG contrast issues.
     - 
 
