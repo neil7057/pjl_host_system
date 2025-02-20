@@ -196,13 +196,22 @@
         </div>
         <div class="row">
 			<div class="col-12 text-center">
-                <br>
-				<a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-info rounded-15 my-2">
-					<span class="icon mr-2">
-						<i class="fa-solid fa-basket-shopping"></i>
-					</span>
-					<span class="text-uppercase">Why not check out the latest deals?</span>
-				</a>
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="btn btn-success rounded-15 my-2 mb-4">
+                        <span class="icon mr-2">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="text-uppercase">Back to Profile</span>
+                    </a>
+                    <br>
+                {% else %}
+				    <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-info rounded-15 my-2 mb-4">
+					    <span class="icon mr-2">
+						    <i class="fa-solid fa-basket-shopping"></i>
+					    </span>
+					    <span class="text-uppercase">Why not check out the latest deals?</span>
+                    </a>
+                {% endif %}
 			</div>
 		</div>
     </div>
