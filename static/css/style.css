@@ -19,6 +19,18 @@ body {
     width: 1.5rem;
 }
 
+.img-center {
+    display: block;
+    margin: auto;
+    height: 97px;
+}
+
+.img-center-big {
+    display: block;
+    margin: auto;
+    height: 197px;
+}
+
 .logo-font {
     text-transform: uppercase;
 }
@@ -327,6 +339,17 @@ input[name='q']::placeholder {
 /* -------------------------------- Footer */
 footer {
     min-height: 120px;
+}
+
+/* override media font on H3  */
+.footer-head-text {
+    font-weight: 600 !important;
+    font-size: 1.75rem !important;
+}
+
+.footer-text {
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .social-links {

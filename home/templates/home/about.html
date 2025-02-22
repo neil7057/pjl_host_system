@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-12 col-lg-8">
+                <hr>
+                <h2 class="logo-font text-success mb-4 text-center">About Us</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-12 col-lg-8 text-oreo">
+                <h2 class="text-center">Leo's <span><img  src="/media/oreo-social.png" height="50px" alt="oreo socials logo" height="97px"></span>Emporium</h2>
+                <h4>Hi, and welcome to Leo's Oreo Emporium.
+                    A site dedicated to the sale of all things Oreo.</h4>
+                <a href="https://oreo.co.uk/" target="_blank">
+                    <img class="img-center mb-2" src="/media/oreo-cookie.jpg" alt="oreo cookie logo"></a>
+                <h4>The Leo in the title is my son who is on the Autism spectrum and one of his passions is oreo
+                    and everything oreo - he has quite a collection. He's particularly passionate about Blackpink</h4>
+                <a href="https://www.youtube.com/watch?v=zF5zkhzxdAg" target="_blank">
+                    <img class="img-center-big mb-3 mt-3" src="/media/blackpink.jpg" alt="oreo blackpink logo"></a>
+                <h4>All the products on the site are genuine and available elsewhere.</h4>
+                <br>
+                <h4>Sadly, the products arent actually for sale on this site as this is my City of Bristol
+                    Full stack Development Milestone Project 4 (MP4).</h4>
+                <a href="https://www.cityofbristol.ac.uk/" target="_blank">
+                    <img class = "img-center" src="/media/cobc.png"
+                        alt="city of bristol logo"></a>
+                <h4>Training was provided remotely from the Code Institute which is based in Dublin, Ireland.</h4>
+                <a href="https://codeinstitute.net/" target="_blank">
+                    <img class = "img-center mb-3" src="/media/code-institute.png"
+                        alt="code institute logo">
+                    </a>
+                <h4> It's a fully working E-commerce store with product managemnet and payment processing
+                     built with a python django framework using HTML5, CSS3, Javascript/Jquery, sqllite.
+                     User managemnet is django allauth and payment processing uses Stripe.</h4>
+                <br>
+                <a href="https://oreo.co.uk/" target="_blank">
+                    <img class="img-center mb-2" src="/media/oreo-cookie.jpg" alt="oreo cookie logo"></a>
+                <br>
+            </div>            
+        </div>
+    </div>
+{% endblock %}
+
