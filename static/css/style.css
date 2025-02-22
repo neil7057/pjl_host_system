@@ -76,6 +76,11 @@ body {
     color: white !important;
 }
 
+.btn-center {
+    display: block;
+    margin: auto;
+}
+
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus,
@@ -119,6 +124,10 @@ body {
 	position: fixed;
 	background: white;
 	z-index: -1;
+}
+
+li {
+    margin-bottom: .5rem; 
 }
 
 .fa-star {
