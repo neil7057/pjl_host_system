@@ -187,6 +187,10 @@ input[name='q']::placeholder {
     border-radius: 15px 15px 0 0 !important;
 }
 
+.product-sub-header {
+    margin-top: 20px;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
@@ -463,5 +467,9 @@ footer {
     
     .header-container {
         padding-top: 144px;
+    }
+
+    .product-sub-header {
+        margin-top: 0;
     }
 }
