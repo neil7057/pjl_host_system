@@ -1,0 +1,1 @@
+web: gunicorn leos_oreos_shop.wsgi:application
