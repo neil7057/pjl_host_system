@@ -1,1 +1,1 @@
-web: gunicorn leos_oreos_shop.wsgi:application
+web: gunicorn leos_oreo.wsgi:application

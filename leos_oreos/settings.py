@@ -39,7 +39,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
                 '127.0.0.1',  # vs code preview
                 'localhost',  # listen for stripe webhooks
-                'leos-oreo-emporium-70177b0dc83d.herokuapp.com',
+                'leos-oreos-shop-2a6fc504879b.herokuapp.com',
 ]
 
 
