@@ -701,6 +701,12 @@ This confirmed that:
 *   django allauth templates not inheriting from base.html on V 65.4.1
     -   manually added 'extend root base.html' to allauth base.html
 
+*   Not deploying to Heroku with py cache error, no static file.
+    downgraded version of django - known issue at 5.0
+
+*   Some images not displaying on heroku - showing as html resource
+    /image/ updated to {{ MEDIA_URL }} path.
+
 
 -   WCAG contrast issues.
     - 
