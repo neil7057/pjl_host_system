@@ -6,9 +6,7 @@
     {% trans "Confirm Email Address" %}
 {% endblock head_title %}
 {% block inner_content %}
-    {% element h1 %}
-        {% trans "Confirm Email Address" %}
-    {% endelement %}
+    <h1 class ='mt-5 mb-3 text-success'>Confirm Email Address</h1>
     {% if confirmation %}
         {% user_display confirmation.email_address.user as user_display %}
         {% if can_confirm %}
@@ -21,7 +19,7 @@
                     {% csrf_token %}
                     {{ redirect_field }}
                     <!-- {% element button type="submit" %} -->
-                        <button class="btn btn-success rounded-15 mb-5" type="submit" >Confirm</button>
+                        <button class="btn btn-success mt-2 rounded-15 mb-5" type="submit" >Confirm</button>
                         <!-- {% trans 'Confirm' %} -->
                     <!-- {% endelement %} -->
                 {% endslot %}
