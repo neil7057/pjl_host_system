@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4 text-success text-center">Thank You For Your Order</h2>
+                <h2 class="logo-font mb-4 text-edit text-center">Thank You For Your Order</h2>
                 <hr>
                 <p class="text-black text-center">The order information is below and a confirmation email will be sent to:</p>
                     <p class="text-center"><strong>{{ order.email }}</strong>.</p>
@@ -30,7 +30,7 @@
                 <div class="order-confirmation-wrapper p-2 border">
                     <div class="row">
                         <div class="col">
-                            <small class="text-success">Order Info:</small>
+                            <small class="text-edit">Order Info:</small>
                         </div>
                     </div>
                     <div class="row">
@@ -53,7 +53,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-success">Order Details:</small>
+                            <small class="text-edit">Order Details:</small>
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-success">Delivering To:</small>
+                            <small class="text-edit">Delivering To:</small>
                         </div>
                     </div>
 
@@ -156,7 +156,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-success">Billing Info:</small>
+                            <small class="text-edit">Billing Info:</small>
                         </div>
                     </div>
 
@@ -205,7 +205,7 @@
                     </a>
                     <br>
                 {% else %}
-				    <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-info rounded-15 my-2 mb-4">
+				    <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-warning rounded-15 my-2 mb-4">
 					    <span class="icon mr-2">
 						    <i class="fa-solid fa-basket-shopping"></i>
 					    </span>

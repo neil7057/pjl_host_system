@@ -380,7 +380,7 @@ footer {
     line-height: 7px;
     text-align: center;
     color: #fff;
-    background: #007bff;
+    background: #004085;
     transition: all 0.35s ease-in-out;
 }
 
@@ -413,14 +413,31 @@ footer {
     color: #0056b3;
 }
 
-.btn-success {
+.btn-success,
+.text-success {
     background-color: #155624;
 }
 
-.social-links li a i {
-    background: #004085;
+.btn-info {
+    background-color: #0c5864;
 }
 
+.text-info {
+    color: #0c5864 !important;
+}
+
+.btn-home {
+    background-color: #17b6cf;
+}
+
+.text-edit,
+.text-title {
+    color: green;
+}
+
+.text-breadcrumb {
+    color: #0056b3;
+}
 
 
 

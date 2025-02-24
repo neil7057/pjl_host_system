@@ -628,51 +628,65 @@ Pages that display lists of Products the same formatting and colour schemes so i
     <br>
 
     <details><summary>Product Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-home.png">
+    <img src="leos_oreos\docs\images\testing\wcag-product.png">
     </details>
     <br>
 
     <details><summary>Product Details Page</summary>
-    <img src="/static/docs/testing/wcag-home.png">
+    <img src="/static/docs/testing/wcag-product-details.png">
     </details>
     <br>
 
     <details><summary>Shopping Bag Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-home.png">
+    <img src="leos_oreos\docs\images\testing\wcag-shopping-bag.png">
     </details>
     <br>
 
     <details><summary>Checkout Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-home.png">
+    <img src="leos_oreos\docs\images\testing\wcag-.png">
+    </details>
+    <br>
+
+    <details><summary>Checkout Success Page</summary>
+    <img src="leos_oreos\docs\images\testing\wcag-checkout-success.png">
     </details>
     <br>
 
     <details><summary>About Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-home.png">
+    <img src="leos_oreos\docs\images\testing\wcag-about.png">
     </details>
     <br>
 
     <details><summary>Privacy Policy Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-home.png">
+    <img src="leos_oreos\docs\images\testing\wcag-privacy.png">
     </details>
     <br>
 
     <details><summary>Search Results Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-home.png">
+    <img src="leos_oreos\docs\images\testing\wcag-search-results.png">
     </details>
     <br>
     
     <details><summary>Registration Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-home.png">
+    <img src="leos_oreos\docs\images\testing\wcag-.png">
     </details>
     <br>
 
     <details><summary>Login Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-home.png">
+    <img src="leos_oreos\docs\images\testing\wcag-.png">
+    </details>
+    <br>
+
+    <details><summary>Logout Page</summary>
+    <img src="leos_oreos\docs\images\testing\wcag-logoff.png">
+    </details>
+    <br>
+
+    <details><summary>Profile Page</summary>
+    <img src="leos_oreos\docs\images\testing\wcag-.png">
     </details>
     <br>
    
-
 Manual tests were also performed to ensure the website was as accessible as possible.
 
 ### Screen Reader
