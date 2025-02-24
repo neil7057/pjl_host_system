@@ -118,7 +118,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
-SITE_NAME = "Leo's Oreos Emporium"
 
 ACCOUNT_LOGIN_METHODs = {'username_email'}
 ACCOUNT_EMAIL_REQUIRED = True

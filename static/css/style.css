@@ -411,6 +411,12 @@ footer {
   }
 }
 
+@media (max-width: 1030px) { 
+    h3 {
+        font-size: 1rem !important;
+    }
+}
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
@@ -438,6 +444,10 @@ footer {
     .header-container {
         padding-top: 124px;
     }
+
+    .nav-item {
+        font-size: .8rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -450,9 +460,14 @@ footer {
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 565px) {
     h3 {
         font-size: .8rem !important;
+    }
+    .btn-checkout {
+        font-size: .6rem;
+        padding-left: 4px;
+        padding-right: 4px;
     }
 }
 
