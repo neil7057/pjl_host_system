@@ -51,7 +51,9 @@
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
           <form method="GET" action="{% url 'products' %}">
               <div class="input-group w-100">
-                  <input class="form-control border border-info rounded-15" type="text" name="q" placeholder="Search our site">
+                  <input class="form-control border border-info rounded-15" type="text"
+                   name="q" placeholder="Search our site"
+                   label-for="search term" class="hide-labels">
                   <div class="input-group-append">
                       <button class="form-control btn btn-info ml-2 border border-black rounded-15" type="submit">
                           <span class="icon">
@@ -226,7 +228,7 @@
                     </p>
                     <br>
                 </div>
-                <p class="copyright col-12 text-danger"><strong>Copyright &copy; Leo's Oreos - Just For Fun ! </strong><span id="copyright"></span></p>
+                <p class="copyright col-12 text-copyright"><strong>Copyright &copy; Leo's Oreos - Just For Fun ! </strong><span id="copyright"></span></p>
             </div>
         </div>
     </footer>

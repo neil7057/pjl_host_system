@@ -1,5 +1,5 @@
 # leos_oreos_shop
-![Mockup]()
+![Mockup](leos_oreos\docs\images\website-mockup.png)
 
 **Author Neil Allen**
 
@@ -7,7 +7,7 @@
 
 An E-commerce website to pay homage to my son's love of the biscuits themselves and everything Oreo. Built using a django framework; data structures follow those employed in similar applications with additions for enhanced functionality/complexity. 
 
-[View the live project here.]()
+[View the live project here.](https://leos-oreos-shop-2a6fc504879b.herokuapp.com/)
 
 # Table of Contents
 
@@ -439,16 +439,16 @@ and checkout anonymously or create an account where they can save their details 
    - Balsamiq was used to create the [wireframes](#wireframes) during the design process.
 -  [Jest:](https://jestjs.io/)
    - Jest was used to test the Javascript used.
--   [DBDiagram:](https://dbdiagram.io/home)
+-  [DBDiagram:](https://dbdiagram.io/home)
    - Used to document database model.
--   [StackOverflow:](https://stackoverflow.com/)
-    - Used for code snippets and tutorials. Invaluable.
--   [Heroku](https://www.heroku.com/)
-    -   Used to deploy the live site
--   [Amazon Web Services - AWS](https://aws.amazon.com/)
-    -   Hosting for static and media files in production environment
--   [Google Chrome Dev Tools](https://www.google.com/intl/en_uk/chrome/)
-    -   Used to test and debug
+-  [StackOverflow:](https://stackoverflow.com/)
+   - Used for code snippets and tutorials. Invaluable.
+-  [Heroku](https://www.heroku.com/)
+   -   Used to deploy the live site
+-  [Amazon Web Services - AWS](https://aws.amazon.com/)
+   -   Hosting for static and media files in production environment
+-  [Google Chrome Dev Tools](https://www.google.com/intl/en_uk/chrome/)
+   -   Used to test and debug
 
 ## Testing
 
@@ -578,11 +578,11 @@ Steps to test:
 
 Results:
 
-Website is responsive on all screen sizes and no images are pixelated or stretched.
-No horizontal scroll is present.
-No elements overlap.
-Text resizes as expected at breakpoints.
-Some content is hidden where it would clutter smaller screens.
+-   Website is responsive on all screen sizes and no images are pixelated or stretched.
+-   No horizontal scroll is present.
+-   No elements overlap.
+-   Text resizes as expected at breakpoints.
+-   Some content is hidden where it would clutter smaller screens.
 
 Website was also opened on the following devices and no responsive issues were seen:
 

@@ -363,6 +363,7 @@ footer {
 .footer-text {
     font-weight: 600;
     font-size: 1.1rem;
+    color: #00346b !important
 }
 
 .social-links {
@@ -401,6 +402,23 @@ footer {
     font-weight: 500;
     font-size: 1.15rem;
 }
+
+/* -------------------------------- WCAG Changes */
+
+.text-copyright {
+    color: #871722;
+}
+
+.priv-list-text {
+    color: #0056b3;
+}
+
+.btn-success {
+    background-color: #155624;
+}
+
+
+
 
 /* -------------------------------- Media Queries */
 
