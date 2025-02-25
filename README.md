@@ -510,21 +510,9 @@ This was checked each time substantial changes were made to PY files. A final ch
 
 -   [PeP8 Python Linter](https://pep8ci.herokuapp.com)
 
-    <details><summary>init.py</summary>
-    <img src="/static/docs/testing/pep8-init.png">
-    </details>
-    <br>
-    <details><summary>env.py</summary>
-    <img src="/static/docs/testing/pep8-env.png">
-    </details>
-    <br>
-    <details><summary>models.py</summary>
-    <img src="/static/docs/testing/pep8-models.png">
-    </details>
-    <br>
-    <details><summary>routes.py</summary>
-    <img src="/static/docs/testing/pep8-routes.png">
-    </details>
+-   .py files were scanned using [Flake8](https://flake8.pycqa.org/en/latest/). Errors in generated .py files were ignored.
+-   There remains a warning about an import in checkout/apps.py whch doesn't add an overhead or impact of code function, so as a singular error has bene ignorde.
+-   There remains a warning in settings.py about unused 'env'. However this is essential in the Development environment to import from env.py. env.py is not migrated to git or Production environments. 
 
 ### Testing User Stories from User Experience (UX) Section
 
@@ -701,52 +689,47 @@ This confirmed that:
 -   The results of lighthouse testing are:   
 
     <details><summary>Home Page</summary>
-    <img src="leos_oreos\docs\images\testing\light-home.png">
+    <img src="leos_oreos\docs\images\testing\l-home-page.png">
     </details>
     <br>
 
     <details><summary>Product Page</summary>
-    <img src="leos_oreos\docs\images\testing\light-home.png">
+    <img src="leos_oreos\docs\images\testing\l-.png">
     </details>
     <br>
 
     <details><summary>Product Details Page</summary>
-    <img src="/static/docs/testing/light-home.png">
+    <img src="/static/docs/testing/l-product-details.png">
     </details>
     <br>
 
     <details><summary>Shopping Bag Page</summary>
-    <img src="leos_oreos\docs\images\testing\light-home.png">
+    <img src="leos_oreos\docs\images\testing\l-shopping-bag.png">
     </details>
     <br>
 
     <details><summary>Checkout Page</summary>
-    <img src="leos_oreos\docs\images\testing\light-home.png">
+    <img src="leos_oreos\docs\images\testing\l-checkout.png">
     </details>
     <br>
 
     <details><summary>About Page</summary>
-    <img src="leos_oreos\docs\images\testing\light-home.png">
+    <img src="leos_oreos\docs\images\testing\l-about.png">
     </details>
     <br>
 
     <details><summary>Privacy Policy Page</summary>
-    <img src="leos_oreos\docs\images\testing\light-home.png">
+    <img src="leos_oreos\docs\images\testing\l-privacy.png">
     </details>
     <br>
 
     <details><summary>Search Results Page</summary>
-    <img src="leos_oreos\docs\images\testing\light-home.png">
+    <img src="leos_oreos\docs\images\testing\l-search-results.png">
     </details>
     <br>
     
     <details><summary>Registration Page</summary>
-    <img src="leos_oreos\docs\images\testing\light-home.png">
-    </details>
-    <br>
-
-    <details><summary>Login Page</summary>
-    <img src="leos_oreos\docs\images\testing\light-home.png">
+    <img src="leos_oreos\docs\images\testing\l-register.png">
     </details>
     <br>
 
@@ -913,25 +896,6 @@ The project will now have been cloned on your local machine for use.
 ### Heroku
 
 The project was deployed to Heroku using the following steps:
-
-### App Deployment to Heroku
-
-*   You will need to deploy the application using Heroku.
-
-1. Create a requirements.txt file:
-    -   Type ``` pip3 freeze --local > requirements.txt ``` in the VSC CLI.
-2. Create a Procfile:
-    -    Type ```echo web: python app.py > Procfile```.
-    -    Open it and remove any spurious lines. It should have a singular line and commence with a capital P.
-3. Add and commit these files to VSC.
-
-
-
-
--   Go to [Heroku](https://dashboard.heroku.com/apps). Log in or create an account
--   Click the 'New' button and click 'Create new app'.
--   Enter a unique name for your project with no capital letters or spaces and select your region. Click 'Create App'.
--   Inside your project, go to the Resources tab and create a Heroku Postgres Database
 
 ### Deploying Your App
 
