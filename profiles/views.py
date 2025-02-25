@@ -19,13 +19,14 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile Update Was Successfully')
         else:
-            messages.error(request, 'Profile Update failed. Ensure the form is valid.')
+            messages.error(request,
+                           'Profile Update failed. Ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
     template = 'profiles/profile.html'
-    context = {    
+    context = {
         'form': form,
         'orders': orders,
         'on_profile_page': True
