@@ -487,21 +487,58 @@ This was carried out periodically as each page was created and amended and then 
 
 -   [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
  
+ -  Tthe use of Crispy Forms and django templates and django allauth produces errors flagged as duplicates. These are not genuine errors and can be safely ignored.
+
     <details><summary>Home Page</summary>
-    <img src="/ws-home.png">
+    <img src="leos_oreos\docs\images\testing\w3c-index.png">
     </details>
+
     <details><summary>About Page</summary>
-    <img src="/ws-about.png">
+    <img src="leos_oreos\docs\images\testing\w3c-about.png">
     </details>
     
     </details>
-    <details><summary>Search Results Page</summary>
-    <img src="/ws-search-results.png">
+    <details><summary>Privacy Notice Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-privacy.png">
     </details>
+
     <details><summary>Sign Up Page</summary>
-    <img src=".png">
+    <img src="leos_oreos\docs\images\testing\w3c-registration.png">
+    </details>
+
+    <details><summary>Login Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-login.png">
+    </details>
+
+    <details><summary>Products Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-products.png">
+    </details>
+
+    <details><summary>Product Details Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-product-details.png">
+    </details>
+
+    <details><summary>Edit Product Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-edit-product.png">
+    </details>
+
+    <details><summary>Shopping Bag Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-shopping-bag.png">
     </details>
     
+    <details><summary>Checkout</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-html-checkout.png">
+    </details>
+
+    <details><summary>Checkout Success Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-checkout-success.png">
+    </details>
+
+    <details><summary>Profile Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-profile.png">
+    </details>
+
+
 ### CSS
 
 This was checked periodically as each page was created and CSS code added and amended. A final check was carried out when all other testing had been satisfactorily completed.
