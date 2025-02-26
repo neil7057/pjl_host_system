@@ -20,6 +20,7 @@
     {% block corecss %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         {% endblock %}
 
@@ -45,7 +46,7 @@
         <div id="topnav" class="row bg-oreo pt-lg-2 d-none d-lg-flex">
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
           <a href="{% url 'home' %}" class="nav-link main-logo-link">
-            <h2 class="logo-font text-black my-0"><strong>Leo's<span class="text-oreo"> Oreo</strong></span> Emporium</h2>
+            <h2 class="logo-font hvr-grow text-black my-0"><strong>Leo's<span class="text-oreo"> Oreo</strong></span> Emporium</h2>
           </a>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -68,7 +69,7 @@
           <ul class="list-inline list-unstyled text-center text-lg-right my-0">
               <li class="list-inline-item dropdown">
                   <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <div class="text-center">
+                      <div class="text-center hvr-grow">
                           <div><i class="fas fa-user text-info fa-lg"></i></div>
                           <h3 class="my-0 text-black">My Account</h3>
                       </div>
@@ -76,19 +77,19 @@
                   <div class="dropdown-menu border-0" aria-labelledby="user-options">
                       {% if request.user.is_authenticated %}
                           {% if request.user.is_superuser %}
-                              <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                              <a href="{% url 'add_product' %}" class="dropdown-item hvr-grow">Product Management</a>
                           {% endif %}
-                          <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                          <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                          <a href="{% url 'profile' %}" class="dropdown-item hvr-grow">My Profile</a>
+                          <a href="{% url 'account_logout' %}" class="dropdown-item hvr-grow">Logout</a>
                       {% else %}
-                          <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                          <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                          <a href="{% url 'account_signup' %}" class="dropdown-item hvr-grow">Register</a>
+                          <a href="{% url 'account_login' %}" class="dropdown-item hvr-grow">Login</a>
                       {% endif %}
                   </div>
               </li>
               <li class="list-inline-item">
                   <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
-                      <div class="text-center">
+                      <div class="text-center hvr-grow">
                           <div><i class="fa-solid text-info fa-cart-shopping fa-lg"></i></div>
                           <h3 class="my-0 text-black">
                               {% if grand_total %}
@@ -223,7 +224,7 @@
                             aria-label="direct link to email">Send Me An Email</a>
                     </p>
                     <p>
-                        <a href="{% url 'privacy' %}" class="hvr-grow footer-text "
+                        <a href="{% url 'privacy' %}" class="hvr-grow footer-text" 
                             aria-label="go to my comments, feedback page (opens in a new tab)">Privacy Notice</a>
                     </p>
                     <br>

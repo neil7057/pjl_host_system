@@ -91,6 +91,18 @@ body {
     color: #fff;
 }
 
+.hvr-grow:hover, 
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.2);
+}
+
+.dropdown-item,
+.dropdown-item:hover {
+    background-color: #fff;
+    border-radius: 15px;
+}
+
 .text-black {
     color: #000 !important;
 }
@@ -139,7 +151,8 @@ li {
 }
 
 a.category-badge > span.badge:hover {
-    background: #212529 !important;
+    /* background: #212529 !important; */
+    background: green !important;
     color: #fff !important;
 }
 
@@ -210,6 +223,7 @@ input[name='q']::placeholder {
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+
 .arrow-up {
     width: 0; 
     height: 0; 
@@ -222,6 +236,7 @@ input[name='q']::placeholder {
 }
 
 /* Convenience classes - colors copied from Bootstrap */
+
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
@@ -350,6 +365,7 @@ input[name='q']::placeholder {
 }
 
 /* -------------------------------- Footer */
+
 footer {
     min-height: 120px;
 }
@@ -439,11 +455,10 @@ footer {
     color: #0056b3;
 }
 
-
-
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
+
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
@@ -457,6 +472,7 @@ footer {
 }
 
 /* fixed top navbar only on medium and up */
+
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;

@@ -201,7 +201,8 @@ and checkout anonymously or create an account where they can save their details 
 
 -   #### Diagram
     <details><summary>Data Structure</summary>
-    <img src="">
+    <img src="leos_oreos\docs\images\wireframes\database-schema.png">
+    </details>
 
 -   ### Wireframes   
     
@@ -253,14 +254,21 @@ and checkout anonymously or create an account where they can save their details 
     -   Search facility by keyword
     -   Product sort and search by category
 
-    The site is templated a
+    The site is built on a django framework and templated around a 'base.html' which contains site header, footer and menu structures.
+
+    Each discreet function is a separate django app. Most CSS and JS are in files within the static folder under the 'leo-oreos' app. 
+    There are separate CSS and JS files where their application is local to a single app and they are in the respective app/static folders. 
 
     Social media links on the footer are to Oreo focussed sites. 
 
     The footer contains a link to an about_us page.
     
     The footer contains a link to the Privacy Noticy (DPA 2018) page and also an option to view/download the information in
-    PDF format..
+    PDF format.
+
+    The footer contains an email link, which is adequate for the requirements of the site.
+
+    Email confirmations and communications are handled via django through gmail.
     
 ## Features
 
@@ -387,8 +395,9 @@ and checkout anonymously or create an account where they can save their details 
 * There is a Top of the Page scrolling button on each page. 
 * There is a list of all products and this is searchable by keyword within title or description
 * Visitors can create an account and save their information for speedier future checkout
-* Online payments are processed
-* Rgeisterde users can view order history
+* Online payments are processed via Stripe
+* Registered users can view order history
+* Email communication is via Gmail
 
 ## Technologies Used
 
@@ -409,11 +418,11 @@ and checkout anonymously or create an account where they can save their details 
 -   [Hover.css:](https://ianlunn.github.io/Hover/)
     - Hover.css was used on the Menu items in the navbar as well as the Social Media icons in the footer to add the 'grow' transition while being hovered over.
 -   [Google Fonts:](https://fonts.google.com/)
-    - Google fonts were used to import the 'Baskerville Libre' and 'Open Sans' fonts into the style.css file which is used on all pages throughout the project.
+    - Google fonts were used to import the 'Lato' font into the style.css file which is used on all pages throughout the project.
 -   [Font Awesome:](https://fontawesome.com/)
     - Used for icons on social links and drop down menus.
 -   [jQuery:](https://jquery.com/)
-    - jQuery is used to make the navbar responsive and provide additional coding flexibility. specifically used with the emailJS service, modal and other processing.
+    - jQuery is used to make the navbar responsive and provide additional coding flexibility.
 
 ### Backend Modules / Packages & Frameworks
 -   [Django:](https://www.djangoproject.com/)
@@ -515,7 +524,7 @@ This was checked periodically as each page was created and js code added and ame
 -   [jshint JavaScript Validator](https://jshint.com/)
 
     <details><summary>Major JS - stripe.js</summary>
-    <img src="leos_oreos\docs\images\testing\jshint-stripejs.jpg">
+    <img src="leos_oreos\docs\images\testing\jshint-stripejs.png">
     </details>
 
 ### PeP8
@@ -525,7 +534,7 @@ This was checked each time substantial changes were made to PY files. A final ch
 -   [PeP8 Python Linter](https://pep8ci.herokuapp.com)
 
 -   .py files were scanned using [Flake8](https://flake8.pycqa.org/en/latest/). Errors in generated .py files were ignored.
--   There remains a warning about an import in checkout/apps.py whch doesn't add an overhead or impact of code function, so as a singular error has bene ignorde.
+-   There remains a warning about an import in checkout/apps.py whch doesn't add an overhead or impact code function, so as a singular error has been ignored.
 -   There remains a warning in settings.py about unused 'env'. However this is essential in the Development environment to import from env.py. env.py is not migrated to git or Production environments. 
 
 ### Testing User Stories from User Experience (UX) Section
@@ -794,7 +803,7 @@ This confirmed that:
         -   Django form validation
         -   Country code via django countries
 
-    *   Stripe Payments:
+*   Stripe Payments:
     -   Valid card - success
         -   using: 4242 4242 4242 4242 exp: 12/27 code: 252 Postcode/Zip: 25222
     -   invalid card - payment fails
@@ -802,18 +811,18 @@ This confirmed that:
     -   Valid card -2FA required
         -   using: 4242 0000 0000 9995 exp: 12/27 code: 252 Postcode/Zip: 25222
     -   Webhook Handler test
-
+    
     <details><summary>Stripe Logs - Payments</summary>
     <img src="leos_oreos\docs\images\testing\ss-stripe-logs1.png">
     </details>
     <br>
    
-   <details><summary>Stripe Logs - Declined</summary>
+    <details><summary>Stripe Logs - Declined</summary>
     <img src="leos_oreos\docs\images\testing\ss-stripe-logs2.png">
     </details>
     <br>
    
-   <details><summary>Stripe Logs - Webhooks</summary>
+    <details><summary>Stripe Logs - Webhooks</summary>
     <img src="leos_oreos\docs\images\testing\ss-stripe-logs3.png">
     </details>
     <br>
@@ -823,7 +832,7 @@ This confirmed that:
     -   Amend product
     -   Delet product
 
- -  ####  Testing
+-   ####  Testing
     -   
 
 
@@ -846,7 +855,7 @@ This confirmed that:
 
 -   #### Footer Contact Information
 
-    -   The 'go to' link reacts when hovered over.
+    -   The 'Send Me an Email' link opens the user's email client.
 
 ### Further Testing
 
