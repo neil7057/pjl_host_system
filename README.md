@@ -15,9 +15,9 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
 2. [Overview](#overview)
 3. [User Experience (UX)](#user-experience-ux)
     *   [User stories](#user-stories)
-        *   [First Time Visitor Goals](#first-time-visitor-goals)
-        *   [Returning Visitor Goals](#returning-visitor-goals)
-        *   [Frequent User Goals](#frequent-user-goals)
+        *   [First Time Visitor Goals](#as-a-first-time-user-i-want-to)
+        *   [Returning Visitor Goals](#as-a-registered-user-i-want-to)
+        *   [Frequent User Goals](#as-an-admin-i-want-to)
     *   [Design](#design)
         *   [Colour Scheme](#colour-scheme)
         *   [Typography](#typography)
@@ -28,27 +28,34 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
         *   [Diagram](#diagram)
     *   [Wireframes](#wireframes)
         *   [Base Template](#base)
-        *   [Home](#home)
-            
-
+        *   [Products](#products)
+        *   [Details](#details)
+        *   [Category](#category)
+        *   [Shopping Cart](#shopping-cart)
+        *   [Checkout](#checkout)
     *   [Structure](#structure)
 4. [Features](#features)
 5. [Pages](#pages)
-    *   
+    *   [Common pages](#common-pages)   
+    *   [User Pages](#user-pages)
+    *   [Admin pages](#admin-pages)
     *   [Site Features](#site-features)
 6. [Technologies Used](#technologies-used)
     *   [Development Environment](#development-environment)
     *   [Languages Used](#languages-used)
-    *   [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+    *   [Frontend Frameworks & Libraries](#frontend-frameworks--libraries)
+    *   [Backend Modules/Packages & Frameworks](#backend-modules--packages--frameworks)
+    *   [Databases](#databases)
+    *   [Other Tools](#other-tools)
 7. [Testing](#testing)
     *   [HTML](#html)
     *   [CSS](#css)
     *   [JavaScript](#javascript)
     *   [pep8](#pep8)
     *   [Testing User Stories from User Experience (UX) Section](#testing-user-stories-from-user-experience-ux-section)
-        *   [First Time Visitor Goals](#first-time-visitor-goals-1)
-        *   [Returning Visitor Goals](#returning-visitor-goals-1)
-        *   [Frequent User Goals](#frequent-user-goals-1)
+        *   [First Time Visitor Goals](#as-a-first-time-user-i-want-to-1)
+        *   [Returning Visitor Goals](#as-a-registered-user-i-want-to-1)
+        *   [Frequent User Goals](#as-an-admin-i-want-to-1)
     *   [Responsiveness](#responsiveness)
     *   [Accessibility](#accessibility)
     *   [Screen Reader](#screen-reader)
@@ -56,8 +63,12 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
     *   [Functional Testing](#functional-testing)
         *   [Navigation Links](#navigation-links)
         *   [Testing Approach](#testing-approach)
-        *   [Test Accounts](#test-accounts)
-        *  
+        *   [Signup Testing](#sign-up-testing)
+        *   [Login Testing](#log-in-testing)
+        *   [Shopping Testing](#shopping-testing)
+        *   [Checkout Testing](#checkout-testing)
+        *   [Admin Testing](#admin-testing)
+        *   [Search Function Testing](#search-function-testing)
         *   [Footer Contact Information](#footer-contact-information)
     *   [Further Testing](#further-testing)
     *   [Bugs and Fixes](#bugs-and-fixes)
@@ -65,11 +76,14 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
     *   [Future Releases](#future-releases)
 8. [Deployment](#deployment)
     *   [Version control](#version-control)
-    *   [Github Pages](#github-pages)
-    *   [Deployments to Github Pages](#deployment-to-github-pages)
     *   [Clone the repository locally](#clone-the-repository-code-locally)
     *   [Heroku](#heroku)
-    *   [App Deployment](#app-deployment-to-heroku)
+    *   [App Deployment](#deploying-your-app)
+        *   [Setting up a Database](#setting-up-a-database)
+        *   [Setting up Heroku & Connecting The Database](#set-up-heroku--connecting-your-new-database)
+        *   [Deploying to Heroku](#deploying-to-heroku)
+        *   [Setting up Static Files on AWS](#setting-up-your-static-files-on-your-deployed-site-using-amazon-web-services-aws)
+        *   [Setting up Stripe Payments on Deployed Site](#setting-up-stripe-payments-on-your-deployed-site)
 9. [Credits](#credits)
     *   [Code](#code)
     *   [Content](#content)
@@ -114,7 +128,7 @@ and checkout anonymously or create an account where they can save their details 
 
 -   ### User stories
 
-- #### As a first time user I want to:
+-   #### As a first time user I want to:
     -   Immediately understand the main purpose and use of the site
     -   View a list of products in full and by category
     -   Be able search for the products by keyword and category
@@ -253,7 +267,7 @@ and checkout anonymously or create an account where they can save their details 
 -   Responsive on all device sizes down to 280px - the industry standard minimum screen width.
 
 ## Pages
-### Landing Page
+### Common Pages
 -   Landing page image   
     *   The first page is the index or home page.
     *   For visitors, 
@@ -686,7 +700,9 @@ This confirmed that:
 -   All images have accurate, useful text descriptions.
 
 ### Lighthouse Testing
--   The results of lighthouse testing are:   
+-   The results of lighthouse testing are: 
+
+    All performance indicators are Green and above 90%.
 
     <details><summary>Home Page</summary>
     <img src="leos_oreos\docs\images\testing\l-home-page.png">
@@ -694,7 +710,7 @@ This confirmed that:
     <br>
 
     <details><summary>Product Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-.png">
+    <img src="leos_oreos\docs\images\testing\l-products.png">
     </details>
     <br>
 
@@ -775,10 +791,32 @@ This confirmed that:
 
  -  ####  Checkout Testing
     -   Validate address details
+        -   Django form validation
+        -   Country code via django countries
+
+    *   Stripe Payments:
     -   Valid card - success
+        -   using: 4242 4242 4242 4242 exp: 12/27 code: 252 Postcode/Zip: 25222
     -   invalid card - payment fails
+        -   using: 4000 0000 0000 0000 exp: 10/27 code: 252 Postcode/Zip: 25222
     -   Valid card -2FA required
+        -   using: 4242 0000 0000 9995 exp: 12/27 code: 252 Postcode/Zip: 25222
     -   Webhook Handler test
+
+    <details><summary>Stripe Logs - Payments</summary>
+    <img src="leos_oreos\docs\images\testing\ss-stripe-logs1.png">
+    </details>
+    <br>
+   
+   <details><summary>Stripe Logs - Declined</summary>
+    <img src="leos_oreos\docs\images\testing\ss-stripe-logs2.png">
+    </details>
+    <br>
+   
+   <details><summary>Stripe Logs - Webhooks</summary>
+    <img src="leos_oreos\docs\images\testing\ss-stripe-logs3.png">
+    </details>
+    <br>
    
 -   ####  Admin Testing
     -   Add Product
@@ -787,14 +825,7 @@ This confirmed that:
 
  -  ####  Testing
     -   
--   ####  Testing
- 
-    -   
--   #### M Testing
 
-    -   
-
--   ####  Testing
 
     -   
 -   #### Search Function Testing
@@ -850,10 +881,6 @@ This confirmed that:
 
 *   Some images not displaying on heroku - showing as html resource
     /image/ updated to {{ MEDIA_URL }} path.
-
-
--   WCAG contrast issues.
-    - 
 
 ### Known Bugs
 
