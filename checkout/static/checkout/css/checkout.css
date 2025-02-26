@@ -41,9 +41,10 @@ select option {
   color: #000000;
 }
 
+/* color changed to conform with WCAG guidelines on contrast */
 select:invalid,
 select option[value=""] {
-  color: #aab7c4 !important;
+  color: #41535d !important;
 }
 
 #loading-overlay {

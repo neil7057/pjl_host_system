@@ -150,6 +150,10 @@ li {
     color: blue;
 }
 
+.labelField{
+    display: inline-block;
+}
+
 a.category-badge > span.badge:hover {
     /* background: #212529 !important; */
     background: green !important;
@@ -280,7 +284,8 @@ input[name='q']::placeholder {
 .btn-info,
 .btn-success,
 .btn-warning,
-.btn-danger {
+.btn-danger,
+.btn-home {
     border: 1px solid #000;
 }
 
@@ -434,6 +439,11 @@ footer {
     background-color: #155624;
 }
 
+.btn-warning {
+    color: #fff !important;
+    background-color: #6a4f0c;
+}
+
 .btn-info {
     background-color: #0c5864;
 }
@@ -443,7 +453,8 @@ footer {
 }
 
 .btn-home {
-    background-color: #17b6cf;
+    background-color: #cef3f8;
+    color: blue !important;
 }
 
 .text-edit,

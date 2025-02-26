@@ -630,7 +630,7 @@ Testing was focused to ensure the following criteria were met:
 
 Results:
 
-Pages that display lists of Products the same formatting and colour schemes so it isn't strictly necessary to check all pages with identical contrast and colour components.
+The use of Crispy Forms in the Authorisations app (django allauth) throws up missing ari-label errors. It's possible to either remove crispy forms or add additional forms.py defs but this unnecessarilly complicates the code to 'fix' a problem that doen't really exist as placeholders are clear and the screen reader software detects the placeholder as a field label.
 -   WCAG results:
 
     <details><summary>Home Page</summary>
@@ -639,12 +639,12 @@ Pages that display lists of Products the same formatting and colour schemes so i
     <br>
 
     <details><summary>Product Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-product.png">
+    <img src="leos_oreos\docs\images\testing\wcag-products.png">
     </details>
     <br>
 
     <details><summary>Product Details Page</summary>
-    <img src="/static/docs/testing/wcag-product-details.png">
+    <img src="leos_oreos\docs\images\testing\wcag-product-details.png">
     </details>
     <br>
 
@@ -653,6 +653,8 @@ Pages that display lists of Products the same formatting and colour schemes so i
     </details>
     <br>
 
+     WCAG reports an error with a missing alt-text on products in the shopping bag. However this is audible in the screen reader test and is accurately named to the product_name so its a spurious error.
+     Aria-labels are able to be added to form fields with a single line of code 
     <details><summary>Checkout Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-.png">
     </details>
@@ -664,7 +666,7 @@ Pages that display lists of Products the same formatting and colour schemes so i
     <br>
 
     <details><summary>About Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-about.png">
+    <img src="leos_oreos\docs\images\testing\wcag-checkoutabout.png">
     </details>
     <br>
 
@@ -678,13 +680,17 @@ Pages that display lists of Products the same formatting and colour schemes so i
     </details>
     <br>
     
+     WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
+     There is a re-work option but it would unnecessarilly complicate the code to fix a problem that isn't a genuine problem.
     <details><summary>Registration Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-.png">
+    <img src="leos_oreos\docs\images\testing\wcag-registration.png">
     </details>
     <br>
 
+    WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
+    There is a re-work option but it would unnecessarilly complicate the code to fix a problem that isn't a genuine problem.
     <details><summary>Login Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-.png">
+    <img src="leos_oreos\docs\images\testing\wcag-login.png">
     </details>
     <br>
 
@@ -694,7 +700,7 @@ Pages that display lists of Products the same formatting and colour schemes so i
     <br>
 
     <details><summary>Profile Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-.png">
+    <img src="leos_oreos\docs\images\testing\wcag-profile.png">
     </details>
     <br>
    
@@ -702,11 +708,12 @@ Manual tests were also performed to ensure the website was as accessible as poss
 
 ### Screen Reader
 
-Screen reader testing was performed using NVDA software from [NV Access](https://www.nvaccess.org/).
+Screen reader testing was performed using [Screen Reader Chrome plugin](https://chromewebstore.google.com/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn).
 This confirmed that:
 
 -   All text is readable.
 -   All images have accurate, useful text descriptions.
+-   Form fields are accurately described
 
 ### Lighthouse Testing
 -   The results of lighthouse testing are: 
@@ -785,18 +792,39 @@ This confirmed that:
     Data was checked on screen, and referential integrity checked via psql to ensure cascade deletion was working correctly, record relationships were being linked to the correct owner and no orphaned records were being created. 
 
 -   #### Sign Up Testing
-    -   The cursor is automatically positioned at the start of the first input field.
- 
+    -   The cursor is automatically positioned at the start of the first input field. Validation is mostly taken care of by django allauth but was tested field by field with valid and invalid entries.
+    -   A confirmation email message was displayed and a confirmation email sent.
+    -   Once the confirmation email was acknowledged. Login was enabled
 
 -   #### Log In Testing
-    -   The cursor is automatically positioned at the start of the first input field.
- 
+    -   The cursor is automatically positioned at the start of the first input field. Username and Password are validatyed against user profiles and either a login is achieved or a suitable error message displayed.
+    -   Succesful login generates a 'success' toast.
+
+-   #### Forgot Password Testing
+    -   Clicking on the link on login, displays the password rest page. 
+    -   An email is sent to the email address input.
+        -   If the email exists on a user account, a reset email is sent.
+        -   If the email does not exist, an email is sent advising this and encourgaing signup.
+
+-   #### Change Password Testing
+    -   Clicking on the link in Profile to chage password, displays the password rest page. 
+    -   If the password is changed successfully, a toast 'success' message is displayed and the change password page refreshed - this is standard django allauth functionality.
 
 -   ####  Shopping Testing
     -   Add to bag
+        -   add an item to shopping bag and checkout.
+        -   add multiple items to shopping bag and checkout
+        -   increase quantity
+        -   add/change size
+        -   test that free delivery is triggered when total value exceeds threshold
+        and is 'untriggerde' if deletion of items reduces order total below threshold
     -   Remove from bag
+        -   reduce quantity and checkout
+        -   reduce quantity to zero to show it removes item from bag
+        -   remove via remove option to chcek removes from bag and adjusts delivery if appropriate
     -   Amend quantity
-    -   
+        -   increase quantity and check that sub totals and delivery charges adjust
+        -   reduce quantity and check that sub totals and delivery charges adjust
 
  -  ####  Checkout Testing
     -   Validate address details
