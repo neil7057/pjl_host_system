@@ -114,7 +114,7 @@ and checkout anonymously or create an account where they can save their details 
 *   Logged in users can:
     -   Everything that an unregistered shopper can do plus
     -   Enquire/Update Profile information
-    -   Save checkout detsials for futiore purchases
+    -   Save checkout details for future purchases
     -   View orders and order history
     -   Change/Reset Password
 
@@ -126,7 +126,7 @@ and checkout anonymously or create an account where they can save their details 
 
 *   Superuser Administrators can:
     -   All of the above plus
-    -   Manage all site tables, data, accounts via the djamgo Admin function
+    -   Manage all site tables, data, accounts via the django Admin function
 
 ## User Experience (UX)
 
@@ -140,9 +140,9 @@ and checkout anonymously or create an account where they can save their details 
     -   Contact the company with any queries
     -   Buy products without registration
     -   Easily see my current order total
-    -   add/remove items from my shopping bag prior to checkout
-    -   Be able use the page on any devices and screen sizes
-    -   Login/create an user account
+    -   Add/remove items from my shopping bag prior to checkout
+    -   Be able use the site on any devices and screen sizes
+    -   Login/create a user account
 
 - #### As a registered user I want to:
     -   Easily register/signup for an account
@@ -153,7 +153,7 @@ and checkout anonymously or create an account where they can save their details 
     -   See my order history
     -   Be able to update and save my personal info
     -   Be able to change and/or recover my password
-    -   Make purchase with my delivery info always filled in
+    -   Make a purchase with my delivery info pre-populated
 
 - #### As an admin I want to:
     -   Be able to add, edit and delete products
@@ -161,23 +161,18 @@ and checkout anonymously or create an account where they can save their details 
 
 -   ### Design
     -   #### Colour Scheme
-        -   I've used predominantly blues for the main scheem with a crisp white background on all but the Home page. Oreos
-        are typically brown contrasted with white but i fely that brown would be too dull. Blue by constrast is a branding colour of Oreo.
-        oreo text blue is #4956C9 and used on various heading. Green is used for most page headings as that is a positive 'Go!' signal.
-        confirm buttons are green and cancel buttons red. Other button options are .info or .warning dependant upon context. 
+        -   I've used predominantly blues for the main scheme with a crisp white background on all but the Home page. Oreos are typically brown contrasted with white but i felt that brown would be too dull, although for WCAG contrast compliance it is used on some buttons. Blue by constrast is a branding colour of Oreo.
+        -   Oreo text blue is #4956C9 and used on various headings. Green is used for most page headings as that is a positive 'Go!' signal. Confirm buttons are green and cancel buttons red. Other button options are .info or .warning dependant upon context. 
         
     -   #### Typography
         -   The font is Lato and main headings are capitalised.
  
     -   #### Imagery
-        -   There is a main central image on teh welcome page that is Oreo themed. All other pages have a crisp white background. 
-        Product images appear on all pages where a product is referenced, including product, detail, shopping bag and checkout. The about us page
+        -   There is a main central image on the welcome page that is Oreo themed. All other pages have a crisp white background. Product images appear on all pages where a product is referenced, including product, detail, shopping bag and checkout. The about us page
         has a range of hyperlinked images.
 
     -   #### Design Considerations
-        -   The site is built within a django framework using HTML5, CSS3, Python, Javascript and SqlLite. It is deployed to Heroku and 
-        Static and media files are served from AWS. User Management is via django allauth. Forms managemnt is CrispyForms. Payment processing
-        is by Stripe.
+        -   The site is built within a django framework using HTML5, CSS3, Python, Javascript and SqlLite. It is deployed to Heroku with Static and media files served from AWS. User Management is via django allauth. Forms managemnt is CrispyForms. Payment processing is by Stripe.
      
         -   Colours are Oreo themed, blue and white.
 
@@ -195,7 +190,7 @@ and checkout anonymously or create an account where they can save their details 
 
         -   Logged in users get to see all products, their profile details and all past orders. They can also update their details and change or reset their password. 
 
-        -   Clicking on the page title from any page takes the user back to the products page rather than home/index. The only item on the index page is a link to products.
+        -   Clicking on the page title from any page takes the user back to the products page rather than home/index as the only item on the index page is a link to products.
 
 -   ### Database Design
 -   #### Table Structure
@@ -251,7 +246,7 @@ and checkout anonymously or create an account where they can save their details 
 
     The structure of the site: 
 
-    Visitors can view all products and search by keyword or category, order, checkout, register for an account and send a message.
+    Visitors can view all products and search by keyword or category. they can order, checkout, register for an account and send a message.
 
     Functions serve:
     -   Sign Up
@@ -259,6 +254,11 @@ and checkout anonymously or create an account where they can save their details 
     -   Password change/reset
     -   Search facility by keyword
     -   Product sort and search by category
+    -   A shopping cart - add/remove items
+    -   Checkout and payment by card using Stripe
+    -   Message facility
+    -   Product management for Staff/Admins
+    -   profile managemnt and historic order enquiry
 
     The site is built on a django framework and templated around a 'base.html' which contains site header, footer and menu structures.
 
@@ -299,7 +299,7 @@ and checkout anonymously or create an account where they can save their details 
     <br>
 
     <details><summary>All products - desktop</summary>
-    <img src="leos_oreos\docs\images\screens\ss-all-products.png">
+    <img src="leos_oreos\docs\images\screens\ss-all-products.jpg">
     </details>
     <br>
 
@@ -400,6 +400,7 @@ and checkout anonymously or create an account where they can save their details 
 * Top Menu navbar is adjusted for mobile/tablets. Menu context/options responds to user status.
 * There is a Top of the Page scrolling button on each page. 
 * There is a list of all products and this is searchable by keyword within title or description
+* Products can be refined by category and sub-category
 * Visitors can create an account and save their information for speedier future checkout
 * Online payments are processed via Stripe
 * Registered users can view order history
@@ -424,9 +425,9 @@ and checkout anonymously or create an account where they can save their details 
 -   [Hover.css:](https://ianlunn.github.io/Hover/)
     - Hover.css was used on the Menu items in the navbar as well as the Social Media icons in the footer to add the 'grow' transition while being hovered over.
 -   [Google Fonts:](https://fonts.google.com/)
-    - Google fonts were used to import the 'Lato' font into the style.css file which is used on all pages throughout the project.
+    - Google fonts were used to import the 'Lato' font into the base.html template which is used on all pages throughout the project.
 -   [Font Awesome:](https://fontawesome.com/)
-    - Used for icons on social links and drop down menus.
+    - Used for icons on social links and menus.
 -   [jQuery:](https://jquery.com/)
     - jQuery is used to make the navbar responsive and provide additional coding flexibility.
 
@@ -452,7 +453,7 @@ and checkout anonymously or create an account where they can save their details 
 -   [Stripe:](https://stripe.com/gb)
     -   Stripe package part of the Stripe ecosystem to manage secure online payments
 -   [dj-database-url:](https://pypi.org/project/dj-database-url/)
-    -   Allows you to use DATABASE_URL env variable in settings.py
+    -   Facilitates use of DATABASE_URL env variable in settings.py
 
 ### Databases
 
@@ -469,15 +470,15 @@ and checkout anonymously or create an account where they can save their details 
 -  [Jest:](https://jestjs.io/)
    - Jest was used to test the Javascript used.
 -  [DBDiagram:](https://dbdiagram.io/home)
-   - Used to document database model.
+   - Used to document database models.
 -  [StackOverflow:](https://stackoverflow.com/)
    - Used for code snippets and tutorials. Invaluable.
 -  [Heroku](https://www.heroku.com/)
-   -   Used to deploy the live site
+   -   Used to deploy the live site.
 -  [Amazon Web Services - AWS](https://aws.amazon.com/)
-   -   Hosting for static and media files in production environment
+   -   Hosting for static and media files in production environment.
 -  [Google Chrome Dev Tools](https://www.google.com/intl/en_uk/chrome/)
-   -   Used to test and debug
+   -   Used to test and debug.
 
 ## Testing
 
@@ -523,12 +524,12 @@ This was carried out periodically as each page was created and amended and then 
     <details><summary>Product Details Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-product-details.png">
     </details>
-    <br>
-    The use of Crispy Forms to render the input fields of teh page cause some html errors. These can be safely ignored
+
     <details><summary>Edit Product Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-edit-product.png">
     </details>
-
+-   The use of Crispy Forms to render the input fields of the page cause some html errors. These can be safely ignored
+    
     <details><summary>Shopping Bag Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-shopping-bag.png">
     </details>
@@ -587,27 +588,27 @@ This was checked each time substantial changes were made to PY files. A final ch
   
      #### As a first time user I want to:
     -   Immediately understand the main purpose and use of the site
-        -   The site is clear about contnet and purpose
+        -   The site is clear about content and purpose
 
     -   View a list of products in full and by category
-        -   Products can be listed in full, sorted by catory and rating and displayed only in category groups.
+        -   Products can be listed in full, sorted by category and rating or displayed only in category groups.
 
     -   Be able search for the products by keyword and category
-        -   roducts can be searched for by keyword in category and product name/decsription.
+        -   Products can be searched for by keyword in category and product name/decsription.
 
     -   Identify special deals/clearance
-        -    a separate menu and category exists for this.
+        -    A separate menu and category exists for this.
 
     -   Contact the company with any queries
-        -   Logged in users and visitors can email via a link in teh footer on each page.
+        -   Logged in users and visitors can email via a link in the footer on each page.
 
     -   Buy products without registration
-        -   Buyers can purcahse without having to signup for an account.
+        -   Buyers can purchase without having to signup for an account.
 
     -   Easily see my current order total
-        -   The order total is displaye din teh top right corner of every page.
+        -   The order total is displayed in the top right corner of every page.
 
-    -   add/remove items from my shopping bag prior to checkout
+    -   Add/remove items from my shopping bag prior to checkout
         -   Items can be added and removed and quantities adjusted prior to checkout completion.
 
     -   Be able use the page on any devices and screen sizes
@@ -630,7 +631,7 @@ This was checked each time substantial changes were made to PY files. A final ch
         -   Current order total is always visible at the top right of each page.
 
     -   Add/remove items from my shopping bag prior to checkout
-        -   Products can be added to an order from the product deatails tab. Products can be added, removed and quantities changed from this page or the shopping cart which is accessed by clicking on the shopping trolley icon, top right.
+        -   Products can be added to an order from the product details tab. Products can be added, removed and quantities changed from this page or the shopping cart which is accessed by clicking on the shopping trolley icon, top right.
 
     -   See my order history
         -   Order history is listed on the user profile. Orders hyperlink to the Order details.
@@ -642,11 +643,11 @@ This was checked each time substantial changes were made to PY files. A final ch
         -   Registered users can reset their password at Login or change thier password via their profile information page accessible from the Account menu.
 
     -   Make purchase with my delivery info always filled in
-        -   Registerd users can save thier checkout address details for future purcgase and these will be automatically populated in future order checkout.
+        -   Registerd users can save their checkout address details for future purchase and these will be automatically populated in future order checkout.
 
 - #### As an admin I want to:
     -   Be able to add, edit and delete products
-        -   Staff/Admin can add, edit and remove products from the product managemnt link in accounts or from the buttons on the product details or product pages. These menus are only visible to Staff/Admin.
+        -   Staff/Admin can add, edit and remove products via the product management link in accounts or from the buttons on the product details or product pages. These menus are only visible to Staff/Admin.
 
     -   Have easy access to admin controls
         -   Products can be managed via the account menu, product or product-details links. Full Admin is available via the django admin function.
@@ -713,7 +714,7 @@ Testing was focused to ensure the following criteria were met:
 
 Results:
 
-The use of Crispy Forms in the Authorisations app (django allauth) throws up missing ari-label errors. It's possible to either remove crispy forms or add additional forms.py defs but this unnecessarilly complicates the code to 'fix' a problem that doen't really exist as placeholders are clear and the screen reader software detects the placeholder as a field label.
+The use of Crispy Forms in the Authorisations app (django allauth) throws up missing aria-label errors. It's possible to either remove crispy forms or add additional forms.py defs but this unnecessarilly complicates the code to 'fix' a problem that doesn't really exist as placeholders are clear and the screen reader software detects the placeholder as a field label.
 -   WCAG results:
 
     <details><summary>Home Page</summary>
@@ -737,9 +738,9 @@ The use of Crispy Forms in the Authorisations app (django allauth) throws up mis
     <br>
 
      WCAG reports an error with a missing alt-text on products in the shopping bag. However this is audible in the screen reader test and is accurately named to the product_name so its a spurious error.
-     Aria-labels are able to be added to form fields with a single line of code 
+     Aria-labels were added to form fields with a single line of code 
     <details><summary>Checkout Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-.png">
+    <img src="leos_oreos\docs\images\testing\wcag-checkout.png">
     </details>
     <br>
 
@@ -749,7 +750,7 @@ The use of Crispy Forms in the Authorisations app (django allauth) throws up mis
     <br>
 
     <details><summary>About Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-checkoutabout.png">
+    <img src="leos_oreos\docs\images\testing\wcag-about.png">
     </details>
     <br>
 
@@ -763,18 +764,18 @@ The use of Crispy Forms in the Authorisations app (django allauth) throws up mis
     </details>
     <br>
     
-     WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
-     There is a re-work option but it would unnecessarilly complicate the code to fix a problem that isn't a genuine problem.
     <details><summary>Registration Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-registration.png">
     </details>
+    -   WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
+    There is a re-work option but it would unnecessarilly complicate the code to fix a problem that isn't a genuine problem.
     <br>
 
-    WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
-    There is a re-work option but it would unnecessarilly complicate the code to fix a problem that isn't a genuine problem.
     <details><summary>Login Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-login.png">
     </details>
+    -    WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
+    There is a re-work option but it would unnecessarilly complicate the code to fix a problem that isn't a genuine problem.
     <br>
 
     <details><summary>Logout Page</summary>
@@ -814,7 +815,7 @@ This confirmed that:
     <br>
 
     <details><summary>Product Details Page</summary>
-    <img src="/static/docs/testing/l-product-details.png">
+    <img src="leos_oreos\docs\images\testing\l-product-details.png">
     </details>
     <br>
 
@@ -859,9 +860,9 @@ This confirmed that:
 
     Additionally, Adminstrator and basic user accounts were created to check that correct menu options were presented and enhanced functionality restricted to Administrator privileged accounts. 
 
-    Modals and forms display as expected. Edit/Delete functions are correctly restricted to the appropritae owner and user account class. 'Cancel' buttons work as expected.
+    Modals and forms display as expected. Edit/Delete functions are correctly restricted to the appropriate owner and user account class. 'Cancel' buttons work as expected.
 
-    Links on all pages navigated to the correct pages as expeccted. External content opens in a new page.
+    Links on all pages navigated to the correct pages as expected. External content opens in a new page.
 
 -   #### Testing Approach
 
@@ -873,25 +874,23 @@ This confirmed that:
 
     URLs for management functions and access to specific records were copied and attempted access from unauthorised accounts or when logged out to test security.
 
-    Data was checked on screen, and referential integrity checked via psql to ensure cascade deletion was working correctly, record relationships were being linked to the correct owner and no orphaned records were being created. 
-
 -   #### Sign Up Testing
     -   The cursor is automatically positioned at the start of the first input field. Validation is mostly taken care of by django allauth but was tested field by field with valid and invalid entries.
     -   A confirmation email message was displayed and a confirmation email sent.
-    -   Once the confirmation email was acknowledged. Login was enabled
+    -   Once the confirmation email was acknowledged, Login was enabled
 
 -   #### Log In Testing
-    -   The cursor is automatically positioned at the start of the first input field. Username and Password are validatyed against user profiles and either a login is achieved or a suitable error message displayed.
+    -   The cursor is automatically positioned at the start of the first input field. Username and Password are validated against user profile and either a login is achieved or a suitable error message displayed.
     -   Succesful login generates a 'success' toast.
 
 -   #### Forgot Password Testing
-    -   Clicking on the link on login, displays the password rest page. 
+    -   Clicking on the link on login, displays the password rese page. 
     -   An email is sent to the email address input.
         -   If the email exists on a user account, a reset email is sent.
         -   If the email does not exist, an email is sent advising this and encourgaing signup.
 
 -   #### Change Password Testing
-    -   Clicking on the link in Profile to chage password, displays the password rest page. 
+    -   Clicking on the link in Profile to chane password, displays the password rese page. 
     -   If the password is changed successfully, a toast 'success' message is displayed and the change password page refreshed - this is standard django allauth functionality.
 
 -   ####  Shopping Testing
@@ -901,10 +900,9 @@ This confirmed that:
         -   increase quantity
         -   add/change size
         -   test that free delivery is triggered when total value exceeds threshold
-        and is 'untriggerde' if deletion of items reduces order total below threshold
+        and is 'untriggered if deletion of items reduces order total below threshold
     -   Remove from bag
         -   reduce quantity and checkout
-        -   reduce quantity to zero to show it removes item from bag
         -   remove via remove option to chcek removes from bag and adjusts delivery if appropriate
     -   Amend quantity
         -   increase quantity and check that sub totals and delivery charges adjust
@@ -918,12 +916,13 @@ This confirmed that:
 -   ####  Stripe Payments:
     -   Valid card - success
         -   using: 4242 4242 4242 4242 exp: 12/27 code: 252 Postcode/Zip: 25222
-    -   invalid card - payment fails
+    -   Invalid card - payment fails
         -   using: 4000 0000 0000 0000 exp: 10/27 code: 252 Postcode/Zip: 25222
     -   Valid card -2FA required
         -   using: 4242 0000 0000 9995 exp: 12/27 code: 252 Postcode/Zip: 25222
     -   Webhook Handler test
-    
+    <br>
+
     <details><summary>Stripe Logs - Payments</summary>
     <img src="leos_oreos\docs\images\testing\ss-stripe-logs1.png">
     </details>
@@ -941,58 +940,52 @@ This confirmed that:
    
 -   ####  Admin Testing
     -   Add Product
+        -   Product can be added via 'product management' link from accounts menu or django admin console.
+
     -   Amend product
-    -   Delet product
+        -   Product can be editted from product and product-details pages or django admin console.
 
--   ####  Testing
-    -   
+    -   Delee product
+        -   Product can be deleted from product and product-details pages or django admin console.
 
-
-    -   
 -   #### Search Function Testing
     -   By keyword
-    -   By category  
+        -   via the search bar.
+    -   By category
+        -   Via the product menu/submenus.  
 
 -   #### Links Testing
 
     Testing was performed to:
 
     -   Open each hyperlink on each page and check that it is a valid URL and opens in a new page.
+
     -   Checked on desktop, tablet and mobile.
+
     -   Footer Social Media Icons / Links
 
     Testing was performed:
     -   On the Font Awesome Social Media icons in the footer to ensure that each one opened in a new tab.
+
     -   Each item opened a new tab when clicked as expected and correct hover effect was present.
 
 -   #### Footer Contact Information
 
     -   The 'Send Me an Email' link opens the user's email client.
-
-### Further Testing
-
-*   
-
+ 
 ### Bugs and Fixes
 
 *  Link to top button not active in footer.
     -   added z-index to bring to front.
-
-*   env.py not working for storing secret keys
-    -   used python dotenv and created root .env file
     
 *   Webhook not working with new secret key
     -   stripe test keys had also changed in admin
 
 *   Stripe payments not being recorded
-    -   Public key had changed in admin interface. .env updated with new key info.
+    -   Public key had changed in admin interface. env.py updated with new key info.
 
 *   makemigrations fails after django_countries install with error on 'pkg-resources'
     -   found solution online. install 'setuptools'
-
-*   django countries fails to integrate with 'len' error
-    -   online solution to replace syntax in order model
-    -   choices=CountryField().choices + [('', 'Select Country')]
 
 *   django allauth templates not inheriting from base.html on V 65.4.1
     -   manually added 'extend root base.html' to allauth base.html
