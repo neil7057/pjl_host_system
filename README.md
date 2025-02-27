@@ -582,8 +582,27 @@ This was checked each time substantial changes were made to PY files. A final ch
 -   There remains a warning about an import in checkout/apps.py whch doesn't add an overhead or impact code function, so as a singular error has been ignored.
 -   There remains a warning in settings.py about unused 'env'. However this is essential in the Development environment to import from env.py. env.py is not migrated to git or Production environments. 
 
-    <details><summary>pep8 -flake8 resultss</summary>
-    <img src="leos_oreos\docs\images\testing\ss-flake8.pdf">
+    <details><summary>pep8 -flake8 Bag</summary>
+    <img src="leos_oreos\docs\images\testing\flake-bag.png">
+    </details>
+    <details><summary>pep8 -flake8 Checkout</summary>
+    <img src="leos_oreos\docs\images\testing\flake-checkout-bag.png">
+    </details>
+    
+    <details><summary>pep8 -flake8 Home</summary>
+    <img src="leos_oreos\docs\images\testing\flake-home.png">
+    </details>
+
+    <details><summary>pep8 -flake8 Leos-Oreos</summary>
+    <img src="leos_oreos\docs\images\testing\flake-leos-oreos.png">
+    </details>
+
+    <details><summary>pep8 -flake8 Products</summary>
+    <img src="leos_oreos\docs\images\testing\flake-products.png">
+    </details>
+
+    <details><summary>pep8 -flake8 Profiles</summary>
+    <img src="leos_oreos\docs\images\testing\flake-profile.png">
     </details>
 
 ### Testing User Stories from User Experience (UX) Section
