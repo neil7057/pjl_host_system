@@ -100,7 +100,8 @@
                             </a>
                             <input type="submit" class="btn btn-info rounded-15 text-uppercase mt-5" value="Add to Order">
                         </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <!-- return to products page after order successfully added -->
+                        <input type="hidden" name="redirect_url" value="{% url 'products' %}">
                         {% endwith %}
                     </div>
                 </form>

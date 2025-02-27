@@ -65,10 +65,14 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
         *   [Testing Approach](#testing-approach)
         *   [Signup Testing](#sign-up-testing)
         *   [Login Testing](#log-in-testing)
+        *   [Forgot Pssword Testing](#forgot-password-testing)
+        *   [Change Password Testing](#change-password-testing)    
         *   [Shopping Testing](#shopping-testing)
         *   [Checkout Testing](#checkout-testing)
+        *   [Stripe Testing](#stripe-payments)
         *   [Admin Testing](#admin-testing)
         *   [Search Function Testing](#search-function-testing)
+        *   [Links Testing](#links-testing)
         *   [Footer Contact Information](#footer-contact-information)
     *   [Further Testing](#further-testing)
     *   [Bugs and Fixes](#bugs-and-fixes)
@@ -185,11 +189,13 @@ and checkout anonymously or create an account where they can save their details 
 
         -   There is a 'back to top' button on all pages to avoid having to manually scroll on pages with lengthy content. 
 
-        -   Administrators
+        -   Staff users are able to add, edit and delete products via the app. Fuller admin facilities are availble via the django admin interface.
 
-        -   Error and confirmation is via django messaging and message status is colour coded; green for success, red for error etc. Messages appear at teh top right of the screen. Additional error messages may appear as part of built-in form or model validation.
+        -   Error and confirmation is via django messaging and message status is colour coded; green for success, red for error etc. Messages appear at the top right of the screen. Additional error messages may appear as part of built-in form or model validation.
 
         -   Logged in users get to see all products, their profile details and all past orders. They can also update their details and change or reset their password. 
+
+        -   Clicking on the page title from any page takes the user back to the products page rather than home/index. The only item on the index page is a link to products.
 
 -   ### Database Design
 -   #### Table Structure
@@ -517,7 +523,8 @@ This was carried out periodically as each page was created and amended and then 
     <details><summary>Product Details Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-product-details.png">
     </details>
-
+    <br>
+    The use of Crispy Forms to render the input fields of teh page cause some html errors. These can be safely ignored
     <details><summary>Edit Product Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-edit-product.png">
     </details>
@@ -580,30 +587,69 @@ This was checked each time substantial changes were made to PY files. A final ch
   
      #### As a first time user I want to:
     -   Immediately understand the main purpose and use of the site
+        -   The site is clear about contnet and purpose
+
     -   View a list of products in full and by category
+        -   Products can be listed in full, sorted by catory and rating and displayed only in category groups.
+
     -   Be able search for the products by keyword and category
+        -   roducts can be searched for by keyword in category and product name/decsription.
+
     -   Identify special deals/clearance
+        -    a separate menu and category exists for this.
+
     -   Contact the company with any queries
+        -   Logged in users and visitors can email via a link in teh footer on each page.
+
     -   Buy products without registration
+        -   Buyers can purcahse without having to signup for an account.
+
     -   Easily see my current order total
+        -   The order total is displaye din teh top right corner of every page.
+
     -   add/remove items from my shopping bag prior to checkout
+        -   Items can be added and removed and quantities adjusted prior to checkout completion.
+
     -   Be able use the page on any devices and screen sizes
-    -   Login/create an user account
+        -   Mobiles and smaller screens have a different menu. Pages and images resize appropriately. Checkout is optimised for smaller screen sizes.
+
+    -   Login/create a user account
+        -   Visitors can register for an account.
 
 - #### As a registered user I want to:
     -   Easily register/signup for an account
+        -   Registration is clearly marked on the account menu. The registration mechanism requires minimal information and validates the user's email address by sending a confirmation request.
+
     -   Easily Login and Logout
+        -   Login/out is accessed from the account menu and is very straightforward.
+
     -   Have access to my profile page
+        -   The profile page is clearly signposted from the accounts menu.
+
     -   Easily see my current order total
-    -   add/remove items from my shopping bag prior to checkout
+        -   Current order total is always visible at the top right of each page.
+
+    -   Add/remove items from my shopping bag prior to checkout
+        -   Products can be added to an order from the product deatails tab. Products can be added, removed and quantities changed from this page or the shopping cart which is accessed by clicking on the shopping trolley icon, top right.
+
     -   See my order history
+        -   Order history is listed on the user profile. Orders hyperlink to the Order details.
+
     -   Be able to update and save my personal info
+        -   Registered users can access and update their profile information via the Account menu.
+
     -   Be able to change and/or recover my password
+        -   Registered users can reset their password at Login or change thier password via their profile information page accessible from the Account menu.
+
     -   Make purchase with my delivery info always filled in
+        -   Registerd users can save thier checkout address details for future purcgase and these will be automatically populated in future order checkout.
 
 - #### As an admin I want to:
     -   Be able to add, edit and delete products
+        -   Staff/Admin can add, edit and remove products from the product managemnt link in accounts or from the buttons on the product details or product pages. These menus are only visible to Staff/Admin.
+
     -   Have easy access to admin controls
+        -   Products can be managed via the account menu, product or product-details links. Full Admin is available via the django admin function.
         
 ### Responsiveness
 
@@ -803,6 +849,7 @@ This confirmed that:
     <br>
 
 ### Functional Testing
+-   9 test categories and 40 test product were loaded into the database(s) in development and production via JSON files.
 
 - #### Navigation Links
 
@@ -868,7 +915,7 @@ This confirmed that:
         -   Django form validation
         -   Country code via django countries
 
-*   Stripe Payments:
+-   ####  Stripe Payments:
     -   Valid card - success
         -   using: 4242 4242 4242 4242 exp: 12/27 code: 252 Postcode/Zip: 25222
     -   invalid card - payment fails
@@ -951,10 +998,13 @@ This confirmed that:
     -   manually added 'extend root base.html' to allauth base.html
 
 *   Not deploying to Heroku with py cache error, no static file.
-    downgraded version of django - known issue at 5.0
+    -   downgraded version of django - known issue at 5.0
 
 *   Some images not displaying on heroku - showing as html resource
-    /image/ updated to {{ MEDIA_URL }} path.
+    -   /image/ updated to {{ MEDIA_URL }} path.
+
+*   Server 500 error on adding product images in Heroku via pp or admin
+    -   traced to spurious space at end of AWS key in heroku config vars
 
 ### Known Bugs
 
@@ -963,7 +1013,8 @@ This confirmed that:
 ### Future Releases
 *   Ideas for future development could include:
     -   Contact me page with dropdown 'reason for contact' box.
-    -   Discounted prices/postage for regular customers
+    -   Discounted prices/postage for regular customers.
+    -   Add VAT processing if future range includes vatable items.
 
 ## Deployment
 
