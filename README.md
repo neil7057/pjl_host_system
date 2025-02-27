@@ -1,5 +1,5 @@
 # leos_oreos_shop
-![Mockup](leos_oreos\docs\images\website-mockup.png)
+![Mockup](leos_oreos/docs/images/website-mockup.png)
 
 **Author Neil Allen**
 
