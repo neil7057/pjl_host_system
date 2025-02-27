@@ -582,6 +582,10 @@ This was checked each time substantial changes were made to PY files. A final ch
 -   There remains a warning about an import in checkout/apps.py whch doesn't add an overhead or impact code function, so as a singular error has been ignored.
 -   There remains a warning in settings.py about unused 'env'. However this is essential in the Development environment to import from env.py. env.py is not migrated to git or Production environments. 
 
+    <details><summary>pep8 -flake8 resultss</summary>
+    <img src="leos_oreos\docs\images\testing\ss-flake8.pdf">
+    </details>
+
 ### Testing User Stories from User Experience (UX) Section
 
 -   #### First Time Visitor Goals
