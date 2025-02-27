@@ -441,7 +441,13 @@ footer {
 
 .btn-warning {
     color: #fff !important;
-    background-color: #6a4f0c;
+    background-color: #078721;
+}
+
+.btn-pwd-reset {
+    color: #000 !important;
+    background-color: #e0e926;
+    border: 1px solid black;
 }
 
 .btn-info {

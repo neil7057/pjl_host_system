@@ -29,11 +29,11 @@
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <a class="btn btn-warning mb-5 rounded-15 text-uppercase"
+                    <a class="btn btn-pwd-reset btn-checkout mb-5 rounded-15 text-uppercase"
                         href="{% url 'account_change_password' %}">
                         <span class ="fa-solid fa-key mr-2"></span>Change Password</a>
-                    <button class="btn btn-success mb-5 rounded-15 text-uppercase float-right">
-                        <span class ="fa-solid fa-thumbs-up mr-2"></span>Update Information</button>
+                    <button class="btn btn-success btn-checkout mb-5 rounded-15 text-uppercase float-right">
+                        <span class ="fa-solid fa-thumbs-up mr-2"></span>Update </button>
                 </form>
             </div>
             <div class="col-12 col-lg-6">
@@ -60,11 +60,15 @@
                                     <td>{{ order.date }}</td>
                                     <td>
                                         <ul class="list-unstyled">
+                                        <!-- only display size if product has sizes -->
                                             {% for item in order.lineitems.all %}
                                                 <li class="small">
-                                                    {% if item.product.has_sizes %}
-                                                        Size {{ item.product.size|upper }}
-                                                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                                                {% if item.product.has_sizes %}
+                                                    {{ item.product.name }} x{{ item.quantity }}
+                                                    Size {{ item.product_size|upper }}
+                                                {% else %}
+                                                    {{ item.product.name }} x{{ item.quantity }}
+                                                {% endif %}
                                                 </li>
                                             {% endfor %}
                                         </ul>

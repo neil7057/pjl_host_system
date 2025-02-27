@@ -580,13 +580,13 @@ This was checked each time substantial changes were made to PY files. A final ch
 
 -   .py files were scanned using [Flake8](https://flake8.pycqa.org/en/latest/). Errors in generated .py files were ignored.
 -   There remains a warning about an import in checkout/apps.py whch doesn't add an overhead or impact code function, so as a singular error has been ignored.
--   There remains a warning in settings.py about unused 'env'. However this is essential in the Development environment to import from env.py. env.py is not migrated to git or Production environments. 
+-   There remains a warning in leos_oreos/settings.py about unused 'env'. However this is essential in the Development environment to import from env.py. env.py is not migrated to git or Production environments. 
 
     <details><summary>pep8 -flake8 Bag</summary>
     <img src="leos_oreos\docs\images\testing\flake-bag.png">
     </details>
     <details><summary>pep8 -flake8 Checkout</summary>
-    <img src="leos_oreos\docs\images\testing\flake-checkout-bag.png">
+    <img src="leos_oreos\docs\images\testing\flake-checkout.png">
     </details>
     
     <details><summary>pep8 -flake8 Home</summary>
@@ -687,7 +687,7 @@ All pages were tested to ensure responsiveness on screen sizes from 280px and up
 Steps to test:
 
 1. Open browser and navigate to:
-    - https://xxxxxxxxxxxxx.herokuapp.com/
+    - [Leo's Oreo Emporium](https://leos-oreos-shop-2a6fc504879b.herokuapp.com/)
 2. Open the developer tools (right click and inspect).
 3. Set to responsive and decrease width in stages to 280px.
 4. Set the zoom to 50%.
