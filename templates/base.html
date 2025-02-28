@@ -214,7 +214,8 @@
                     </ul>
                 </div>
                 <div class="col-sm-6 pt-3">
-                    <h3 class="uppercase text-oreo footer-head-text"><strong>Good to Know</strong></h3>
+                    <!-- hide title on screens below 576px -->
+                    <h3 class="uppercase text-oreo footer-head-text d-none d-sm-block"><strong>Good to Know</strong></h3>
                     <p>
                         <a href="{% url 'about' %}" class="hvr-grow footer-text "
                             aria-label="go to my comments, feedback page (opens in a new tab)">About Us</a>
