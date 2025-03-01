@@ -42,7 +42,7 @@ class ReviewForm(forms.ModelForm):
 
             # Adds stylings classes to inputs
             self.fields[field].widget.attrs['class'] = (
-                'form-review rounded-15')
+                'form-review text-indent rounded-15')
 
             # Removes input labels
             self.fields[field].label = False

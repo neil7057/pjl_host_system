@@ -109,7 +109,8 @@ and checkout anonymously or create an account where they can save their details 
     -   Order items
     -   Checkout
     -   Set up an account/profile 
-    -   Email an Administrator
+    -   Message an Administrator
+    -   Add a product review
 
 *   Logged in users can:
     -   Everything that an unregistered shopper can do plus
@@ -117,12 +118,15 @@ and checkout anonymously or create an account where they can save their details 
     -   Save checkout details for future purchases
     -   View orders and order history
     -   Change/Reset Password
+    -   Edit and Delete their own reviews
 
 *   Administrators can:
     -   Everything that Logged in users can do plus
     -   Add Products
     -   Amend Products
-    -   Delete Products  
+    -   Delete Products
+    -   Review messages
+    -   Authorise/delete reviews  
 
 *   Superuser Administrators can:
     -   All of the above plus
@@ -138,6 +142,7 @@ and checkout anonymously or create an account where they can save their details 
     -   Be able search for the products by keyword and category
     -   Identify special deals/clearance
     -   Contact the company with any queries
+    -   Leave a review for a product
     -   Buy products without registration
     -   Easily see my current order total
     -   Add/remove items from my shopping bag prior to checkout
@@ -149,14 +154,18 @@ and checkout anonymously or create an account where they can save their details 
     -   Easily Login and Logout
     -   Have access to my profile page
     -   Easily see my current order total
-    -   add/remove items from my shopping bag prior to checkout
+    -   Add/remove items from my shopping bag prior to checkout
     -   See my order history
     -   Be able to update and save my personal info
+    -   Add a product review and edit/delete it
     -   Be able to change and/or recover my password
     -   Make a purchase with my delivery info pre-populated
+    -   Message an administrator
 
 - #### As an admin I want to:
     -   Be able to add, edit and delete products
+    -   Be able to see and process messages
+    -   Authorise, delete user reviews
     -   Have easy access to admin controls
 
 -   ### Design
@@ -194,11 +203,13 @@ and checkout anonymously or create an account where they can save their details 
 
 -   ### Database Design
 -   #### Table Structure
-    *   A User profile table
+    *   A User Profile table
     *   A Product table
     *   A Product Category table
     *   An Order table 
-    *   An Order line Item table with an entry for each product item on an order 
+    *   An Order Line Item table with an entry for each product item on an order
+    *   A review table to hold consumer reviews
+    *   A messages table to hold messages from customers/visitors 
 
 -   #### Diagram
     <details><summary>Data Structure</summary>
@@ -220,6 +231,16 @@ and checkout anonymously or create an account where they can save their details 
 -   #### Details
     <details><summary>Product Detail</summary>
     <img src="leos_oreos\docs\images\wireframes\product-detail.png">
+    </details>
+
+-   #### Details
+    <details><summary>Add a review</summary>
+    <img src="leos_oreos\docs\images\wireframes\add_review.png">
+    </details>
+
+-   #### Details
+    <details><summary>Edit a review</summary>
+    <img src="leos_oreos\docs\images\wireframes\edit_review.png">
     </details>
 
 -   #### Category
@@ -259,6 +280,7 @@ and checkout anonymously or create an account where they can save their details 
     -   Message facility
     -   Product management for Staff/Admins
     -   profile managemnt and historic order enquiry
+    -   Review management
 
     The site is built on a django framework and templated around a 'base.html' which contains site header, footer and menu structures.
 
@@ -320,6 +342,16 @@ and checkout anonymously or create an account where they can save their details 
 
     <details><summary>Product Detail - tablet</summary>
     <img src="leos_oreos\docs\images\screens\ss-product-detail-tablet.png">
+    </details>
+    <br>
+
+     <details><summary>Add review</summary>
+    <img src="leos_oreos\docs\images\screens\ss-add-review.png">
+    </details>
+    <br>
+
+     <details><summary>Edit Review</summary>
+    <img src="leos_oreos\docs\images\screens\ss-edit-review.png">
     </details>
     <br>
 
@@ -405,6 +437,8 @@ and checkout anonymously or create an account where they can save their details 
 * Online payments are processed via Stripe
 * Registered users can view order history
 * Email communication is via Gmail
+* Users can add and update their own reviews of products
+* Reviews are held invisible until authorised by an Admin
 
 ## Technologies Used
 

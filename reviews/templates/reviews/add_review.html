@@ -21,14 +21,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-3">
-                <h2 class="logo-font mt-5 text-edit product-sub-header">Add a Review</h2>
+                <h2 class="logo-font mt-3 text-edit product-sub-header">Add a Review</h2>
 
             <!-- Form Header -->
             <div class="text-center">
                 <div class="font-body my-2 mx-3 my-sm-2 mx-sm-4 text-v">
                     <p class="mt-2 mb-2">Tell us your thoughts on:</p>
-                    <p class="text-info mt-2 mb-2">(Be honest but Be nice !)</p>
-                    <h2 class="text-uppercase mt-4 text-break">{{ product.name }}</h2>    
+                    <h2 class="text-uppercase mt-4 text-break">{{ product.name }}</h2>
+                    <p class="text-info mt-2 mb-2">(Be honest but Keep It Polite !)</p>   
                 </div>
                     <!-- Product Image -->
                 <div>
@@ -44,7 +44,7 @@
             <form class="px-3 px-md-4 rounded-15 py-4 form-as-p" method="POST" action="{% url 'add_review' product.id %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-    
+                <p class="text-edit">Choose a score between 1 (Poor) and 5 (Nailed It)</p>
                 <!-- Buttons -->
                 <div class="text-center">
                     <a class="btn btn-danger rounded-15 mr-3 mt-3 mb-5" href="{% url 'product_detail' product.id %}">
@@ -60,9 +60,4 @@
         </div>
     </div>
 </div>
-{% endblock %}
-
-{% block extra_js_end %}
-    <!-- Rating Selector JS -->
-    <!-- <script src="{% static 'reviews/js/rating_select.js' %}"></script> -->
 {% endblock %}

@@ -46,10 +46,11 @@ def add_review(request, product_id):
             request.session['show_bag_summary'] = False
             messages.success(
                 request,
-                "Your review has been created " +
-                "and it is now Live. " +
-                "We reserve the right to remove reviews that don't " +
-                "adhere to site standards or contain inappropriate content."
+                "Your review has been added. " +
+                "It will appear on the site once it has been approved. " +
+                "You can see your review on your profile page until then. " +
+                "We value your feedback and only " +
+                "reject reviews with inappropriate content."
             )
 
             return redirect(reverse('product_detail', args=[product.id]))

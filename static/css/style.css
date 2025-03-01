@@ -466,12 +466,16 @@ footer {
 }
 
 .form-review {
-    background-color: #b3c5ed;
+    background-color: #dfede8;
     border: 1px solid black;
 }
 
 .text-info {
     color: #0c5864 !important;
+}
+
+.text-indent {
+    text-indent: 10px;
 }
 
 .title-review {
