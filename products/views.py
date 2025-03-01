@@ -65,8 +65,13 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
+    # Gets product reviews from DB
+    reviews = product.reviews.filter(
+        is_approved=True).order_by('-rating', '-created_on')
+
     context = {
         'product': product,
+        'reviews': reviews,
     }
 
     return render(request, 'products/product_detail.html', context)

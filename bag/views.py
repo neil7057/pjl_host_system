@@ -71,6 +71,7 @@ def adjust_bag(request, item_id):
         size = request.POST['product_size']
     bag = request.session.get('bag', {})
 
+    # validate min/max quantities on change of quantity
     if quantity < 1 or quantity > 9:
         messages.error(
             request, 'Quantity must be in the range 1 to 9')

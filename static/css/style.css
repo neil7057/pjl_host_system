@@ -454,8 +454,31 @@ footer {
     background-color: #0c5864;
 }
 
+.btn-right {
+    text-align: right;
+    display: block;
+}
+
+.btn-review {
+    color: #fff !important;
+    background-color: #b7451b;
+    border: 1px solid black;
+}
+
+.form-review {
+    background-color: #b3c5ed;
+    border: 1px solid black;
+}
+
 .text-info {
     color: #0c5864 !important;
+}
+
+.title-review {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-left: 2rem;
+    padding: none;
 }
 
 .btn-home {

@@ -52,18 +52,19 @@
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
-                        {% with product.has_sizes as s %}
-                            {% if s %}
-                                <div class="col-12">
+                    {% with product.has_sizes as s %}
+                        {% if s %}
+                            <div class="col-12">
                                     <p><strong>Size:</strong></p>
                                     <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
                                         <option value="s">S</option>
                                         <option value="m" selected>M</option>
                                         <option value="l">L</option>
                                     </select>
-                                </div>
-                            {% endif %}
-                            <div class="col-12">
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                        <div class="col-12">
                                 <p class="mt-3"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group input-group-{{ product.id }}">
@@ -88,25 +89,98 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                        <div class="col{% if s %}-12 mt-2{% endif %}">
-                            <a href="{% url 'products' %}" class="btn btn-success rounded-15 mt-5">
-                                <span class="icon">
-                                    <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <input type="submit" class="btn btn-info rounded-15 text-uppercase mt-5" value="Add to Order">
                         </div>
-                        <!-- return to products page after order successfully added -->
-                        <input type="hidden" name="redirect_url" value="{% url 'products' %}">
-                        {% endwith %}
                     </div>
                 </form>
             </div>
         </div>
     </div>
+</div> 
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-3"></div>
+        <div class="col-12 col-md-6 col-lg-6">
+        <!-- Product Reviews Section -->
+            <div class="row">
+                <div class="col-12 text-center mb-2 mt-3">
+                     <p class="font-body">Have you bought this product?  Why not review it?</p>
+                </div>
+                <!-- Add Review Button -->
+                <div class="col-12 text-center">
+                    <a href="{% url 'add_review' product.id %}" class="btn btn-review rounded-15 text-uppercase">
+                        <span class="icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        </span>Add Review
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% if reviews|length > 0 %}
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="row text-center">
+                    <h5 class=" mt-3 title-review">Product Reviews</h5>
+                   <hr class="mb-1">
+                </div>   
+        <!-- Review -->
+            {% for review in reviews %}
+            <div class="col-12 ">
+                    <hr class="mb-1">
+                    <h3>{{ review.title }}</h3>
+                    <div> 
+                        <i class="fas fa-user"></i><span>&nbsp;
+                        {% if review.user != None %}{{ review.user }}{% else %}Anonymous{% endif %}</span>
+                        <span class="float-right">{{ review.created_on|date:"d/m/Y" }}</span></p>
+                        <p class ="">Rating Given: <span class="text-edit">&nbsp;{{ review.rating }}</span></p>
+                        {% if request.user.is_superuser or request.user == review.user %}
+                        <!-- Edit and Delete Review - Review Author or Superuser Only -->
+                            <small></small>
+                        <a href="{% url 'edit_review' review.id %}?next={{ request.path|urlencode }}" class="text-edit">Edit</a>|
+                        <a class="text-danger" href="{% url 'delete_review' review.id %}?next={{ request.path|urlencode }}">Delete</a>
+                        </small>
+                        <p class ="text-break mt-2">{{ review.content }}</p>
+                        {% else %}
+                        <p class ="text-break mt-2">{{ review.content }}</p>
+                        {% endif %}
+                    </div>
+            </div>
+            {% endfor %}
+            <hr class="mb-1">
+            </div>
+        </div>
+            {% else %}
+        <!-- No Reviews Text -->
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-12 col-md-6 col-lg-6">
+            <div class="row text-center">
+                <h5 class=" mt-3 title-review">Product Reviews</h5>
+                <hr class="mb-1">
+            </div>
+                <hr class="mb-1">
+                <p class="font-body text-center">There Are No Reviews Yet</p>
+                <hr class="mb-1">
+            </div>
+        </div>
+    </div> 
+        {% endif %} 
+    </div>
+</div>
+<div class="container-fluid">   
+    <div class="row text-center ml-5">
+    <div class="col-md-4 col-sm-2"></div>
+        <a href="{% url 'products' %}" class="btn btn-success rounded-15 mr-3 mb-5 mt-5">
+            <span class="icon">
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+            </span>
+                <span class="text-uppercase">Keep Shopping</span>
+        </a>
+            <input type="submit" class="btn btn-info rounded-15 text-uppercase mb-5 mt-5" value="Add to Order">
+            <!-- return to products page after order successfully added -->
+            <input type="hidden" name="redirect_url" value="{% url 'products' %}">
+    </div>             
 </div>
 {% endblock %}
 
