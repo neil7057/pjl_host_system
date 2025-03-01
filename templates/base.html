@@ -77,8 +77,9 @@
                   <div class="dropdown-menu border-0" aria-labelledby="user-options">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                            <a href="{% url 'add_product' %}" class="dropdown-item hvr-grow">Product Management</a>
-                        {% endif %}
+                            <a href="{% url 'management' %}" class="dropdown-item hvr-grow">Messages & Reviews</a>
+                            <a href="{% url 'add_product' %}" class="dropdown-item hvr-grow">Add Product</a>
+                            {% endif %}
                           <a href="{% url 'profile' %}" class="dropdown-item hvr-grow">My Profile</a>
                           <a href="{% url 'account_logout' %}" class="dropdown-item hvr-grow">Logout</a>
                     {% else %}
@@ -221,7 +222,7 @@
                             aria-label="go to my comments, feedback page (opens in a new tab)">About Us</a>
                     </p>
                     <p>
-                        <a href="mailto:webdev1961@gmail.com" class="hvr-grow footer-text "
+                        <a href="{% url 'contact_us' %}" class="hvr-grow footer-text "
                             aria-label="direct link to email">Send Me An Email</a>
                     </p>
                     <p>
