@@ -82,6 +82,89 @@
             </div>
         </div>
     </div>
+
+    <!-- User Reviews -->
+    <div class="container-fluid">
+        <div class="row text-center px-3 px-sm-5">
+            <div class="col-12">
+                <h2 class="font-title weight-bold section-title mb-2">My Reviews</h2>
+                <hr class="w-50 mb-1">
+            </div>
+            <div class="col-12 mb-3"></p>
+                <p class="font-body">These are all the reviews you've left for our Oreo products.
+                    Thank you! It helps others with their choices.</p>
+                <p>View, edit & delete them below.</p>
+                <hr class="w-50 mb-1">
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid ib-container bg-light-grey text-ib-dark" id="profile-review-div">
+        <!-- Review Container -->
+        <div class="row">
+            <div class="col-xs-1 col-md-2 col-lg-3"></div>
+            <div class="col-xs-10 col-md-8 col-lg-6">
+                {% if reviews|length > 0 %}
+                    {% for review in reviews %}
+                        <!-- Review -->
+                        {% if not review.is_approved %}
+                        <!-- Unapproved Flag -->
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-approval">Awaiting Approval</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="row mb-3 shadow {% if not review.is_approved %}unapproved{% endif %}">
+
+                            <div class="col-3 col-md-2 d-none d-sm-flex py-3 ps-3 pe-0">
+                                <!-- Product Image -->
+                                <a href="{% url 'product_detail' review.product.id %}">
+                                    {% if review.product.image %}
+                                        <img class="img-fluid image-ratio" src="{{ review.product.image.url }}" alt="{{ review.product.name }}" onerror="this.onerror=null;this.src='{{ MEDIA_URL }}no_image.jpg'">
+                                    {% else %}
+                                        <img class="img-fluid image-ratio" src="{{ MEDIA_URL }}no_image.jpg" alt="{{ review.product.name }}">
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <div class="col-12 col-sm-9 col-md-10 p-3">
+                                <h2>{{ review.product }}</h2>
+                                <!-- Review Title & Date -->
+                                <div class="row font-body text-dark-grey my-2">
+                                    <div class="col-12 ">
+                                        <p class="mb-1">{{ review.title }}</p>
+                                        <p class="mb-1">Created on: {{ review.created_on|date:"d/m/Y" }}</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-user"></i><span>&nbsp;{{ review.user }}</span>
+                                    <p class ="mt-1">Rating Given: <span class="text-edit">&nbsp;{{ review.rating }}</span></p>
+                                    <p class="text-break">{{ review.content }}</p>
+                                <!-- Review EDIT / DELETE Buttons -->
+                                {% if request.user.is_superuser or request.user == review.user %}
+                                    <div class="row">
+                                        <div class="col mt-3">
+                                            <a href="{% url 'edit_review' review.id %}?next={{ request.path|urlencode }}" class="text-edit">Edit</a> |
+                                            <a class="text-danger" href="{% url 'delete_review' review.id %}?next={{ request.path|urlencode }}">Delete</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <hr class="mb-1">
+                    {% endfor %}
+
+                {% else %}
+                    <!-- No Reviews Text -->
+                    <div class="col-12 text-center">
+                        <p>No Reviews Yet !</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark-grey footer-buffer">
+
+    </div>
 {% endblock %}
 
 {% block postloadjs %}

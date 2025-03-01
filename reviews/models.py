@@ -37,18 +37,11 @@ class Review(models.Model):
     )
     rating = models.DecimalField(
         max_digits=3, decimal_places=2, null=False,
-        validators=[MaxValueValidator(5.0)],
+        validators=[
+            MaxValueValidator(5, message="Must be between 0-5"),
+            MinValueValidator(0, message="Must be between 0-5")
+        ],
         blank=False, default=0)
-
-    # rating = models.IntegerField(
-    #     validators=[
-    #         MaxValueValidator(5, message="Must be between 0-5"),
-    #         MinValueValidator(0, message="Must be between 0-5")
-    #     ],
-    #     default=0,
-    #     blank=False,
-    #     null=False
-    # )
 
     is_approved = models.BooleanField(
         default=True

@@ -116,6 +116,13 @@ body {
     font-weight: 700;
 }
 
+.text-approval {
+    color: #a20b33;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+}
+
 .border-black {
     border: 1px solid black !important;
 }

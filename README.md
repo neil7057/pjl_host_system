@@ -639,6 +639,10 @@ This was checked each time substantial changes were made to PY files. A final ch
     <img src="leos_oreos\docs\images\testing\flake-profile.png">
     </details>
 
+    <details><summary>pep8 -flake8 Review</summary>
+    <img src="leos_oreos\docs\images\testing\flake-review.png">
+    </details>
+
 ### Testing User Stories from User Experience (UX) Section
 
 -   #### First Time Visitor Goals
@@ -789,6 +793,16 @@ The use of Crispy Forms in the Authorisations app (django allauth) throws up mis
     </details>
     <br>
 
+    <details><summary>Add Review Page</summary>
+    <img src="leos_oreos\docs\images\testing\wcag-add-review.png">
+    </details>
+    <br>
+
+      <details><summary>Edit Review Page</summary>
+    <img src="leos_oreos\docs\images\testing\wcag-edit-review.png">
+    </details>
+    <br>
+
     <details><summary>Shopping Bag Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-shopping-bag.png">
     </details>
@@ -873,6 +887,16 @@ This confirmed that:
 
     <details><summary>Product Details Page</summary>
     <img src="leos_oreos\docs\images\testing\l-product-details.png">
+    </details>
+    <br>
+
+    <details><summary>Add Review Page</summary>
+    <img src="leos_oreos\docs\images\testing\l-add-review.png">
+    </details>
+    <br>
+
+    <details><summary>Edit Review Page</summary>
+    <img src="leos_oreos\docs\images\testing\l-edit-review.png">
     </details>
     <br>
 

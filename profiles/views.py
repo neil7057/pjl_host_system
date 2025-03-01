@@ -23,12 +23,17 @@ def profile(request):
                            'Profile Update failed. Ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
+    
+    # Get all user's orders
     orders = profile.orders.all()
+    # Gets all user's reviews from DB
+    reviews = profile.user.reviews.all().order_by('-created_on')
 
     template = 'profiles/profile.html'
     context = {
         'form': form,
         'orders': orders,
+        'reviews': reviews,
         'on_profile_page': True
     }
 

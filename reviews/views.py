@@ -232,4 +232,3 @@ def toggle_review(request, review_id):
             'Please try again later.'
         )
         return HttpResponse(content=e, status=400)
-    
