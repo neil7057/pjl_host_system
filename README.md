@@ -963,6 +963,16 @@ This confirmed that:
     </details>
     <br>
 
+    <details><summary>Management Page</summary>
+    <img src="leos_oreos\docs\images\testing\l-management.png">
+    </details>
+    <br>
+
+    <details><summary>Contact Us Page</summary>
+    <img src="leos_oreos\docs\images\testing\l-contact-us.png">
+    </details>
+    <br>
+
 ### Functional Testing
 -   9 test categories and 40 test product were loaded into the database(s) in development and production via JSON files.
 
@@ -1037,10 +1047,6 @@ This confirmed that:
     -   Webhook Handler test
     <br>
 
-    #### Review Testing
-    -   .
-
-
     <details><summary>Stripe Logs - Payments</summary>
     <img src="leos_oreos\docs\images\testing\ss-stripe-logs1.png">
     </details>
@@ -1055,7 +1061,10 @@ This confirmed that:
     <img src="leos_oreos\docs\images\testing\ss-stripe-logs3.png">
     </details>
     <br>
-   
+
+#### Review Testing
+    -  
+
 -   ####  Admin Testing
     -   Add Product
         -   Product can be added via 'product management' link from accounts menu or django admin console.
@@ -1063,9 +1072,18 @@ This confirmed that:
     -   Amend product
         -   Product can be editted from product and product-details pages or django admin console.
 
-    -   Delee product
+    -   Delete product
         -   Product can be deleted from product and product-details pages or django admin console.
 
+    -   Authorise Review
+        -
+    
+    -   Delete Review
+        -
+
+    -   Toggle Message open/closed
+        -
+        
 -   #### Search Function Testing
     -   By keyword
         -   via the search bar.
