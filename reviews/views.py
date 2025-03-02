@@ -32,6 +32,7 @@ def add_review(request, product_id):
             review = form.save()
             review.product = product
             review.user = author
+            review.is_approved = False
             review.save()
 
             # Updates product rating on product object
@@ -96,7 +97,7 @@ def edit_review(request, review_id):
 
         if form.is_valid():
             review = form.save()
-            review.is_approved = True
+            review.is_approved = False
             review.save()
 
             # Gets URL to redirect user back to previous page
@@ -187,7 +188,7 @@ def toggle_review(request, review_id):
     # redirects to home if not
     if not request.user.is_superuser:
         messages.error(
-            request, 'Sorry, only store owners can do that.')
+            request, 'Sorry, only Emporium Staff owners can do that.')
         return redirect(reverse('home'))
 
     try:
@@ -222,7 +223,7 @@ def toggle_review(request, review_id):
             "You can update the approval status " +
             "of the review in the admin area if required."
         )
-        return redirect(reverse('manage'))
+        return redirect(reverse('management'))
 
     # Handles errors
     except Exception as e:

@@ -39,51 +39,6 @@ body {
     width: fit-content;
 }
 
-/* https://stackoverflow.com/questions/76837048/creating-the-simplest-html-toggle-button */
-
-.toggle {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  .toggle input {
-    display: none;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #333;
-    transition: 0.4s;
-    border-radius: 34px;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: #FFF;
-    transition: 0.4s;
-    border-radius: 50%;
-  }
-  
-  input:checked + .slider {
-    background-color: #060;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(26px);
-  }
-
 /* Buttons */
 
 .shop-now-button {
@@ -154,6 +109,10 @@ body {
     color: #000 !important;
 }
 
+.text-open {
+    color:  #981b27;
+}
+
 .text-oreo {
     color: #4956c9 !important;
 }
@@ -180,6 +139,14 @@ body {
 
 .bg-oreo {
     background: #d5ddf9 !important;
+}
+
+.bg-messages {
+    background: #d5f9f4 !important;
+}
+
+.bg-reviews {
+    background: #f9e2f5 !important;
 }
 
 .overlay {
@@ -270,6 +237,12 @@ input[name='q']::placeholder {
     right: 15px;
     z-index: 99999999999;
     border: 1px solid blue;
+}
+
+#manage-messages,
+#manage-reviews {
+    max-height: 800px;
+    overflow: scroll;
 }
 
 .custom-toast {
@@ -526,6 +499,18 @@ footer {
 
 .text-info {
     color: #0c5864 !important;
+}
+
+.text-review {
+    color: #005700;
+}
+
+.text-review-delete {
+    color: #8b1824;
+}
+
+.label-review {
+    display: inline-block;
 }
 
 .text-indent {

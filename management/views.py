@@ -87,7 +87,7 @@ def toggle_message(request, message_id):
         # Gets current filter value
         current_filter = request.POST.get('current_filter')
 
-        # Redirects to 'manage' view with query if current_filter set
+        # Redirects to 'management' view with query if current_filter set
         # Maintains current filtering
         if current_filter == "None":
             return redirect(reverse('management'))
@@ -132,8 +132,8 @@ def contact_us(request):
 
             request.session['show_bag_summary'] = False
             messages.success(request, "Your message has been sent.")
-            return redirect(reverse('contact_us'))
-            # return redirect(reverse('contact_us'))
+            # go to products page on succesful send
+            return redirect(reverse('products'))
         else:
             messages.error(request, "Form invalid, please try again.")
 

@@ -262,7 +262,15 @@ and checkout anonymously or create an account where they can save their details 
     <details><summary>Checkout Success</summary>
     <img src="leos_oreos\docs\images\wireframes\checkout-success.png">
     </details>
+
+-   <details><summary>Contact Us</summary>
+    <img src="leos_oreos\docs\images\wireframes\contact_us.png">
+    </details>
  
+-   <details><summary>Management</summary>
+    <img src="leos_oreos\docs\images\wireframes\management.png">
+    </details>
+
 -   ### **Structure**
 
     The structure of the site: 
@@ -408,6 +416,11 @@ and checkout anonymously or create an account where they can save their details 
     </details>
     <br>
 
+    <details><summary>Contact Us</summary>
+    <img src="leos_oreos\docs\images\screens\ss-contact-us.png">
+    </details>
+    <br>
+
 ### Admin Pages
 -   Admin only functions
 
@@ -423,6 +436,11 @@ and checkout anonymously or create an account where they can save their details 
 
     <details><summary>Edit/Delete Product Menu</summary>
     <img src="leos_oreos\docs\images\screens\ss-product-admin.png">
+    </details>
+    <br>
+
+    <details><summary>Management</summary>
+    <img src="leos_oreos\docs\images\screens\ss-management.png">
     </details>
     <br>
 
@@ -643,6 +661,11 @@ This was checked each time substantial changes were made to PY files. A final ch
     <img src="leos_oreos\docs\images\testing\flake-review.png">
     </details>
 
+    <details><summary>pep8 -flake8 Management</summary>
+    <img src="leos_oreos\docs\images\testing\flake-management.png">
+    </details>
+
+
 ### Testing User Stories from User Experience (UX) Section
 
 -   #### First Time Visitor Goals
@@ -829,6 +852,11 @@ The use of Crispy Forms in the Authorisations app (django allauth) throws up mis
     <img src="leos_oreos\docs\images\testing\wcag-privacy.png">
     </details>
     <br>
+    
+    <details><summary>Contact Us Page</summary>
+    <img src="leos_oreos\docs\images\testing\wcag-contact-us.png">
+    </details>
+    <br>
 
     <details><summary>Search Results Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-search-results.png">
@@ -859,6 +887,11 @@ The use of Crispy Forms in the Authorisations app (django allauth) throws up mis
     </details>
     <br>
    
+    <details><summary>Management Page</summary>
+    <img src="leos_oreos\docs\images\testing\wcag-management.png">
+    </details>
+    <br>
+
 Manual tests were also performed to ensure the website was as accessible as possible.
 
 ### Screen Reader
