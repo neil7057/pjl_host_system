@@ -521,6 +521,8 @@ and checkout anonymously or create an account where they can save their details 
    - Balsamiq was used to create the [wireframes](#wireframes) during the design process.
 -  [Jest:](https://jestjs.io/)
    - Jest was used to test the Javascript used.
+-  [Freezegun](https://pypi.org/project/freezegun/0.3.5/)
+    -   Used in automated testing to simulate dates.
 -  [DBDiagram:](https://dbdiagram.io/home)
    - Used to document database models.
 -  [StackOverflow:](https://stackoverflow.com/)
