@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="row" >
-        <div class="bg-ib-light col-12 col-lg-8 offset-lg-2 p-3 bg-messages">
+        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-messages">
             <div class="d-flex justify-content-between flex-wrap ">
                 <div class="mb-3 d-flex flex-wrap align-items-end d-sm-block">
                     <!-- Messages Title -->
@@ -48,7 +48,7 @@
 
                 <!-- Messages Filter Buttons -->
                 <div class="d-sm-flex justify-content-end align-items-end mb-4">
-                    <p class="ib-lh-1 me-3 mb-2 mb-sm-0">Filter By:</p>
+                    <p class= me-3 mb-2 mb-sm-0">Filter By:</p>
                     <div class="d-flex">
                         <a href="{% url 'management' %}?open=True" class="ib-button-sm ib-button-warning text-decoration-none shadow-sm me-3">
                             <p class="d-inline text-open">&nbsp;Open&nbsp</p>
@@ -63,7 +63,7 @@
                 </div>
             </div>
              
-            <div class="" id="manage-messages">
+            <div id="manage-messages">
                 <hr class="mt-4 mb-4">
                 {% if customer_messages|length > 0 %}
                     {% for message in customer_messages %}
@@ -92,13 +92,10 @@
                                     <div class="form-check form-switch float-right">
                                         <label class="text-oreo font-weight-bold" for="{{message.id}}">Toggle Message Status:&nbsp;&nbsp;</label>
                                         <input class="message-toggle" type="checkbox" role="switch" name="toggle-open" id="{{message.id}}" 
-                                        {% if message.is_open is False %}Checked{% endif %}  />
-                                        
-                                    </div>
-            
+                                        {% if message.is_open is False %}Checked{% endif %}  />                                        
+                                    </div>            
                                     <!-- Hidden input to submit value of toggle -->
                                     <input type="hidden" id="message-{{message.id}}-input" name="is_open" value="{{ message.is_open }}">
-
                                     <!-- Hidden input to submit current_filter -->
                                     <input type="hidden" id="current-filter-input-{{message.id}}" name="current_filter" value="{{current_filter}}">
                                 </form>   
@@ -130,13 +127,12 @@
                     <p class="pl-3">The following reviews are awaiting approval.</p>
                     <p class="pl-3">Once approved they will appear on the site.</p>
                 </div>
-            </div>
-            
+            </div>            
             <div class="" id="manage-reviews">
                 {% if reviews|length > 0 %}
                     {% for review in reviews %}
                     <!-- Review -->
-                        <div class="row text-ib-dark w-100 m-auto mb-3 shadow-sm bg-ib-light">
+                        <div class="row w-100 m-auto mb-3 shadow-sm ">
                             <div class="col-3 col-md-2 d-none d-sm-flex py-3 ps-3 pe-0">
                             <!-- Product Image -->
                                 <a href="{% url 'product_detail' review.product.id %}">
@@ -148,45 +144,38 @@
                                 </a>
                             </div>
                             <div class="col-12 col-sm-9 col-md-10 p-3">
-                                <div class="col-12 col-sm-9 col-md-10 p-3">
-                                    <h2>{{ review.product }}</h2>
-                                    <!-- Review Title & Date -->
-                                    <div class="rowtext-dark-grey">
-                                        <div class="col-12 ">
+                                <h2>{{ review.product }}</h2>
+                                <!-- Review Title & Date -->
+                                <div class="row">
+                                    <div class="col-12 ">
                                             <p class="mb-1"><span class="text-review">Title:&nbsp;&nbsp;</span>{{ review.title }}</p>
                                             <p class="mb-1"><span class="text-review">Created on:&nbsp;&nbsp;</span>{{ review.created_on|date:"d/m/Y" }}</p>
                                             <i class="fas fa-user text-review"></i><span>&nbsp;{{ review.user }}</span>
                                             <p class ="text-review mb-1">Rating Given:&nbsp;&nbsp;<span class="text-review">{{ review.rating }}</span></p>
                                             <p class="text-break mt-1"><span class="text-review">Comments:&nbsp;&nbsp;</span>{{ review.content }}</p>
                                     </div>
-                                            <!-- Review EDIT / DELETE Buttons -->
-                                    {% if request.user.is_superuser or request.user == review.user %}
-                                    <div class="row">
-                                        <div class="col mt-3">
-                                            <a href="{% url 'edit_review' review.id %}?next={{ request.path|urlencode }}" class="text-review">Edit</a> |
-                                            <a class="text-review-delete" href="{% url 'delete_review' review.id %}?next={{ request.path|urlencode }}">Delete</a>
-                                        </div>
+                                    <!-- Review EDIT / DELETE Buttons -->
+                                    <div class="col-12">
+                                        <a href="{% url 'edit_review' review.id %}?next={{ request.path|urlencode }}" class="text-review">Edit</a> |
+                                        <a class="text-review-delete" href="{% url 'delete_review' review.id %}?next={{ request.path|urlencode }}">Delete</a>
                                     </div>
-                                    <div>
-                                    <!-- <input type="checkbox" id=">Approve Review<span> -->
-                                    <!-- Form to change review is_approved status -->
-                                        <form method="POST" action="{% url 'toggle_review' review.id %}" id="review-toggle-form-{{review.id}}">
-                                            {% csrf_token %}
-                                            <div class="float-right label-review form-check form-switch p-0">
-                                                <label class="text-oreo font-weight-bold" for="{{review.id}}">Approve Review:&nbsp;&nbsp;</label>
-                                                <input  type="checkbox"
-                                                 role="switch" name="toggle-open" id="{{review.id}}" {% if review.is_approved is True %}
-                                                 Checked{% endif %} />
-                                            </div>            
-                                            <!-- Hidden input to submit value of toggle -->
-                                            <input type="hidden" id="review-{{review.id}}-input" name="is_approved" value="{{ review.is_approved }}">
-                                        </form></span></h2>   
+                                    <div class="col-12 float-right">
+                                            <!-- Form to change review is_approved status -->
+                                            <form method="POST" action="{% url 'toggle_review' review.id %}" id="review-toggle-form-{{review.id}}">
+                                                {% csrf_token %}
+                                                <div class="float-right label-review form-check form-switch p-0">
+                                                    <label class="text-oreo font-weight-bold" for="{{review.id}}">Approve Review:&nbsp;&nbsp;</label>
+                                                    <input  type="checkbox"
+                                                        role="switch" name="toggle-open" id="{{review.id}}" {% if review.is_approved is True %}
+                                                        Checked{% endif %} />
+                                                </div>            
+                                                <!-- Hidden input to submit value of toggle -->
+                                                <input type="hidden" id="review-{{review.id}}-input" name="is_approved" value="{{ review.is_approved }}">
+                                            </form></span></h2>   
                                     </div>
                                 </div>
-                                    {% endif %}
                             </div>
-                        </div>
-                        <hr class="mb-1">
+                            <hr class="mb-1">
                         </div>
                     {% endfor %}
                 {% else %}
@@ -198,6 +187,7 @@
             </div>
         </div> 
     </div>
+    <br>
 </div>
 {% endblock %}
 

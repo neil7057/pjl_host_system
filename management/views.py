@@ -21,7 +21,7 @@ def management(request):
     # redirects to home if not
     if not request.user.is_superuser:
         messages.error(
-            request, 'Sorry, only store owners can do that.')
+            request, 'Sorry, only Admin or Emporium Staff  can do that.')
         return redirect(reverse('home'))
 
     # Gets unapproved Reviews from DB
