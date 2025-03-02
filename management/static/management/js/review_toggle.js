@@ -10,7 +10,5 @@ $('.review-toggle').change(function(e) {
     } else {
         input.value = "False";
     }
-    print("form submitted")
-
     form.submit();
 });

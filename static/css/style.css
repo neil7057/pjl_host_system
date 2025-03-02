@@ -242,7 +242,8 @@ input[name='q']::placeholder {
 #manage-messages,
 #manage-reviews {
     max-height: 800px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .custom-toast {

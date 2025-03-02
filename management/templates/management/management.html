@@ -81,7 +81,7 @@
                             <div class="col-12">
                                 <p><span class="text-edit">Message:&nbsp;</span>{{message.content}}</p>
                             </div>
-                            <div class="col-12  mt-2">
+                            <div class="col-12 mt-2">
                                 <p class="me-3">Status: <span class="weight-semibold">{% if message.is_open %}
                                     <span class="text-open">&nbsp;Open</span>{% else %}
                                     <span class="text-edit">&nbsp;Closed</span>{%endif%}</span></p>
@@ -92,7 +92,7 @@
                                     <div class="form-check form-switch float-right">
                                         <label class="text-oreo font-weight-bold" for="{{message.id}}">Toggle Message Status:&nbsp;&nbsp;</label>
                                         <input class="message-toggle" type="checkbox" role="switch" name="toggle-open" id="{{message.id}}" 
-                                        {% if message.is_open is False %}Checked{% endif %} aria-label="Toggle message status" />
+                                        {% if message.is_open is False %}Checked{% endif %}  />
                                         
                                     </div>
             
@@ -153,11 +153,11 @@
                                     <!-- Review Title & Date -->
                                     <div class="rowtext-dark-grey">
                                         <div class="col-12 ">
-                                            <p class="mb-1"><span class="text-edit">Title:&nbsp;&nbsp;</span>{{ review.title }}</p>
-                                            <p class="mb-1"><span class="text-edit">Created on:&nbsp;&nbsp;</span>{{ review.created_on|date:"d/m/Y" }}</p>
-                                            <i class="fas fa-user text-edit"></i><span>&nbsp;{{ review.user }}</span>
-                                            <p class ="text-edit mb-1">Rating Given:&nbsp;&nbsp;<span class="text-review">{{ review.rating }}</span></p>
-                                            <p class="text-break mt-1"><span class="text-edit">Comments:&nbsp;&nbsp;</span>{{ review.content }}</p>
+                                            <p class="mb-1"><span class="text-review">Title:&nbsp;&nbsp;</span>{{ review.title }}</p>
+                                            <p class="mb-1"><span class="text-review">Created on:&nbsp;&nbsp;</span>{{ review.created_on|date:"d/m/Y" }}</p>
+                                            <i class="fas fa-user text-review"></i><span>&nbsp;{{ review.user }}</span>
+                                            <p class ="text-review mb-1">Rating Given:&nbsp;&nbsp;<span class="text-review">{{ review.rating }}</span></p>
+                                            <p class="text-break mt-1"><span class="text-review">Comments:&nbsp;&nbsp;</span>{{ review.content }}</p>
                                     </div>
                                             <!-- Review EDIT / DELETE Buttons -->
                                     {% if request.user.is_superuser or request.user == review.user %}
@@ -174,9 +174,9 @@
                                             {% csrf_token %}
                                             <div class="float-right label-review form-check form-switch p-0">
                                                 <label class="text-oreo font-weight-bold" for="{{review.id}}">Approve Review:&nbsp;&nbsp;</label>
-                                                <input class="review-toggle form-check-input form-check" type="checkbox"
+                                                <input  type="checkbox"
                                                  role="switch" name="toggle-open" id="{{review.id}}" {% if review.is_approved is True %}
-                                                 Checked{% endif %} aria-label="Toggle review status" />
+                                                 Checked{% endif %} />
                                             </div>            
                                             <!-- Hidden input to submit value of toggle -->
                                             <input type="hidden" id="review-{{review.id}}-input" name="is_approved" value="{{ review.is_approved }}">
@@ -192,7 +192,7 @@
                 {% else %}
                     <!-- No Reviews Text -->
                     <div class="col-12 text-center bg-ib-light py-3">
-                        <p class="font-body weight-semibold text-dark-grey">No Reviews to Approve. You're up to date!</p>
+                        <h4 class="text-oreo">No Reviews to Approve.</h4>
                     </div>
                 {% endif %}
             </div>
