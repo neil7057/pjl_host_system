@@ -38,8 +38,10 @@ class Review(models.Model):
     rating = models.DecimalField(
         max_digits=3, decimal_places=2, null=False,
         validators=[
-            MaxValueValidator(5, message="Must be between 0-5"),
-            MinValueValidator(0, message="Must be between 0-5")
+            MaxValueValidator
+            (5, message="Glad you're so pleased but Maximum score is 5!"),
+            MinValueValidator
+            (1, message="Score must be 1 or more - Be Generous!")
         ],
         blank=False, default=0)
 

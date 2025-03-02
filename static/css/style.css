@@ -499,7 +499,7 @@ footer {
 
 .form-review {
     background-color: #dfede8;
-    border: 1px solid black;
+    border: 3px solid green;
 }
 
 .text-info {
@@ -525,7 +525,6 @@ footer {
 .title-review {
     font-weight: 700;
     font-size: 2rem;
-    margin-left: 2rem;
     padding: none;
 }
 
@@ -597,6 +596,9 @@ footer {
     .nav-item {
         font-size: .8rem;
     }
+    .slider {
+        width: 45%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -606,6 +608,9 @@ footer {
 
     ul {
         padding: 0;
+    }
+    .slider {
+        width: 75%;
     }
 }
 

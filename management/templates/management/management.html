@@ -50,13 +50,13 @@
                 <div class="d-sm-flex justify-content-end align-items-end mb-4">
                     <p class= me-3 mb-2 mb-sm-0">Filter By:</p>
                     <div class="d-flex">
-                        <a href="{% url 'management' %}?open=True" class="ib-button-sm ib-button-warning text-decoration-none shadow-sm me-3">
+                        <a href="{% url 'management' %}?open=True" class=" text-decoration-none shadow-sm me-3">
                             <p class="d-inline text-open">&nbsp;Open&nbsp</p>
                         </a>
-                        <a href="{% url 'management' %}?open=False" class="ib-button-sm ib-button-success text-decoration-none shadow-sm me-3">
+                        <a href="{% url 'management' %}?open=False" class=" text-decoration-none shadow-sm me-3">
                             <p class="d-inline text-edit">&nbsp;Closed&nbsp;</p>
                         </a>
-                        <a href="{% url 'management' %}" class="ib-button-sm ib-button-grey text-decoration-none shadow-sm">
+                        <a href="{% url 'management' %}" class="text-decoration-none shadow-sm">
                             <p class="d-inline text-oreo">&nbsp;All&nbsp;</p>
                         </a>
                     </div>
@@ -104,7 +104,7 @@
                     {% endfor %}
                 {% else %}
                     <!-- No Messages Text -->
-                    <div class="col-12 text-center bg-ib-light py-3">
+                    <div class="col-12 text-center py-3">
                         <p class="font-body weight-semibold text-dark-grey">No Messages</p>
                     </div>
                 {% endif %}
@@ -180,8 +180,10 @@
                     {% endfor %}
                 {% else %}
                     <!-- No Reviews Text -->
-                    <div class="col-12 text-center bg-ib-light py-3">
+                    <div class="col-12 text-center py-3">
+                        <hr class="mb-3">
                         <h4 class="text-oreo">No Reviews to Approve.</h4>
+                        <hr class="mt-3 mb-1">
                     </div>
                 {% endif %}
             </div>

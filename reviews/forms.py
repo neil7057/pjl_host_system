@@ -18,7 +18,7 @@ class ReviewForm(forms.ModelForm):
         placeholders = {
             'title': 'Title',
             'content': 'Your Review',
-            'rating': 0
+            'rating': 1
         }
 
         # Sets autofocus on first input
@@ -50,4 +50,4 @@ class ReviewForm(forms.ModelForm):
         # Hidden input field for rating score
         # Accessible to screen readers
         self.fields['rating'].widget.attrs['class'] = (
-            'rating-field visually-hidden rounded-15 form-review')
+            'rounded-15 text-center form-review')

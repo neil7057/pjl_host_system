@@ -99,7 +99,7 @@
 <div class="container-fluid">
     <div class="row">
     <div class="col-md-3"></div>
-        <div class="col-12 col-md-6 col-lg-6">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
         <!-- Product Reviews Section -->
             <div class="row">
                 <div class="col-12 text-center mb-2 mt-3">
@@ -115,58 +115,57 @@
                 </div>
             </div>
         </div>
-        {% if reviews|length > 0 %}
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-12 col-md-6 col-lg-6">
-                <div class="row text-center">
-                    <h5 class=" mt-3 title-review">Product Reviews</h5>
-                   <hr class="mb-1">
-                </div>   
-        <!-- Review -->
-            {% for review in reviews %}
-            <div class="col-12 ">
-                    <hr class="mb-1">
-                    <h3>{{ review.title }}</h3>
-                    <div> 
-                        <i class="fas fa-user"></i><span>&nbsp;
-                        {% if review.user != None %}{{ review.user }}{% else %}Anonymous{% endif %}</span>
-                        <span class="float-right">{{ review.created_on|date:"d/m/Y" }}</span></p>
-                        <p class ="">Rating Given: <span class="text-edit">&nbsp;{{ review.rating }}</span></p>
-                        {% if request.user.is_superuser or request.user == review.user %}
-                        <!-- Edit and Delete Review - Review Author or Superuser Only -->
-                            <small></small>
-                        <a href="{% url 'edit_review' review.id %}?next={{ request.path|urlencode }}" class="text-edit">Edit</a> |
-                        <a class="text-danger" href="{% url 'delete_review' review.id %}?next={{ request.path|urlencode }}">Delete</a>
-                        </small>
-                        <p class ="text-break mt-2">{{ review.content }}</p>
-                        {% else %}
-                        <p class ="text-break mt-2">{{ review.content }}</p>
-                        {% endif %}
-                    </div>
-            </div>
-            {% endfor %}
-            <hr class="mb-1">
-            </div>
-        </div>
-            {% else %}
-        <!-- No Reviews Text -->
     </div>
+    {% if reviews|length > 0 %}
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <h5 class="mt-4 title-review">Product Reviews</h5>
+        </div>   
+    </div>
+        <!-- Review -->
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-8 offset-lg-2">
+            <hr class="mb-1">
+        </div>    
+    {% for review in reviews %}
+        <div class="col-12 col-md-6 col-lg-8 offset-lg-2">
+            <h3>{{ review.title }}</h3>
+            <div> 
+                <i class="fas fa-user text-edit"></i><span>&nbsp;
+                {% if review.user != None %}{{ review.user }}{% else %}No Longer Active{% endif %}</span>
+                <span class="float-right">{{ review.created_on|date:"d/m/Y" }}</span></p>
+                <p class ="">Rating Given:&nbsp;<span class=" fa-solid fa-star"></span><span class="text-edit">&nbsp;{{ review.rating }}</span></p>
+                {% if request.user.is_superuser or request.user == review.user %}
+                <!-- Edit and Delete Review - Review Author or Superuser Only -->
+                    <small></small>
+                <a href="{% url 'edit_review' review.id %}?next={{ request.path|urlencode }}" class="text-edit">Edit</a> |
+                <a class="text-danger" href="{% url 'delete_review' review.id %}?next={{ request.path|urlencode }}">Delete</a>
+                </small>
+                <p class ="text-break mt-2"><span class="text-oreo">Review:&nbsp;</span>{{ review.content }}</p>
+                {% else %}
+                <p class ="text-break mt-2"><span class="text-oreo">Review:&nbsp;</span>{{ review.content }}</p>
+                {% endif %}
+            </div>
+            <hr class="mb-1">
+        </div>
+    {% endfor %}
+    </div>
+   
+    {% else %}
+    <!-- No Reviews Text -->
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-12 col-md-6 col-lg-6">
-            <div class="row text-center">
-                <h5 class=" mt-3 title-review">Product Reviews</h5>
+            <div class="row">
+                <h5 class="ml-3 mt-5 title-review">Product Reviews</h5>
                 <hr class="mb-1">
             </div>
                 <hr class="mb-1">
                 <p class="font-body text-center">There Are No Reviews Yet</p>
                 <hr class="mb-1">
-            </div>
         </div>
     </div> 
         {% endif %} 
-    </div>
 </div>
 <div class="container-fluid">   
     <div class="row text-center ml-5">
