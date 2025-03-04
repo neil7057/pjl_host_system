@@ -44,9 +44,9 @@
             <form class="px-3 px-md-4 rounded-15 py-4 form-as-p" method="POST" action="{% url 'add_review' product.id %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
+                <p class="text-edit">Choose a score between 1 (Poor) and 5 (Nailed It)</p>
                 <small>Current Product Rating</small>
-                {% include "products/display_rating.html" %}
-                <p class="text-edit">Enter a number between 1.0 (Poor) to 5.0 (Super)</p>               
+                {% include "products/display_rating.html" %}               
                 <!-- Buttons -->
                 <div class="text-center">
                     <a class="btn btn-danger rounded-15 mr-3 mt-3 mb-5" href="{% url 'product_detail' product.id %}">
