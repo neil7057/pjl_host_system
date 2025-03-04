@@ -32,8 +32,8 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 {% else %}
 <p>{% blocktrans %}If you have not created an account yet, then please
-<a class="btn btn-success rounded-15" href="{{ signup_url }}"><span class="text-white">
-  <i class=" fa-solid fa-user-plus mr-2"></i>&nbsp;Sign Up</span></strong></a> first.{% endblocktrans %}</p>
+<a class="btn btn-success btn-sm rounded-15" href="{{ signup_url }}"><span class="text-white">
+  <i class=" fa-solid fa-user-plus fa-sm mr-2"></i>&nbsp;Sign Up</span></strong></a> first.{% endblocktrans %}</p>
 {% endif %}
 
 <form class="login" method="POST" action="{% url 'account_login' %}">

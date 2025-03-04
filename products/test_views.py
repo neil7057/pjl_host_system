@@ -229,4 +229,3 @@ class TestProductsViews(TestCase):
         response = self.client.get('/products/delete/2/')
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, '/products/')
-        

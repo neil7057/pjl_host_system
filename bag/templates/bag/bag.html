@@ -59,11 +59,11 @@
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
                                 <tr>
+                                    <th></th>
                                     <th scope="col">Product Info</th>
                                     <th scope="col">Price</th>
-                                    <th scope="col">Qty</th>
-                                    <th></th>
-                                    <th scope="col">Subtotal</th>
+                                    <th class="text-center" scope="col">Qty</th>
+                                    <th class="float-right" scope="col">Subtotal</th>
                                 </tr>
                             </thead>
 
@@ -82,7 +82,7 @@
                                         {% include "bag/quantity-form.html" %}
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        <p class="float-right my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}

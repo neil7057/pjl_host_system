@@ -34,79 +34,86 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-messages">
+        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-messages rounded-15">
             <div class="d-flex justify-content-between flex-wrap ">
-                <div class="mb-3 d-flex flex-wrap align-items-end d-sm-block">
+                <div class="col-12">
                     <!-- Messages Title -->
                     <h2 class="text-edit">Messages</h2>    
-                    <!-- Messages Current Filter & Count -->
+                    <!-- Current Message Filter & Count -->
+                </div>
+                <div class="col-12">
                     <p class="pl-3">{% if current_filter %}<span class="text-uppercase">
                         {{current_filter}}{% else %}&nbsp;All&nbsp;{% endif %} MESSAGES 
-                        ({{ customer_messages|length }})</p>
-
+                        ({{ customer_messages|length }})</span></p>
                 </div>
-
                 <!-- Messages Filter Buttons -->
-                <div class="d-sm-flex justify-content-end align-items-end mb-4">
-                    <p class= me-3 mb-2 mb-sm-0">Filter By:</p>
-                    <div class="d-flex">
-                        <a href="{% url 'management' %}?open=True" class=" text-decoration-none shadow-sm me-3">
-                            <p class="d-inline text-open">&nbsp;Open&nbsp</p>
-                        </a>
-                        <a href="{% url 'management' %}?open=False" class=" text-decoration-none shadow-sm me-3">
-                            <p class="d-inline text-edit">&nbsp;Closed&nbsp;</p>
-                        </a>
-                        <a href="{% url 'management' %}" class="text-decoration-none shadow-sm">
-                            <p class="d-inline text-oreo">&nbsp;All&nbsp;</p>
+                <div class="col-12">
+                    <p class="float-right">Filter By:<span>&nbsp;
+                        <a href="{% url 'management' %}?open=True" class="btn-sm rounded-15
+                            text-decoration-none btn-outline-message-open shadow-lg me-3">
+                            <span class="d-inline">&nbsp;Open&nbsp;</span>
+                        </a><span>&nbsp;</span>
+                        <a href="{% url 'management' %}?open=False" class="btn-sm rounded-15 
+                            text-decoration-none btn-outline-message-closed shadow-lg me-3">
+                            <span class="d-inline">&nbsp;Closed&nbsp;</span>
+                        </a><span>&nbsp;</span>
+                        <a href="{% url 'management' %}" class="btn-sm rounded-15 
+                            text-decoration-none btn-outline-message-all shadow-lg d-inline">&nbsp;All&nbsp;
+                        </a></span>
+                    </p>
+                </div>
+            </div> 
+            <hr class="mt-2 mb-4">
+            <div id="manage-messages">
+                {% if customer_messages|length > 0 %}
+                {% for message in customer_messages %}
+                <!-- Message -->
+                <div class="row {% if message.is_open %}bg-message-open{% else %}bg-message-closed{% endif %} w-100 m-auto mb-3 py-3 shadow-sm {% if message.is_open %}border-open{% else%}border-closed{%endif%}">
+                    <div class="col-12">
+                            {% if message.user is None %}
+                            <p class="text-open">Username&nbsp;Not Registered</p>
+                            {% else %}
+                            <p><span class="text-edit">Username:&nbsp;</span>{{message.user}}</p>
+                            {% endif %}
+                    </div>
+                    <div class="pl-3">
+                        <p><span class="text-edit">Date:&nbsp;</span>{{message.created_on|date:"d/m/Y"}}</p>
+                        <a href="mailto:{{message.email}}">
+                            <p><span class="text-edit">Email:&nbsp;</span><span class="text-oreo">{{message.email}}</span></p>
                         </a>
                     </div>
-                </div>
-            </div>
-             
-            <div id="manage-messages">
-                <hr class="mt-4 mb-4">
-                {% if customer_messages|length > 0 %}
-                    {% for message in customer_messages %}
-                        <!-- Message -->
-                        <div class="row {% if message.is_open %}bg-message-open{% else %}bg-message-closed{% endif %} w-100 m-auto mb-3 py-3 shadow-sm {% if message.is_open %}border-open{% else%}border-closed{%endif%}">
-                            <div class="pl-3">
-                                <p><span class="text-edit">Date:&nbsp;</span>{{message.created_on|date:"d/m/Y"}}</p>
-                                <a href="mailto:{{message.email}}">
-                                    <p><span class="text-edit">Email:&nbsp;</span><span class="text-oreo">{{message.email}}</span></p>
-                                </a>
-                            </div>
-                            <div class="col-12">
-                                <p><span class="text-edit">Title:&nbsp;</span>{{message.subject}}</p>
-                            </div>
-                            <div class="col-12">
-                                <p><span class="text-edit">Message:&nbsp;</span>{{message.content}}</p>
-                            </div>
-                            <div class="col-12 mt-2">
-                                <p class="me-3">Status: <span class="weight-semibold">{% if message.is_open %}
-                                    <span class="text-open">&nbsp;Open</span>{% else %}
-                                    <span class="text-edit">&nbsp;Closed</span>{%endif%}</span></p>
+                    <div class="col-12">
+                        <p><span class="text-edit">Title:&nbsp;</span>{{message.subject}}</p>
+                    </div>
+                    <div class="col-12">
+                        <p class=" text-break"><span class="text-edit">Message:&nbsp;</span>{{message.content}}</p>
+                    </div>
+                    <div class="col-12 mt-2">
+                            <p class="me-3">Status: <span class="weight-semibold">{% if message.is_open %}
+                                <span class="text-open">&nbsp;Open</span>{% else %}
+                                <span class="text-edit">&nbsp;Closed</span>{%endif%}</span></p>
 
-                                <!-- Form to change message is_open status -->
-                                <form method="POST" action="{% url 'toggle_message' message.id %}" id="message-form-{{message.id}}">
-                                    {% csrf_token %}
-                                    <div class="form-check form-switch float-right">
-                                        <label class="text-oreo font-weight-bold" for="{{message.id}}">Toggle Message Status:&nbsp;&nbsp;</label>
-                                        <input class="message-toggle" type="checkbox" role="switch" name="toggle-open" id="{{message.id}}" 
-                                        {% if message.is_open is False %}Checked{% endif %}  />                                        
-                                    </div>            
+                            <!-- Form to change message is_open status -->
+                            <form method="POST" action="{% url 'toggle_message' message.id %}" id="message-form-{{message.id}}">
+                                {% csrf_token %}
+                                <div class="form-check form-switch float-right">
+                                    <label class="text-oreo font-weight-bold" for="{{message.id}}">Toggle Message Status:&nbsp;&nbsp;</label>
+                                    <input class="message-toggle" type="checkbox" role="switch" name="toggle-open" id="{{message.id}}"
+                                {% if message.is_open is False %}Checked{% endif %}>
                                     <!-- Hidden input to submit value of toggle -->
                                     <input type="hidden" id="message-{{message.id}}-input" name="is_open" value="{{ message.is_open }}">
                                     <!-- Hidden input to submit current_filter -->
                                     <input type="hidden" id="current-filter-input-{{message.id}}" name="current_filter" value="{{current_filter}}">
-                                </form>   
-                            </div>
-                        </div>
-                    {% endfor %}
+                                </div>
+                            </form>   
+                    </div>
+                </div>
+                {% endfor %}
                 {% else %}
                     <!-- No Messages Text -->
-                    <div class="col-12 text-center py-3">
-                        <p class="font-body weight-semibold text-dark-grey">No Messages</p>
-                    </div>
+                <div class="col-12 text-center py-3">
+                    <p class="font-body weight-semibold text-dark-grey">No Messages</p>
+                </div>
                 {% endif %}
             </div>
         </div>
@@ -120,14 +127,16 @@
     </div>
 
     <div class="row">
-        <div class="bg-reviews col-12 col-lg-8 offset-lg-2 p-3">
-            <div class="d-flex justify-content-between flex-wrap ">
-                <div class="mb-3 d-flex flex-wrap align-items-end d-sm-block">
+        <div class="col-12 col-lg-8 offset-lg-2 bg-reviews rounded-15">
+            <div class=" justify-content-between flex-wrap ">
+                <div class="col-12">
                     <h2 class="weight-semibold text-edit">Reviews Awaiting Approval</h2>
                     <p class="pl-3">The following reviews are awaiting approval.</p>
                     <p class="pl-3">Once approved they will appear on the site.</p>
+                    
                 </div>
-            </div>            
+            </div> 
+            <hr class="mb-0">           
             <div class="" id="manage-reviews">
                 {% if reviews|length > 0 %}
                     {% for review in reviews %}
@@ -143,7 +152,7 @@
                                     {% endif %}
                                 </a>
                             </div>
-                            <div class="col-12 col-sm-9 col-md-10 p-3">
+                            <div class="col-12 col-sm-9 mt-1 col-md-10 p-3">
                                 <h2>{{ review.product }}</h2>
                                 <!-- Review Title & Date -->
                                 <div class="row">
@@ -160,22 +169,22 @@
                                         <a class="text-review-delete" href="{% url 'delete_review' review.id %}?next={{ request.path|urlencode }}">Delete</a>
                                     </div>
                                     <div class="col-12 float-right">
-                                            <!-- Form to change review is_approved status -->
-                                            <form method="POST" action="{% url 'toggle_review' review.id %}" id="review-toggle-form-{{review.id}}">
+                                        <!-- Form to change review is_approved status -->
+                                        <form method="POST" action="{% url 'toggle_review' review.id %}" id="review-toggle-form-{{review.id}}">
                                                 {% csrf_token %}
                                                 <div class="float-right label-review form-check form-switch p-0">
                                                     <label class="text-oreo font-weight-bold" for="{{review.id}}">Approve Review:&nbsp;&nbsp;</label>
                                                     <input  class="review-toggle" type="checkbox"
                                                         role="switch" name="toggle-open" id="{{review.id}}" {% if review.is_approved is True %}
-                                                        Checked{% endif %} />
+                                                        Checked{% endif %}>
                                                 </div>            
                                                 <!-- Hidden input to submit value of toggle -->
                                                 <input type="hidden" id="review-{{review.id}}-input" name="is_approved" value="{{ review.is_approved }}">
-                                            </form> 
+                                        </form> 
                                     </div>
                                 </div>
                             </div>
-                            <hr class="mb-1">
+                            <hr class="mb-3">
                         </div>
                     {% endfor %}
                 {% else %}

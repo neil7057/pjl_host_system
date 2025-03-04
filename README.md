@@ -30,9 +30,14 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
         *   [Base Template](#base)
         *   [Products](#products)
         *   [Details](#details)
+        *   [Add Review](#add-a-review)
+        *   [Edit Review](#edit-a-review)
         *   [Category](#category)
         *   [Shopping Cart](#shopping-cart)
         *   [Checkout](#checkout)
+        *   [Checkout Success](#checkout-success)
+        *   [Contact Us](#contact-us)
+        *   [Management](#management)
     *   [Structure](#structure)
 4. [Features](#features)
 5. [Pages](#pages)
@@ -60,9 +65,20 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
     *   [Accessibility](#accessibility)
     *   [Screen Reader](#screen-reader)
     *   [Lighthouse Testing](#lighthouse-testing)
+    *   [Automatesd Testing](#automated-testing)
+        *   [Profiles](#automated-profiles)
+        *   [Bags](#automated-bag)  
+        *   [Checkout](#automated-checkout)
+        *   [Product](#automated-product)
+        *   [Reviews](#automated-reviews)
+        *   [Management](#automated-management)
+        *   [Summary](#automated-summary)
     *   [Functional Testing](#functional-testing)
         *   [Navigation Links](#navigation-links)
         *   [Testing Approach](#testing-approach)
+            *   [Admin Test Account](#admin-test-account)
+            *   [User Test Accounts](#user-test-accounts)
+            *   [Visitor Tests](#visitor-tests)
         *   [Signup Testing](#sign-up-testing)
         *   [Login Testing](#log-in-testing)
         *   [Forgot Pssword Testing](#forgot-password-testing)
@@ -100,8 +116,11 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
 
 The website is an E-commerce site selling a range of Oreo related products. Shoppers can search for and buy a range of products
 and checkout anonymously or create an account where they can save their details for future purchases and enquire on past orders. 
+Visitors can email an administartor via the Contact_us page, whether they have an account or not.
+Registered users can leave product reviews which must be apporved by an admin before becoming visible.
+There is an admin page to review messages and reviews and toggle their status. Further, more refined actions can be carried out via the django admin function.
 
-*   visitors/shoppers can:
+*   Visitors/shoppers can:
     -   Browse all products
     -   Browse by category
     -   Browse within Catgeory
@@ -110,7 +129,6 @@ and checkout anonymously or create an account where they can save their details 
     -   Checkout
     -   Set up an account/profile 
     -   Message an Administrator
-    -   Add a product review
 
 *   Logged in users can:
     -   Everything that an unregistered shopper can do plus
@@ -118,6 +136,7 @@ and checkout anonymously or create an account where they can save their details 
     -   Save checkout details for future purchases
     -   View orders and order history
     -   Change/Reset Password
+    -   Review a product
     -   Edit and Delete their own reviews
 
 *   Administrators can:
@@ -142,10 +161,9 @@ and checkout anonymously or create an account where they can save their details 
     -   Be able search for the products by keyword and category
     -   Identify special deals/clearance
     -   Contact the company with any queries
-    -   Leave a review for a product
     -   Buy products without registration
     -   Easily see my current order total
-    -   Add/remove items from my shopping bag prior to checkout
+    -   Add/remove items or change quantities from my shopping bag prior to checkout
     -   Be able use the site on any devices and screen sizes
     -   Login/create a user account
 
@@ -154,7 +172,7 @@ and checkout anonymously or create an account where they can save their details 
     -   Easily Login and Logout
     -   Have access to my profile page
     -   Easily see my current order total
-    -   Add/remove items from my shopping bag prior to checkout
+    -   Add/remove items or chenge quantities from my shopping bag prior to checkout
     -   See my order history
     -   Be able to update and save my personal info
     -   Add a product review and edit/delete it
@@ -170,30 +188,30 @@ and checkout anonymously or create an account where they can save their details 
 
 -   ### Design
     -   #### Colour Scheme
-        -   I've used predominantly blues for the main scheme with a crisp white background on all but the Home page. Oreos are typically brown contrasted with white but i felt that brown would be too dull, although for WCAG contrast compliance it is used on some buttons. Blue by constrast is a branding colour of Oreo.
-        -   Oreo text blue is #4956C9 and used on various headings. Green is used for most page headings as that is a positive 'Go!' signal. Confirm buttons are green and cancel buttons red. Other button options are .info or .warning dependant upon context. 
+        -   I've used predominantly blues for the main scheme with a crisp white background on all but the Home page and admin areas to dufferentiate. Oreos are typically brown contrasted with white but i felt that brown would be too dull, although for WCAG contrast compliance it is used on some buttons. Blue by constrast is a branding colour of Oreo.
+        -   Oreo text blue is #4956C9 and used on various headings. Green is used for most page headings as that is a positive 'Go!' signal. Confirm buttons are green and cancel buttons red. Other button options are .info or .warning dependant upon context. Some have been adjusted for WCAG compliance.
         
     -   #### Typography
         -   The font is Lato and main headings are capitalised.
  
     -   #### Imagery
-        -   There is a main central image on the welcome page that is Oreo themed. All other pages have a crisp white background. Product images appear on all pages where a product is referenced, including product, detail, shopping bag and checkout. The about us page
+        -   There is a main central image on the welcome page that is Oreo themed. All other non-admin pages have a crisp white background. Product images appear on all pages where a product is referenced, including product, detail, shopping bag and checkout. The about us page
         has a range of hyperlinked images.
 
     -   #### Design Considerations
-        -   The site is built within a django framework using HTML5, CSS3, Python, Javascript and SqlLite. It is deployed to Heroku with Static and media files served from AWS. User Management is via django allauth. Forms managemnt is CrispyForms. Payment processing is by Stripe.
+        -   The site is built within a django framework using HTML5, CSS3, Python, Javascript and SqlLite. It is deployed to Heroku with Static and media files served from AWS. User Management is via django allauth. Forms management is CrispyForms unless the form is very basic. Payment processing is by Stripe.
      
-        -   Colours are Oreo themed, blue and white.
+        -   Colours are Oreo themed, blue and white with reds/greens for 'go' and 'cancel' actions.
 
         -   The site is responsive with menus and text resized for smaller screens. 
 
         -   Menu navigation is consistent across all desktop sizes with a different menu structure for mobile devices. Menu options are
-        consistent across all devices. Menus options change according to login and admin status. There is an additional 'Home' menu option
+        consistent across all devices and change according to login and admin status. There is an additional 'Home' menu option
         on small screens when the main bar title is hidden.
 
         -   There is a 'back to top' button on all pages to avoid having to manually scroll on pages with lengthy content. 
 
-        -   Staff users are able to add, edit and delete products via the app. Fuller admin facilities are availble via the django admin interface.
+        -   Staff users are able to add, edit and delete products, manage reviews and respond to messages via the app. Fuller admin facilities are available via the django admin interface.
 
         -   Error and confirmation is via django messaging and message status is colour coded; green for success, red for error etc. Messages appear at the top right of the screen. Additional error messages may appear as part of built-in form or model validation.
 
@@ -208,8 +226,8 @@ and checkout anonymously or create an account where they can save their details 
     *   A Product Category table
     *   An Order table 
     *   An Order Line Item table with an entry for each product item on an order
-    *   A review table to hold consumer reviews
-    *   A messages table to hold messages from customers/visitors 
+    *   A Review table to hold consumer reviews
+    *   A Messages table to hold messages from customers/visitors 
 
 -   #### Diagram
     <details><summary>Data Structure</summary>
@@ -230,15 +248,15 @@ and checkout anonymously or create an account where they can save their details 
 
 -   #### Details
     <details><summary>Product Detail</summary>
-    <img src="leos_oreos\docs\images\wireframes\product-detail.png">
+    <img src="leos_oreos\docs\images\wireframes\product_detail.png">
     </details>
 
--   #### Details
+-   #### Add A Review
     <details><summary>Add a review</summary>
     <img src="leos_oreos\docs\images\wireframes\add_review.png">
     </details>
 
--   #### Details
+-   #### Edit A Review
     <details><summary>Edit a review</summary>
     <img src="leos_oreos\docs\images\wireframes\edit_review.png">
     </details>
@@ -263,11 +281,13 @@ and checkout anonymously or create an account where they can save their details 
     <img src="leos_oreos\docs\images\wireframes\checkout-success.png">
     </details>
 
--   <details><summary>Contact Us</summary>
+-   #### Contact Us
+    <details><summary>Contact Us</summary>
     <img src="leos_oreos\docs\images\wireframes\contact_us.png">
     </details>
  
--   <details><summary>Management</summary>
+-   #### Management
+    <details><summary>Management</summary>
     <img src="leos_oreos\docs\images\wireframes\management.png">
     </details>
 
@@ -275,7 +295,7 @@ and checkout anonymously or create an account where they can save their details 
 
     The structure of the site: 
 
-    Visitors can view all products and search by keyword or category. they can order, checkout, register for an account and send a message.
+    Visitors can view all products and search by keyword or category. they can order, checkout, register for an account and send a message. They can view product reviews but can't add a review until they register for an account.
 
     Functions serve:
     -   Sign Up
@@ -283,11 +303,11 @@ and checkout anonymously or create an account where they can save their details 
     -   Password change/reset
     -   Search facility by keyword
     -   Product sort and search by category
-    -   A shopping cart - add/remove items
+    -   A shopping cart - add/remove items, amend quantities
     -   Checkout and payment by card using Stripe
     -   Message facility
     -   Product management for Staff/Admins
-    -   profile managemnt and historic order enquiry
+    -   Profile managemnt and historic order enquiry
     -   Review management
 
     The site is built on a django framework and templated around a 'base.html' which contains site header, footer and menu structures.
@@ -302,7 +322,7 @@ and checkout anonymously or create an account where they can save their details 
     The footer contains a link to the Privacy Noticy (DPA 2018) page and also an option to view/download the information in
     PDF format.
 
-    The footer contains an email link, which is adequate for the requirements of the site.
+    The footer contains a link to the contact_us page where visitirs and registered users can leave a message for admin review.
 
     Email confirmations and communications are handled via django through gmail.
     
@@ -318,77 +338,77 @@ and checkout anonymously or create an account where they can save their details 
     *   For users, 
     *   This will help to immediately show the visitor/user what the website is about. 
 
-    <details><summary>Landing Page - all</summary>
+-   <details><summary>Landing Page - all</summary>
     <img src="leos_oreos\docs\images\screens\ss-home-page.png">
     </details>
     <br>
 
-    <details><summary>Landing Page Mobile - all</summary>
+-   <details><summary>Landing Page Mobile - all</summary>
     <img src="leos_oreos\docs\images\screens\ss-home-page-mobile.png">
     </details>
     <br>
 
-    <details><summary>All products - desktop</summary>
+-   <details><summary>All products - desktop</summary>
     <img src="leos_oreos\docs\images\screens\ss-all-products.jpg">
     </details>
     <br>
 
-    <details><summary>All products - mobile</summary>
+-   <details><summary>All products - mobile</summary>
     <img src="leos_oreos\docs\images\screens\ss-all-products-mobile.png">
     </details>
     <br>
 
-    <details><summary>Product By Category</summary>
+-   <details><summary>Product By Category</summary>
     <img src="leos_oreos\docs\images\screens\ss-product-by-category.png">
     </details>
     <br>
 
-    <details><summary>Product Detail - desktop</summary>
+-   <details><summary>Product Detail - desktop</summary>
     <img src="leos_oreos\docs\images\screens\ss-product-detail.png">
     </details>
     <br>
 
-    <details><summary>Product Detail - tablet</summary>
+-   <details><summary>Product Detail - tablet</summary>
     <img src="leos_oreos\docs\images\screens\ss-product-detail-tablet.png">
     </details>
     <br>
 
-     <details><summary>Add review</summary>
+-   <details><summary>Add review</summary>
     <img src="leos_oreos\docs\images\screens\ss-add-review.png">
     </details>
     <br>
 
-     <details><summary>Edit Review</summary>
+-   <details><summary>Edit Review</summary>
     <img src="leos_oreos\docs\images\screens\ss-edit-review.png">
     </details>
     <br>
 
-    <details><summary>Shopping Bag - desktop</summary>
+-   <details><summary>Shopping Bag - desktop</summary>
     <img src="leos_oreos\docs\images\screens\ss-shopping-bag.png">
     </details>
     <br>
 
-    <details><summary>Shopping Bag - tablet</summary>
+-   <details><summary>Shopping Bag - tablet</summary>
     <img src="leos_oreos\docs\images\screens\ss-shopping-bag-tablet.png">
     </details>
     <br>
 
-    <details><summary>Checkout - desktop</summary>
+-   <details><summary>Checkout - desktop</summary>
     <img src="leos_oreos\docs\images\screens\ss-checkout.png">
     </details>
     <br>
 
-    <details><summary>Checkout - Mobile</summary>
+-   <details><summary>Checkout - Mobile</summary>
     <img src="leos_oreos\docs\images\screens\ss-checkout-mobile.png">
     </details>
     <br>
 
-    <details><summary>Checkout Success</summary>
+-   <details><summary>Checkout Success</summary>
     <img src="leos_oreos\docs\images\screens\ss-checkout-success.png">
     </details>
     <br>
 
-    <details><summary>Search Results</summary>
+-   <details><summary>Search Results</summary>
     <img src="leos_oreos\docs\images\screens\ss-search-results.png">
     </details>
     
@@ -396,27 +416,27 @@ and checkout anonymously or create an account where they can save their details 
 ### User Pages
 -   User Access
 
-    <details><summary>Register</summary>
+-   <details><summary>Register</summary>
     <img src="leos_oreos\docs\images\screens\ss-register.png">
     </details>
     <br>
 
-    <details><summary>Login</summary>
+-   <details><summary>Login</summary>
     <img src="leos_oreos\docs\images\screens\ss-login.png">
     </details>
     <br>
 
-    <details><summary>logout</summary>
+-   <details><summary>logout</summary>
     <img src="leos_oreos\docs\images\screens\ss-logout.png">
     </details>
     <br>
 
-    <details><summary>Profile</summary>
+-   <details><summary>Profile</summary>
     <img src="leos_oreos\docs\images\screens\ss-profile.png">
     </details>
     <br>
 
-    <details><summary>Contact Us</summary>
+-   <details><summary>Contact Us</summary>
     <img src="leos_oreos\docs\images\screens\ss-contact-us.png">
     </details>
     <br>
@@ -457,6 +477,8 @@ and checkout anonymously or create an account where they can save their details 
 * Email communication is via Gmail
 * Users can add and update their own reviews of products
 * Reviews are held invisible until authorised by an Admin
+* Anyone can message site staff/admin
+* There is an ICO compliant Privacy Polciy
 
 ## Technologies Used
 
@@ -600,6 +622,17 @@ This was carried out periodically as each page was created and amended and then 
     <img src="leos_oreos\docs\images\testing\w3c-profile.png">
     </details>
 
+    <details><summary>Add Review Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-add-review.png">
+    </details>
+
+    <details><summary>Edit Review Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-edit-review.png">
+    </details>
+
+    <details><summary>Management Page</summary>
+    <img src="leos_oreos\docs\images\testing\w3c-management.png">
+    </details>
 
 ### CSS
 
@@ -725,15 +758,27 @@ This was checked each time substantial changes were made to PY files. A final ch
     -   Be able to update and save my personal info
         -   Registered users can access and update their profile information via the Account menu.
 
+    -   Add a product review and edit/delete it
+        -   Registered users can add, and (edit and delete their own) reviews.
+
     -   Be able to change and/or recover my password
         -   Registered users can reset their password at Login or change thier password via their profile information page accessible from the Account menu.
 
     -   Make purchase with my delivery info always filled in
         -   Registerd users can save their checkout address details for future purchase and these will be automatically populated in future order checkout.
 
+    -   Message an administrator
+        -   Users can message an admin from a link on the footer of every page
+
 - #### As an admin I want to:
     -   Be able to add, edit and delete products
         -   Staff/Admin can add, edit and remove products via the product management link in accounts or from the buttons on the product details or product pages. These menus are only visible to Staff/Admin.
+
+    -   Be able to see and process messages
+        -   Messages are accessible from the account menu mangement option - only visible to admins. Messages can be listed and viewed in open or closed status or both (all). They can be deleted from the django admin interface.
+        `
+    -   Authorise, delete user reviews
+        -   The account managemnt menu option gives acces sto the admin review page where reviews awaiting authorisation can be viewed, authorised, edited or deleted. Once authorised they no longer appear on this page but can be further managed via teh django admin function. 
 
     -   Have easy access to admin controls
         -   Products can be managed via the account menu, product or product-details links. Full Admin is available via the django admin function.
@@ -975,6 +1020,50 @@ This confirmed that:
     </details>
     <br>
 
+### Automated Testing
+-   92 automated tests for code coverage and validated were created in teh following apps:
+    *   Profiles
+    *   Bag
+    *   Checkkout
+    *   Product
+    *   Reviews
+    *   Management
+
+-   #### Automated Profiles
+    <details><summary>Automated Tests Profiles</summary>
+    <img src="leos_oreos\docs\images\testing\at-profiles.png">
+    </details>
+
+-   #### Automated Bag
+    <details><summary>Automated Tests Bag</summary>
+    <img src="leos_oreos\docs\images\testing\at-bag.png">
+    </details>
+
+-   #### Automated Checkout
+    <details><summary>Automated Tests Checkout</summary>
+    <img src="leos_oreos\docs\images\testing\at-checkout.png">
+    </details>
+
+-   #### Automated Product
+    <details><summary>Automated Tests Product</summary>
+    <img src="leos_oreos\docs\images\testing\at-product.png">
+    </details>
+
+-   #### Automated Reviews
+    <details><summary>Automated Tests Reviews</summary>
+    <img src="leos_oreos\docs\images\testing\at-reviews.png">
+    </details>
+
+-   #### Automated Management
+    <details><summary>Automated Tests management</summary>
+    <img src="leos_oreos\docs\images\testing\at-management.png">
+    </details>
+
+-   #### Automated Summary
+    <details><summary>Automated Tests Summary</summary>
+    <img src="leos_oreos\docs\images\testing\at-summary.png">
+    </details>
+
 ### Functional Testing
 -   9 test categories and 40 test product were loaded into the database(s) in development and production via JSON files.
 
@@ -986,19 +1075,40 @@ This confirmed that:
 
     Additionally, Adminstrator and basic user accounts were created to check that correct menu options were presented and enhanced functionality restricted to Administrator privileged accounts. 
 
-    Modals and forms display as expected. Edit/Delete functions are correctly restricted to the appropriate owner and user account class. 'Cancel' buttons work as expected.
+    Forms display as expected. Edit/Delete functions are correctly restricted to the appropriate owner and user account class. 'Cancel' buttons work as expected.
 
     Links on all pages navigated to the correct pages as expected. External content opens in a new page.
 
--   #### Testing Approach
+- #### Testing Approach
 
-    Basic functions were tested with minimal validation. Navigation tested before working code was added. Each function, such as Edit was tested and then replicated to other record types. 
+    Basic functions were tested with minimal validation. Navigation tested before working code was added. Each app was developed and tested as a unit and then tested in integration. 
 
     Minor errors were logged and development continued until a function was constructed then the error list was revisited.
 
     Functionality was tested against individual user permissions and then against additional users.
 
     URLs for management functions and access to specific records were copied and attempted access from unauthorised accounts or when logged out to test security.
+
+    Significant manaul testing was carried out together with 92 automated tests via .py test scripts across all apps to test code coverage.
+
+-   ##### Admin Test Account
+    -   For test purposes there is an admin account. However, be aware that this has full access to all functionality. It's essential to document it here so that full functionality can be tested:
+        -   Username: clarkkent
+        -   Password: CodeIns7057@
+
+-   ##### User Test Accounts
+    -   For adding reviews and checking logged in user functions.
+        -   Username: mikey
+        -   Password: UserTest99
+
+        -   Uswername: robbie
+        -   Password: UserTest1010
+
+        -   Username: sally
+        -   Password: UserTest09
+    
+-   ##### Visitor Tests
+    -   Anonymous access is easy to replicate.
 
 -   #### Sign Up Testing
     -   The cursor is automatically positioned at the start of the first input field. Validation is mostly taken care of by django allauth but was tested field by field with valid and invalid entries.
@@ -1010,13 +1120,13 @@ This confirmed that:
     -   Succesful login generates a 'success' toast.
 
 -   #### Forgot Password Testing
-    -   Clicking on the link on login, displays the password rese page. 
+    -   Clicking on the link on login, displays the password reset page. 
     -   An email is sent to the email address input.
         -   If the email exists on a user account, a reset email is sent.
         -   If the email does not exist, an email is sent advising this and encourgaing signup.
 
 -   #### Change Password Testing
-    -   Clicking on the link in Profile to chane password, displays the password rese page. 
+    -   Clicking on the link in Profile to change password, displays the password reset page. 
     -   If the password is changed successfully, a toast 'success' message is displayed and the change password page refreshed - this is standard django allauth functionality.
 
 -   ####  Shopping Testing
@@ -1029,10 +1139,13 @@ This confirmed that:
         and is 'untriggered if deletion of items reduces order total below threshold
     -   Remove from bag
         -   reduce quantity and checkout
-        -   remove via remove option to chcek removes from bag and adjusts delivery if appropriate
+        -   remove via remove option to check removes from bag and adjusts delivery if appropriate
     -   Amend quantity
         -   increase quantity and check that sub totals and delivery charges adjust
         -   reduce quantity and check that sub totals and delivery charges adjust
+    -   Size processing   
+        -   remove clothing items with a aspcified size and ensure that the same product with a differnt size remains unaffected.
+        -   amend quantities on sized items to ensure only the particular sized product order is affected
 
  -  ####  Checkout Testing
     -   Validate address details
@@ -1064,8 +1177,18 @@ This confirmed that:
     </details>
     <br>
 
-#### Review Testing
-    -  
+    #### Review Testing
+    -   Add Review
+        -   Validate only logged in users can add a review
+        -   validate all fields present
+        -   validate score is between 1 and 5
+        -   validate that review is placed #unauthorised'
+
+    -   Edit Review
+        -   validate only owner and admin can edit/delete reviews
+        -   validate field changes to ensure mandatory fields are populated
+        -   validate that updated review becomes 'unauthotrised'
+        -   validate range 1-5 on rating field
 
 -   ####  Admin Testing
     -   Add Product
@@ -1078,13 +1201,13 @@ This confirmed that:
         -   Product can be deleted from product and product-details pages or django admin console.
 
     -   Authorise Review
-        -
+        -   Ensure review is authorised and visible on prodcut, disappears from admin list
     
     -   Delete Review
-        -
+        -   Check that review is removed from product details page and deleted from DB
 
     -   Toggle Message open/closed
-        -
+        -   check toggle status of messages displayed on management page against django admin status
         
 -   #### Search Function Testing
     -   By keyword
@@ -1109,7 +1232,7 @@ This confirmed that:
 
 -   #### Footer Contact Information
 
-    -   The 'Send Me an Email' link opens the user's email client.
+    -   The 'Contact_us' link directs to teh contact us webpage with a form and further contact details (phone, address, email).
  
 ### Bugs and Fixes
 
@@ -1120,7 +1243,7 @@ This confirmed that:
     -   stripe test keys had also changed in admin
 
 *   Stripe payments not being recorded
-    -   Public key had changed in admin interface. env.py updated with new key info.
+    -   public key had changed in admin interface. env.py updated with new key info.
 
 *   makemigrations fails after django_countries install with error on 'pkg-resources'
     -   found solution online. install 'setuptools'
@@ -1143,7 +1266,7 @@ This confirmed that:
 
 ### Future Releases
 *   Ideas for future development could include:
-    -   Contact me page with dropdown 'reason for contact' box.
+    -   Paginate products page so only x number of items displayed for all products. not an issue with 40 products but could become so as the site grows.
     -   Discounted prices/postage for regular customers.
     -   Add VAT processing if future range includes vatable items.
 
@@ -1155,13 +1278,13 @@ The site was created using the Visual Studio code editor and pushed to the remot
 
 The following git commands were used throughout development to push code to the remote repository:
 
-```git add <file>``` 
+```git add . ``` 
     - This command was used to add the file(s) to the staging area before they are committed.
 
 ```git commit -m “commit message”```
     - This command was used to commit changes to the local repository queue ready for the final step.
 
-```git push origin main``` 
+```git push ``` 
     - This command was used to push all committed code to the remote repository on github.
 
 ### Clone the Repository Code Locally
@@ -1187,24 +1310,24 @@ The project was deployed to Heroku using the following steps:
 When working on the app in VSC a local database (sqlite) is used which will not be available on the deployed app. You will need to set up a separate database for the deployed site.
 
 -   Create a PostgresSQL database using normal procedures.
--   Copy the database URL... you will need this in Heroku.
+-   Copy the database URL. You will need this in Heroku.
 
 #### Set up Heroku & connecting your new Database
 
 -   Go to [Heroku](https://www.heroku.com/) and log in (or set up an account if you don't have one - please note you may incur charges for using Heroku)
 -   Click on the 'New' button then 'create new app'
 -   Name your app and select your nearest region
--   With your app set up go to the app's settings tab and under config variable click on 'reveal config variables' and add a new variable with the Key of `DATABASE_URL` and the value as the database URL that you copied from ElephantSQL
--   Back in VSC go to settings.py and paste the following in to your DATABASE section to tell it to connect to the new database 
+-   With your app set up go to the app's settings tab and under config variable click on 'reveal config variables' and add a new variable with the Key of `DATABASE_URL` and the value as the database URL that you copied from your created SQL DB
+-   Back in VSC go to settings.py and paste the following in to your DATABASE section to tell it to connect to the new database
 -   (**Note - do not push your code to GitHub whilst this value is in your settings.py, it is a secret value that must not be shared, we will remove it later**)
 
 ```
 DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('your elephanySQL database url here'))
+        'default': dj_database_url.parse(os.environ.get('your SQL database url here'))
     }
 ```
 
--   In you VSC terminal type `python3 manage.py showmigrations` to check you are connected to the new database, if you are you will see a list of migrations with no ticks next to them
+-   In you VSC terminal type `python3 manage.py showmigrations` to check you are connected to the new database, if you are you will see a list of migrations with no ticks next to them. If python3 gives an error, try python instead
 -   Run the following command `python3 manage.py migrate` to migrate the database structure from your project to the new database
 -   Any data that you have added to your SQLite database will not transfer to the new one. You will need to populate the site on the deployed app once it is up and running or using Fixtures (JSON files with all your database content) if you have them. You can find out more about Fixtures and how to use them in the [Django documentation.](https://docs.djangoproject.com/en/4.2/howto/initial-data/#:~:text=you%20use%20TransactionTestCase.-,fixtures%20.,the%20manage.py%20dumpdata%20command.)
 -   Create a superuser for your deployed site and new database (this will allow you to check if the database is working and access the site admin on the deployed site) using the following command in the terminal: `python3 manage.py createsuperuser` and set up login details for them following the instructions.
@@ -1233,22 +1356,21 @@ else:
 -   Create a Procfile in your app in the root directory with the following content `web: gunicorn leos_oreos.wsgi:application` and a blank line at the end.
 -   Log in to Heroku dashboard.
 -   Temporarily disable Heroku from collecting static files during deployment using adding the variable  DISABLE_COLLECTSTATIC to 1. Go to Heroku dashboard, open settings and reveal config variables to achieve this.
--   Commit your changes to VSC using `git add .`, `git commit` & `git push` in the terminal
--   Then to deploy your site to Heroku use the command `git push Heroku main`
+-   In the Heroku dashboard, link to github via the deploy tab. 
+-   Commit your changes to VSC using `git add .`, `git commit` & `git push` in the terminal. THese will then automatically deploy to Heroku after each git push.
 -   Your site will now be deployed without any of the static files (CSS, JavaScript & Media files)
 -   In Heroku go to your app, click on activity to check if it has finished deploying and once it has go to the settings tab
 -   Scroll down to 'Domains' and copy the 'your app can be found at' URL
 -   Back in VSC go to settings.py and add your deployed site's URL to the ALLOWED_HOSTS list
--   `git add .`, `git commit` & `git push` again and then `git push Heroku main` to push your changes
+-   `git add .`, `git commit` & `git push` to push your changes
 -   Once the site has finished deploying you should be able to navigate to the deployed site's URL and see your site content, though it will be a little strange-looking without CSS & media files.
 -   You now need to replace the Django secret key in your settings.py (if you included it there) with an environment variable to keep it safe. To do this you can use a Django secret key generator online e.g. [djecrety](https://djecrety.ir/), copy the key it provides.
 -   Go to your Heroku app's dashboard, open settings and reveal config variables and add a new variable with a key of SECRET_KEY and a value of what you just copied.
--   In VSC, if you have used your secret key in settings.py, go back to your GitPod dashboard, click on your avatar to go your your GitPod user settings and select 'variables'
+-   In VSC, if you have used your secret key in settings.py, 
 -   Add a key of SECRET_KEY and a value of a different Django secret key from your online key generator (djecrety or similar)
--   In settings.py and change the SECRET_KEY to `SECRET_KEY = os.environ.get('SECRET_KEY', '')`
+-   In settings.py change the SECRET_KEY to `SECRET_KEY = os.environ.get('SECRET_KEY', '')`
 -   Below it change the value of DEBUG to the following `DEBUG = 'DEVELOPMENT' in os.environ` to dynamically change whether the app is in DEBUG mode depending on whether it is the development or deployed site
--   `git add .`, `git commit` & `git push` again and then `git push Heroku main` to push your changes
--   You can also tell Heroku to automatically deploy so you don't need to push changes to both GitHub and Heroku each time - you'll find this under the Deploy tab on your Heroku app.
+-   `git add .`, `git commit` & `git push` to push your changes
 
 #### Setting Up Your Static Files on Your Deployed Site using Amazon Web Services (AWS)
 
@@ -1315,7 +1437,7 @@ There are many options for storing your static files for a deployed site, below 
 -   Create a user for the group by going to the User tab and clicking 'create user'
 -   Name your user (you don't need to select AWS Console access) click next and add your user to your group clicking next as required and 'create user'
 -   Download and save the csv file with the user's credentials - this is important, you will not be able to access this information again
--   Back in GitPod go to your settings.py file and paste in the following code which tells the app to look for an environment variable called USE_AWS and if it's there to use the following settings to access the static files.
+-   Back in VSC go to your settings.py file and paste in the following code which tells the app to look for an environment variable called USE_AWS and if it's there to use the following settings to access the static files.
 
 ```
 if 'USE_AWS' in os.environ:

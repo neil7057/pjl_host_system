@@ -125,11 +125,9 @@ def remove_from_bag(request, item_id):
             del bag[item_id]['items_by_size'][size]
             if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
-            messages.success(
-                request, (
-                    f'You have updated size {size.upper()}'
-                    f' {product.name} quantity to'
-                    f' {bag[item_id]["items_by_size"][size]}'))
+            messages.success(request, (
+                f'Removed: {product.name} - Size: '
+                f'{size.upper()} - from your bag'))
         else:
             bag.pop(item_id)
             messages.success(

@@ -71,7 +71,28 @@ body {
 
 .btn-outline-black {
     background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
+    color: black !important; 
+    border: 1px solid black;
+}
+
+.btn-outline-message-all {
+    background: blue;
+    color: white !important;
+    font-weight: 700; 
+    border: 1px solid black;
+}
+
+.btn-outline-message-open {
+    background: #22cf22;
+    color: #8f0000 !important;
+    font-weight: 700; 
+    border: 1px solid black;
+}
+
+.btn-outline-message-closed {
+    background: #f1a2a2;
+    color: #003300 !important;
+    font-weight: 700;
     border: 1px solid black;
 }
 
@@ -373,6 +394,10 @@ input[name='q']::placeholder {
 	color: #000; 
 }
 
+textarea {
+    width: 35vw;
+}
+
 /* Product Form */
 
 .btn-file {
@@ -573,8 +598,7 @@ footer {
         right: 0;
         left: 0;
         z-index: 1030;
-    }
- 
+    } 
     .header-container {
         padding-top: 180px;
     }
@@ -584,20 +608,17 @@ footer {
     .header-container {
         padding-top: 116px;
     }
-
     body {
         height: calc(100vh - 116px);
     }
-
     .header-container {
         padding-top: 124px;
     }
-
     .nav-item {
         font-size: .8rem;
     }
-    .slider {
-        width: 45%;
+    textarea {
+        width: 50vw;
     }
 }
 
@@ -605,12 +626,11 @@ footer {
     h4 {
         font-size: 1rem;
     }
-
     ul {
         padding: 0;
     }
-    .slider {
-        width: 75%;
+    .btn-resize-sm {
+        font-size: .6rem;
     }
 }
 
@@ -623,17 +643,21 @@ footer {
         padding-left: 4px;
         padding-right: 4px;
     }
+    textarea {
+        width: 80vw;
+    }
 }
 
 @media (max-width: 345px) {
     h4 {
         font-size: .8rem;
     }
-
     h3 {
         font-size: .4rem !important;
     }
-    
+    h2 {
+        font-size: 1.6rem !important;
+    }
     .header-container {
         padding-top: 144px;
     }

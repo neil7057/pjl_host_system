@@ -71,7 +71,7 @@ class TestReviewsViews(TestCase):
             username='user1', password='password1')
         self.assertTrue(logged_in)
 
-        response = self.client.get('/reviewsadd_review/1')
+        response = self.client.get('/reviews/add_review/1')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'reviews/add_review.html')
 
@@ -81,10 +81,10 @@ class TestReviewsViews(TestCase):
         if user is not logged in
         """
 
-        response = self.client.get('/reviewsadd_review/1')
+        response = self.client.get('/reviews/add_review/1')
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
-            response, '/accounts/login/?next=/reviewsadd_review/1')
+            response, '/accounts/login/?next=/reviews/add_review/1')
 
     def test_edit_review_page_for_authorized_user(self):
         """ Test edit_review view for logged in user"""
@@ -93,7 +93,7 @@ class TestReviewsViews(TestCase):
             username='user1', password='password1')
         self.assertTrue(logged_in)
 
-        response = self.client.get('/reviewsedit_review/1/')
+        response = self.client.get('/reviews/edit_review/1/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'reviews/edit_review.html')
 
@@ -107,7 +107,7 @@ class TestReviewsViews(TestCase):
             username='user1', password='password1')
         self.assertTrue(logged_in)
 
-        response = self.client.get('/reviewsedit_review/2/')
+        response = self.client.get('/reviews/edit_review/2/')
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response, '/products/1/')
@@ -122,7 +122,7 @@ class TestReviewsViews(TestCase):
             username='superuser1', password='super_password1')
         self.assertTrue(logged_in)
 
-        response = self.client.get('/reviewsedit_review/1/')
+        response = self.client.get('/reviews/edit_review/1/')
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response, '/products/1/')
@@ -137,7 +137,7 @@ class TestReviewsViews(TestCase):
             username='user1', password='password1')
         self.assertTrue(logged_in)
 
-        response = self.client.get('/reviewsdelete_review/2/')
+        response = self.client.get('/reviews/delete_review/2/')
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response, '/products/1/')
