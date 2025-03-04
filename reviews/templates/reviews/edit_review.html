@@ -45,6 +45,8 @@
                 {{ form.as_p }}
                 <!-- Hidden input to redirect user back to previous page once submitted -->
                 <input type="hidden" name="redirect_url" value="{{ request.GET.next }}">
+                <small>Current Product Rating</small>
+                {% include "products/display_rating.html" %}
                 <p class="text-edit">Choose a score between 1 (Poor) and 5 (Nailed It)</p>
                 <!-- Buttons -->
                 <div class="text-center">

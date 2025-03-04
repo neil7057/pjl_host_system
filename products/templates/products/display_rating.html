@@ -1,0 +1,83 @@
+    <!-- significantly adapted from this idea -->
+    <!-- https://stackoverflow.com/questions/69771396/displaying-rating-star-in-django -->
+
+    <div>
+        {% if product.rating  < 1 %}
+            <i class="golden-cookie fa-solid fa-cookie-bite" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+        {% endif %}    
+      
+        {% if product.rating >= 1 and product.rating < 1.5%}
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+        {% elif product.rating >= 1.5 and product.rating < 2 %}
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie-bite" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+        {% endif %}
+          
+        {% if product.rating >= 2 and product.rating < 2.5%}
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+        {% elif product.rating >= 2.5 and product.rating < 3 %}
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie-bite" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+        {% endif %}
+         
+        {% if product.rating >= 3 and product.rating < 3.5%}
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>    
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+        {% elif product.rating >= 3.5 and product.rating < 4 %}
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie-bite" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+        {% endif %}
+   
+        {% if product.rating >= 4 and product.rating < 4.5%}
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="fa-solid fa-cookie" aria-hidden="true"></i>
+        {% elif product.rating >= 4.5 and product.rating < 5 %}
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i> 
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie-bite" aria-hidden="true"></i>
+        {% endif %}
+
+        {% if product.rating == 5%}
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+            <i class="golden-cookie fa-solid fa-cookie" aria-hidden="true"></i>
+        {% endif %}
+    </div>
+
+    {% if product.rating <= 1 %}
+        <small>{{ product.rating }} Golden Cookie</small>
+    {% else %}
+        <small>{{ product.rating }} Golden Cookies</small>
+    {% endif %}
+

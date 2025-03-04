@@ -38,7 +38,7 @@
                 </p>
                 {% endif %}
                 {% if product.rating %}
-                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                    {% include "products/display_rating.html" %}
                 {% else %}
                     <small class="text-muted">No Rating</small>
                 {% endif %}
@@ -144,12 +144,15 @@
                 <i class="fas fa-user text-edit"></i><span>&nbsp;
                 {% if review.user != None %}{{ review.user }}{% else %}No Longer Active{% endif %}</span>
                 <span class="float-right">{{ review.created_on|date:"d/m/Y" }}</span>
-                <p class ="">Rating Given:&nbsp;<span class=" fa-solid fa-star"></span><span class="text-edit">&nbsp;{{ review.rating }}</span></p>
+                <p class="mt-2 mb-0">Rating Given:</p>
+                <!-- Get review rating score NOT overall Product rating -->
+                {% include "reviews/display_rating.html" %}
                 {% if request.user.is_superuser or request.user == review.user %}
                 <!-- Edit and Delete Review - Review Author or Superuser Only -->
-                    <small></small>
+                <div class="float-right">
                 <a href="{% url 'edit_review' review.id %}?next={{ request.path|urlencode }}" class="text-edit">Edit</a> |
                 <a class="text-danger" href="{% url 'delete_review' review.id %}?next={{ request.path|urlencode }}">Delete</a>
+                </div>
                 <p class ="text-break mt-2"><span class="text-oreo">Review:&nbsp;</span>{{ review.content }}</p>
                 {% else %}
                 <p class ="text-break mt-2"><span class="text-oreo">Review:&nbsp;</span>{{ review.content }}</p>
