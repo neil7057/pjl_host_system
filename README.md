@@ -116,7 +116,7 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
 
 The website is an E-commerce site selling a range of Oreo related products. Shoppers can search for and buy a range of products
 and checkout anonymously or create an account where they can save their details for future purchases and enquire on past orders. 
-Visitors can email an administartor via the Contact_us page, whether they have an account or not.
+Visitors can email an administrator via the Contact_us page, whether they have an account or not.
 Registered users can leave product reviews which must be apporved by an admin before becoming visible.
 There is an admin page to review messages and reviews and toggle their status. Further, more refined actions can be carried out via the django admin function.
 
@@ -125,6 +125,7 @@ There is an admin page to review messages and reviews and toggle their status. F
     -   Browse by category
     -   Browse within Catgeory
     -   Search for products
+    -   See product reviews
     -   Order items
     -   Checkout
     -   Set up an account/profile 
@@ -158,21 +159,20 @@ There is an admin page to review messages and reviews and toggle their status. F
 -   #### As a first time user I want to:
     -   Immediately understand the main purpose and use of the site
     -   View a list of products in full and by category
-    -   Be able search for the products by keyword and category
+    -   Be able to search for the products by keyword and category
     -   Identify special deals/clearance
     -   Contact the company with any queries
     -   Buy products without registration
     -   Easily see my current order total
     -   Add/remove items or change quantities from my shopping bag prior to checkout
-    -   Be able use the site on any devices and screen sizes
-    -   Login/create a user account
+    -   Be able use the site on any device and screen size
+    -   Easily register/signup for an account
 
 - #### As a registered user I want to:
-    -   Easily register/signup for an account
     -   Easily Login and Logout
     -   Have access to my profile page
     -   Easily see my current order total
-    -   Add/remove items or chenge quantities from my shopping bag prior to checkout
+    -   Add/remove items or change quantities from my shopping bag prior to checkout
     -   See my order history
     -   Be able to update and save my personal info
     -   Add a product review and edit/delete it
@@ -189,13 +189,13 @@ There is an admin page to review messages and reviews and toggle their status. F
 -   ### Design
     -   #### Colour Scheme
         -   I've used predominantly blues for the main scheme with a crisp white background on all but the Home page and admin areas to dufferentiate. Oreos are typically brown contrasted with white but i felt that brown would be too dull, although for WCAG contrast compliance it is used on some buttons. Blue by constrast is a branding colour of Oreo.
-        -   Oreo text blue is #4956C9 and used on various headings. Green is used for most page headings as that is a positive 'Go!' signal. Confirm buttons are green and cancel buttons red. Other button options are .info or .warning dependant upon context. Some have been adjusted for WCAG compliance.
+        -   Oreo text blue is #4956C9 and used on various headings. Green is used for most page headings as that is a positive 'Go!' signal. Confirm buttons are green and cancel buttons red. Other button options are .info or .warning dependant upon context. Some have been adjusted for WCAG compliance. Edit | Delete options are small amd discreet and visible or not according to login user status and DB record ownership/
         
     -   #### Typography
         -   The font is Lato and main headings are capitalised.
  
     -   #### Imagery
-        -   There is a main central image on the welcome page that is Oreo themed. All other non-admin pages have a crisp white background. Product images appear on all pages where a product is referenced, including product, detail, shopping bag and checkout. The about us page
+        -   There is a main central image on the welcome page that is Oreo themed. All other non-admin pages have a crisp white background. Product images appear on all pages where a product is referenced, including product, detail, shopping bag and checkout. The about_us page
         has a range of hyperlinked images.
 
     -   #### Design Considerations
@@ -217,7 +217,7 @@ There is an admin page to review messages and reviews and toggle their status. F
 
         -   Logged in users get to see all products, their profile details and all past orders. They can also update their details and change or reset their password. 
 
-        -   Clicking on the page title from any page takes the user back to the home/index page. I did consider making it the products page but then there would be no way bcak to /index - although the only item on the index page is a link to products.
+        -   Clicking on the page title from any page takes the user back to the home/index page. I did consider making it the products page but then there would be no way back to /index - although the only item on the index page is a link to products.
 
 -   ### Database Design
 -   #### Table Structure
@@ -307,10 +307,11 @@ There is an admin page to review messages and reviews and toggle their status. F
     -   Checkout and payment by card using Stripe
     -   Message facility
     -   Product management for Staff/Admins
+    -   Message management for Staff/Admins
     -   Profile managemnt and historic order enquiry
     -   Review management
 
-    The site is built on a django framework and templated around a 'base.html' which contains site header, footer and menu structures.
+    The site is built on a django framework and templated around a 'base.html' which contains site header, footer and menu structures. There are additional .html templates for main navigation and mobile-specific navigation. 
 
     Each discreet function is a separate django app. Most CSS and JS are in files within the static folder under the 'leo-oreos' app. 
     There are separate CSS and JS files where their application is local to a single app and they are in the respective app/static folders. 
@@ -322,7 +323,7 @@ There is an admin page to review messages and reviews and toggle their status. F
     The footer contains a link to the Privacy Noticy (DPA 2018) page and also an option to view/download the information in
     PDF format.
 
-    The footer contains a link to the contact_us page where visitirs and registered users can leave a message for admin review.
+    The footer contains a link to the contact_us page where visitors and registered users can leave a message for admin review.
 
     Email confirmations and communications are handled via django through gmail.
     
@@ -334,9 +335,7 @@ There is an admin page to review messages and reviews and toggle their status. F
 ### Common Pages
 -   Landing page image   
     *   The first page is the index or home page.
-    *   For visitors, 
-    *   For users, 
-    *   This will help to immediately show the visitor/user what the website is about. 
+    *   For visitors and registered users, This will help to immediately show what the website is about. 
 
 -   <details><summary>Landing Page - all</summary>
     <img src="leos_oreos\docs\images\screens\ss-home-page.png">
@@ -472,15 +471,16 @@ There is an admin page to review messages and reviews and toggle their status. F
 * There is a list of all products and this is searchable by keyword within title or description
 * Products can be refined by category and sub-category
 * Visitors can create an account and save their information for speedier future checkout
-* Clicking on a product on the product page opesn the product details page where items can be ordered
+* Clicking on a product on the product page opens the product_details page where items can be ordered
 * The shopping bag is accessed from the shopping cart sign at the top of each page, which has a running total
 * Visitors and shoppers can update quantities and remove items from the shopping bag
 * Clicking on the product in the shopping bag links to the full product details page
 * Online payments are processed via Stripe
-* Registered users can view order history and any reviews they've submitted - on the profile page
+* On the profile page, Registered users can view order history and any reviews they've submitted 
 * Email communication is via Gmail
 * Users can add and update their own reviews of products
 * Reviews are held invisible until authorised by an Admin
+* Product reviews are calculated as an average of approved reviews and displayed as golden cookies
 * Anyone can message site staff/admin
 * There is an ICO compliant Privacy Policy
 
@@ -574,7 +574,7 @@ This was carried out periodically as each page was created and amended and then 
 
 -   [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
  
- -  Tthe use of Crispy Forms and django templates and django allauth produces errors flagged as duplicates. These are not genuine errors and can be safely ignored.
+ -  The use of Crispy Forms, django templates and django allauth produces errors flagged as duplicates. These are not genuine errors and can be safely ignored.
 
     <details><summary>Home Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-index.png">
@@ -737,13 +737,10 @@ This was checked each time substantial changes were made to PY files. A final ch
     -   Be able use the page on any devices and screen sizes
         -   Mobiles and smaller screens have a different menu. Pages and images resize appropriately. Checkout is optimised for smaller screen sizes.
 
-    -   Login/create a user account
-        -   Visitors can register for an account.
-
-- #### As a registered user I want to:
     -   Easily register/signup for an account
         -   Registration is clearly marked on the account menu. The registration mechanism requires minimal information and validates the user's email address by sending a confirmation request.
 
+- #### As a registered user I want to:
     -   Easily Login and Logout
         -   Login/out is accessed from the account menu and is very straightforward.
 
@@ -766,10 +763,10 @@ This was checked each time substantial changes were made to PY files. A final ch
         -   Registered users can add, and (edit and delete their own) reviews.
 
     -   Be able to change and/or recover my password
-        -   Registered users can reset their password at Login or change thier password via their profile information page accessible from the Account menu.
+        -   Registered users can reset their password at Login or change their password via their profile information page accessible from the Account menu.
 
-    -   Make purchase with my delivery info always filled in
-        -   Registerd users can save their checkout address details for future purchase and these will be automatically populated in future order checkout.
+    -   Make purchases with my delivery info always filled in
+        -   Registered users can save their checkout address details for future purchase and these will be automatically populated in future order checkout.
 
     -   Message an administrator
         -   Users can message an admin from a link on the footer of every page
@@ -782,7 +779,7 @@ This was checked each time substantial changes were made to PY files. A final ch
         -   Messages are accessible from the account menu mangement option - only visible to admins. Messages can be listed and viewed in open or closed status or both (all). They can be deleted from the django admin interface.
         `
     -   Authorise, delete user reviews
-        -   The account managemnt menu option gives acces sto the admin review page where reviews awaiting authorisation can be viewed, authorised, edited or deleted. Once authorised they no longer appear on this page but can be further managed via the django admin function. 
+        -   The account managemnt menu option gives access to the admin review page where reviews awaiting authorisation can be viewed, authorised, edited or deleted. Once authorised they no longer appear on this page but can be further managed via the django admin function. 
 
     -   Have easy access to admin controls
         -   Products can be managed via the account menu, product or product-details links. Full Admin is available via the django admin function.
@@ -882,7 +879,7 @@ The use of Crispy Forms in the Authorisations app (django allauth) throws up mis
     </details>
     <br>
 
-     WCAG reports an error with a missing alt-text on products in the shopping bag. However this is audible in the screen reader test and is accurately named to the product_name so its a spurious error.
+     -  WCAG reports an error with a missing alt-text on products in the shopping bag. However this is audible in the screen reader test and is accurately named to the product_name so its a spurious error.
      Aria-labels were added to form fields with a single line of code 
     <details><summary>Checkout Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-checkout.png">
@@ -917,13 +914,17 @@ The use of Crispy Forms in the Authorisations app (django allauth) throws up mis
     <details><summary>Registration Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-registration.png">
     </details>
+    <br>
+
     -   WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
     There is a re-work option but it would unnecessarilly complicate the code to fix a problem that isn't a genuine problem.
     <br>
 
     <details><summary>Login Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-login.png">
-    </details>
+    </details
+    <br>
+
     -    WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
     There is a re-work option but it would unnecessarilly complicate the code to fix a problem that isn't a genuine problem.
     <br>
@@ -1050,7 +1051,7 @@ This confirmed that:
 
 -   #### Automated Product
     <details><summary>Automated Tests Product</summary>
-    <img src="leos_oreos\docs\images\testing\at-product.png">
+    <img src="leos_oreos\docs\images\testing\at-products.png">
     </details>
 
 -   #### Automated Reviews
@@ -1093,10 +1094,11 @@ This confirmed that:
 
     URLs for management functions and access to specific records were copied and attempted access from unauthorised accounts or when logged out to test security.
 
-    Significant manaul testing was carried out together with 92 automated tests via .py test scripts across all apps to test code coverage.
+    Significant manual testing was carried out together with 92 automated tests via .py test scripts across all apps to test code coverage.
 
 -   ##### Admin Test Account
     -   For test purposes there is an admin account. However, be aware that this has full access to all functionality. It's essential to document it here so that full functionality can be tested:
+
         -   Username: clarkkent
         -   Password: CodeIns7057@
 
@@ -1116,7 +1118,7 @@ This confirmed that:
 
 -   #### Sign Up Testing
     -   The cursor is automatically positioned at the start of the first input field. Validation is mostly taken care of by django allauth but was tested field by field with valid and invalid entries.
-    -   A confirmation email message was displayed and a confirmation email sent.
+    -   A "confirmation email" message was displayed and a confirmation email sent.
     -   Once the confirmation email was acknowledged, Login was enabled
 
 -   #### Log In Testing
@@ -1124,23 +1126,23 @@ This confirmed that:
     -   Succesful login generates a 'success' toast.
 
 -   #### Forgot Password Testing
-    -   Clicking on the link on login, displays the password reset page. 
+    -   Clicking on the link on login, displays the password reset page
     -   An email is sent to the email address input.
-        -   If the email exists on a user account, a reset email is sent.
-        -   If the email does not exist, an email is sent advising this and encourgaing signup.
+        -   If the email exists on a user account, a reset email is sent with a link to specify a new password
+        -   If the email does not exist, an email is sent advising this and encourgaing signup
 
 -   #### Change Password Testing
-    -   Clicking on the link in Profile to change password, displays the password reset page. 
-    -   If the password is changed successfully, a toast 'success' message is displayed and the change password page refreshed - this is standard django allauth functionality.
+    -   Clicking on the link in Profile to change password, displays the password reset page
+    -   If the password is changed successfully, a toast 'success' message is displayed and the change password page refreshed - this is standard django allauth functionality
 
 -   ####  Shopping Testing
     -   Add to bag
-        -   add an item to shopping bag and checkout.
+        -   add an item to shopping bag and checkout
         -   add multiple items to shopping bag and checkout
         -   increase quantity
         -   add/change size
         -   test that free delivery is triggered when total value exceeds threshold
-        and is 'untriggered if deletion of items reduces order total below threshold
+        and is 'untriggered' if deletion of items reduces order total below threshold
     -   Remove from bag
         -   reduce quantity and checkout
         -   remove via remove option to check removes from bag and adjusts delivery if appropriate
@@ -1148,7 +1150,7 @@ This confirmed that:
         -   increase quantity and check that sub totals and delivery charges adjust
         -   reduce quantity and check that sub totals and delivery charges adjust
     -   Size processing   
-        -   remove clothing items with a aspcified size and ensure that the same product with a differnt size remains unaffected.
+        -   remove clothing items with a specified size and ensure that the same product with a differnt size remains unaffected.
         -   amend quantities on sized items to ensure only the particular sized product order is affected
 
  -  ####  Checkout Testing
@@ -1183,15 +1185,15 @@ This confirmed that:
 
     #### Review Testing
     -   Add Review
-        -   Validate only logged in users can add a review
+        -   validate only logged in users can add a review
         -   validate all fields present
         -   validate score is between 1 and 5
-        -   validate that review is placed #unauthorised'
+        -   validate that review is placed 'unauthorised'
 
     -   Edit Review
         -   validate only owner and admin can edit/delete reviews
         -   validate field changes to ensure mandatory fields are populated
-        -   validate that updated review becomes 'unauthotrised'
+        -   validate that updated review becomes 'unauthorised'
         -   validate range 1-5 on rating field
 
 -   ####  Admin Testing
@@ -1199,13 +1201,13 @@ This confirmed that:
         -   Product can be added via 'product management' link from accounts menu or django admin console.
 
     -   Amend product
-        -   Product can be editted from product and product-details pages or django admin console.
+        -   Product can be editted from product and product_details pages or django admin console.
 
     -   Delete product
-        -   Product can be deleted from product and product-details pages or django admin console.
+        -   Product can be deleted from product and product_details pages or django admin console.
 
     -   Authorise Review
-        -   Ensure review is authorised and visible on prodcut, disappears from admin list
+        -   Ensure review is authorised and visible on product, disappears from admin list
     
     -   Delete Review
         -   Check that review is removed from product details page and deleted from DB
@@ -1217,7 +1219,7 @@ This confirmed that:
     -   By keyword
         -   via the search bar.
     -   By category
-        -   Via the product menu/submenus.  
+        -   via the product menu/submenus.  
 
 -   #### Links Testing
 
@@ -1232,11 +1234,11 @@ This confirmed that:
     Testing was performed:
     -   On the Font Awesome Social Media icons in the footer to ensure that each one opened in a new tab.
 
-    -   Each item opened a new tab when clicked as expected and correct hover effect was present.
+    -   Each item opened in a new tab when clicked as expected and correct hover effect was present.
 
 -   #### Footer Contact Information
 
-    -   The 'Contact_us' link directs to the contact us webpage with a form and further contact details (phone, address, email).
+    -   The 'Contact_us' link directs to the contact us webpage with a form and further contact details (phone, address, email). The form is validated and successful completion geerates an 'open' status message for admin review and displays a 'success' message to the user
  
 ### Bugs and Fixes
 
@@ -1272,7 +1274,7 @@ This confirmed that:
 *   Ideas for future development could include:
     -   Paginate products page so only x number of items displayed for all products. not an issue with 40 products but could become so as the site grows.
     -   Discounted prices/postage for regular customers.
-    -   Add VAT processing if future range includes vatable items.
+    -   Add VAT processing if future range includes more vatable items. If required currently, VAT invoices could be generated manually for the small number of adult-sized clothing items on the site.
 
 ## Deployment
 
