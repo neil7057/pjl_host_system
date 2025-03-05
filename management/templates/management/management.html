@@ -42,9 +42,10 @@
                     <!-- Current Message Filter & Count -->
                 </div>
                 <div class="col-12">
-                    <p class="pl-3">{% if current_filter %}<span class="text-uppercase">
-                        {{current_filter}}{% else %}&nbsp;All&nbsp;{% endif %} MESSAGES 
-                        ({{ customer_messages|length }})</span></p>
+                    <p class="pl-3">{% if current_filter %}<span class="text-edit"><strong>
+                        {{current_filter}}</strong></span>{% else %}<span class="text-oreo">
+                            <strong>&nbsp;All&nbsp;</strong></span>{% endif %} Messages 
+                        ({{ customer_messages|length }})</p>
                 </div>
                 <!-- Messages Filter Buttons -->
                 <div class="col-12">

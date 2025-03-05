@@ -90,13 +90,11 @@
                                 </div>
                             </div>   
                             <div class="col-md-4 col-sm-2"></div>
-                            <a href="{% url 'products' %}" class="btn btn-success btn-resize-sm rounded-15 mr-3 mb-5 mt-5">
-                                    <span class="icon">
-                                    <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                                    </span>
+                            <a href="{% url 'products' %}" class="btn btn-success btn-sm rounded-15 mr-2 mb-5 mt-5">
+
                                         <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <input type="submit" class="btn btn-info btn-resize-sm rounded-15 text-uppercase mb-5 mt-5" value="Add to Order">
+                            <input type="submit" class="btn btn-info btn-sm rounded-15 text-uppercase mb-5 mt-5" value="Order">
                             <!-- return to products page after order successfully added -->
                             <input type="hidden" name="redirect_url" value="{% url 'products' %}">    
                         </div>

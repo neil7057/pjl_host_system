@@ -172,8 +172,10 @@
         <div class="container-fluid">
             <div id="footer-details" class="row ">
                 <!-- Social Media Links   -->
-                <div class="col-sm-6 pt-3">
-                    <img  src="{{ MEDIA_URL }}oreo-social.png" alt="oreo socials logo" height="97">
+                <div class="col-sm-6">
+                    <div class="d-none d-sm-block">
+                    <img src="{{ MEDIA_URL }}oreo-social.png" alt="oreo socials logo" height=97>
+                    </div>
                     <ul class="center-content social-links">
                         <li class="list-inline-item">
                             <a target="_blank" href="https://www.facebook.com/OREOUKI/?brand_redir=594295494373133#"
@@ -214,22 +216,23 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-sm-6 pt-3">
+                <div class="col-sm-6">
                     <!-- hide title on screens below 576px -->
                     <h3 class="uppercase text-oreo footer-head-text d-none d-sm-block"><strong>Good to Know</strong></h3>
+                    <div>
                     <p>
-                        <a href="{% url 'about' %}" class="hvr-grow footer-text "
+                        <a class="footer-text" href="{% url 'about' %}" class="hvr-grow"
                             aria-label="go to my comments, feedback page (opens in a new tab)">About Us</a>
                     </p>
                     <p>
-                        <a href="{% url 'contact_us' %}" class="hvr-grow footer-text "
+                        <a class="footer-text" href="{% url 'contact_us' %}" class="hvr-grow"
                             aria-label="direct link to email">Contact Us</a>
                     </p>
                     <p>
-                        <a href="{% url 'privacy' %}" class="hvr-grow footer-text" 
+                        <a class="footer-text" href="{% url 'privacy' %}" class="hvr-grow" 
                             aria-label="go to my comments, feedback page (opens in a new tab)">Privacy Notice</a>
                     </p>
-                    <br>
+                    </div>
                 </div>
                 <p class="copyright col-12 text-copyright"><strong>Copyright &copy; Leo's Oreos - Just For Fun ! </strong><span id="copyright"></span></p>
             </div>

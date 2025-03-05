@@ -87,15 +87,15 @@ body {
 }
 
 .btn-outline-message-open {
-    background: #22cf22;
-    color: #8f0000 !important;
+    background: #106510;
+    color: #fff !important;
     font-weight: 700; 
     border: 1px solid black;
 }
 
 .btn-outline-message-closed {
-    background: #f1a2a2;
-    color: #003300 !important;
+    background: #A31919;
+    color: #fff !important;
     font-weight: 700;
     border: 1px solid black;
 }
@@ -445,7 +445,7 @@ footer {
 .footer-text {
     font-weight: 600;
     font-size: 1.1rem;
-    color: #00346b !important
+    color: #2b3691 !important
 }
 
 .social-links {
@@ -498,6 +498,7 @@ footer {
 .btn-success,
 .text-success {
     background-color: #155624;
+    font-size: 1rem;
 }
 
 .btn-warning {
@@ -513,6 +514,7 @@ footer {
 
 .btn-info {
     background-color: #0c5864;
+    font-size: 1rem;
 }
 
 .btn-right {
@@ -554,7 +556,7 @@ footer {
 .title-review {
     font-weight: 700;
     font-size: 2rem;
-    padding: none;
+    padding: 0;
 }
 
 .btn-home {
@@ -624,6 +626,9 @@ footer {
     textarea {
         width: 50vw;
     }
+    .footer-header-text {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -635,6 +640,27 @@ footer {
     }
     .btn-resize-sm {
         font-size: .6rem;
+    }
+}
+
+@media (min-width: 576px) {
+    #footer-details {
+        margin-bottom: .1rem !important;
+        padding-top: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-text {
+        margin-bottom: .1rem !important;
+        padding-top: 0 !important;
+    }
+    .text-copyright {
+        margin-top: .5rem;
+        font-size: .8rem;
+    }
+    .social-links {
+        margin-bottom: 0;
     }
 }
 
@@ -668,5 +694,14 @@ footer {
 
     .product-sub-header {
         margin-top: 0;
+    }
+}
+
+@media (max-width: 362px) {
+    .btn-info {
+        font-size: .7rem;
+    }
+    .btn-success {
+        font-size: .7rem;
     }
 }
