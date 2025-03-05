@@ -5,7 +5,7 @@
 
 ## Leo's Oreo Emporium
 
-An E-commerce website to pay homage to my son's love of the biscuits themselves and everything Oreo. Built using a django framework; data structures follow those employed in similar applications with additions for enhanced functionality/complexity. 
+An E-commerce website to pay homage to my son's love of the biscuits themselves and everything Oreo. Built within a django framework; data structures follow those employed in similar applications with additions for enhanced functionality/complexity. 
 
 [View the live project here.](https://leos-oreos-shop-2a6fc504879b.herokuapp.com/)
 
@@ -217,7 +217,7 @@ There is an admin page to review messages and reviews and toggle their status. F
 
         -   Logged in users get to see all products, their profile details and all past orders. They can also update their details and change or reset their password. 
 
-        -   Clicking on the page title from any page takes the user back to the products page rather than home/index as the only item on the index page is a link to products.
+        -   Clicking on the page title from any page takes the user back to the home/index page. I did consider making it the products page but then there would be no way bcak to /index - although the only item on the index page is a link to products.
 
 -   ### Database Design
 -   #### Table Structure
@@ -472,13 +472,17 @@ There is an admin page to review messages and reviews and toggle their status. F
 * There is a list of all products and this is searchable by keyword within title or description
 * Products can be refined by category and sub-category
 * Visitors can create an account and save their information for speedier future checkout
+* Clicking on a product on the product page opesn the product details page where items can be ordered
+* The shopping bag is accessed from the shopping cart sign at the top of each page, which has a running total
+* Visitors and shoppers can update quantities and remove items from the shopping bag
+* Clicking on the product in the shopping bag links to the full product details page
 * Online payments are processed via Stripe
-* Registered users can view order history
+* Registered users can view order history and any reviews they've submitted - on the profile page
 * Email communication is via Gmail
 * Users can add and update their own reviews of products
 * Reviews are held invisible until authorised by an Admin
 * Anyone can message site staff/admin
-* There is an ICO compliant Privacy Polciy
+* There is an ICO compliant Privacy Policy
 
 ## Technologies Used
 
@@ -778,7 +782,7 @@ This was checked each time substantial changes were made to PY files. A final ch
         -   Messages are accessible from the account menu mangement option - only visible to admins. Messages can be listed and viewed in open or closed status or both (all). They can be deleted from the django admin interface.
         `
     -   Authorise, delete user reviews
-        -   The account managemnt menu option gives acces sto the admin review page where reviews awaiting authorisation can be viewed, authorised, edited or deleted. Once authorised they no longer appear on this page but can be further managed via teh django admin function. 
+        -   The account managemnt menu option gives acces sto the admin review page where reviews awaiting authorisation can be viewed, authorised, edited or deleted. Once authorised they no longer appear on this page but can be further managed via the django admin function. 
 
     -   Have easy access to admin controls
         -   Products can be managed via the account menu, product or product-details links. Full Admin is available via the django admin function.
@@ -1021,7 +1025,7 @@ This confirmed that:
     <br>
 
 ### Automated Testing
--   92 automated tests for code coverage and validated were created in teh following apps:
+-   92 automated tests for code coverage and validated were created in the following apps:
     *   Profiles
     *   Bag
     *   Checkkout
@@ -1232,7 +1236,7 @@ This confirmed that:
 
 -   #### Footer Contact Information
 
-    -   The 'Contact_us' link directs to teh contact us webpage with a form and further contact details (phone, address, email).
+    -   The 'Contact_us' link directs to the contact us webpage with a form and further contact details (phone, address, email).
  
 ### Bugs and Fixes
 

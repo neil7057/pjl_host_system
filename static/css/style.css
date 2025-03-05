@@ -517,6 +517,12 @@ footer {
     font-size: 1rem;
 }
 
+.btn-search {
+    background-color: #0c5864;
+    font-size: 1rem;
+    color: #fff;
+}
+
 .btn-right {
     text-align: right;
     display: block;
