@@ -75,8 +75,8 @@
         {% endif %}
     </div>
     
-    {% if review.rating <= 1 %}
+    {% if review.rating|floatformat:1 <= 1 %}
         <small>{{ review.rating }} Golden Cookie</small>
     {% else %}
-        <small>{{ review.rating }} Golden Cookies</small>
+        <small>{{ review.rating|floatformat:1 }} Golden Cookies</small>
     {% endif %}

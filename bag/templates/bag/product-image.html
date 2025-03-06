@@ -1,9 +1,9 @@
 {% if item.product.image %}
 <a href="{% url 'product_detail' item.product.id %}">
-<img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+<img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ product.name }}" aria-label="product image">
 </a>
 {% else %}
 <a href="{% url 'product_detail' item.product.id %}">
-<img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+<img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" aria-label="blank product image">
 </a>
 {% endif %}

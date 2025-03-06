@@ -5,7 +5,8 @@
             <div class="input-group-prepend">
                 <button class="decrement-qty btn btn-sm btn-danger rounded-15 decrement-qty_{{ item.item_id }} 
                     {% if item.size %}decrement-size_{{ item.item_id }}_{{ item.size }}{% endif %}" 
-                    data-item_id="{{ item.item_id }}" data-size="{{ item.size }}">
+                    data-item_id="{{ item.item_id }}" data-size="{{ item.size }}"
+                    aria-label="Decrement Quantity Button">
                     <span>
                         <i class="fas fa-minus fa-sm"></i>
                     </span>
@@ -14,11 +15,13 @@
             <input class="form-control form-control-sm rounded-15 qty_input id_qty_{{ item.item_id }} 
                 {% if item.size %}size_{{ item.item_id }}_{{ item.size }}{% endif %}" type="number"
                 name="quantity" value="{{ item.quantity }}" min="1" max="9"
-                data-item_id="{{ item.item_id }}" data-size="{{ item.size }}">
+                data-item_id="{{ item.item_id }}" data-size="{{ item.size }}"
+                aria-label="Current Quantity Button">
             <div class="input-group-append">
                 <button class="increment-qty btn btn-sm btn-success rounded-15 increment-qty_{{ item.item_id }} 
                     {% if item.size %}increment-size_{{ item.item_id }}_{{ item.size }}{% endif %}"
-                    data-item_id="{{ item.item_id }}" data-size="{{ item.size }}">
+                    data-item_id="{{ item.item_id }}" data-size="{{ item.size }}"
+                    aria-label="Increment Quantity Button">
                     <span>
                         <i class="fas fa-plus fa-sm"></i>
                     </span>

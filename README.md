@@ -458,6 +458,7 @@ There is an admin page to review messages and reviews and toggle their status. F
     </details>
     <br>
 
+    -   Images appear with a white background on a pink page. However, this is an admin area only so this is acceptable. If this were a customer facing page, i would have duplicate images with a matching background.
     <details><summary>Management</summary>
     <img src="leos_oreos\docs\images\screens\ss-management.png">
     </details>
@@ -847,6 +848,9 @@ Testing was focused to ensure the following criteria were met:
 Results:
 
 The use of Crispy Forms in the Authorisations app (django allauth) throws up missing aria-label errors. It's possible to either remove crispy forms or add additional forms.py defs but this unnecessarilly complicates the code to 'fix' a problem that doesn't really exist as placeholders are clear and the screen reader software detects the placeholder as a field label.
+
+Some pages report heading levels skipped but I have chosen a specific design and layout and don't wish to use all heading levsl on each page or start a page with a h1. This doesn't affect site comprehension when navigated with a screen reader.
+
 -   WCAG results:
 
     <details><summary>Home Page</summary>
@@ -879,8 +883,6 @@ The use of Crispy Forms in the Authorisations app (django allauth) throws up mis
     </details>
     <br>
 
-     -  WCAG reports an error with a missing alt-text on products in the shopping bag. However this is audible in the screen reader test and is accurately named to the product_name so its a spurious error.
-     Aria-labels were added to form fields with a single line of code 
     <details><summary>Checkout Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-checkout.png">
     </details>
@@ -948,7 +950,10 @@ Manual tests were also performed to ensure the website was as accessible as poss
 
 ### Screen Reader
 
-Screen reader testing was performed using [Screen Reader Chrome plugin](https://chromewebstore.google.com/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn).
+Screen reader testing was performed using [Screen Reader Chrome plugin](https://chromewebstore.google.com/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn). This has since been depecrated by Google.
+
+So, [https://www.nvaccess.org/](NV Access) was also used.
+
 This confirmed that:
 
 -   All text is readable.
@@ -1097,10 +1102,7 @@ This confirmed that:
     Significant manual testing was carried out together with 92 automated tests via .py test scripts across all apps to test code coverage.
 
 -   ##### Admin Test Account
-    -   For test purposes there is an admin account. However, be aware that this has full access to all functionality. It's essential to document it here so that full functionality can be tested:
-
-        -   Username: clarkkent
-        -   Password: CodeIns7057@
+    -   For test purposes there is an admin account but details are restricted and available on valid request. Test user accounts are below:
 
 -   ##### User Test Accounts
     -   For adding reviews and checking logged in user functions.

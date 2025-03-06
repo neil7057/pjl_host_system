@@ -13,6 +13,9 @@ class ReviewForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields["rating"].widget.attrs['min'] = 1
+        self.fields["rating"].widget.attrs['max'] = 5
+        self.fields["rating"].widget.attrs['step'] = .1
 
         # Sets placeholder values
         placeholders = {

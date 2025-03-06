@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import (
-    MaxValueValidator, MinValueValidator
+    MaxValueValidator, MinValueValidator, StepValueValidator
 )
 from django.contrib.auth.models import User
 from products.models import Product
@@ -36,12 +36,14 @@ class Review(models.Model):
         max_length=500
     )
     rating = models.DecimalField(
-        max_digits=3, decimal_places=2, null=False,
+        max_digits=2, decimal_places=1, null=False,
         validators=[
             MaxValueValidator
             (5, message="Glad you're so pleased but Maximum score is 5!"),
             MinValueValidator
-            (1, message="Score must be 1 or more - Be Generous!")
+            (1, message="Score must be 1 or more - Be Generous!"),
+            StepValueValidator
+            (0.1, message="Scores are in one decimal point only")
         ],
         blank=False, default=0)
 
