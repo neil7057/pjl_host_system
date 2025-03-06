@@ -52,9 +52,9 @@
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
           <form method="GET" action="{% url 'products' %}">
               <div class="input-group w-100">
-                  <input class="form-control border border-info rounded-15" type="text"
+                  <input class="form-control border border-info rounded-15 hide-labels" type="text"
                    name="q" placeholder="Search our site"
-                   aria-label="search term" class="hide-labels">
+                   aria-label="search term">
                   <div class="input-group-append">
                       <button aria-label="search button" class="form-control btn btn-info ml-2 border border-black rounded-15" type="submit">
                           <span class="icon">
@@ -221,15 +221,15 @@
                     <h3 class="uppercase text-oreo footer-head-text d-none d-sm-block"><strong>Good to Know</strong></h3>
                     <div>
                     <p>
-                        <a class="footer-text" href="{% url 'about' %}" class="hvr-grow"
+                        <a class="footer-text hvr-grow" href="{% url 'about' %}"
                             aria-label="go to my comments, feedback page (opens in a new tab)">About Us</a>
                     </p>
                     <p>
-                        <a class="footer-text" href="{% url 'contact_us' %}" class="hvr-grow"
+                        <a class="footer-text hvr-grow" href="{% url 'contact_us' %}"
                             aria-label="direct link to email">Contact Us</a>
                     </p>
                     <p>
-                        <a class="footer-text" href="{% url 'privacy' %}" class="hvr-grow" 
+                        <a class="footer-text hvr-grow" href="{% url 'privacy' %}" 
                             aria-label="go to my comments, feedback page (opens in a new tab)">Privacy Notice</a>
                     </p>
                     </div>

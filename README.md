@@ -575,7 +575,7 @@ This was carried out periodically as each page was created and amended and then 
 
 -   [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
  
- -  The use of Crispy Forms, django templates and django allauth produces errors flagged as duplicates. These are not genuine errors and can be safely ignored.
+ -  The use of a base.html template with a menu and a separate include for a mobile-nav header, produces warnings about a duplicate ID. This can be safely ignored
 
     <details><summary>Home Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-index.png">
@@ -593,6 +593,7 @@ This was carried out periodically as each page was created and amended and then 
     <details><summary>Sign Up Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-registration.png">
     </details>
+    django all-auth produces a 'ul' nested error in generated code. can be ignored.
 
     <details><summary>Login Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-login.png">
@@ -609,7 +610,7 @@ This was carried out periodically as each page was created and amended and then 
     <details><summary>Edit Product Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-edit-product.png">
     </details>
--   The use of Crispy Forms to render the input fields of the page cause some html errors. These can be safely ignored
+-   The use of Crispy Forms to render the input fields of the page cause some html errors. These can be safely ignored.
     
     <details><summary>Shopping Bag Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-shopping-bag.png">
@@ -618,6 +619,7 @@ This was carried out periodically as each page was created and amended and then 
     <details><summary>Checkout</summary>
     <img src="leos_oreos\docs\images\testing\w3c-html-checkout.png">
     </details>
+    django countries prodcues a placeholder error which can be ignored.
 
     <details><summary>Checkout Success Page</summary>
     <img src="leos_oreos\docs\images\testing\w3c-checkout-success.png">
@@ -851,97 +853,94 @@ The use of Crispy Forms in the Authorisations app (django allauth) throws up mis
 
 Some pages report heading levels skipped but I have chosen a specific design and layout and don't wish to use all heading levsl on each page or start a page with a h1. This doesn't affect site comprehension when navigated with a screen reader.
 
--   WCAG results:
+WCAG results:
 
-    <details><summary>Home Page</summary>
+-   <details><summary>Home Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-home.png">
     </details>
     <br>
 
-    <details><summary>Product Page</summary>
+-   <details><summary>Product Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-products.png">
     </details>
     <br>
 
-    <details><summary>Product Details Page</summary>
+-   <details><summary>Product Details Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-product-details.png">
     </details>
     <br>
 
-    <details><summary>Add Review Page</summary>
+-   <details><summary>Add Review Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-add-review.png">
     </details>
     <br>
 
-      <details><summary>Edit Review Page</summary>
+-   <details><summary>Edit Review Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-edit-review.png">
     </details>
     <br>
 
-    <details><summary>Shopping Bag Page</summary>
+-   <details><summary>Shopping Bag Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-shopping-bag.png">
     </details>
     <br>
 
-    <details><summary>Checkout Page</summary>
+-   <details><summary>Checkout Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-checkout.png">
     </details>
     <br>
 
-    <details><summary>Checkout Success Page</summary>
+-   <details><summary>Checkout Success Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-checkout-success.png">
     </details>
     <br>
 
-    <details><summary>About Page</summary>
+-   <details><summary>About Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-about.png">
     </details>
     <br>
 
-    <details><summary>Privacy Policy Page</summary>
+-   <details><summary>Privacy Policy Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-privacy.png">
     </details>
     <br>
     
-    <details><summary>Contact Us Page</summary>
+-   <details><summary>Contact Us Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-contact-us.png">
     </details>
     <br>
 
-    <details><summary>Search Results Page</summary>
+-   <details><summary>Search Results Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-search-results.png">
     </details>
     <br>
     
-    <details><summary>Registration Page</summary>
+-   <details><summary>Registration Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-registration.png">
     </details>
-    <br>
+WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
+    There is a re-work option but it would unnecessarily complicate the code to fix a problem that isn't a genuine problem.
 
-    -   WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
-    There is a re-work option but it would unnecessarilly complicate the code to fix a problem that isn't a genuine problem.
-    <br>
 
-    <details><summary>Login Page</summary>
+-   <details><summary>Login Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-login.png">
     </details
-    <br>
 
-    -    WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
-    There is a re-work option but it would unnecessarilly complicate the code to fix a problem that isn't a genuine problem.
-    <br>
+WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
+    There is a re-work option but it would unnecessarily complicate the code to fix a problem that isn't a genuine problem.
 
-    <details><summary>Logout Page</summary>
+
+-   <details><summary>Logout Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-logoff.png">
     </details>
     <br>
 
-    <details><summary>Profile Page</summary>
+-   <details><summary>Profile Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-profile.png">
     </details>
     <br>
    
-    <details><summary>Management Page</summary>
+-   <details><summary>Management Page</summary>
     <img src="leos_oreos\docs\images\testing\wcag-management.png">
     </details>
     <br>

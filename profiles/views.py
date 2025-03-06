@@ -23,7 +23,7 @@ def profile(request):
                            'Profile Update failed. Ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
-    
+
     # Get all user's orders
     orders = profile.orders.all()
     # Gets all user's reviews from DB
