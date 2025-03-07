@@ -327,7 +327,7 @@ There is an admin page to review messages and reviews and toggle their status. F
 
     Email confirmations and communications are handled via django through gmail.
 
-    User feedback is by customised 'toast' messages indicating the success or otherwise of user actions. There are appropriatley coloured Success, Info, Warning and error toasts and placed top-centre.
+    User feedback is by customised 'toast' messages indicating the success or otherwise of user actions. There are appropriately coloured Success, Info, Warning and error toasts and placed top-centre.
 
     Success and info messages auto-dismiss after approximately 7 seconds but can be manually closed earlier. Warning and error messages remain on screen until dismissed.
     
@@ -462,11 +462,11 @@ There is an admin page to review messages and reviews and toggle their status. F
     </details>
     <br>
 
-    -   Images appear with a white background on a pink page. However, this is an admin area only so this is acceptable. If this were a customer facing page, i would have duplicate images with a matching background.
     <details><summary>Management</summary>
     <img src="leos_oreos\docs\images\screens\ss-management.png">
     </details>
     <br>
+    -   Images appear with a white background on a pink page. However, this is an admin area only so this is acceptable. If this were a customer facing page, i would have duplicate images with a matching background.
 
 ### Site Features
 
