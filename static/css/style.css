@@ -170,13 +170,32 @@ body {
     background: #d5ddf9 !important;
 }
 
+.bg-reviews {
+    background: #f9e2f5 !important;
+}
+
+/* custom toast message colours */
 .bg-messages {
     background: #d5f9f4 !important;
 }
 
-.bg-reviews {
-    background: #f9e2f5 !important;
+.bg-success {
+    background: #2dce89;
 }
+
+.bg-info {
+    background: #63b3ed;
+}
+
+.bg-warning {
+    background: #20c997;
+}
+
+.bg-error {
+    background: #f5365c;
+}
+
+
 
 .overlay {
 	height: 100%;
@@ -261,11 +280,13 @@ input[name='q']::placeholder {
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
+    left: 50%;
     position: fixed;
-    top: 72px;
-    right: 15px;
+    transform: translate(-50%, 0px);
     z-index: 99999999999;
-    border: 1px solid blue;
+    /* border: 1px solid blue;
+    background-color: #f5365c !important; */
+    border-radius: 15px;
 }
 
 #manage-messages,
@@ -276,10 +297,6 @@ input[name='q']::placeholder {
 
 .custom-toast {
     overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */

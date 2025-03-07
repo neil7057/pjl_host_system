@@ -314,18 +314,22 @@ There is an admin page to review messages and reviews and toggle their status. F
     The site is built on a django framework and templated around a 'base.html' which contains site header, footer and menu structures. There are additional .html templates for main navigation and mobile-specific navigation. 
 
     Each discreet function is a separate django app. Most CSS and JS are in files within the static folder under the 'leo-oreos' app. 
+
     There are separate CSS and JS files where their application is local to a single app and they are in the respective app/static folders. 
 
     Social media links on the footer are to Oreo focussed sites. 
 
     The footer contains a link to an about_us page.
     
-    The footer contains a link to the Privacy Noticy (DPA 2018) page and also an option to view/download the information in
-    PDF format.
+    The footer contains a link to the Privacy Noticy (DPA 2018) page and also an option to view/download the information in PDF format.
 
     The footer contains a link to the contact_us page where visitors and registered users can leave a message for admin review.
 
     Email confirmations and communications are handled via django through gmail.
+
+    User feedback is by customised 'toast' messages indicating the success or otherwise of user actions. There are appropriatley coloured Success, Info, Warning and error toasts and placed top-centre.
+
+    Success and info messages auto-dismiss after approximately 7 seconds but can be manually closed earlier. Warning and error messages remain on screen until dismissed.
     
 ## Features
 
