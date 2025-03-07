@@ -195,8 +195,6 @@ body {
     background: #f5365c;
 }
 
-
-
 .overlay {
 	height: 100%;
 	width: 100%;
@@ -224,7 +222,6 @@ li {
 }
 
 a.category-badge > span.badge:hover {
-    /* background: #212529 !important; */
     background: green !important;
     color: #fff !important;
 }
@@ -284,8 +281,6 @@ input[name='q']::placeholder {
     position: fixed;
     transform: translate(-50%, 0px);
     z-index: 99999999999;
-    /* border: 1px solid blue;
-    background-color: #f5365c !important; */
     border-radius: 15px;
 }
 
