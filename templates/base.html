@@ -39,14 +39,14 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Leos Oreo Emporium {% block extra_title %}{% endblock %}</title>
+    <title>PJL Hosting Management {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-oreo pt-lg-2 d-none d-lg-flex">
+        <div id="topnav" class="row bg-pjl pt-lg-2 d-none d-lg-flex">
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
           <a href="{% url 'home' %}" class="nav-link main-logo-link">
-            <h1 class="logo-font hvr-grow title-font text-black ml-2 my-0"><strong>Leo's</strong><span class="text-oreo"><strong> Oreo</strong></span> Emporium</h1>
+            <img src="{{ MEDIA_URL }}pjl-logo.jpg" alt="pjl logo" height=127>
           </a>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -56,9 +56,9 @@
                    name="q" placeholder="Search our site"
                    aria-label="search term">
                   <div class="input-group-append">
-                      <button aria-label="search button" class="form-control btn btn-info ml-2 border border-black rounded-15" type="submit">
+                      <button aria-label="search button" class="form-control btn bg-white ml-2 border border-black rounded-15" type="submit">
                           <span class="icon">
-                              <i class="fas fa-search"></i>
+                              <i class="text-pjl fas fa-search"></i>
                           </span>
                       </button>
                   </div>
@@ -68,10 +68,10 @@
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
           <ul class="list-inline list-unstyled text-center text-lg-right my-0">
               <li class="list-inline-item dropdown">
-                  <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <div class="text-center hvr-grow">
-                          <div><i class="fas fa-user text-info fa-lg"></i></div>
-                          <h3 class="my-0 text-black">My Account</h3>
+                  <a class="text-white nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <div class="text-center">
+                          <div><i class="fa-solid fa-caret-down fa-lg"></i></div>
+                          <h3 class="my-0 text-white">Menu</h3>
                       </div>
                   </a>
                   <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -83,26 +83,10 @@
                           <a href="{% url 'profile' %}" class="dropdown-item hvr-grow">My Profile</a>
                           <a href="{% url 'account_logout' %}" class="dropdown-item hvr-grow">Logout</a>
                     {% else %}
-                        <a href="{% url 'account_signup' %}" class="dropdown-item hvr-grow">Register</a>
                         <a href="{% url 'account_login' %}" class="dropdown-item hvr-grow">Login</a>
                     {% endif %}
                   </div>
               </li>
-              <li class="list-inline-item">
-                  <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
-                      <div class="text-center hvr-grow">
-                          <div><i class="fa-solid text-info fa-cart-shopping fa-lg"></i></div>
-                          <h3 class="my-0 text-black">
-                              {% if grand_total %}
-                                  £{{ grand_total|floatformat:2 }}
-                              {% else %}
-                                  £0.00
-                              {% endif %}
-                          </h3>
-                      </div>
-                  </a>
-              </li>
-          </ul>
         </div>
         </div>
         <div class="row bg-oreo">
@@ -115,8 +99,8 @@
             </nav>
         </div>
         <div class="row text-center">
-            <div class="col rounded-tb15 bg-info text-white">
-                <h4 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
+            <div class="col rounded-tb15 bg-pjl text-white">
+                <h4 class="mb-4"></h4>                
             </div>            
         </div>
     </header>
@@ -169,80 +153,18 @@
     <footer>
         <div class="container-fluid">
             <div class="row text-center">
-                <div class="col rounded-bt15 bg-info text-white">
-                    <h4 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
+                <div class="col rounded-bt15 bg-pjl">
+                    <h4 class="mt-4"></h4>                
                 </div>            
             </div>
         </div>
         <div class="container-fluid">
             <div id="footer-details" class="row ">
                 <!-- Social Media Links   -->
-                <div class="col-sm-6">
-                    <div class="d-none d-sm-block">
-                    <img src="{{ MEDIA_URL }}oreo-social.png" alt="oreo socials logo" height=97>
-                    </div>
-                    <ul class="center-content social-links">
-                        <li class="list-inline-item">
-                            <a target="_blank" href="https://www.facebook.com/OREOUKI/?brand_redir=594295494373133#"
-                                aria-label="Go to my Facebook page (opens in a new tab)" class="hvr-grow">
-                                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-                                <span class="sr-only priv-list-text">Facebook</span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a target="_blank"
-                                href="https://x.com/oreo"
-                                aria-label="Go to my Twitter X account (opens in a new tab)" class="hvr-grow">
-                                <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-                                <span class="sr-only priv-list-text">Twitter</span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a target="_blank" href="https://www.instagram.com/oreo/"
-                                aria-label="Go to my instagram page (opens in a new tab)" class="hvr-grow">
-                                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-                                <span class="sr-only priv-list-text">Instagram</span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a target="_blank" href="https://www.youtube.com/oreo"
-                                aria-label="Go to Youtube (opens in a new tab)" class="hvr-grow">
-                                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-                                <span class="sr-only priv-list-text">YouTube</span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a target="_blank" href="https://www.tiktok.com/@oreo"
-                                aria-label="Go to tiktok web site (opens in a new tab)"
-                                class="hvr-grow">
-                                <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
-                                <span class="sr-only priv-list-text">TikTok</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-6">
-                    <!-- hide title on screens below 576px -->
-                    <h3 class="uppercase text-oreo footer-head-text d-none d-sm-block"><strong>Good to Know</strong></h3>
-                    <div>
-                    <p>
-                        <a class="footer-text hvr-grow" href="{% url 'about' %}"
-                            aria-label="go to my comments, feedback page (opens in a new tab)">About Us</a>
-                    </p>
-                    <p>
-                        <a class="footer-text hvr-grow" href="{% url 'contact_us' %}"
-                            aria-label="direct link to email">Contact Us</a>
-                    </p>
-                    <p>
-                        <a class="footer-text hvr-grow" href="{% url 'privacy' %}" 
-                            aria-label="go to my comments, feedback page (opens in a new tab)">Privacy Notice</a>
-                    </p>
-                    </div>
-                </div>
-                <p class="copyright col-12 text-copyright"><strong>Copyright &copy; Leo's Oreos - Just For Fun ! </strong><span id="copyright"></span></p>
+              
+                <p class="mt-4 mb-4 copyright col-12 text-copyright"><strong>Copyright &copy; Fnb Software 2025 </strong><span id="copyright"></span></p>
             </div>
         </div>
     </footer>
-
   </body>
 </html>

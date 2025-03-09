@@ -1,1 +1,1 @@
-web: gunicorn leos_oreos.wsgi:application
+web: gunicorn pjl_host.wsgi:application

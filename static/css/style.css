@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('/media/oreo-backg.jpg')  no-repeat center center;
+    background: url('/media/eastbourne-banner.jpg')  no-repeat center center;
     background-size: cover;
     height: calc(100vh - 194px);
     color: #555;
@@ -45,81 +45,11 @@ body {
 
 /* Buttons */
 
-.shop-now-button {
-    background: #4e51d3;
-    color: #fff;
-    font-weight: 700;
-    min-width: 200px;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    border: solid 3px black;
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.btn-oreo {
-    background: #4956c9;
-    color: white;
-}
-
-.golden-cookie {
-    color: #ffd700;
-}
-
-.btn-outline-black {
-    background: white;
-    color: black !important; 
-    border: 1px solid black;
-}
-
-.btn-outline-message-all {
-    background: blue;
-    color: white !important;
-    font-weight: 700; 
-    border: 1px solid black;
-}
-
-.btn-outline-message-open {
-    background: #106510;
-    color: #fff !important;
-    font-weight: 700; 
-    border: 1px solid black;
-}
-
-.btn-outline-message-closed {
-    background: #A31919;
-    color: #fff !important;
-    font-weight: 700;
-    border: 1px solid black;
-}
-
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    background: black;
-    color: white !important;
-}
-
 .btn-center {
-    display: block;
-    margin: auto;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #0e9375;
-    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .hvr-grow:hover, 
@@ -142,32 +72,8 @@ body {
     color:  #981b27;
 }
 
-.text-oreo {
-    color: #4956c9 !important;
-}
-
-.text-logo {
-    color: #6868fd;
-    font-weight: 700;
-}
-
-.text-approval {
-    color: #a20b33;
-    font-weight: 700;
-    font-size: 2rem;
-    text-align: center;
-}
-
-.border-black {
-    border: 1px solid black !important;
-}
-
-.bg-black {
-    background: #000 !important;
-}
-
-.bg-oreo {
-    background: #d5ddf9 !important;
+.bg-pjl {
+    background: #002e61;
 }
 
 .bg-reviews {
@@ -209,26 +115,8 @@ li {
     margin-bottom: .5rem; 
 }
 
-.fa-star {
-    color: gold;
-}
-
-.fa-hashtag {
-    color: blue;
-}
-
 .labelField{
     display: inline-block;
-}
-
-a.category-badge > span.badge:hover {
-    background: green !important;
-    color: #fff !important;
-}
-
-.badge {
-    background-color: #4956c9;
-    color: #fff;
 }
 
 .top-button {
@@ -341,12 +229,6 @@ input[name='q']::placeholder {
     border-bottom-color: #343a40 !important;
 }
 
-.bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
 /* Standard bootstrap button color border override */
 
 .btn-info,
@@ -443,51 +325,6 @@ textarea {
 
 /* -------------------------------- Footer */
 
-footer {
-    min-height: 120px;
-}
-
-/* override media font on H3  */
-.footer-head-text {
-    font-weight: 600 !important;
-    font-size: 1.75rem !important;
-}
-
-.footer-text {
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #2b3691 !important
-}
-
-.social-links {
-    padding-left: 1em;
-    padding-top: 1em;
-}
-
-.social-links li a i {
-    width: 32px;
-    height: 32px;
-    padding: 12px 0;
-    border-radius: 50%;
-    font-size: 20px;
-    line-height: 7px;
-    text-align: center;
-    color: #fff;
-    background: #004085;
-    transition: all 0.35s ease-in-out;
-}
-
-#footer-details {
-    background-color: #d5ddf9;
-    text-align: center;
-}
-
-.solid-border {
-    border-style: solid;
-    border-width: 2px 0 0;
-    border-color:#4203bf;
-}
-
 .copyright {
     font-family: 'Original Surfer', sans-serif;
     text-align: center;
@@ -500,10 +337,6 @@ footer {
 
 .text-copyright {
     color: #871722;
-}
-
-.priv-list-text {
-    color: #0056b3;
 }
 
 .btn-success,
@@ -548,6 +381,10 @@ footer {
 .form-review {
     background-color: #dfede8;
     border: 3px solid green;
+}
+
+.text-pjl {
+    color: #002e61;
 }
 
 .text-info {
