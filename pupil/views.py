@@ -54,7 +54,7 @@ def add_pupil(request):
 
 
 @login_required
-def edit_pupil(request, organisation_id):
+def edit_pupil(request, pupil_id):
     """ Edit a pupil record """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only Admin can do that.')

@@ -7,7 +7,7 @@
           </div>
       </a>
       <div class="dropdown-menu w-100 pl-3 pr-3 border border-0 rounded-0 mt-2" aria-labelledby="mobile-search">
-          <form class="form" method="GET" action="{% url 'products' %}">
+          <form class="form" method="GET" action="">
               <div class="input-group w-100">
                   <input class="form-control border border-info rounded-15 hide-labels" type="text" name="q" placeholder="Search our site"
                         aria-label="search term">
@@ -32,7 +32,7 @@
       <div class="dropdown-menu border-0" aria-labelledby="user-options">
           {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
-                  <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                  <a href="" class="dropdown-item">Product Management</a>
                   <a href="" class="dropdown-item hvr-grow">Messages & Reviews</a>
               {% endif %}
               <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>

@@ -18,7 +18,7 @@ def all_organisations(request):
     return render(request, 'organisation/organisations.html', context)
 
 
-def org_detail(request, organisation_id):
+def organisation_detail(request, organisation_id):
     """ A view to show individual organisation details """
 
     org = get_object_or_404(Organisation, pk=organisation_id)
