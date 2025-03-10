@@ -24,5 +24,12 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('products/', include('products.urls')),
+    path('host/', include('host.urls')),
+    path('members/', include('members.urls')),
+    path('category/', include('category.urls')),
+    path('timeperiod/', include('timeperiod.urls')),
+    path('pupil/', include('pupil.urls')),
+    path('organisation/', include('organisation.urls')),
+    path('teamlead/', include('teamlead.urls')),
     path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

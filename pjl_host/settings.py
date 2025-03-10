@@ -51,6 +51,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'products',
+    'host',
+    'members',
+    'category',
+    'timeperiod',
+    'pupil',
+    'organisation',
+    'teamlead',
     'profiles',
 
     # Other Apps
