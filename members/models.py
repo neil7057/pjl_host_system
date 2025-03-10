@@ -4,6 +4,10 @@ from django.core.validators import (
 
 
 class Members(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Members'
+
     first_name = models.CharField(max_length=254, blank=False, null=True)
     last_name = models.CharField(max_length=254, blank=False, null=True)
     email = models.EmailField(max_length=254, blank=False, null=True)
@@ -16,4 +20,4 @@ class Members(models.Model):
     dbs_date = models.DateField()
 
     def __str__(self):
-        return self.name
+        return self.first_name

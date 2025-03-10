@@ -3,6 +3,7 @@ from pupil.models import Pupil
 
 
 class Timeperiod(models.Model):
+    title = models.CharField(max_length=100, blank=False, null=False)
     date_from = models.DateField(blank=False, null=False)
     date_to = models.DateField(blank=False, null=False)
     pupil = models.ForeignKey(
@@ -10,4 +11,4 @@ class Timeperiod(models.Model):
         null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.title

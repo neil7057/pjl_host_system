@@ -8,4 +8,4 @@ class Teamlead(models.Model):
     mobile = models.CharField(max_length=10, blank=False, null=False)
 
     def __str__(self):
-        return self.name
+        return self.first_name
