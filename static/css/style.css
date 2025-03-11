@@ -5,7 +5,7 @@ html {
 body {
     background: url('/media/eastbourne-banner.jpg')  no-repeat center center;
     background-size: cover;
-    height: calc(100vh - 194px);
+    height: calc(100vh - 294px);
     color: #555;
     font-family: 'Lato';
 }
@@ -76,7 +76,23 @@ body {
     background: #002e61;
 }
 
-.bg-reviews {
+.bg-hosts {
+    background: #f9e2f5 !important;
+}
+
+.bg-pupils {
+    background: #2dce89 !important;
+}
+
+.bg-timeperiods {
+    background: #f9e2f5 !important;
+}
+
+.bg-categoroies {
+    background: #f9e2f5 !important;
+}
+
+.bg-members {
     background: #f9e2f5 !important;
 }
 
@@ -118,6 +134,19 @@ li {
 .labelField{
     display: inline-block;
 }
+
+.menu-display{
+    display: inline-block;
+}
+
+.menu-display button {
+    display: inline-block;
+    margin: 0 5px; 
+    height: 300px;
+    width: 300px;
+    margin: 20px;
+    font-size: 2rem;
+  }
 
 .top-button {
     background-color: rgb(204, 235, 245);
@@ -460,7 +489,7 @@ textarea {
         z-index: 1030;
     } 
     .header-container {
-        padding-top: 180px;
+        padding-top: 280px;
     }
 } 
 
@@ -485,77 +514,3 @@ textarea {
     }
 }
 
-@media (max-width: 480px) {
-    h4 {
-        font-size: 1rem;
-    }
-    ul {
-        padding: 0;
-    }
-    .btn-resize-sm {
-        font-size: .6rem;
-    }
-}
-
-@media (min-width: 576px) {
-    #footer-details {
-        margin-bottom: .1rem !important;
-        padding-top: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .footer-text {
-        margin-bottom: .1rem !important;
-        padding-top: 0 !important;
-    }
-    .text-copyright {
-        margin-top: .5rem;
-        font-size: .8rem;
-    }
-    .social-links {
-        margin-bottom: 0;
-    }
-}
-
-@media (max-width: 565px) {
-    h3 {
-        font-size: .8rem !important;
-    }
-    .btn-checkout {
-        font-size: .6rem;
-        padding-left: 4px;
-        padding-right: 4px;
-    }
-    textarea {
-        width: 80vw;
-    }
-}
-
-@media (max-width: 345px) {
-    h4 {
-        font-size: .8rem;
-    }
-    h3 {
-        font-size: .4rem !important;
-    }
-    h2 {
-        font-size: 1.6rem !important;
-    }
-    .header-container {
-        padding-top: 144px;
-    }
-
-    .product-sub-header {
-        margin-top: 0;
-    }
-}
-
-@media (max-width: 362px) {
-    .btn-info {
-        font-size: .7rem;
-    }
-    .btn-success {
-        font-size: .7rem;
-    }
-}

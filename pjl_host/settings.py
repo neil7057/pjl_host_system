@@ -50,15 +50,15 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
-    'products',
     'host',
+    'pupil',
     'members',
     'category',
     'timeperiod',
-    'pupil',
     'organisation',
     'teamlead',
     'profiles',
+    'products',
 
     # Other Apps
     'crispy_forms',

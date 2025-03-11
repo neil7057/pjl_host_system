@@ -18,4 +18,4 @@ class Host(models.Model):
     gas_safety_date = models.DateField()
 
     def __str__(self):
-        return self.name
+        return self.hostname

@@ -8,49 +8,43 @@
         </li>
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-white mr-5 hvr-grow" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All Products
+                Host & Family
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item hvr-grow">By Price</a>
-                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item hvr-grow">By Rating</a>
+            <div class="dropdown-menu border-0" aria-labelledby="hosts-and-families">
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item hvr-grow">All Hosts</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item hvr-grow">All Family Contacts</a>
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item hvr-grow">By Category</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-white mr-5 hvr-grow" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Clothing
+                Organisations & TL
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="{% url 'products' %}?category=hoodies" class="dropdown-item hvr-grow">Hoodies</a>
-                <a href="{% url 'products' %}?category=shirts" class="dropdown-item hvr-grow">T-Shirts</a>
-                <a href="{% url 'products' %}?category=hats" class="dropdown-item hvr-grow">Hats</a>
-                <a href="{% url 'products' %}?category=hoodies,shirts,hats" class="dropdown-item hvr-grow">All Clothing</a>
+            <div class="dropdown-menu border-0" aria-labelledby="Organisations-Team-Leaders-link">
+                <a href="{% url 'products' %}?category=hoodies" class="dropdown-item hvr-grow">Organisations</a>
+                <a href="{% url 'products' %}?category=shirts" class="dropdown-item hvr-grow">Team Leaders</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-white mr-5 hvr-grow" href="#" id="themed-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Themed
+                Pupils
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="themed-link">
-                <a href="{% url 'products' %}?category=starwars" class="dropdown-item hvr-grow">Starwars</a>
-                <a href="{% url 'products' %}?category=pokemon" class="dropdown-item hvr-grow">Pokemon</a>
-                <a href="{% url 'products' %}?category=coca_cola" class="dropdown-item hvr-grow">Coca &amp; Cola</a>
-                <a href="{% url 'products' %}?category=starwars,pokemon,coca_cola" class="dropdown-item hvr-grow">All Themed</a>
+            <div class="dropdown-menu border-0" aria-labelledby="pupils-link">
+                <a href="{% url 'products' %}?category=starwars" class="dropdown-item hvr-grow">Pupils</a>
+                <a href="{% url 'products' %}?category=pokemon" class="dropdown-item hvr-grow">P</a>
+                <a href="{% url 'products' %}?category=coca_cola" class="dropdown-item hvr-grow">C</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-white hvr-grow" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Special Offers
+                Time & Catgories
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item hvr-grow">New Arrivals</a>
-                <a href="{% url 'products' %}?category=deals" class="dropdown-item hvr-grow">Deals</a>
-                <a href="{% url 'products' %}?category=clearance" class="dropdown-item hvr-grow">Clearance</a>
-                <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item hvr-grow">All Specials</a>
+            <div class="dropdown-menu border-0" aria-labelledby="time-periods-and-categoies-link">
+                <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item hvr-grow">Time Periods</a>
+                <a href="{% url 'products' %}?category=deals" class="dropdown-item hvr-grow">Categories</a>
             </div>
         </li>
     </ul>

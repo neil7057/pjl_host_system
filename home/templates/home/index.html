@@ -13,11 +13,28 @@
     <div class="container-fluid h-100">
         <div class="row h-100">
             <div class="col">
-                <div class="my-5">
+                <div class="">
+                    {% if not request.user.is_authenticated or not request.user.is_superuser %}
                     <h4>
                         <a href="{% url 'account_login' %}" class="btn btn-success btn-center text-center rounded-15">Login</a>
                     </h4>
-                </div>
+                    {% else %}
+                        <div class="mt-5 col-lg-10 offset-xl-0 col-xl-12 offset-lg-1 ofset-md-1 col-md-8 offset-sm-2 col-sm-8 text-center menu-display">
+                            <a href="{% url 'hosts' %}" class="btn btn-success text-center rounded-15">Hosts & Families
+                                <img src="{{ MEDIA_URL }}pjl-logo.jpg" alt="pjl logo" height=227>
+                            </a>
+                            <a href="" class="btn btn-info text-center rounded-15">Organisations & Team Leaders
+                                <img src="{{ MEDIA_URL }}pjl-logo.jpg" alt="pjl logo" height=227>
+                            </a>
+                            <a href="{% url 'pupils' %}" class="btn btn-warning text-center rounded-15">Pupil Management
+                                <img src="{{ MEDIA_URL }}pjl-logo.jpg" alt="pjl logo" height=227>
+                            </ba>
+                            <a href="" class="btn btn-success text-center rounded-15">Time Period & Categories
+                                <img src="{{ MEDIA_URL }}pjl-logo.jpg" alt="pjl logo" height=227>
+                            </a>
+                        </div>
+
+                    {% endif %}
             </div>
         </div>
     </div>
