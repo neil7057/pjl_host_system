@@ -9,13 +9,13 @@ from .forms import OrganisationForm
 def all_organisations(request):
     """ A view to show all organisations """
 
-    orgs = Organisation.objects.all()
+    organisations = Organisation.objects.all()
 
     context = {
-        'orgs': orgs,
+        'organisations': organisations,
     }
 
-    return render(request, 'organisation/organisations.html', context)
+    return render(request, 'organisation/organisation.html', context)
 
 
 def organisation_detail(request, organisation_id):
@@ -46,7 +46,7 @@ def add_organisation(request):
                                     args=[organisation.id]))
         else:
             messages.error(
-                request, 'Orgabnisation Add Failed: Ensure The Form Is Valid.')
+                request, 'Organisation Add Failed: Ensure The Form Is Valid.')
     else:
         form = OrganisationForm()
 

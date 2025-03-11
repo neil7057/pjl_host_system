@@ -15,7 +15,7 @@ def all_timeperiods(request):
         'timeperiods': timeperiods,
     }
 
-    return render(request, 'ttimeperiod/timeperiods.html', context)
+    return render(request, 'timeperiod/timeperiod.html', context)
 
 
 def timeperiod_detail(request, timeperiod_id):
@@ -42,8 +42,7 @@ def add_timeperiod(request):
         if form.is_valid():
             timeperiod = form.save()
             messages.success(request, 'timeperiod Added Successfully')
-            return redirect(reverse('timeperiod_detail',
-                                    args=[timeperiod.id]))
+            return redirect(reverse('timeperiod'))
         else:
             messages.error(
                 request, 'timeperiod Add Failed: Ensure The Form Is Valid.')

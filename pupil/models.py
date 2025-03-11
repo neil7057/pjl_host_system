@@ -1,6 +1,7 @@
 from django.db import models
 from organisation.models import Organisation
 from teamlead.models import Teamlead
+from timeperiod.models import Timeperiod
 
 
 class Pupil(models.Model):
@@ -15,6 +16,9 @@ class Pupil(models.Model):
         null=True, blank=True)
     team = models.ForeignKey(
         Teamlead, on_delete=models.SET_NULL, related_name="teamlead",
+        null=True, blank=True)
+    time = models.ForeignKey(
+        Timeperiod, on_delete=models.SET_NULL, related_name="timeperiod",
         null=True, blank=True)
 
     def __str__(self):

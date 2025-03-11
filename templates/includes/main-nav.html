@@ -11,19 +11,19 @@
                 Host & Family
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="hosts-and-families">
-                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item hvr-grow">All Hosts</a>
-                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item hvr-grow">All Family Contacts</a>
-                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item hvr-grow">By Category</a>
+                <a href="{% url 'hosts' %}" class="dropdown-item hvr-grow">All Hosts</a>
+                <a href="{% url 'members' %}" class="dropdown-item hvr-grow">All Family Contacts</a>
+
             </div>
         </li>
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-white mr-5 hvr-grow" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Organisations & TL
+                Organisations & Team Lead
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="Organisations-Team-Leaders-link">
-                <a href="{% url 'products' %}?category=hoodies" class="dropdown-item hvr-grow">Organisations</a>
-                <a href="{% url 'products' %}?category=shirts" class="dropdown-item hvr-grow">Team Leaders</a>
+                <a href="{% url 'organisation' %}" class="dropdown-item hvr-grow">Organisations</a>
+                <a href="{% url 'teamlead' %}" class="dropdown-item hvr-grow">Team Leaders</a>
             </div>
         </li>
 
@@ -32,9 +32,9 @@
                 Pupils
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="pupils-link">
-                <a href="{% url 'products' %}?category=starwars" class="dropdown-item hvr-grow">Pupils</a>
-                <a href="{% url 'products' %}?category=pokemon" class="dropdown-item hvr-grow">P</a>
-                <a href="{% url 'products' %}?category=coca_cola" class="dropdown-item hvr-grow">C</a>
+                <a href="{% url 'pupils' %}" class="dropdown-item hvr-grow">Pupils</a>
+                <a href="" class="dropdown-item hvr-grow">P</a>
+                <a href="" class="dropdown-item hvr-grow">C</a>
             </div>
         </li>
 
@@ -43,8 +43,8 @@
                 Time & Catgories
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="time-periods-and-categoies-link">
-                <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item hvr-grow">Time Periods</a>
-                <a href="{% url 'products' %}?category=deals" class="dropdown-item hvr-grow">Categories</a>
+                <a href="{% url 'timeperiod' %}" class="dropdown-item hvr-grow">Time Periods</a>
+                <a href="{% url 'category' %}" class="dropdown-item hvr-grow">Categories</a>
             </div>
         </li>
     </ul>

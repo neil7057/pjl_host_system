@@ -15,7 +15,7 @@ def all_teamleads(request):
         'teamleaders': teamleaders,
     }
 
-    return render(request, 'teamlead/teamleaders.html', context)
+    return render(request, 'teamlead/teamlead.html', context)
 
 
 def teamlead_detail(request, teamlead_id):
@@ -27,7 +27,7 @@ def teamlead_detail(request, teamlead_id):
         'teamleader': teamleader,
     }
 
-    return render(request, 'teamlead/teamleader_detail.html', context)
+    return render(request, 'teamlead/teamlead_detail.html', context)
 
 
 @login_required
@@ -42,15 +42,14 @@ def add_teamlead(request):
         if form.is_valid():
             teamlead = form.save()
             messages.success(request, 'Team Leader Added Successfully')
-            return redirect(reverse('teamleader_detail',
-                                    args=[teamlead.id]))
+            return redirect(reverse('all_teamleads'))
         else:
             messages.error(
                 request, 'Team Leader Add Failed: Ensure The Form Is Valid.')
     else:
         form = TeamleadForm()
 
-    template = 'teamlead/add_teamleader.html'
+    template = 'teamlead/add_teamlead.html'
     context = {
         'form': form,
     }

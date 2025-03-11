@@ -23,7 +23,11 @@ def pupil_detail(request, pupil_id):
 
     pupil = get_object_or_404(Pupil, pk=pupil_id)
 
-    return render(request, 'pupil/pupil_detail.html')
+    context = {
+        'pupil': pupil,
+    }
+
+    return render(request, 'pupil/pupil_detail.html', context)
 
 
 @login_required
@@ -38,7 +42,7 @@ def add_pupil(request):
         if form.is_valid():
             pupil = form.save()
             messages.success(request, 'Pupil Added Successfully')
-            return redirect(reverse('pupil_detail', args=[pupil.id]))
+            return redirect(reverse('pupils'))
         else:
             messages.error(request,
                            'Pupil Add Failed: Ensure The Form Is Valid.')

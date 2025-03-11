@@ -6,7 +6,7 @@ from .models import Category
 from .forms import CategoryForm
 
 
-def all_category(request, Host_id):
+def all_category(request):
     """ A view to show all categories """
 
     categories = Category.objects.all()
@@ -15,7 +15,7 @@ def all_category(request, Host_id):
         'categories': categories,
     }
 
-    return render(request, 'category/categories.html', context)
+    return render(request, 'category/category.html', context)
 
 
 @login_required
@@ -28,9 +28,10 @@ def add_category(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
-            category = form.save()
+            # Category = form.save()
+            form.save()
             messages.success(request, 'Category Record Added Successfully')
-            return redirect(reverse('all_categories'))
+            return redirect(reverse('category'))
         else:
             messages.error(request,
                            'Category record Add Failed: Ensure Form Is Valid')

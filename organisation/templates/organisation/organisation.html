@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- Organisation {% endblock %}
+
+{% block extra_meta %}
+    <meta name="description" content="An area for site admins to view and edit organisation records.">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="overlay"></div>
+<div class="container-fluid">
+    <!-- Title Section -->
+    <div class="row">
+        <div class="col-12 col-lg-10 offset-lg-1 px-0">
+            <h1 class="mt-5 text-edit text-center">PJL Organisation Records</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-8 offset-lg-2 px-0">
+            <hr class="mt-4 mb-4">
+            <!-- Add new organisation Button -->
+            <div class="col-12 text-center">
+                <a href="{% url 'add_organisation' %}" class="btn btn-review mb-3 rounded-15 text-uppercase">
+                    <span class="icon">
+                    <i class="fa-solid fa-school-flag"></i>
+                    </span>Add New Organisation
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-hosts rounded-15">
+            <div class="d-flex justify-content-between flex-wrap ">
+                <div class="col-12">
+                    <!-- Messages Title -->
+                    <h2 class="text-edit">Organisation Records</h2>    
+                    <!-- Current Message Filter & Count -->
+                </div>
+            </div> 
+            <hr class="mt-2 mb-4">
+            <div>
+                {% if organisations|length > 0 %}
+                {% for organisation in organisations %}
+                <!-- Member Records -->
+                <div class="row">
+                    <div class="col-12 mt-0">
+                        <h4>Organisation:&nbsp;&nbsp;{{organisation.orgname}}</h4>
+                        <p>Address 1:&nbsp;&nbsp;{{organisation.address1}}</p>
+                        <p>Address 1:&nbsp;&nbsp;{{organisation.address2}}</p> 
+                        <p>Address 1:&nbsp;&nbsp;{{organisation.town}}</p> 
+                        <p>Address 1:&nbsp;&nbsp;{{organisation.postcode}}</p> 
+                        <p>Address 1:&nbsp;&nbsp;{{organisation.county}}</p> 
+                        <p>Address 1:&nbsp;&nbsp;{{organisation.telephone}}</p>
+                        <p>Address 1:&nbsp;&nbsp;{{organisation.contact_name}}</p>
+                        <p>Address 1:&nbsp;&nbsp;{{organisation.email}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="col-12 text-center py-3">
+                    <p class="font-body weight-semibold text-dark-grey">No Organisation Records To Display</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="mb-3"></div>
+</div>
+{% endblock %}

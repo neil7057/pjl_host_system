@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_title %}- Hosts {% endblock %}
+{% block extra_title %}- Pupils {% endblock %}
 
 {% block extra_meta %}
-    <meta name="description" content="An area for site admins to view and edit host records.">
+    <meta name="description" content="An area for site admins to view and edit pupil records.">
 {% endblock %}
 
 {% block page_header %}
@@ -31,6 +31,14 @@
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2 px-0">
             <hr class="mt-4 mb-4">
+            <!-- Add new pupil Button -->
+            <div class="col-12 text-center">
+                <a href="{% url 'add_pupil' %}" class="btn btn-review mb-3 rounded-15 text-uppercase">
+                    <span class="icon">
+                    <i class="fa-solid fa-child"></i>
+                    </span>Add New Pupil
+                </a>
+            </div>
         </div>
     </div>
     <div class="row" >
@@ -53,10 +61,11 @@
                         <p><span class="text-edit">Preferred Name:&nbsp;</span>{{pupil.preferred_name}}</p>
                         <p><span class="mb-1 text-edit">Last Name:&nbsp;</span>{{pupil.last_name}}</p>
                         <p><span class="mb-1 text-edit">Nationality:&nbsp;</span>{{pupil.nationality}}</p>
-                        <p><span class="mb-1 text-edit">Gender:&nbsp;</span>{{pupil.gender}}</p>                        <p><span class="mb-1 text-edit">Nationality:&nbsp;</span>{{pupil.nationality}}</p>
+                        <p><span class="mb-1 text-edit">Gender:&nbsp;</span>{{pupil.gender}}</p> 
                         <p><span class="mb-1 text-edit">Date of Birth:&nbsp;</span>{{pupil.dob}}</p>
                         <p><span class="mb-1 text-edit">Through Organisation:&nbsp;</span>{{pupil.org}}</p>
                         <p><span class="mb-1 text-edit">Team Leader:&nbsp;</span>{{pupil.team}}</p>
+                        <p><span class="mb-1 text-edit">Time Period:&nbsp;</span>{{pupil.time}}</p>
                     </div>
                 </div>
                 {% endfor %}
