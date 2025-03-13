@@ -3,6 +3,21 @@ from django.core.validators import (
     MaxValueValidator, MinValueValidator)
 
 
+class Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+    name = models.CharField(max_length=20)
+    friendly_name = models.CharField(max_length=20, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
 class Host(models.Model):
     hostname = models.CharField(max_length=254)
     address1 = models.CharField(max_length=40)
@@ -16,6 +31,7 @@ class Host(models.Model):
                                                MaxValueValidator(8)],)
     gas_safety = models.BooleanField(default=False, blank=True)
     gas_safety_date = models.DateField()
+    categories = models.ManyToManyField(Category)
 
     def __str__(self):
         return self.hostname

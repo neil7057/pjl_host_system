@@ -52,7 +52,7 @@ def add_host(request):
         if form.is_valid():
             host = form.save()
             messages.success(request, 'host Added Successfully')
-            return redirect(reverse('host_detail', args=[host.id]))
+            return redirect(reverse('hosts'))
         else:
             messages.error(request,
                            'Host Add Failed: Ensure The Form Is Valid.')

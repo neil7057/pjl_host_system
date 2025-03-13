@@ -6,47 +6,7 @@
                 Home
             </a>
         </li>
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 hvr-grow" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Host & Family
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="hosts-and-families">
-                <a href="{% url 'hosts' %}" class="dropdown-item hvr-grow">All Hosts</a>
-                <a href="{% url 'members' %}" class="dropdown-item hvr-grow">All Family Contacts</a>
 
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 hvr-grow" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Organisations & Team Lead
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="Organisations-Team-Leaders-link">
-                <a href="{% url 'organisation' %}" class="dropdown-item hvr-grow">Organisations</a>
-                <a href="{% url 'teamlead' %}" class="dropdown-item hvr-grow">Team Leaders</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 hvr-grow" href="#" id="themed-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Pupils
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="pupils-link">
-                <a href="{% url 'pupils' %}" class="dropdown-item hvr-grow">Pupils</a>
-                <a href="" class="dropdown-item hvr-grow">P</a>
-                <a href="" class="dropdown-item hvr-grow">C</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white hvr-grow" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Time & Catgories
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="time-periods-and-categoies-link">
-                <a href="{% url 'timeperiod' %}" class="dropdown-item hvr-grow">Time Periods</a>
-                <a href="{% url 'category' %}" class="dropdown-item hvr-grow">Categories</a>
-            </div>
-        </li>
     </ul>
     {% endif %}
 </div>

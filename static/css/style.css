@@ -175,6 +175,10 @@ input[name='q']::placeholder {
     border-radius: 15px !important;
 }
 
+.rounded-25 {
+    border-radius: 25% !important;
+}
+
 .rounded-tb15 {
     border-radius: 0 0 15px 15px !important;
 }
@@ -368,6 +372,13 @@ textarea {
     color: #871722;
 }
 
+.btn-white {
+    background-color: #002e61;
+    border: 1px solid red;
+    margin: 20px;
+    padding: 8px;
+}
+
 .btn-success,
 .text-success {
     background-color: #155624;
@@ -498,7 +509,7 @@ textarea {
         padding-top: 116px;
     }
     body {
-        height: calc(100vh - 116px);
+        height: calc(100vh - 136px);
     }
     .header-container {
         padding-top: 124px;
@@ -514,3 +525,14 @@ textarea {
     }
 }
 
+@media (max-width: 950px) {
+    img {
+        height: 110px;
+    }
+}
+
+@media (max-width: 416px) {
+    img {
+        height: 60px;
+    }
+}

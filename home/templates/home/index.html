@@ -19,22 +19,26 @@
                         <a href="{% url 'account_login' %}" class="btn btn-success btn-center text-center rounded-15">Login</a>
                     </h4>
                     {% else %}
-                        <div class="mt-5 col-lg-10 offset-xl-0 col-xl-12 offset-lg-1 ofset-md-1 col-md-8 offset-sm-2 col-sm-8 text-center menu-display">
-                            <a href="{% url 'hosts' %}" class="btn btn-success text-center rounded-15">Hosts & Families
-                                <img src="{{ MEDIA_URL }}pjl-logo.jpg" alt="pjl logo" height=227>
-                            </a>
-                            <a href="" class="btn btn-info text-center rounded-15">Organisations & Team Leaders
-                                <img src="{{ MEDIA_URL }}pjl-logo.jpg" alt="pjl logo" height=227>
-                            </a>
-                            <a href="{% url 'pupils' %}" class="btn btn-warning text-center rounded-15">Pupil Management
-                                <img src="{{ MEDIA_URL }}pjl-logo.jpg" alt="pjl logo" height=227>
-                            </ba>
-                            <a href="" class="btn btn-success text-center rounded-15">Time Period & Categories
-                                <img src="{{ MEDIA_URL }}pjl-logo.jpg" alt="pjl logo" height=227>
-                            </a>
+                        <div class="mt-5 col-lg-10 offset-xl-0 col-xl-12 offset-lg-1 ofset-md-2 col-md-12  col-sm-12 text-center menu-display">
+                        <!-- <div class=""> -->
+                            <a href="{% url 'hosts' %}" class="btn btn-white rounded-15">
+                                <img src="{{ MEDIA_URL }}host_button.png" alt="host button" class="rounded-25" height=200></a>
+                            <a href="{% url 'members' %}" class="btn btn-white rounded-15">
+                                <img src="{{ MEDIA_URL }}family_button.png" alt="organisation Button" class="rounded-25" height=200></a>
+                            <a href="{% url 'category' %}" class="btn btn-white rounded-15">
+                                <img src="{{ MEDIA_URL }}category_button.png" alt="category button" class="rounded-25" height=200></a>   
+                            <a href="{% url 'timeperiod' %}" class="btn btn-white rounded-15">
+                                <img src="{{ MEDIA_URL }}time_button.png" alt="time period button" class="rounded-25" height=200></a>
+                            <a href="{% url 'pupils' %}" class="btn btn-white rounded-15">
+                                <img src="{{ MEDIA_URL }}pupil_button.png" alt="pupil button" class="rounded-25" height=200></a>
+                            <a href="{% url 'organisation' %}" class="btn btn-white rounded-15">
+                                <img src="{{ MEDIA_URL }}organisation_button.png" alt="organisation Button" class="rounded-25" height=200></a>
+                            <a href="{% url 'teamlead' %}" class="btn btn-white rounded-15">
+                                <img src="{{ MEDIA_URL }}teamlead_button.png" alt="team leader button" class="rounded-25" height=200></a>
                         </div>
 
                     {% endif %}
+                </div>
             </div>
         </div>
     </div>

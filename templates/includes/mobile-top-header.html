@@ -31,8 +31,14 @@
       </a>
       <div class="dropdown-menu border-0" aria-labelledby="user-options">
           {% if request.user.is_authenticated %}
-              <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-              <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+          <a href="{% url 'hosts' %}" class="dropdown-item">Hosts</a>
+            <a href="{% url 'members' %}" class="dropdown-item">Family</a>
+            <a href="{% url 'category' %}" class="dropdown-item">Categories</a>
+            <a href="{% url 'timeperiod' %}" class="dropdown-item hvr-grow">Time Periods</a>
+            <a href="{% url 'pupils' %}" class="dropdown-item">Pupils</a>
+            <a href="{% url 'organisation' %}" class="dropdown-item">Organisations</a>
+            <a href="{% url 'teamlead' %}" class="dropdown-item">Team Leaders</a>
+            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
           {% else %}
               <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
           {% endif %}
