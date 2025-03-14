@@ -81,7 +81,7 @@ body {
 }
 
 .bg-pupils {
-    background: #2dce89 !important;
+    background: #b2b2ed !important;
 }
 
 .bg-timeperiods {
@@ -89,11 +89,11 @@ body {
 }
 
 .bg-category {
-    background: #f9e2f5 !important;
+    background: #8bd5c5 !important;
 }
 
 .bg-members {
-    background: #f9e2f5 !important;
+    background: #efe0a5 !important;
 }
 
 /* custom toast message colours */
@@ -191,8 +191,54 @@ input[name='q']::placeholder {
     border-radius: 15px 15px 0 0 !important;
 }
 
+
+hr.host {
+    border-top: 1px solid gray;
+}
 .product-sub-header {
     margin-top: 20px;
+}
+
+/* ------------------------------- category styling */
+
+.tag-format {
+    background: #c5e7e2;
+    color: #0f0327;
+    font-weight: 700;
+    border-radius: 15px;
+    padding: 5px 8px;
+    font-size: 1.25rem;
+    Margin: 15px;
+}  
+  
+/*--------------------------------------------cards*/
+
+.tag-card {
+    padding: 10px 15px;
+    margin: 20px 10px;
+    min-height: 120px;
+    text-align: center;
+    background: #b5ac69;
+    color: #00008B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+  
+.tag-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.tag-form {
+    color: #da5619;
+    font-size: 1rem!important;
+    font-weight: 700;
+}
+
+.pad-input {
+    margin: 20px 0;
 }
 
 /* ------------------------------- bootstrap toasts */
@@ -369,7 +415,7 @@ textarea {
 /* -------------------------------- WCAG Changes */
 
 .text-copyright {
-    color: #871722;
+    color: #cd3b4a;
 }
 
 .btn-white {
@@ -500,7 +546,7 @@ textarea {
         z-index: 1030;
     } 
     .header-container {
-        padding-top: 280px;
+        padding-top: 220px;
     }
 } 
 

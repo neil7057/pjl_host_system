@@ -43,30 +43,23 @@
     </div>
     <div class="row" >
         <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-category mb-3 rounded-15">
-            <div class="d-flex justify-content-between flex-wrap ">
-                <div class="col-12">
-                    <!-- Messages Title -->
-                    <h2 class="text-edit">Categories</h2>    
-                    <!-- Current Message Filter & Count -->
-                </div>
-            </div> 
-            <hr class="mt-2 mb-4">
+
             <div>
-                {% if categories|length > 0 %}
-                {% for category in categories %}
-                <!-- Pupil Record -->
-                <div class="row">
-                    <div class="col-12">
-                        <p><span class="text-edit">Category Name:&nbsp;</span>{{category.name}}</p>
-                        <p><span class="text-edit">Friendly Name:&nbsp;</span>{{category.friendly_name}}</p>
-                    </div>
-                </div>
-                {% endfor %}
-                {% else %}
-                <div class="col-12 text-center py-3">
-                    <p class="font-body weight-semibold text-dark-grey">No Categories To Display</p>
-                </div>
-                {% endif %}
+                <h4 class="text-info">Categories/Tags&nbsp;&nbsp;<span class="muted-text text-edit">(Click to Edit)</span></h4>
+                <hr class="mt-2 mb-4">
+                        <div class="container-fluid">
+                            <div class="row indent-post">
+                            {% if categories|length > 0 %}
+                                {% for category in categories %}                           
+                                <div>
+                                    <a href="{% url 'edit_category' category.id %}" class="text-decoration-none hvr-grow">
+                                    <h2><span class="tag-format text-center">{{ category.friendly_name }}</span></h2></a>
+                                  </div>  
+                            {% endfor %}
+                            <hr>
+                        {% else %}
+                            <p class="text-center">There are no Category Tags</p>
+                        {% endif %}
             </div>
         </div>
     </div>

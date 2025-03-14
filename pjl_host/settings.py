@@ -51,9 +51,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'host',
+    'category',
     'pupil',
     'members',
-    'category',
     'timeperiod',
     'organisation',
     'teamlead',
@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     # Other Apps
     'crispy_forms',
     'storages',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

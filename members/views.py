@@ -70,44 +70,46 @@ def add_member(request):
 
 
 @login_required
-def edit_member(request, Members_id):
+def edit_member(request, members_id):
     """ Edit a Member record """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only Admin can do that.')
         return redirect(reverse('home'))
 
-    Member = get_object_or_404(Members, pk=Members_id)
+    member = get_object_or_404(Members, pk=members_id)
     if request.method == 'POST':
-        form = MembersForm(request.POST, request.FILES, instance=Member)
+        form = MembersForm(request.POST, request.FILES, instance=member)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated Member record!')
-            return redirect(reverse('Member_detail', args=[Members.id]))
+            return redirect(reverse('members'))
         else:
             messages.error(request,
                            'Failed to update Member record.'
                            ' Please ensure the form is valid.')
     else:
-        form = MembersForm(instance=Members)
-        messages.info(request, f'You are editing {Members.name}')
+        form = MembersForm(instance=member)
+        messages.info(request, f'You are editing'
+                               f' {member.first_name} '
+                               f'{member.last_name}')
 
-    template = 'members/edit_Member.html'
+    template = 'members/edit_member.html'
     context = {
         'form': form,
-        'Members': Members,
+        'member': member,
     }
 
     return render(request, template, context)
 
 
 @login_required
-def delete_member(request, Members_id):
+def delete_member(request, members_id):
     """ Delete a Member record """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only Admin can do that.')
         return redirect(reverse('home'))
 
-    Member = get_object_or_404(Members, pk=Members_id)
+    Member = get_object_or_404(Members, pk=members_id)
     Member.delete()
     messages.success(request, 'Member Successfully deleted')
     return redirect(reverse('members'))

@@ -47,44 +47,45 @@ def add_category(request):
 
 
 @login_required
-def edit_category(request, Category_id):
+def edit_category(request, category_id):
     """ Edit a Category record """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only Admin can do that.')
         return redirect(reverse('home'))
 
-    category = get_object_or_404(Category, pk=Category_id)
+    category = get_object_or_404(Category, pk=category_id)
     if request.method == 'POST':
         form = CategoryForm(request.POST, request.FILES, instance=category)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated Catgeory record!')
-            return redirect(reverse('all_categories'))
+            return redirect(reverse('category'))
         else:
             messages.error(request,
                            'Failed to update Category record.'
                            ' Please ensure the form is valid.')
     else:
-        form = CategoryForm(instance=Category)
-        messages.info(request, f'You are editing {Category.name}')
+        form = CategoryForm(instance=category)
+        messages.info(request, f'You are editing {category.name}')
 
     template = 'category/edit_category.html'
     context = {
         'form': form,
-        'Categories': Category,
+        'category': category,
     }
 
     return render(request, template, context)
 
 
 @login_required
-def delete_category(request, Category_id):
+def delete_category(request, category_id):
     """ Delete a category record """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only Admin can do that.')
         return redirect(reverse('home'))
 
-    category = get_object_or_404(Category, pk=Category_id)
+    category = get_object_or_404(Category, pk=category_id)
     category.delete()
-    messages.success(request, 'Category Successfully deleted')
+    messages.success(request, f'Category: {category.name}'
+                              f' Successfully deleted')
     return redirect(reverse('category'))

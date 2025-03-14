@@ -6,8 +6,8 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
 
-    name = models.CharField(max_length=20)
-    friendly_name = models.CharField(max_length=20, null=True, blank=True)
+    name = models.CharField(max_length=254, blank=False)
+    friendly_name = models.CharField(max_length=254, null=True, blank=False)
 
     def __str__(self):
         return self.name

@@ -42,21 +42,19 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-pupils mb-3 rounded-15">
+        <div class="col-12 col-lg-8 offset-lg-2 p-3 ">
             <div class="d-flex justify-content-between flex-wrap ">
-                <div class="col-12">
-                    <!-- Messages Title -->
+                <div class="col-12 col-lg-8 offset-lg-2">
                     <h2 class="text-edit">Pupils</h2>    
-                    <!-- Current Message Filter & Count -->
                 </div>
             </div> 
-            <hr class="mt-2 mb-4">
             <div>
                 {% if pupils|length > 0 %}
                 {% for pupil in pupils %}
                 <!-- Pupil Record -->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 col-lg-8 offset-lg-2 bg-pupils mb-3 rounded-15">
+                        <br>
                         <p><span class="text-edit">First Name:&nbsp;</span>{{pupil.first_name}}</p>
                         <p><span class="text-edit">Preferred Name:&nbsp;</span>{{pupil.preferred_name}}</p>
                         <p><span class="mb-1 text-edit">Last Name:&nbsp;</span>{{pupil.last_name}}</p>
@@ -65,10 +63,14 @@
                         <p><span class="mb-1 text-edit">Date of Birth:&nbsp;</span>{{pupil.dob}}</p>
                         <p><span class="mb-1 text-edit">Through Organisation:&nbsp;</span>{{pupil.org}}</p>
                         <p><span class="mb-1 text-edit">Team Leader:&nbsp;</span>{{pupil.team}}</p>
-                        <p><span class="mb-1 text-edit">Time Period:&nbsp;</span>{{pupil.time}}</p>
+                        <p><span class="text-edit">Time Period:&nbsp;</span>{{pupil.time}}<span>
+                        <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
+                            <a class ="text-white" href="{% url 'edit_pupil' pupil.id %}">Edit</a>
+                        </button></span></p>
                     </div>
                 </div>
                 {% endfor %}
+
                 {% else %}
                 <div class="col-12 text-center py-3">
                     <p class="font-body weight-semibold text-dark-grey">No pupils To Display</p>

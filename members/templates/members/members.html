@@ -42,41 +42,43 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-hosts rounded-15">
-            <div class="d-flex justify-content-between flex-wrap ">
-                <div class="col-12">
-                    <!-- Messages Title -->
-                    <h2 class="text-edit">Member Records</h2>    
-                    <!-- Current Message Filter & Count -->
+        <div class="col-12 col-lg-8 offset-lg-2 p-3">
+                <div class="col-12 bg-members rounded-15">
+                    <h2 class="text-edit text-center">Member Records</h2>    
                 </div>
-            </div> 
-            <hr class="mt-2 mb-4">
+                <br>
             <div>
                 {% if members|length > 0 %}
                 {% for member in members %}
                 <!-- Member Records -->
                 <div class="row">
-                    <div class="col-12 mt-0">
+                    <div class="col-12 bg-members rounded-15 mt-0">
+                        <br>
                         <h4>Name:&nbsp;&nbsp;{{member.firstname}}&nbsp;{{member.last_name}}</h4>
-                        <p>Email:&nbsp;&nbsp;{{member.email}}</p>
-                        {% if member.is_adult %}
-                            <p>Adult</p>
-                        {% else %}
-                            <p>Child</p>
-                            <p>Age:&nbsp;{{member.child_age}}</p>
-                        {% endif %}
-                        {% if member.valid_dbs %}
-                            <p>Valid DBS</p>
-                            <p>DBS Expiry:&nbsp;{{member.dbs_date}}</p>
-                        {% else %}
-                            <p class="text-danger">No Valid DBS</p>
-                        {% endif %}
-                        <p>Host:&nbsp;&nbsp;{{member.host}}</p>
+                        <div class="ml-3">
+                            <p>Email:&nbsp;&nbsp;{{member.email}}</p>
+                            {% if member.is_adult %}
+                                <p>Adult</p>
+                            {% else %}
+                                <p>Child</p>
+                                <p>Age:&nbsp;{{member.child_age}}</p>
+                            {% endif %}
+                            {% if member.valid_dbs %}
+                                <p>Valid DBS</p>
+                                <p>DBS Expiry:&nbsp;{{member.dbs_date}}</p>
+                            {% else %}
+                                <p class="text-danger">No Valid DBS</p>
+                            {% endif %}
+                            <p>Host:&nbsp;&nbsp;{{member.host}}<span>
+                            <button class="mr-3 mb-4 rounded-15 btn btn-success float-right">
+                                <a class ="text-white" href="{% url 'edit_member' member.id %}">Edit</a>
+                            </button></span></p>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
                 {% else %}
-                <div class="col-12 text-center py-3">
+                <div class="col-12 bg-members rounded-15 text-center py-3">
                     <p class="font-body weight-semibold text-dark-grey">No Family Member Records To Display</p>
                 </div>
                 {% endif %}

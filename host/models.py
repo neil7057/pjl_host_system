@@ -1,21 +1,7 @@
 from django.db import models
+from category.models import Category
 from django.core.validators import (
     MaxValueValidator, MinValueValidator)
-
-
-class Category(models.Model):
-
-    class Meta:
-        verbose_name_plural = 'Categories'
-
-    name = models.CharField(max_length=20)
-    friendly_name = models.CharField(max_length=20, null=True, blank=True)
-
-    def __str__(self):
-        return self.name
-
-    def get_friendly_name(self):
-        return self.friendly_name
 
 
 class Host(models.Model):
@@ -29,9 +15,8 @@ class Host(models.Model):
     max_occupants = models.IntegerField(
                                    validators=[MinValueValidator(0),
                                                MaxValueValidator(8)],)
-    gas_safety = models.BooleanField(default=False, blank=True)
-    gas_safety_date = models.DateField()
-    categories = models.ManyToManyField(Category)
+    gas_safety_date = models.DateField(blank=True, null=True)
+    categories = models.ManyToManyField(Category, blank=True)
 
     def __str__(self):
         return self.hostname

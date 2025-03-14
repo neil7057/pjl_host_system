@@ -2,9 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Host
+from .models import Host, Category
 from members.models import Members
-from category.models import Category
 from .forms import HostForm
 
 
@@ -12,8 +11,8 @@ def all_hosts(request):
     """ A view to show all hosts """
 
     hosts = Host.objects.all()
-    familymembers = Members.objects.filter()
-    categories = Category.objects.filter()
+    familymembers = Members.objects.all()
+    categories = Category.objects.all()
 
     context = {
         'hosts': hosts,
@@ -29,12 +28,15 @@ def host_detail(request, host_id):
 
     host = get_object_or_404(Host, pk=host_id)
 
-    # Gets product reviews from DB
-    categories = host.category.filter.order_by('-rating', '-created_on')
+    # Gets family members and catgories from DB
+    categories = host.categories.filter()
+    # familymembers = host.Members.filter()
+    familymembers = ""
 
     context = {
         'host': host,
         'categories': categories,
+        'familymembers': familymembers,
     }
 
     return render(request, 'host/host_detail.html', context)
@@ -50,7 +52,8 @@ def add_host(request):
     if request.method == 'POST':
         form = HostForm(request.POST, request.FILES)
         if form.is_valid():
-            host = form.save()
+            # host = form.save()
+            form.save()
             messages.success(request, 'host Added Successfully')
             return redirect(reverse('hosts'))
         else:

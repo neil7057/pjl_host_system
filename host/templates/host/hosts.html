@@ -42,61 +42,42 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-hosts rounded-15">
-            <div class="d-flex justify-content-between flex-wrap ">
-                <div class="col-12">
-                    <!-- Messages Title -->
-                    <h2 class="text-edit">Host Records</h2>    
-                    <!-- Current Message Filter & Count -->
-                </div>
-            </div> 
-            <hr class="mt-2 mb-4">
+        <div class="col-12 col-lg-8 offset-lg-2 ">
+            <div class="col-12 my-0 bg-hosts rounded-15">
+                <h2 class="text-edit text-center">Host Records</h2>    
+            </div>
+            <br>
             <div>
                 {% if hosts|length > 0 %}
                 {% for host in hosts %}
                 <!-- Host Record -->
                 <div class="row">
-                    <div class="col-12 mt-0">
-                        <h4> Hostname:&nbsp;&nbsp;{{host.hostname}}</h4>
-                        <p>Address 1:&nbsp;&nbsp;{{host.address1}}</p>
-                        <p>Address 2:&nbsp;&nbsp;{{host.address2}}</p>
-                        <p>Town:&nbsp;&nbsp;{{host.town}}</p>
-                        <p>PostCode:&nbsp;&nbsp;{{host.postcode}}</p>
-                        <p>County:&nbsp;&nbsp;{{host.county}}</p>
-                        <p class="mt-1">Telephone:&nbsp;&nbsp;{{host.telephone}}</p>
-                        <p class="mt-1">Maximum Occupancy:&nbsp;&nbsp;{{host.max_occupants}}</p>
-                        {% if host.gas_safety %}
-                            <p>Gas Safety is valid Until:&nbsp;&nbsp;{{host.gas_safety_date}}</p>
-                        {% else %}
-                            <p class="mt-1 text-danger">No Gas Safety Certificate</p>
-                        {% endif %}
-                        <hr>
-                        <!-- get catgeories for hosts -->
-                        <h4>Categories/Tags</h4>
-                        <hr>
-                        {% if categories|length > 0 %}
-                            {% for category in categories %}
-                                {{category.friendly_name}}
-                            {% endfor %}
-                        {% else %}
-                            <p class="text-center">There are no Category Tags for this Host</p>
-                        {% endif %}
-                        <!-- get list of fmaily members for host -->
-                        <h4>Family Members</h4>
-                        {% if familymembers|length > 0 %}
-                            {% for members in familymembers %}
-                                <p>First Name:&nbsp;&nbsp;{{members.first_name}}</p>
-                                <p>Last Name:&nbsp;&nbsp;{{members.last_name}}</p>
-                                <hr>
-                            {% endfor %}
-                        {% else %}
-                            <p class="text-center">There are no Family members for this Host</p>
-                        {% endif %}
+                    <div class="col-12 bg-hosts rounded-15 mt-0">
+                        <h4>{{host.hostname}}</h4>
+                        <div class="ml-5">
+                            <p>{{host.address1}}&nbsp;&nbsp;{{host.town}}&nbsp;&nbsp;{{host.telephone}}</p>
+                            <p class="mb-0">Maximum Occupancy:&nbsp;&nbsp;{{host.max_occupants}}:&nbsp;&nbsp;<span>
+                            {% if host.gas_safety %}
+                                Gas Safety is valid Until:&nbsp;&nbsp;{{host.gas_safety_date}}
+                            {% else %}
+                                <span class="mt-1 text-danger">No Gas Safety Certificate</span>
+                            {% endif %}</span></p>
+                        </div>
+                        <div class="col-12 text-center">
+                            <a href="{% url 'host_detail' host.id %}" class="btn btn-info mt-0 mb-3 mt-1 float-right rounded-15 text-uppercase">
+                                <span class="icon">
+                                <i class="fa-solid fa-circle-info"></i>
+                                </span>View Full Details
+                            </a>
+                        </div>
                     </div>
                 </div>
+                <br>
                 {% endfor %}
+
                 {% else %}
                 <div class="col-12 text-center py-3">
+                    <hr>
                     <p class="font-body weight-semibold text-dark-grey">No Hosts To Display</p>
                 </div>
                 {% endif %}

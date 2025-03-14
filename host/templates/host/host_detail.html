@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- Hosts {% endblock %}
+
+{% block extra_meta %}
+    <meta name="description" content="An area for site admins to view and edit host records.">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="overlay"></div>
+<div class="container-fluid">
+    <!-- Title Section -->
+    <div class="row">
+        <div class="col-12 col-lg-10 offset-lg-1 px-0">
+            <h1 class="mb-3 text-edit text-center">PJL Host Record Details</h1>
+        </div>
+    </div>
+
+    <div class="row" >
+        <div class="col-12 col-lg-8 offset-lg-2 p-3 ">
+            <div class="d-flex justify-content-between flex-wrap ">
+                <div class="col-12 bg-hosts mb-4 rounded-15">
+                    <h2 class="text-edit text-center">Host Record</h2>    
+                </div>
+            </div> 
+            <div>
+                <!-- Host Record -->
+                <div class="row">
+                    <div class="col-12 bg-hosts rounded-15 mt-0 ml-2">
+                        <br>
+                        <h4> Hostname:&nbsp;&nbsp;{{host.hostname}}<span>
+                            <button class="mr-3 rounded-15 btn btn-success float-right">
+                                <a class ="text-white" href="{% url 'edit_host' host.id %}">Edit</a>
+                            </button>
+                        </span></h4>
+                        <div class="ml-5 my-0 ">
+                            <p class="my-0">{{host.address1}}</p>
+                            <p class="my-0">{{host.address2}}</p>
+                            <p class="my-0">{{host.town}}</p>
+                            <p class="my-0">{{host.postcode}}</p>
+                            <p class="my-0">{{host.county}}</p>
+                            <p class="mt-1 mb-0">Telephone:&nbsp;&nbsp;{{host.telephone}}</p>
+                            <p class="mt-1 mb-0">Maximum Occupancy:&nbsp;&nbsp;{{host.max_occupants}}</p>
+                            {% if host.gas_safety %}
+                                <p>Gas Safety is valid Until:&nbsp;&nbsp;{{host.gas_safety_date}}</p>
+                            {% else %}
+                                <p class="text-danger">No Gas Safety Certificate</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-12 bg-category rounded-15 mt-0 ml-2">
+                        <br>
+                        <!-- get catgeories for hosts -->
+                        <h4 class="text-info">Categories/Tags</h4>
+                            {% if categories|length > 0 %}
+                                {% for category in categories %}                           
+                                <div>
+                                    <h2><span class="tag-format text-center">{{ category.name }}</span></h2>
+                                  </div>  
+                            {% endfor %}
+                            <hr>
+                        {% else %}
+                            <p class="text-center">There are no Category Tags for this Host</p>
+                        {% endif %}
+                    </div>
+                    <br>
+                    <div class="col-12 bg-members rounded-15 mt-0 ml-2">
+                    <br>
+                        <!-- get list of family members for host -->
+                        <h4 class="text-edit">Family Members</h4>
+                        {% if familymembers|length > 0 %}
+                            {% for members in familymembers %}
+                                <p>First Name:&nbsp;&nbsp;{{members.first_name}}</p>
+                                <p>Last Name:&nbsp;&nbsp;{{members.last_name}}</p>
+                                <hr>
+                            {% endfor %}
+                        {% else %}
+                            <p class="text-center">There are no Family members for this Host</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mb-3"></div>
+</div>
+{% endblock %}
