@@ -10,7 +10,7 @@ class Organisation(models.Model):
     county = models.CharField(max_length=20, default="East Sussex")
     telephone = models.CharField(max_length=14, null=True)
     contact_name = models.CharField(max_length=254)
-    email = models.EmailField(max_length=50, null=True, blank=True)
+    email = models.EmailField(max_length=50, null=True, blank=False)
 
     def __str__(self):
         return self.orgname

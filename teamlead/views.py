@@ -18,18 +18,6 @@ def all_teamleads(request):
     return render(request, 'teamlead/teamlead.html', context)
 
 
-def teamlead_detail(request, teamlead_id):
-    """ A view to show individual team leader details """
-
-    teamleader = get_object_or_404(Teamlead, pk=teamlead_id)
-
-    context = {
-        'teamleader': teamleader,
-    }
-
-    return render(request, 'teamlead/teamlead_detail.html', context)
-
-
 @login_required
 def add_teamlead(request):
     """ Add teamleader record """
@@ -40,9 +28,9 @@ def add_teamlead(request):
     if request.method == 'POST':
         form = TeamleadForm(request.POST, request.FILES)
         if form.is_valid():
-            teamlead = form.save()
+            form.save()
             messages.success(request, 'Team Leader Added Successfully')
-            return redirect(reverse('all_teamleads'))
+            return redirect(reverse('teamlead'))
         else:
             messages.error(
                 request, 'Team Leader Add Failed: Ensure The Form Is Valid.')
@@ -64,25 +52,42 @@ def edit_teamlead(request, teamlead_id):
         messages.error(request, 'Sorry, only Admin can do that.')
         return redirect(reverse('home'))
 
-    teamleader = get_object_or_404(Teamlead, pk=teamlead_id)
+    teamlead = get_object_or_404(Teamlead, pk=teamlead_id)
     if request.method == 'POST':
-        form = TeamleadForm(request.POST, request.FILES, instance=teamleader)
+        form = TeamleadForm(request.POST, request.FILES, instance=teamlead)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated Team Leader!')
-            return redirect(reverse('teamleader_detail', args=[teamleader.id]))
+            return redirect(reverse('teamlead'))
         else:
             messages.error(request,
                            'Failed to update Team Leader.'
                            ' Please ensure the form is valid.')
     else:
-        form = TeamleadForm(instance=teamleader)
-        messages.info(request, f'You are editing {Teamlead.first_name}')
+        form = TeamleadForm(instance=teamlead)
+        messages.info(request,
+                      f'You are editing {teamlead.first_name}'
+                      f' {teamlead.last_name}')
 
-    template = 'teamlead/edit_teamleader.html'
+    template = 'teamlead/edit_teamlead.html'
     context = {
         'form': form,
-        'teamleader': teamleader,
+        'teamlead': teamlead,
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_teamlead(request, teamlead_id):
+    """ Delete a Team Leader record """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only Admin can do that.')
+        return redirect(reverse('home'))
+
+    teamlead = get_object_or_404(Teamlead, pk=teamlead_id)
+    teamlead.delete()
+    messages.success(request,
+                     f'Team Leader: {teamlead.first_name} {teamlead.last_name}'
+                     f' Successfully deleted')
+    return redirect(reverse('teamlead'))

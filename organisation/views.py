@@ -40,10 +40,9 @@ def add_organisation(request):
     if request.method == 'POST':
         form = OrganisationForm(request.POST, request.FILES)
         if form.is_valid():
-            organisation = form.save()
+            form.save()
             messages.success(request, 'Organisation Added Successfully')
-            return redirect(reverse('organisation_detail',
-                                    args=[organisation.id]))
+            return redirect(reverse('organisation'))
         else:
             messages.error(
                 request, 'Organisation Add Failed: Ensure The Form Is Valid.')
@@ -65,25 +64,41 @@ def edit_organisation(request, organisation_id):
         messages.error(request, 'Sorry, only Admin can do that.')
         return redirect(reverse('home'))
 
-    org = get_object_or_404(Organisation, pk=organisation_id)
+    organisation = get_object_or_404(Organisation, pk=organisation_id)
     if request.method == 'POST':
-        form = OrganisationForm(request.POST, request.FILES, instance=org)
+        form = OrganisationForm(request.POST, request.FILES,
+                                instance=organisation)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated Organisation!')
-            return redirect(reverse('organisation_detail', args=[org.id]))
+            return redirect(reverse('organisation'))
         else:
             messages.error(request,
                            'Failed to update Organisation.'
                            ' Please ensure the form is valid.')
     else:
-        form = OrganisationForm(instance=org)
-        messages.info(request, f'You are editing {Organisation.orgname}')
+        form = OrganisationForm(instance=organisation)
+        messages.info(request, f'You are editing: {organisation.orgname}')
 
-    template = 'organisation/edit_orgaanisation.html'
+    template = 'organisation/edit_organisation.html'
     context = {
         'form': form,
-        'org': org,
+        'organisation': organisation,
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_organisation(request, organisation_id):
+    """ Delete an organisation record """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only Admin can do that.')
+        return redirect(reverse('home'))
+
+    organisation = get_object_or_404(Organisation, pk=organisation_id)
+    organisation.delete()
+    messages.success(request,
+                     f'Organisation: {organisation.orgname}'
+                     f' Successfully deleted')
+    return redirect(reverse('organisation'))

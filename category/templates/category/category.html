@@ -42,26 +42,27 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-category mb-3 rounded-15">
-
+        <div class="col-12 col-lg-8 offset-lg-2 p-1 bg-category rounded-15">
             <div>
-                <h4 class="text-info">Categories/Tags&nbsp;&nbsp;<span class="muted-text text-edit">(Click to Edit)</span></h4>
-                <hr class="mt-2 mb-4">
-                        <div class="container-fluid">
-                            <div class="row indent-post">
-                            {% if categories|length > 0 %}
-                                {% for category in categories %}                           
-                                <div>
-                                    <a href="{% url 'edit_category' category.id %}" class="text-decoration-none hvr-grow">
-                                    <h2><span class="tag-format text-center">{{ category.friendly_name }}</span></h2></a>
-                                  </div>  
-                            {% endfor %}
-                            <hr>
-                        {% else %}
-                            <p class="text-center">There are no Category Tags</p>
-                        {% endif %}
+                <h4 class="text-info text-center">Categories/Tags&nbsp;&nbsp;<span class="muted-text text-edit">(Click to Edit)</span></h4>
+                </div>
             </div>
         </div>
     </div>
+    <br>
+    <div class="row indent-post bg-category rounded-15 col-lg-8 offset-lg-2">
+        {% if categories|length > 0 %}
+        {% for category in categories %}                           
+        <div>
+            <a href="{% url 'edit_category' category.id %}" class="text-decoration-none hvr-grow">
+            <h2><span class="tag-format text-center">{{ category.friendly_name }}</span></h2></a>
+            </div>  
+        {% endfor %}
+            <br>
+        {% else %}
+            <p class="text-center">There are no Category Tags</p>
+        {% endif %}
+    </div>
+    <br>
 </div>
 {% endblock %}

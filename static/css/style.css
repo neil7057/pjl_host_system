@@ -5,7 +5,7 @@ html {
 body {
     background: url('/media/eastbourne-banner.jpg')  no-repeat center center;
     background-size: cover;
-    height: calc(100vh - 294px);
+    height: calc(100vh - 234px);
     color: #555;
     font-family: 'Lato';
 }
@@ -85,11 +85,19 @@ body {
 }
 
 .bg-timeperiods {
-    background: #f9e2f5 !important;
+    background: #b2e27d !important;
+}
+
+.bg-teamlead {
+    background: #dde1b9 !important;
 }
 
 .bg-category {
     background: #8bd5c5 !important;
+}
+
+.bg-organisation {
+    background: #ebcab6 !important;
 }
 
 .bg-members {
@@ -520,7 +528,7 @@ textarea {
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
-  }
+    }
 }
 
 @media (max-width: 1030px) { 
@@ -548,17 +556,17 @@ textarea {
     .header-container {
         padding-top: 220px;
     }
+    img {
+        height: 110px;
+    }
 } 
 
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 124px;
     }
     body {
-        height: calc(100vh - 136px);
-    }
-    .header-container {
-        padding-top: 124px;
+        height: calc(100vh - 224px);
     }
     .nav-item {
         font-size: .8rem;
@@ -569,16 +577,19 @@ textarea {
     .footer-header-text {
         font-size: 1.2rem;
     }
-}
-
-@media (max-width: 950px) {
     img {
-        height: 110px;
+        height: 100px;
     }
 }
 
-@media (max-width: 416px) {
+@media (max-width: 571px) {
     img {
-        height: 60px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 340px) {
+    img {
+        height: 50px;
     }
 }

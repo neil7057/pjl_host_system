@@ -42,27 +42,31 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-pupils mb-3 rounded-15">
+        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-timeperiods mb-3 rounded-15">
             <div class="d-flex justify-content-between flex-wrap ">
                 <div class="col-12">
-                    <!-- Messages Title -->
                     <h2 class="text-edit">Time Periods</h2>    
-                    <!-- Current Message Filter & Count -->
                 </div>
-            </div> 
-            <hr class="mt-2 mb-4">
-            <div>
-                {% if timeperiods|length > 0 %}
+            </div>
+        </div> 
+        <br>
+    </div>
+        {% if timeperiods|length > 0 %}
                 {% for timeperiod in timeperiods %}
-                <!-- Pupil Record -->
+                <!-- Time Period Record -->
                 <div class="row">
-                    <div class="col-12">
-                        <p><span class="text-edit">Title:&nbsp;</span>{{timeperiod.title}}</p>
+                    <div class="col-12 col-lg-8 offset-lg-2 bg-timeperiods mb-3 rounded-15">
+                        <p class="mt-3"></p>
+                        <p><span class="text-edit ">Title:&nbsp;</span>{{timeperiod.title}}</p>
                         <p><span class="mb-1 text-edit">Date From:&nbsp;</span>{{timeperiod.date_from}}</p>
                         <p><span class="mb-1 text-edit">Date To:&nbsp;</span>{{teamlead.date_to}}</p> 
+                        <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
+                            <a class ="text-white" href="{% url 'edit_timeperiod' timeperiod.id %}">Edit</a>
+                        </button></span></p>
                     </div>
                 </div>
                 {% endfor %}
+                <br>
                 {% else %}
                 <div class="col-12 text-center py-3">
                     <p class="font-body weight-semibold text-dark-grey">No Time Periods To Display</p>

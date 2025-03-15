@@ -41,21 +41,20 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-hosts rounded-15">
+        <div class="col-12 col-lg-8 offset-lg-2 p-3 ">
             <div class="d-flex justify-content-between flex-wrap ">
-                <div class="col-12">
-                    <!-- Messages Title -->
-                    <h2 class="text-edit">Organisation Records</h2>    
-                    <!-- Current Message Filter & Count -->
+                <div class="col-12 col-lg-8 bg-organisation rounded-15 offset-lg-2">
+                    <h2 class="text-edit text-center">Organisation Records</h2>    
                 </div>
             </div> 
-            <hr class="mt-2 mb-4">
+            <br>
             <div>
                 {% if organisations|length > 0 %}
                 {% for organisation in organisations %}
-                <!-- Member Records -->
+                <!-- Organisation Records -->
                 <div class="row">
-                    <div class="col-12 mt-0">
+                    <div class="col-12 col-lg-8 offset-lg-2 bg-organisation mb-3 rounded-15">
+                        <br>
                         <h4>Organisation:&nbsp;&nbsp;{{organisation.orgname}}</h4>
                         <p>Address 1:&nbsp;&nbsp;{{organisation.address1}}</p>
                         <p>Address 1:&nbsp;&nbsp;{{organisation.address2}}</p> 
@@ -65,6 +64,9 @@
                         <p>Address 1:&nbsp;&nbsp;{{organisation.telephone}}</p>
                         <p>Address 1:&nbsp;&nbsp;{{organisation.contact_name}}</p>
                         <p>Address 1:&nbsp;&nbsp;{{organisation.email}}</p>
+                        <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
+                            <a class ="text-white" href="{% url 'edit_organisation' organisation.id %}">Edit</a>
+                        </button></span></p>
                     </div>
                 </div>
                 {% endfor %}

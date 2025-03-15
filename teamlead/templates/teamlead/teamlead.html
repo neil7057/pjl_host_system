@@ -27,11 +27,10 @@
         </div>
     </div>
 
-    <!-- Messages Section -->
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2 px-0">
             <hr class="mt-4 mb-4">
-            <!-- Add new team leader Button -->
+            <!-- Add new Team Leader Button -->
             <div class="col-12 text-center">
                 <a href="{% url 'add_teamlead' %}" class="btn btn-review mb-3 rounded-15 text-uppercase">
                     <span class="icon">
@@ -42,25 +41,27 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-pupils mb-3 rounded-15">
+        <div class="col-12 col-lg-8 offset-lg-2 p-3 ">
             <div class="d-flex justify-content-between flex-wrap ">
-                <div class="col-12">
-                    <!-- Messages Title -->
+                <div class="col-12 col-lg-8 offset-lg-2">
                     <h2 class="text-edit">Team Leaders</h2>    
-                    <!-- Current Message Filter & Count -->
                 </div>
             </div> 
-            <hr class="mt-2 mb-4">
             <div>
                 {% if teamleaders|length > 0 %}
                 {% for teamlead in teamleaders %}
                 <!-- Pupil Record -->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 col-lg-8 offset-lg-2 bg-teamlead mb-3 rounded-15">
+                        <br>
                         <p><span class="text-edit">First Name:&nbsp;</span>{{teamlead.first_name}}</p>
                         <p><span class="mb-1 text-edit">Last Name:&nbsp;</span>{{teamlead.last_name}}</p>
                         <p><span class="mb-1 text-edit">Email:&nbsp;</span>{{teamlead.email}}</p>
-                        <p><span class="mb-1 text-edit">mobile:&nbsp;</span>{{teamlead.mobile}}</p> 
+                        <p><span class="mb-1 text-edit">Mobile:&nbsp;</span>{{teamlead.mobile}}</p>
+                        <p><span class="mb-1 text-edit">Organisation:&nbsp;</span>{{teamlead.org}}</p>
+                        <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
+                            <a class ="text-white" href="{% url 'edit_teamlead' teamlead.id %}">Edit</a>
+                        </button></span></p>
                     </div>
                 </div>
                 {% endfor %}

@@ -54,7 +54,7 @@ def add_member(request):
         if form.is_valid():
             Members = form.save()
             messages.success(request, 'Member Record Added Successfully')
-            return redirect(reverse('Member_detail', args=[Members.id]))
+            return redirect(reverse('members'))
         else:
             messages.error(request,
                            'Member record Add Failed: Ensure Form Is Valid')

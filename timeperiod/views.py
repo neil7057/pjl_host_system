@@ -18,18 +18,6 @@ def all_timeperiods(request):
     return render(request, 'timeperiod/timeperiod.html', context)
 
 
-def timeperiod_detail(request, timeperiod_id):
-    """ A view to show individual team time period details """
-
-    timeperiod = get_object_or_404(Timeperiod, pk=timeperiod_id)
-
-    context = {
-        'timeperiod': timeperiod,
-    }
-
-    return render(request, 'timeperiod/timeperiod_detail.html', context)
-
-
 @login_required
 def add_timeperiod(request):
     """ Add timeperiod record """
@@ -40,7 +28,7 @@ def add_timeperiod(request):
     if request.method == 'POST':
         form = TimeperiodForm(request.POST, request.FILES)
         if form.is_valid():
-            timeperiod = form.save()
+            form.save()
             messages.success(request, 'timeperiod Added Successfully')
             return redirect(reverse('timeperiod'))
         else:
@@ -70,14 +58,14 @@ def edit_timeperiod(request, timeperiod_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated Time period!')
-            return redirect(reverse('timeperiod_detail', args=[timeperiod.id]))
+            return redirect(reverse('timeperiod'))
         else:
             messages.error(request,
                            'Failed to update timeperiod.'
                            ' Please ensure the form is valid.')
     else:
         form = TimeperiodForm(instance=timeperiod)
-        messages.info(request, f'You are editing {Timeperiod.first_name}')
+        messages.info(request, f'You are editing {timeperiod.title}')
 
     template = 'timeperiod/edit_timeperiod.html'
     context = {
@@ -86,3 +74,18 @@ def edit_timeperiod(request, timeperiod_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_timeperiod(request, timeperiod_id):
+    """ Delete a Time period record """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only Admin can do that.')
+        return redirect(reverse('home'))
+
+    timeperiod = get_object_or_404(Timeperiod, pk=timeperiod_id)
+    timeperiod.delete()
+    messages.success(request,
+                     f'Time Period: {timeperiod.title}'
+                     f' Successfully deleted')
+    return redirect(reverse('timeperiod'))

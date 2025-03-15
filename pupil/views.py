@@ -40,7 +40,7 @@ def add_pupil(request):
     if request.method == 'POST':
         form = PupilForm(request.POST, request.FILES)
         if form.is_valid():
-            pupil = form.save()
+            form.save()
             messages.success(request, 'Pupil Added Successfully')
             return redirect(reverse('pupils'))
         else:
@@ -70,14 +70,15 @@ def edit_pupil(request, pupil_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated Pupil!')
-            return redirect(reverse('pupil_detail', args=[pupil.id]))
+            return redirect(reverse('pupils'))
         else:
             messages.error(request,
                            'Failed to update Pupil.'
                            ' Please ensure the form is valid.')
     else:
         form = PupilForm(instance=pupil)
-        messages.info(request, f'You are editing {Pupil.first_name}')
+        messages.info(request,
+                      f'You are editing {pupil.first_name} {pupil.last_name}')
 
     template = 'pupil/edit_pupil.html'
     context = {
@@ -86,3 +87,18 @@ def edit_pupil(request, pupil_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_pupil(request, pupil_id):
+    """ Delete a Member record """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only Admin can do that.')
+        return redirect(reverse('home'))
+
+    pupil = get_object_or_404(Pupil, pk=pupil_id)
+    pupil.delete()
+    messages.success(request,
+                     f'pupil: {pupil.first_name} {pupil.last_name}'
+                     f' Successfully deleted')
+    return redirect(reverse('pupils'))

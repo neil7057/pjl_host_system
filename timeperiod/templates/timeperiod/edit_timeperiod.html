@@ -16,15 +16,16 @@
             <div class="col-md-3"></div>
             <div class="col-12 col-lg-6">
                 <hr>
-                <h5 class="text-edit text-center">Add a Timeperiod</h5>
+                <h5 class="text-edit text-center">Edit a Time Period Record</h5>
                 <hr>
             </div>
         </div>
 
         <div class="row">
             <div class="col-lg-3"></div>
-            <div class="col-12 col-lg-6 rounded-15 bg-timeperiods">
-                <form method="POST" action="{% url 'add_timeperiod' %}" class="form mb-2" enctype="multipart/form-data">
+            <div class="col-12 bg-teamlead rounded-15 col-lg-6">
+                <br>
+                <form method="POST" action="{% url 'edit_timeperiod' timeperiod.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
                         {{ field | as_crispy_field }}
@@ -37,11 +38,18 @@
                         <button class="btn btn-success rounded-15 mt-3 mb-3" type="submit">
                             <span class="mr-1">
                                 <i class="fa-solid fa-plus"></i>
-                            </span>Add Time Period</button>
+                            </span>Update</button>
                     </div>
                 </form>
-            </div>            
+            </div>  
         </div>
+        <br>
+        <div class="text-center">
+            <button class="mr-3 rounded-15 btn btn-danger">
+            <a class ="text-white" href="{% url 'delete_timeperiod' timeperiod.id %}">Delete This Time Period</a>
+        </button>
+        <p class="mt-1 mb-3 font-weight-bold">(Caution, This cannot be 'UN' deleted !)</p>
+        </div>          
         <br>
     </div>
 {% endblock %}
