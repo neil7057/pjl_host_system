@@ -52,21 +52,23 @@
                 {% if organisations|length > 0 %}
                 {% for organisation in organisations %}
                 <!-- Organisation Records -->
-                <div class="row">
+                <div class="row no-gutters">
                     <div class="col-12 col-lg-8 offset-lg-2 bg-organisation mb-3 rounded-15">
                         <br>
-                        <h4>Organisation:&nbsp;&nbsp;{{organisation.orgname}}</h4>
-                        <p>Address 1:&nbsp;&nbsp;{{organisation.address1}}</p>
-                        <p>Address 1:&nbsp;&nbsp;{{organisation.address2}}</p> 
-                        <p>Address 1:&nbsp;&nbsp;{{organisation.town}}</p> 
-                        <p>Address 1:&nbsp;&nbsp;{{organisation.postcode}}</p> 
-                        <p>Address 1:&nbsp;&nbsp;{{organisation.county}}</p> 
-                        <p>Address 1:&nbsp;&nbsp;{{organisation.telephone}}</p>
-                        <p>Address 1:&nbsp;&nbsp;{{organisation.contact_name}}</p>
-                        <p>Address 1:&nbsp;&nbsp;{{organisation.email}}</p>
-                        <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
-                            <a class ="text-white" href="{% url 'edit_organisation' organisation.id %}">Edit</a>
-                        </button></span></p>
+                        <h4 class="ml-3">Organisation:&nbsp;&nbsp;{{organisation.orgname}}</h4>
+                        <div class="ml-4">
+                            <p>Address 1:&nbsp;&nbsp;{{organisation.address1}}</p>
+                            <p>Address 1:&nbsp;&nbsp;{{organisation.address2}}</p> 
+                            <p>Address 1:&nbsp;&nbsp;{{organisation.town}}</p> 
+                            <p>Address 1:&nbsp;&nbsp;{{organisation.postcode}}</p> 
+                            <p>Address 1:&nbsp;&nbsp;{{organisation.county}}</p> 
+                            <p>Address 1:&nbsp;&nbsp;{{organisation.telephone}}</p>
+                            <p>Address 1:&nbsp;&nbsp;{{organisation.contact_name}}</p>
+                            <p>Address 1:&nbsp;&nbsp;{{organisation.email}}</p>
+                            <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
+                                <a class ="text-white" href="{% url 'edit_organisation' organisation.id %}">Edit</a>
+                            </button></span></p>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}

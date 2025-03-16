@@ -51,9 +51,9 @@
                 {% if hosts|length > 0 %}
                 {% for host in hosts %}
                 <!-- Host Record -->
-                <div class="row">
+                <div class="row no-gutters">
                     <div class="col-12 bg-hosts rounded-15 mt-0">
-                        <h4>{{host.hostname}}</h4>
+                        <h4 class="ml-3 mt-2">{{host.hostname}}</h4>
                         <div class="ml-5">
                             <p>{{host.address1}}&nbsp;&nbsp;{{host.town}}&nbsp;&nbsp;{{host.telephone}}</p>
                             <p class="mb-0">Maximum Occupancy:&nbsp;&nbsp;{{host.max_occupants}}:&nbsp;&nbsp;<span>

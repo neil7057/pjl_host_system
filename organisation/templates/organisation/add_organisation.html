@@ -21,20 +21,22 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row no-gutters">
             <div class="col-lg-3"></div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 bg-organisation rounded-15 col-lg-6">
                 <form method="POST" action="{% url 'add_organisation' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
+                    <div class="ml-3 mr-3">
                         {{ field | as_crispy_field }}
+                    </div>
                     {% endfor %}
                     <div class="text-right">
                         <a class="btn btn-danger rounded-15 mt-3 mb-5" href="{% url 'organisation' %}">
                             <span class="mr-1">
                                 <i class="fa-solid fa-xmark"></i>
                             </span>Cancel</a>&nbsp;&nbsp;
-                        <button class="btn btn-success rounded-15 mt-3 mb-5" type="submit">
+                        <button class="btn btn-success rounded-15 mr-3 mt-3 mb-5" type="submit">
                             <span class="mr-1">
                                 <i class="fa-solid fa-plus"></i>
                             </span>Add Organisation</button>

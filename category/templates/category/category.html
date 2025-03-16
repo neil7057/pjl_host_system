@@ -42,15 +42,18 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-1 bg-category rounded-15">
-            <div>
-                <h4 class="text-info text-center">Categories/Tags&nbsp;&nbsp;<span class="muted-text text-edit">(Click to Edit)</span></h4>
+        <div class="col-12 col-lg-8 offset-lg-2 p-3 ">
+            <div class="d-flex justify-content-between flex-wrap ">
+                <div class="col-12 col-lg-8 bg-category rounded-15 offset-lg-2">
+                    <div>
+                        <h4 class="text-info text-center">Categories/Tags&nbsp;&nbsp;<span class="muted-text text-edit">(Click to Edit)</span></h4>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <br>
-    <div class="row indent-post bg-category rounded-15 col-lg-8 offset-lg-2">
+    <div class="row no-gutters bg-category rounded-15 col-lg-8 offset-lg-2">
         {% if categories|length > 0 %}
         {% for category in categories %}                           
         <div>

@@ -52,7 +52,7 @@ def add_member(request):
     if request.method == 'POST':
         form = MembersForm(request.POST, request.FILES)
         if form.is_valid():
-            Members = form.save()
+            form.save()
             messages.success(request, 'Member Record Added Successfully')
             return redirect(reverse('members'))
         else:

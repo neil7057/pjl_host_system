@@ -27,8 +27,8 @@
         </div>
     </div>
 
-    <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3 ">
+    <div class="row">
+        <div class="col-12 col-lg-8 offset-lg-2">
             <div class="d-flex justify-content-between flex-wrap ">
                 <div class="col-12 bg-hosts mb-4 rounded-15">
                     <h2 class="text-edit text-center">Host Record</h2>    
@@ -36,10 +36,10 @@
             </div> 
             <div>
                 <!-- Host Record -->
-                <div class="row">
-                    <div class="col-12 bg-hosts rounded-15 mt-0 ml-2">
+                <div class="row no-gutters">
+                    <div class="col-12 bg-hosts rounded-15 mt-0">
                         <br>
-                        <h4> Hostname:&nbsp;&nbsp;{{host.hostname}}<span>
+                        <h4 class="ml-3"> Hostname:&nbsp;&nbsp;{{host.hostname}}<span>
                             <button class="mr-3 rounded-15 btn btn-success float-right">
                                 <a class ="text-white" href="{% url 'edit_host' host.id %}">Edit</a>
                             </button>
@@ -59,31 +59,37 @@
                             {% endif %}
                         </div>
                     </div>
-                    <br>
-                    <div class="col-12 bg-category rounded-15 mt-0 ml-2">
+                </div>
+                <br>
+                <div class="row no-gutters bg-category rounded-15">
+                    <div class="col-12  mt-0">
                         <br>
                         <!-- get catgeories for hosts -->
-                        <h4 class="text-info">Categories/Tags</h4>
+                        <h4 class="text-info ml-3">Categories/Tags</h4>
+                    </div>
+                    <div class=" bg-category rounded-15 col-lg-8 offset-lg-2"></div>
                             {% if categories|length > 0 %}
                                 {% for category in categories %}                           
                                 <div>
                                     <h2><span class="tag-format text-center">{{ category.name }}</span></h2>
                                   </div>  
                             {% endfor %}
-                            <hr>
+                            <br>
                         {% else %}
                             <p class="text-center">There are no Category Tags for this Host</p>
                         {% endif %}
                     </div>
-                    <br>
-                    <div class="col-12 bg-members rounded-15 mt-0 ml-2">
+                </div>
+                <br>
+                <div class="row no-gutters">
+                    <div class="col-12 bg-members rounded-15 mt-0">
                     <br>
                         <!-- get list of family members for host -->
-                        <h4 class="text-edit">Family Members</h4>
+                        <h4 class="text-edit ml-3">Family Members</h4>
                         {% if familymembers|length > 0 %}
                             {% for members in familymembers %}
-                                <p>First Name:&nbsp;&nbsp;{{members.first_name}}</p>
-                                <p>Last Name:&nbsp;&nbsp;{{members.last_name}}</p>
+                                <p class="ml-5">First Name:&nbsp;&nbsp;{{members.first_name}}</p>
+                                <p class="ml-5">Last Name:&nbsp;&nbsp;{{members.last_name}}</p>
                                 <hr>
                             {% endfor %}
                         {% else %}

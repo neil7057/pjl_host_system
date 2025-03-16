@@ -41,11 +41,11 @@
             </div>
         </div>
     </div>
-    <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3 bg-timeperiods mb-3 rounded-15">
+    <div class="row no-gutters" >
+        <div class="col-12 col-md-6 offset-md-3 bg-timeperiods mb-3 rounded-15">
             <div class="d-flex justify-content-between flex-wrap ">
                 <div class="col-12">
-                    <h2 class="text-edit">Time Periods</h2>    
+                    <h2 class="text-edit text-center">Time Periods</h2>    
                 </div>
             </div>
         </div> 
@@ -54,15 +54,16 @@
         {% if timeperiods|length > 0 %}
                 {% for timeperiod in timeperiods %}
                 <!-- Time Period Record -->
-                <div class="row">
-                    <div class="col-12 col-lg-8 offset-lg-2 bg-timeperiods mb-3 rounded-15">
-                        <p class="mt-3"></p>
+                <div class="row no-gutters">
+                    <div class="col-12 col-md-6 offset-md-3 bg-timeperiods mb-3 rounded-15">
+                        <div class="ml-3 mt-3">
                         <p><span class="text-edit ">Title:&nbsp;</span>{{timeperiod.title}}</p>
-                        <p><span class="mb-1 text-edit">Date From:&nbsp;</span>{{timeperiod.date_from}}</p>
-                        <p><span class="mb-1 text-edit">Date To:&nbsp;</span>{{teamlead.date_to}}</p> 
-                        <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
+                        <p><span class="text-edit mb-0">Date From:&nbsp;</span>{{timeperiod.date_from}}</p>
+                        <p><span class="text-edit">Date To:&nbsp;</span>{{timeperiod.date_to}}</p> 
+                        <button class="mr-3 mb-2 rounded-15 btn btn-success float-right">
                             <a class ="text-white" href="{% url 'edit_timeperiod' timeperiod.id %}">Edit</a>
                         </button></span></p>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}

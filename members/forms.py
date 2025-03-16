@@ -1,12 +1,17 @@
 from django import forms
 from .models import Members
 
+from django.forms.widgets import DateInput
+
 
 class MembersForm(forms.ModelForm):
 
     class Meta:
         model = Members
         fields = '__all__'
+        widgets = {
+            'dbs_date': DateInput(attrs={'type': 'date'}),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

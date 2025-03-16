@@ -53,9 +53,10 @@
                 {% if pupils|length > 0 %}
                 {% for pupil in pupils %}
                 <!-- Pupil Record -->
-                <div class="row">
+                <div class="row no-gutters">
                     <div class="col-12 col-lg-8 offset-lg-2 bg-pupils mb-3 rounded-15">
                         <br>
+                        <div class="ml-3 mr-3">
                         <p><span class="text-edit">First Name:&nbsp;</span>{{pupil.first_name}}</p>
                         <p><span class="text-edit">Preferred Name:&nbsp;</span>{{pupil.preferred_name}}</p>
                         <p><span class="mb-1 text-edit">Last Name:&nbsp;</span>{{pupil.last_name}}</p>
@@ -68,6 +69,7 @@
                         <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
                             <a class ="text-white" href="{% url 'edit_pupil' pupil.id %}">Edit</a>
                         </button></span></p>
+                    </div>
                     </div>
                 </div>
                 {% endfor %}

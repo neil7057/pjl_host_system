@@ -50,7 +50,7 @@
           </a>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <form method="GET" action="{% url 'products' %}">
+          <form method="GET" action="{% url 'home' %}">
               <div class="input-group w-100">
                   <input class="form-control border border-info rounded-15 hide-labels" type="text"
                    name="q" placeholder="Search our site"
@@ -78,10 +78,11 @@
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                             <a href="{% url 'hosts' %}" class="dropdown-item hvr-grow">Hosts</a>
-                            <a href="{% url 'organisation' %}" class="dropdown-item hvr-grow">Organisations</a>
+                            <a href="{% url 'members' %}" class="dropdown-item hvr-grow">Family</a>
                             <a href="{% url 'category' %}" class="dropdown-item hvr-grow">Categories</a>
                             <a href="{% url 'timeperiod' %}" class="dropdown-item hvr-grow">Time Periods</a>
                             <a href="{% url 'pupils' %}" class="dropdown-item hvr-grow">Pupils</a>
+                            <a href="{% url 'organisation' %}" class="dropdown-item hvr-grow">Organisations</a>
                             <a href="{% url 'teamlead' %}" class="dropdown-item hvr-grow">Team Leaders</a>
                             {% endif %}
                           <a href="{% url 'account_logout' %}" class="dropdown-item hvr-grow">Logout</a>

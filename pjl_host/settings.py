@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     'organisation',
     'teamlead',
     'profiles',
-    'products',
 
     # Other Apps
     'crispy_forms',

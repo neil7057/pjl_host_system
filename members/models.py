@@ -24,8 +24,7 @@ class Members(models.Model):
     child_age = models.IntegerField(blank=True, null=True,
                                     validators=[MaxValueValidator(17),
                                                 MinValueValidator(0)])
-    valid_dbs = models.BooleanField(default=True, null=True, blank=False)
-    dbs_date = models.DateField()
+    dbs_date = models.DateField(null=True, blank=True)
     host = models.ForeignKey(
         Host, on_delete=models.SET_NULL, related_name="host",
         null=True, blank=True)

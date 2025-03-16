@@ -42,33 +42,43 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-12 col-lg-8 offset-lg-2 p-3">
-                <div class="col-12 bg-members rounded-15">
+        <div class="col-12 col-lg-6 offset-lg-3">
+            <div class="d-flex justify-content-between flex-wrap ">
+                <div class="col-12 bg-members mb-4 rounded-15">
                     <h2 class="text-edit text-center">Member Records</h2>    
                 </div>
+            </div>
                 <br>
             <div>
                 {% if members|length > 0 %}
                 {% for member in members %}
                 <!-- Member Records -->
-                <div class="row">
-                    <div class="col-12 bg-members rounded-15 mt-0">
+                <div class="row no-gutters">
+                    <div class="col-12 py-0 bg-members rounded-15 mt-0">
                         <br>
-                        <h4>Name:&nbsp;&nbsp;{{member.first_name}}&nbsp;{{member.last_name}}</h4>
-                        <div class="ml-3">
-                            <p>Gender:&nbsp;&nbsp;{{member.gender}}</p>
-                            <p>Email:&nbsp;&nbsp;{{member.email}}</p>
+                        <h4 class="ml-3 ">Name:&nbsp;&nbsp;{{member.first_name}}&nbsp;{{member.last_name}}</h4>
+                        <div class="ml-5 mb-0">
+                            <p class="mb-0">Gender:&nbsp;&nbsp;{{member.gender}}</p>
+                            <p class="mb-0">Email:&nbsp;&nbsp;{{member.email}}</p>
                             {% if member.is_adult %}
                                 <p>Adult</p>
                             {% else %}
                                 <p>Child</p>
                                 <p>Age:&nbsp;{{member.child_age}}</p>
                             {% endif %}
-                            {% if member.valid_dbs %}
-                                <p>Valid DBS</p>
-                                <p>DBS Expiry:&nbsp;{{member.dbs_date}}</p>
+                            <!-- get todays date in required format -->
+                            {% now "d m Y" as current_date %}
+                            <!-- check if dbs valid -->
+                            {% if member.dbs_date|date:"dmY"  > current_date  %}
+                                <p class="text-edit mb-0">Valid DBS</p>
+                                <p class="text-edit">DBS Expiry:&nbsp;{{member.dbs_date}}</p>   
                             {% else %}
-                                <p class="text-danger">No Valid DBS</p>
+                                <p class="text-danger mb-0">No Valid DBS</p>
+                                {% if member.dbs_date is None %}
+                                    <p class="text-danger mt-0">No DBS on record</p>
+                                {% else %}
+                                    <p class="text-danger mt-0">DBS Expired On:&nbsp;&nbsp;{{member.dbs_date}}</p>
+                                {%endif %}
                             {% endif %}
                             <p>Host:&nbsp;&nbsp;{{member.host}}<span>
                             <button class="mr-3 mb-4 rounded-15 btn btn-success float-right">

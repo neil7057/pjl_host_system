@@ -43,25 +43,28 @@
     <div class="row" >
         <div class="col-12 col-lg-8 offset-lg-2 p-3 ">
             <div class="d-flex justify-content-between flex-wrap ">
-                <div class="col-12 col-lg-8 offset-lg-2">
-                    <h2 class="text-edit">Team Leaders</h2>    
+                <div class="col-12 col-lg-8 bg-teamlead rounded-15 offset-lg-2">
+                    <h2 class="text-edit text-center">Team Leaders</h2>    
                 </div>
-            </div> 
+            </div>
+            <br> 
             <div>
                 {% if teamleaders|length > 0 %}
                 {% for teamlead in teamleaders %}
                 <!-- Pupil Record -->
-                <div class="row">
+                <div class="row no-gutters">
                     <div class="col-12 col-lg-8 offset-lg-2 bg-teamlead mb-3 rounded-15">
                         <br>
-                        <p><span class="text-edit">First Name:&nbsp;</span>{{teamlead.first_name}}</p>
-                        <p><span class="mb-1 text-edit">Last Name:&nbsp;</span>{{teamlead.last_name}}</p>
-                        <p><span class="mb-1 text-edit">Email:&nbsp;</span>{{teamlead.email}}</p>
-                        <p><span class="mb-1 text-edit">Mobile:&nbsp;</span>{{teamlead.mobile}}</p>
-                        <p><span class="mb-1 text-edit">Organisation:&nbsp;</span>{{teamlead.org}}</p>
-                        <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
-                            <a class ="text-white" href="{% url 'edit_teamlead' teamlead.id %}">Edit</a>
-                        </button></span></p>
+                        <div class="ml-3 mr-3">
+                            <p><span class="text-edit">First Name:&nbsp;</span>{{teamlead.first_name}}</p>
+                            <p><span class="mb-1 text-edit">Last Name:&nbsp;</span>{{teamlead.last_name}}</p>
+                            <p><span class="mb-1 text-edit">Email:&nbsp;</span>{{teamlead.email}}</p>
+                            <p><span class="mb-1 text-edit">Mobile:&nbsp;</span>{{teamlead.mobile}}</p>
+                            <p><span class="mb-1 text-edit">Organisation:&nbsp;</span>{{teamlead.org}}</p>
+                            <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
+                                <a class ="text-white" href="{% url 'edit_teamlead' teamlead.id %}">Edit</a>
+                            </button></span></p>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
