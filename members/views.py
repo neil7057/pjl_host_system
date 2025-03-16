@@ -18,18 +18,6 @@ def all_members(request):
     return render(request, 'members/members.html', context)
 
 
-def all_members_for_host(request, Host_id):
-    """ A view to show all members, including sorting and search queries """
-
-    members = Members.objects.all().filter(Members.host_id == Host_id)
-
-    context = {
-        'members': members,
-    }
-
-    return render(request, 'members/members.html', context)
-
-
 def member_detail(request, Members_id):
     """ A view to show individual Members details """
 

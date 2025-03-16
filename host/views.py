@@ -31,7 +31,7 @@ def host_detail(request, host_id):
     # Gets family members and catgories from DB
     categories = host.categories.filter()
     # familymembers = host.Members.filter()
-    familymembers = ""
+    familymembers = host.host.filter()
 
     context = {
         'host': host,

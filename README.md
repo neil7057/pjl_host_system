@@ -1,13 +1,14 @@
-# leos_oreos_shop
-![Mockup](leos_oreos/docs/images/website-mockup.png)
+# PJL_Host_System
+![Mockup]()
 
 **Author Neil Allen**
 
-## Leo's Oreo Emporium
+## PJL Host System
 
-An E-commerce website to pay homage to my son's love of the biscuits themselves and everything Oreo. Built within a django framework; data structures follow those employed in similar applications with additions for enhanced functionality/complexity. 
+A host management system for PJL Global students. Hosts consist of family members - typically one or two adults and sometimes children, some of whom may also be adults. The system handles Host gas safety requiremnets and individual DBS status. Pupils arrive for a timeperiod and are linked to a Host organisation and team ledaer. Pupils are linked to their 'host' family for the duration of their stay.
+Pupils can be allocated to Host families based on certain search criteria, recorded as categories on Host accomodation records. 
 
-[View the live project here.](https://leos-oreos-shop-2a6fc504879b.herokuapp.com/)
+[View the live project here.]()
 
 # Table of Contents
 
@@ -15,8 +16,6 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
 2. [Overview](#overview)
 3. [User Experience (UX)](#user-experience-ux)
     *   [User stories](#user-stories)
-        *   [First Time Visitor Goals](#as-a-first-time-user-i-want-to)
-        *   [Returning Visitor Goals](#as-a-registered-user-i-want-to)
         *   [Frequent User Goals](#as-an-admin-i-want-to)
     *   [Design](#design)
         *   [Colour Scheme](#colour-scheme)
@@ -28,21 +27,11 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
         *   [Diagram](#diagram)
     *   [Wireframes](#wireframes)
         *   [Base Template](#base)
-        *   [Products](#products)
-        *   [Details](#details)
-        *   [Add Review](#add-a-review)
-        *   [Edit Review](#edit-a-review)
         *   [Category](#category)
-        *   [Shopping Cart](#shopping-cart)
-        *   [Checkout](#checkout)
-        *   [Checkout Success](#checkout-success)
-        *   [Contact Us](#contact-us)
-        *   [Management](#management)
     *   [Structure](#structure)
 4. [Features](#features)
 5. [Pages](#pages)
     *   [Common pages](#common-pages)   
-    *   [User Pages](#user-pages)
     *   [Admin pages](#admin-pages)
     *   [Site Features](#site-features)
 6. [Technologies Used](#technologies-used)
@@ -58,8 +47,6 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
     *   [JavaScript](#javascript)
     *   [pep8](#pep8)
     *   [Testing User Stories from User Experience (UX) Section](#testing-user-stories-from-user-experience-ux-section)
-        *   [First Time Visitor Goals](#as-a-first-time-user-i-want-to-1)
-        *   [Returning Visitor Goals](#as-a-registered-user-i-want-to-1)
         *   [Frequent User Goals](#as-an-admin-i-want-to-1)
     *   [Responsiveness](#responsiveness)
     *   [Accessibility](#accessibility)
@@ -67,29 +54,15 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
     *   [Lighthouse Testing](#lighthouse-testing)
     *   [Automatesd Testing](#automated-testing)
         *   [Profiles](#automated-profiles)
-        *   [Bags](#automated-bag)  
-        *   [Checkout](#automated-checkout)
-        *   [Product](#automated-product)
-        *   [Reviews](#automated-reviews)
-        *   [Management](#automated-management)
         *   [Summary](#automated-summary)
     *   [Functional Testing](#functional-testing)
         *   [Navigation Links](#navigation-links)
         *   [Testing Approach](#testing-approach)
             *   [Admin Test Account](#admin-test-account)
-            *   [User Test Accounts](#user-test-accounts)
-            *   [Visitor Tests](#visitor-tests)
-        *   [Signup Testing](#sign-up-testing)
         *   [Login Testing](#log-in-testing)
         *   [Forgot Pssword Testing](#forgot-password-testing)
         *   [Change Password Testing](#change-password-testing)    
-        *   [Shopping Testing](#shopping-testing)
-        *   [Checkout Testing](#checkout-testing)
-        *   [Stripe Testing](#stripe-payments)
         *   [Admin Testing](#admin-testing)
-        *   [Search Function Testing](#search-function-testing)
-        *   [Links Testing](#links-testing)
-        *   [Footer Contact Information](#footer-contact-information)
     *   [Further Testing](#further-testing)
     *   [Bugs and Fixes](#bugs-and-fixes)
     *   [Known Bugs](#known-bugs)
@@ -114,39 +87,13 @@ An E-commerce website to pay homage to my son's love of the biscuits themselves 
 
 ## Overview
 
-The website is an E-commerce site selling a range of Oreo related products. Shoppers can search for and buy a range of products
-and checkout anonymously or create an account where they can save their details for future purchases and enquire on past orders. 
-Visitors can email an administrator via the Contact_us page, whether they have an account or not.
-Registered users can leave product reviews which must be apporved by an admin before becoming visible.
-There is an admin page to review messages and reviews and toggle their status. Further, more refined actions can be carried out via the django admin function.
+A web app, accessible on a range of devices and from anywhere with an internet connection. Designed for one or two users but can support more. a valid user has acces sto all functionality and can create, update and delete all record types.
 
-*   Visitors/shoppers can:
-    -   Browse all products
-    -   Browse by category
-    -   Browse within Catgeory
-    -   Search for products
-    -   See product reviews
-    -   Order items
-    -   Checkout
-    -   Set up an account/profile 
-    -   Message an Administrator
-
-*   Logged in users can:
-    -   Everything that an unregistered shopper can do plus
-    -   Enquire/Update Profile information
-    -   Save checkout details for future purchases
-    -   View orders and order history
-    -   Change/Reset Password
-    -   Review a product
-    -   Edit and Delete their own reviews
+All users are by design, admin and add pupil records to specific timeperiods and allocate to Host families. Host families can be filtered by category.
 
 *   Administrators can:
-    -   Everything that Logged in users can do plus
-    -   Add Products
-    -   Amend Products
-    -   Delete Products
-    -   Review messages
-    -   Authorise/delete reviews  
+    -   Set up an account/profile 
+   
 
 *   Superuser Administrators can:
     -   All of the above plus
@@ -156,178 +103,84 @@ There is an admin page to review messages and reviews and toggle their status. F
 
 -   ### User stories
 
--   #### As a first time user I want to:
-    -   Immediately understand the main purpose and use of the site
-    -   View a list of products in full and by category
-    -   Be able to search for the products by keyword and category
-    -   Identify special deals/clearance
-    -   Contact the company with any queries
-    -   Buy products without registration
-    -   Easily see my current order total
-    -   Add/remove items or change quantities from my shopping bag prior to checkout
-    -   Be able use the site on any device and screen size
-    -   Easily register/signup for an account
-
-- #### As a registered user I want to:
-    -   Easily Login and Logout
-    -   Have access to my profile page
-    -   Easily see my current order total
-    -   Add/remove items or change quantities from my shopping bag prior to checkout
-    -   See my order history
-    -   Be able to update and save my personal info
-    -   Add a product review and edit/delete it
-    -   Be able to change and/or recover my password
-    -   Make a purchase with my delivery info pre-populated
-    -   Message an administrator
-
 - #### As an admin I want to:
-    -   Be able to add, edit and delete products
-    -   Be able to see and process messages
-    -   Authorise, delete user reviews
+    -   Authorise, delete all record types
     -   Have easy access to admin controls
 
 -   ### Design
     -   #### Colour Scheme
-        -   I've used predominantly blues for the main scheme with a crisp white background on all but the Home page and admin areas to dufferentiate. Oreos are typically brown contrasted with white but i felt that brown would be too dull, although for WCAG contrast compliance it is used on some buttons. Blue by constrast is a branding colour of Oreo.
-        -   Oreo text blue is #4956C9 and used on various headings. Green is used for most page headings as that is a positive 'Go!' signal. Confirm buttons are green and cancel buttons red. Other button options are .info or .warning dependant upon context. Some have been adjusted for WCAG compliance. Edit | Delete options are small amd discreet and visible or not according to login user status and DB record ownership/
+        -   
         
     -   #### Typography
         -   The font is Lato and main headings are capitalised.
  
     -   #### Imagery
-        -   There is a main central image on the welcome page that is Oreo themed. All other non-admin pages have a crisp white background. Product images appear on all pages where a product is referenced, including product, detail, shopping bag and checkout. The about_us page
-        has a range of hyperlinked images.
+        -   
 
     -   #### Design Considerations
-        -   The site is built within a django framework using HTML5, CSS3, Python, Javascript and SqlLite. It is deployed to Heroku with Static and media files served from AWS. User Management is via django allauth. Forms management is CrispyForms unless the form is very basic. Payment processing is by Stripe.
+        -  
      
-        -   Colours are Oreo themed, blue and white with reds/greens for 'go' and 'cancel' actions.
+        -   Colours 
 
         -   The site is responsive with menus and text resized for smaller screens. 
 
-        -   Menu navigation is consistent across all desktop sizes with a different menu structure for mobile devices. Menu options are
-        consistent across all devices and change according to login and admin status. There is an additional 'Home' menu option
-        on small screens when the main bar title is hidden.
+        -   Menu navigation is 
 
         -   There is a 'back to top' button on all pages to avoid having to manually scroll on pages with lengthy content. 
 
-        -   Staff users are able to add, edit and delete products, manage reviews and respond to messages via the app. Fuller admin facilities are available via the django admin interface.
+        -   Staff users are able to add, edit and delete 
 
         -   Error and confirmation is via django messaging and message status is colour coded; green for success, red for error etc. Messages appear at the top right of the screen. Additional error messages may appear as part of built-in form or model validation.
 
-        -   Logged in users get to see all products, their profile details and all past orders. They can also update their details and change or reset their password. 
+        -   Logged in users 
 
-        -   Clicking on the page title from any page takes the user back to the home/index page. I did consider making it the products page but then there would be no way back to /index - although the only item on the index page is a link to products.
+        -   Clicking on the page 
 
 -   ### Database Design
 -   #### Table Structure
     *   A User Profile table
-    *   A Product table
-    *   A Product Category table
-    *   An Order table 
-    *   An Order Line Item table with an entry for each product item on an order
-    *   A Review table to hold consumer reviews
-    *   A Messages table to hold messages from customers/visitors 
+    *   A Host table
+    *   A Category table
+    *   A Members Category table
+    *   A Pupil table 
+    *   An Organisation table
+    *   A Timeperiod table
+    *   A Team Leader table 
 
 -   #### Diagram
     <details><summary>Data Structure</summary>
-    <img src="leos_oreos\docs\images\wireframes\database-schema.png">
+    <img src="pjl_home\docs\images\wireframes\database-schema.png">
     </details>
 
 -   ### Wireframes   
     
 -   #### Base
     <details><summary>Index - Home</summary>
-    <img src="leos_oreos\docs\images\wireframes\index.html.png">
+    <img src="pjl_home\docs\images\wireframes\index.html.png">
     </details>
 
 -   #### Products
-    <details><summary>All products</summary>
-    <img src="leos_oreos\docs\images\wireframes\all-products.png">
+    <details><summary>All Hosts</summary>
+    <img src="pjl_home\docs\images\wireframes\.png">
     </details>
 
--   #### Details
-    <details><summary>Product Detail</summary>
-    <img src="leos_oreos\docs\images\wireframes\product_detail.png">
-    </details>
 
--   #### Add A Review
-    <details><summary>Add a review</summary>
-    <img src="leos_oreos\docs\images\wireframes\add_review.png">
-    </details>
-
--   #### Edit A Review
-    <details><summary>Edit a review</summary>
-    <img src="leos_oreos\docs\images\wireframes\edit_review.png">
-    </details>
-
--   #### Category
-    <details><summary>Products - Selected by Category</summary>
-    <img src="leos_oreos\docs\images\wireframes\products-selectedby-category.png">
-    </details>
-
--   #### Shopping Cart
-    <details><summary>Shopping Cart</summary>
-    <img src="leos_oreos\docs\images\wireframes\shopping-cart.png">
-    </details>
-
--   #### Checkout
-    <details><summary>Checkout</summary>
-    <img src="leos_oreos\docs\images\wireframes\checkout.png">
-    </details>
-
--   #### Checkout Success
-    <details><summary>Checkout Success</summary>
-    <img src="leos_oreos\docs\images\wireframes\checkout-success.png">
-    </details>
-
--   #### Contact Us
-    <details><summary>Contact Us</summary>
-    <img src="leos_oreos\docs\images\wireframes\contact_us.png">
-    </details>
- 
--   #### Management
-    <details><summary>Management</summary>
-    <img src="leos_oreos\docs\images\wireframes\management.png">
-    </details>
 
 -   ### **Structure**
 
     The structure of the site: 
 
-    Visitors can view all products and search by keyword or category. they can order, checkout, register for an account and send a message. They can view product reviews but can't add a review until they register for an account.
+    admin...
 
     Functions serve:
-    -   Sign Up
     -   Login and out
-    -   Password change/reset
-    -   Search facility by keyword
-    -   Product sort and search by category
-    -   A shopping cart - add/remove items, amend quantities
-    -   Checkout and payment by card using Stripe
-    -   Message facility
-    -   Product management for Staff/Admins
-    -   Message management for Staff/Admins
-    -   Profile managemnt and historic order enquiry
-    -   Review management
+    -   
+    -   
+    The site is built on a django framework and templated around a 'base.html' which contains site header and menu structures. There are additional .html templates for main navigation and mobile-specific navigation. 
 
-    The site is built on a django framework and templated around a 'base.html' which contains site header, footer and menu structures. There are additional .html templates for main navigation and mobile-specific navigation. 
-
-    Each discreet function is a separate django app. Most CSS and JS are in files within the static folder under the 'leo-oreos' app. 
+    Each discreet function is a separate django app. Most CSS and JS are in files within the static folder under the 'pjl-hosts' app. 
 
     There are separate CSS and JS files where their application is local to a single app and they are in the respective app/static folders. 
-
-    Social media links on the footer are to Oreo focussed sites. 
-
-    The footer contains a link to an about_us page.
-    
-    The footer contains a link to the Privacy Noticy (DPA 2018) page and also an option to view/download the information in PDF format.
-
-    The footer contains a link to the contact_us page where visitors and registered users can leave a message for admin review.
-
-    Email confirmations and communications are handled via django through gmail.
-
-    User feedback is by customised 'toast' messages indicating the success or otherwise of user actions. There are appropriately coloured Success, Info, Warning and error toasts and placed top-centre.
 
     Success and info messages auto-dismiss after approximately 7 seconds but can be manually closed earlier. Warning and error messages remain on screen until dismissed.
     
@@ -339,155 +192,24 @@ There is an admin page to review messages and reviews and toggle their status. F
 ### Common Pages
 -   Landing page image   
     *   The first page is the index or home page.
-    *   For visitors and registered users, This will help to immediately show what the website is about. 
+    *   For  registered users, . 
 
 -   <details><summary>Landing Page - all</summary>
-    <img src="leos_oreos\docs\images\screens\ss-home-page.png">
+    <img src="pjl_home\docs\images\screens\ss-home-page.png">
     </details>
     <br>
 
 -   <details><summary>Landing Page Mobile - all</summary>
-    <img src="leos_oreos\docs\images\screens\ss-home-page-mobile.png">
+    <img src="pjl_home\docs\images\screens\ss-home-page-mobile.png">
     </details>
     <br>
-
--   <details><summary>All products - desktop</summary>
-    <img src="leos_oreos\docs\images\screens\ss-all-products.jpg">
-    </details>
-    <br>
-
--   <details><summary>All products - mobile</summary>
-    <img src="leos_oreos\docs\images\screens\ss-all-products-mobile.png">
-    </details>
-    <br>
-
--   <details><summary>Product By Category</summary>
-    <img src="leos_oreos\docs\images\screens\ss-product-by-category.png">
-    </details>
-    <br>
-
--   <details><summary>Product Detail - desktop</summary>
-    <img src="leos_oreos\docs\images\screens\ss-product-detail.png">
-    </details>
-    <br>
-
--   <details><summary>Product Detail - tablet</summary>
-    <img src="leos_oreos\docs\images\screens\ss-product-detail-tablet.png">
-    </details>
-    <br>
-
--   <details><summary>Add review</summary>
-    <img src="leos_oreos\docs\images\screens\ss-add-review.png">
-    </details>
-    <br>
-
--   <details><summary>Edit Review</summary>
-    <img src="leos_oreos\docs\images\screens\ss-edit-review.png">
-    </details>
-    <br>
-
--   <details><summary>Shopping Bag - desktop</summary>
-    <img src="leos_oreos\docs\images\screens\ss-shopping-bag.png">
-    </details>
-    <br>
-
--   <details><summary>Shopping Bag - tablet</summary>
-    <img src="leos_oreos\docs\images\screens\ss-shopping-bag-tablet.png">
-    </details>
-    <br>
-
--   <details><summary>Checkout - desktop</summary>
-    <img src="leos_oreos\docs\images\screens\ss-checkout.png">
-    </details>
-    <br>
-
--   <details><summary>Checkout - Mobile</summary>
-    <img src="leos_oreos\docs\images\screens\ss-checkout-mobile.png">
-    </details>
-    <br>
-
--   <details><summary>Checkout Success</summary>
-    <img src="leos_oreos\docs\images\screens\ss-checkout-success.png">
-    </details>
-    <br>
-
--   <details><summary>Search Results</summary>
-    <img src="leos_oreos\docs\images\screens\ss-search-results.png">
-    </details>
-    
-        
-### User Pages
--   User Access
-
--   <details><summary>Register</summary>
-    <img src="leos_oreos\docs\images\screens\ss-register.png">
-    </details>
-    <br>
-
--   <details><summary>Login</summary>
-    <img src="leos_oreos\docs\images\screens\ss-login.png">
-    </details>
-    <br>
-
--   <details><summary>logout</summary>
-    <img src="leos_oreos\docs\images\screens\ss-logout.png">
-    </details>
-    <br>
-
--   <details><summary>Profile</summary>
-    <img src="leos_oreos\docs\images\screens\ss-profile.png">
-    </details>
-    <br>
-
--   <details><summary>Contact Us</summary>
-    <img src="leos_oreos\docs\images\screens\ss-contact-us.png">
-    </details>
-    <br>
-
-### Admin Pages
--   Admin only functions
-
-    <details><summary>Add Product</summary>
-    <img src="leos_oreos\docs\images\screens\ss-add-product.png">
-    </details>
-    <br>
-
-    <details><summary>Edit Product</summary>
-    <img src="leos_oreos\docs\images\screens\ss-edit-product.png">
-    </details>
-    <br>
-
-    <details><summary>Edit/Delete Product Menu</summary>
-    <img src="leos_oreos\docs\images\screens\ss-product-admin.png">
-    </details>
-    <br>
-
-    <details><summary>Management</summary>
-    <img src="leos_oreos\docs\images\screens\ss-management.png">
-    </details>
-    <br>
-    -   Images appear with a white background on a pink page. However, this is an admin area only so this is acceptable. If this were a customer facing page, i would have duplicate images with a matching background.
 
 ### Site Features
 
 * Responsive design - content scales from 280px to Large Desktop. Some content is hidden at smaller resolutions to maintain user experience.
 * Top Menu navbar is adjusted for mobile/tablets. Menu context/options responds to user status.
 * There is a Top of the Page scrolling button on each page. 
-* There is a list of all products and this is searchable by keyword within title or description
-* Products can be refined by category and sub-category
-* Visitors can create an account and save their information for speedier future checkout
-* Clicking on a product on the product page opens the product_details page where items can be ordered
-* The shopping bag is accessed from the shopping cart sign at the top of each page, which has a running total
-* Visitors and shoppers can update quantities and remove items from the shopping bag
-* Clicking on the product in the shopping bag links to the full product details page
-* Online payments are processed via Stripe
-* On the profile page, Registered users can view order history and any reviews they've submitted 
-* Email communication is via Gmail
-* Users can add and update their own reviews of products
-* Reviews are held invisible until authorised by an Admin
-* Product reviews are calculated as an average of approved reviews and displayed as golden cookies
-* Anyone can message site staff/admin
-* There is an ICO compliant Privacy Policy
+
 
 ## Technologies Used
 
@@ -525,8 +247,6 @@ There is an admin page to review messages and reviews and toggle their status. F
     -   Collection of custom storage backends for Django
 -   [Gunicorn:](https://gunicorn.org/)
     -   A Python WSGI HTTP Server for UNIX
--   [Pillow:](https://pypi.org/project/pillow/)
-    -   Python imaging Library for extended image handling capabilities
 -   [Psycopg2:](https://www.psycopg.org/)
     -   Postgres adaptor to allow smooth communication between the backend and the database
 -   [s3transfer:](https://pypi.org/project/s3transfer/)
@@ -582,68 +302,9 @@ This was carried out periodically as each page was created and amended and then 
  -  The use of a base.html template with a menu and a separate include for a mobile-nav header, produces warnings about a duplicate ID. This can be safely ignored
 
     <details><summary>Home Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-index.png">
+    <img src="pjl_home\docs\images\testing\w3c-index.png">
     </details>
 
-    <details><summary>About Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-about.png">
-    </details>
-    
-    </details>
-    <details><summary>Privacy Notice Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-privacy.png">
-    </details>
-
-    <details><summary>Sign Up Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-registration.png">
-    </details>
-    django all-auth produces a 'ul' nested error in generated code. can be ignored.
-
-    <details><summary>Login Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-login.png">
-    </details>
-
-    <details><summary>Products Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-products.png">
-    </details>
-
-    <details><summary>Product Details Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-product-details.png">
-    </details>
-
-    <details><summary>Edit Product Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-edit-product.png">
-    </details>
--   The use of Crispy Forms to render the input fields of the page cause some html errors. These can be safely ignored.
-    
-    <details><summary>Shopping Bag Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-shopping-bag.png">
-    </details>
-    
-    <details><summary>Checkout</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-html-checkout.png">
-    </details>
-    django countries prodcues a placeholder error which can be ignored.
-
-    <details><summary>Checkout Success Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-checkout-success.png">
-    </details>
-
-    <details><summary>Profile Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-profile.png">
-    </details>
-
-    <details><summary>Add Review Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-add-review.png">
-    </details>
-
-    <details><summary>Edit Review Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-edit-review.png">
-    </details>
-
-    <details><summary>Management Page</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-management.png">
-    </details>
 
 ### CSS
 
@@ -652,13 +313,8 @@ This was checked periodically as each page was created and CSS code added and am
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
     <details><summary>style.css</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-style.png">
+    <img src="pjl_home\docs\images\testing\w3c-style.png">
     </details>
-
-    <details><summary>checkout.css</summary>
-    <img src="leos_oreos\docs\images\testing\w3c-checkout.png">
-    </details>
-
 
 ### JavaScript
 
@@ -666,8 +322,8 @@ This was checked periodically as each page was created and js code added and ame
 
 -   [jshint JavaScript Validator](https://jshint.com/)
 
-    <details><summary>Major JS - stripe.js</summary>
-    <img src="leos_oreos\docs\images\testing\jshint-stripejs.png">
+    <details><summary>Major js</summary>
+    <img src="pjl_home\docs\images\testing\jshint-.png">
     </details>
 
 ### PeP8
@@ -677,119 +333,17 @@ This was checked each time substantial changes were made to PY files. A final ch
 -   [PeP8 Python Linter](https://pep8ci.herokuapp.com)
 
 -   .py files were scanned using [Flake8](https://flake8.pycqa.org/en/latest/). Errors in generated .py files were ignored.
--   There remains a warning about an import in checkout/apps.py whch doesn't add an overhead or impact code function, so as a singular error has been ignored.
--   There remains a warning in leos_oreos/settings.py about unused 'env'. However this is essential in the Development environment to import from env.py. env.py is not migrated to git or Production environments. 
+ 
 
-    <details><summary>pep8 -flake8 Bag</summary>
-    <img src="leos_oreos\docs\images\testing\flake-bag.png">
-    </details>
-    <details><summary>pep8 -flake8 Checkout</summary>
-    <img src="leos_oreos\docs\images\testing\flake-checkout.png">
+    <details><summary>pep8 -flake8</summary>
+    <img src="pjl_home\docs\images\testing\flake-bag.png">
     </details>
     
-    <details><summary>pep8 -flake8 Home</summary>
-    <img src="leos_oreos\docs\images\testing\flake-home.png">
-    </details>
-
-    <details><summary>pep8 -flake8 Leos-Oreos</summary>
-    <img src="leos_oreos\docs\images\testing\flake-leos-oreos.png">
-    </details>
-
-    <details><summary>pep8 -flake8 Products</summary>
-    <img src="leos_oreos\docs\images\testing\flake-products.png">
-    </details>
-
-    <details><summary>pep8 -flake8 Profiles</summary>
-    <img src="leos_oreos\docs\images\testing\flake-profile.png">
-    </details>
-
-    <details><summary>pep8 -flake8 Review</summary>
-    <img src="leos_oreos\docs\images\testing\flake-review.png">
-    </details>
-
-    <details><summary>pep8 -flake8 Management</summary>
-    <img src="leos_oreos\docs\images\testing\flake-management.png">
-    </details>
-
 
 ### Testing User Stories from User Experience (UX) Section
 
--   #### First Time Visitor Goals
-  
-     #### As a first time user I want to:
-    -   Immediately understand the main purpose and use of the site
-        -   The site is clear about content and purpose
-
-    -   View a list of products in full and by category
-        -   Products can be listed in full, sorted by category and rating or displayed only in category groups.
-
-    -   Be able search for the products by keyword and category
-        -   Products can be searched for by keyword in category and product name/decsription.
-
-    -   Identify special deals/clearance
-        -    A separate menu and category exists for this.
-
-    -   Contact the company with any queries
-        -   Logged in users and visitors can email via a link in the footer on each page.
-
-    -   Buy products without registration
-        -   Buyers can purchase without having to signup for an account.
-
-    -   Easily see my current order total
-        -   The order total is displayed in the top right corner of every page.
-
-    -   Add/remove items from my shopping bag prior to checkout
-        -   Items can be added and removed and quantities adjusted prior to checkout completion.
-
-    -   Be able use the page on any devices and screen sizes
-        -   Mobiles and smaller screens have a different menu. Pages and images resize appropriately. Checkout is optimised for smaller screen sizes.
-
-    -   Easily register/signup for an account
-        -   Registration is clearly marked on the account menu. The registration mechanism requires minimal information and validates the user's email address by sending a confirmation request.
-
-- #### As a registered user I want to:
-    -   Easily Login and Logout
-        -   Login/out is accessed from the account menu and is very straightforward.
-
-    -   Have access to my profile page
-        -   The profile page is clearly signposted from the accounts menu.
-
-    -   Easily see my current order total
-        -   Current order total is always visible at the top right of each page.
-
-    -   Add/remove items from my shopping bag prior to checkout
-        -   Products can be added to an order from the product details tab. Products can be added, removed and quantities changed from this page or the shopping cart which is accessed by clicking on the shopping trolley icon, top right.
-
-    -   See my order history
-        -   Order history is listed on the user profile. Orders hyperlink to the Order details.
-
-    -   Be able to update and save my personal info
-        -   Registered users can access and update their profile information via the Account menu.
-
-    -   Add a product review and edit/delete it
-        -   Registered users can add, and (edit and delete their own) reviews.
-
-    -   Be able to change and/or recover my password
-        -   Registered users can reset their password at Login or change their password via their profile information page accessible from the Account menu.
-
-    -   Make purchases with my delivery info always filled in
-        -   Registered users can save their checkout address details for future purchase and these will be automatically populated in future order checkout.
-
-    -   Message an administrator
-        -   Users can message an admin from a link on the footer of every page
-
 - #### As an admin I want to:
-    -   Be able to add, edit and delete products
-        -   Staff/Admin can add, edit and remove products via the product management link in accounts or from the buttons on the product details or product pages. These menus are only visible to Staff/Admin.
-
-    -   Be able to see and process messages
-        -   Messages are accessible from the account menu mangement option - only visible to admins. Messages can be listed and viewed in open or closed status or both (all). They can be deleted from the django admin interface.
-        `
-    -   Authorise, delete user reviews
-        -   The account managemnt menu option gives access to the admin review page where reviews awaiting authorisation can be viewed, authorised, edited or deleted. Once authorised they no longer appear on this page but can be further managed via the django admin function. 
-
-    -   Have easy access to admin controls
-        -   Products can be managed via the account menu, product or product-details links. Full Admin is available via the django admin function.
+    -   
         
 ### Responsiveness
 
@@ -803,7 +357,7 @@ All pages were tested to ensure responsiveness on screen sizes from 280px and up
 Steps to test:
 
 1. Open browser and navigate to:
-    - [Leo's Oreo Emporium](https://leos-oreos-shop-2a6fc504879b.herokuapp.com/)
+    - [PJL Host System]()
 2. Open the developer tools (right click and inspect).
 3. Set to responsive and decrease width in stages to 280px.
 4. Set the zoom to 50%.
@@ -860,94 +414,10 @@ Some pages report heading levels skipped but I have chosen a specific design and
 WCAG results:
 
 -   <details><summary>Home Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-home.png">
+    <img src="pjl_home\docs\images\testing\wcag-home.png">
     </details>
     <br>
 
--   <details><summary>Product Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-products.png">
-    </details>
-    <br>
-
--   <details><summary>Product Details Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-product-details.png">
-    </details>
-    <br>
-
--   <details><summary>Add Review Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-add-review.png">
-    </details>
-    <br>
-
--   <details><summary>Edit Review Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-edit-review.png">
-    </details>
-    <br>
-
--   <details><summary>Shopping Bag Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-shopping-bag.png">
-    </details>
-    <br>
-
--   <details><summary>Checkout Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-checkout.png">
-    </details>
-    <br>
-
--   <details><summary>Checkout Success Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-checkout-success.png">
-    </details>
-    <br>
-
--   <details><summary>About Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-about.png">
-    </details>
-    <br>
-
--   <details><summary>Privacy Policy Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-privacy.png">
-    </details>
-    <br>
-    
--   <details><summary>Contact Us Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-contact-us.png">
-    </details>
-    <br>
-
--   <details><summary>Search Results Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-search-results.png">
-    </details>
-    <br>
-    
--   <details><summary>Registration Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-registration.png">
-    </details>
-WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
-    There is a re-work option but it would unnecessarily complicate the code to fix a problem that isn't a genuine problem.
-
-
--   <details><summary>Login Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-login.png">
-    </details
-
-WCAG reports an error with missing aria-labels on the Crispy Form. However these are audible in the screen reader test and are accurately named as placeholder.
-    There is a re-work option but it would unnecessarily complicate the code to fix a problem that isn't a genuine problem.
-
-
--   <details><summary>Logout Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-logoff.png">
-    </details>
-    <br>
-
--   <details><summary>Profile Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-profile.png">
-    </details>
-    <br>
-   
--   <details><summary>Management Page</summary>
-    <img src="leos_oreos\docs\images\testing\wcag-management.png">
-    </details>
-    <br>
 
 Manual tests were also performed to ensure the website was as accessible as possible.
 
@@ -969,116 +439,27 @@ This confirmed that:
     All performance indicators are Green and above 90%.
 
     <details><summary>Home Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-home-page.png">
-    </details>
-    <br>
-
-    <details><summary>Product Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-products.png">
-    </details>
-    <br>
-
-    <details><summary>Product Details Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-product-details.png">
-    </details>
-    <br>
-
-    <details><summary>Add Review Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-add-review.png">
-    </details>
-    <br>
-
-    <details><summary>Edit Review Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-edit-review.png">
-    </details>
-    <br>
-
-    <details><summary>Shopping Bag Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-shopping-bag.png">
-    </details>
-    <br>
-
-    <details><summary>Checkout Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-checkout.png">
-    </details>
-    <br>
-
-    <details><summary>About Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-about.png">
-    </details>
-    <br>
-
-    <details><summary>Privacy Policy Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-privacy.png">
-    </details>
-    <br>
-
-    <details><summary>Search Results Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-search-results.png">
-    </details>
-    <br>
-    
-    <details><summary>Registration Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-register.png">
-    </details>
-    <br>
-
-    <details><summary>Management Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-management.png">
-    </details>
-    <br>
-
-    <details><summary>Contact Us Page</summary>
-    <img src="leos_oreos\docs\images\testing\l-contact-us.png">
+    <img src="pjl_home\docs\images\testing\l-home-page.png">
     </details>
     <br>
 
 ### Automated Testing
--   92 automated tests for code coverage and validated were created in the following apps:
+-    automated tests for code coverage and validated were created in the following apps:
     *   Profiles
-    *   Bag
-    *   Checkkout
-    *   Product
-    *   Reviews
-    *   Management
+    *   
 
 -   #### Automated Profiles
     <details><summary>Automated Tests Profiles</summary>
-    <img src="leos_oreos\docs\images\testing\at-profiles.png">
-    </details>
-
--   #### Automated Bag
-    <details><summary>Automated Tests Bag</summary>
-    <img src="leos_oreos\docs\images\testing\at-bag.png">
-    </details>
-
--   #### Automated Checkout
-    <details><summary>Automated Tests Checkout</summary>
-    <img src="leos_oreos\docs\images\testing\at-checkout.png">
-    </details>
-
--   #### Automated Product
-    <details><summary>Automated Tests Product</summary>
-    <img src="leos_oreos\docs\images\testing\at-products.png">
-    </details>
-
--   #### Automated Reviews
-    <details><summary>Automated Tests Reviews</summary>
-    <img src="leos_oreos\docs\images\testing\at-reviews.png">
-    </details>
-
--   #### Automated Management
-    <details><summary>Automated Tests management</summary>
-    <img src="leos_oreos\docs\images\testing\at-management.png">
+    <img src="pjl_home\docs\images\testing\at-profiles.png">
     </details>
 
 -   #### Automated Summary
     <details><summary>Automated Tests Summary</summary>
-    <img src="leos_oreos\docs\images\testing\at-summary.png">
+    <img src="pjl_home\docs\images\testing\at-summary.png">
     </details>
 
 ### Functional Testing
--   9 test categories and 40 test product were loaded into the database(s) in development and production via JSON files.
+-   9 test categories a
 
 - #### Navigation Links
 
@@ -1105,26 +486,7 @@ This confirmed that:
     Significant manual testing was carried out together with 92 automated tests via .py test scripts across all apps to test code coverage.
 
 -   ##### Admin Test Account
-    -   For test purposes there is an admin account but details are restricted and available on valid request. Test user accounts are below:
-
--   ##### User Test Accounts
-    -   For adding reviews and checking logged in user functions.
-        -   Username: mikey
-        -   Password: UserTest99
-
-        -   Uswername: robbie
-        -   Password: UserTest1010
-
-        -   Username: sally
-        -   Password: UserTest09
-    
--   ##### Visitor Tests
-    -   Anonymous access is easy to replicate.
-
--   #### Sign Up Testing
-    -   The cursor is automatically positioned at the start of the first input field. Validation is mostly taken care of by django allauth but was tested field by field with valid and invalid entries.
-    -   A "confirmation email" message was displayed and a confirmation email sent.
-    -   Once the confirmation email was acknowledged, Login was enabled
+    -   For test purposes there is an admin account but details are restricted and available on valid request. 
 
 -   #### Log In Testing
     -   The cursor is automatically positioned at the start of the first input field. Username and Password are validated against user profile and either a login is achieved or a suitable error message displayed.
@@ -1140,152 +502,30 @@ This confirmed that:
     -   Clicking on the link in Profile to change password, displays the password reset page
     -   If the password is changed successfully, a toast 'success' message is displayed and the change password page refreshed - this is standard django allauth functionality
 
--   ####  Shopping Testing
-    -   Add to bag
-        -   add an item to shopping bag and checkout
-        -   add multiple items to shopping bag and checkout
-        -   increase quantity
-        -   add/change size
-        -   test that free delivery is triggered when total value exceeds threshold
-        and is 'untriggered' if deletion of items reduces order total below threshold
-    -   Remove from bag
-        -   reduce quantity and checkout
-        -   remove via remove option to check removes from bag and adjusts delivery if appropriate
-    -   Amend quantity
-        -   increase quantity and check that sub totals and delivery charges adjust
-        -   reduce quantity and check that sub totals and delivery charges adjust
-    -   Size processing   
-        -   remove clothing items with a specified size and ensure that the same product with a differnt size remains unaffected.
-        -   amend quantities on sized items to ensure only the particular sized product order is affected
-
- -  ####  Checkout Testing
-    -   Validate address details
-        -   Django form validation
-        -   Country code via django countries
-
--   ####  Stripe Payments:
-    -   Valid card - success
-        -   using: 4242 4242 4242 4242 exp: 12/27 code: 252 Postcode/Zip: 25222
-    -   Invalid card - payment fails
-        -   using: 4000 0000 0000 0000 exp: 10/27 code: 252 Postcode/Zip: 25222
-    -   Valid card -2FA required
-        -   using: 4242 0000 0000 9995 exp: 12/27 code: 252 Postcode/Zip: 25222
-    -   Webhook Handler test
-    <br>
-
-    <details><summary>Stripe Logs - Payments</summary>
-    <img src="leos_oreos\docs\images\testing\ss-stripe-logs1.png">
-    </details>
-    <br>
-   
-    <details><summary>Stripe Logs - Declined</summary>
-    <img src="leos_oreos\docs\images\testing\ss-stripe-logs2.png">
-    </details>
-    <br>
-   
-    <details><summary>Stripe Logs - Webhooks</summary>
-    <img src="leos_oreos\docs\images\testing\ss-stripe-logs3.png">
-    </details>
-    <br>
-
-    #### Review Testing
-    -   Add Review
-        -   validate only logged in users can add a review
-        -   validate all fields present
-        -   validate score is between 1 and 5
-        -   validate that review is placed 'unauthorised'
-
-    -   Edit Review
-        -   validate only owner and admin can edit/delete reviews
-        -   validate field changes to ensure mandatory fields are populated
-        -   validate that updated review becomes 'unauthorised'
-        -   validate range 1-5 on rating field
-
--   ####  Admin Testing
-    -   Add Product
-        -   Product can be added via 'product management' link from accounts menu or django admin console.
-
-    -   Amend product
-        -   Product can be editted from product and product_details pages or django admin console.
-
-    -   Delete product
-        -   Product can be deleted from product and product_details pages or django admin console.
-
-    -   Authorise Review
-        -   Ensure review is authorised and visible on product, disappears from admin list
-    
-    -   Delete Review
-        -   Check that review is removed from product details page and deleted from DB
-
-    -   Toggle Message open/closed
-        -   check toggle status of messages displayed on management page against django admin status
+-   ####  S
         
 -   #### Search Function Testing
     -   By keyword
         -   via the search bar.
     -   By category
-        -   via the product menu/submenus.  
-
--   #### Links Testing
-
-    Testing was performed to:
-
-    -   Open each hyperlink on each page and check that it is a valid URL and opens in a new page.
-
-    -   Checked on desktop, tablet and mobile.
-
-    -   Footer Social Media Icons / Links
-
-    Testing was performed:
-    -   On the Font Awesome Social Media icons in the footer to ensure that each one opened in a new tab.
-
-    -   Each item opened in a new tab when clicked as expected and correct hover effect was present.
-
--   #### Footer Contact Information
-
-    -   The 'Contact_us' link directs to the contact us webpage with a form and further contact details (phone, address, email). The form is validated and successful completion geerates an 'open' status message for admin review and displays a 'success' message to the user
+        -   via the  
  
 ### Bugs and Fixes
 
-*  Link to top button not active in footer.
-    -   added z-index to bring to front.
-    
-*   Webhook not working with new secret key
-    -   stripe test keys had also changed in admin
-
-*   Stripe payments not being recorded
-    -   public key had changed in admin interface. env.py updated with new key info.
-
-*   makemigrations fails after django_countries install with error on 'pkg-resources'
-    -   found solution online. install 'setuptools'
-
-*   django allauth templates not inheriting from base.html on V 65.4.1
-    -   manually added 'extend root base.html' to allauth base.html
-
-*   Not deploying to Heroku with py cache error, no static file.
-    -   downgraded version of django - known issue at 5.0
-
-*   Some images not displaying on heroku - showing as html resource
-    -   /image/ updated to {{ MEDIA_URL }} path.
-
-*   Server 500 error on adding product images in Heroku via pp or admin
-    -   traced to spurious space at end of AWS key in heroku config vars
+*  L
 
 ### Known Bugs
 
 *   There are no known bugs in this release.
 
 ### Future Releases
-*   Ideas for future development could include:
-    -   Paginate products page so only x number of items displayed for all products. not an issue with 40 products but could become so as the site grows.
-    -   Discounted prices/postage for regular customers.
-    -   Add VAT processing if future range includes more vatable items. If required currently, VAT invoices could be generated manually for the small number of adult-sized clothing items on the site.
+*   
 
 ## Deployment
 
 ### Version Control
 
-The site was created using the Visual Studio code editor and pushed to the remote repository on GitHub: ‘leos_oreos_project’.
+The site was created using the Visual Studio code editor and pushed to the remote repository on GitHub: ‘pjl_host_system’.
 
 The following git commands were used throughout development to push code to the remote repository:
 
@@ -1364,7 +604,7 @@ else:
 
 #### Deploying to Heroku
 
--   Create a Procfile in your app in the root directory with the following content `web: gunicorn leos_oreos.wsgi:application` and a blank line at the end.
+-   Create a Procfile in your app in the root directory with the following content `web: gunicorn pjl.hosts.wsgi:application` and a blank line at the end.
 -   Log in to Heroku dashboard.
 -   Temporarily disable Heroku from collecting static files during deployment using adding the variable  DISABLE_COLLECTSTATIC to 1. Go to Heroku dashboard, open settings and reveal config variables to achieve this.
 -   In the Heroku dashboard, link to github via the deploy tab. 
@@ -1459,7 +699,7 @@ if 'USE_AWS' in os.environ:
     }
 
     # Bucket Config
-    AWS_STORAGE_BUCKET_NAME = 'leos-oreso'
+    AWS_STORAGE_BUCKET_NAME = 'pjl-host'
     AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
@@ -1539,18 +779,12 @@ MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 *   Free background removal on various images using [photoroom](https://www.photoroom.com/tools/background-remover). 
 
-*   The main background image is a free image from an Oreo site. All Other images are copyright free or used with permission.
+*   The main background image is a free image from a local Eastbourne site. All Other images are copyright free or used with permission.
 
 *   Free mockup generator using [Multi Device Website Mockup](https://techsini.com/multi-mockup/).
 
 ### Acknowledgements
 
-*   My Mentor for his continuous helpful feedback and support. His industry experience is noticeable in his insighteful guidance. 
-
 *   I can't overestimate the value of Stackoverflow resources at their website and on Youtube.
 
 *   The whole community of developers who freely advise and share their knowledge via blogs, videos and web comments.
-
-*   Tutor support at Code Institute for their support.
-
-*   Tutor support at City of Bristol College for continued support and motivation.

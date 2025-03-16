@@ -33,11 +33,15 @@
                 <div class="col-12 bg-hosts mb-4 rounded-15">
                     <h2 class="text-edit text-center">Host Record</h2>    
                 </div>
-            </div> 
-            <div>
-                <!-- Host Record -->
-                <div class="row no-gutters">
-                    <div class="col-12 bg-hosts rounded-15 mt-0">
+            </div>
+        </div>
+    </div>
+        <div>
+        <!-- Host Record -->
+            <div class="row no-gutters">
+                <div class="col-12 col-lg-8 offset-lg-2">
+                    <div class="d-flex justify-content-between flex-wrap ">
+                        <div class="col-12 bg-hosts mb-2 rounded-15">
                         <br>
                         <h4 class="ml-3"> Hostname:&nbsp;&nbsp;{{host.hostname}}<span>
                             <button class="mr-3 rounded-15 btn btn-success float-right">
@@ -61,42 +65,82 @@
                     </div>
                 </div>
                 <br>
-                <div class="row no-gutters bg-category rounded-15">
-                    <div class="col-12  mt-0">
-                        <br>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <div class="d-flex justify-content-between flex-wrap ">
+                    <div class="col-12 bg-category mb-4 rounded-15">
                         <!-- get catgeories for hosts -->
-                        <h4 class="text-info ml-3">Categories/Tags</h4>
-                    </div>
-                    <div class=" bg-category rounded-15 col-lg-8 offset-lg-2"></div>
-                            {% if categories|length > 0 %}
-                                {% for category in categories %}                           
-                                <div>
-                                    <h2><span class="tag-format text-center">{{ category.name }}</span></h2>
-                                  </div>  
-                            {% endfor %}
-                            <br>
-                        {% else %}
-                            <p class="text-center">There are no Category Tags for this Host</p>
-                        {% endif %}
+                        <h2 class="text-info text-center ml-3">Categories/Tags</h2>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class=" bg-category rounded-15 col-lg-8 offset-lg-2">
+            {% if categories|length > 0 %}
+            {% for category in categories %}                           
+                <div class="category-label ">
+                    <h2><span class="tag-format text-center">{{ category.name }}</span></h2>
+                </div>  
+            {% endfor %}
                 <br>
-                <div class="row no-gutters">
-                    <div class="col-12 bg-members rounded-15 mt-0">
-                    <br>
-                        <!-- get list of family members for host -->
-                        <h4 class="text-edit ml-3">Family Members</h4>
-                        {% if familymembers|length > 0 %}
-                            {% for members in familymembers %}
-                                <p class="ml-5">First Name:&nbsp;&nbsp;{{members.first_name}}</p>
-                                <p class="ml-5">Last Name:&nbsp;&nbsp;{{members.last_name}}</p>
-                                <hr>
-                            {% endfor %}
-                        {% else %}
-                            <p class="text-center">There are no Family members for this Host</p>
-                        {% endif %}
+            {% else %}
+                <p class="text-center">There are no Category Tags for this Host</p>
+            {% endif %}
+            </div>
+        </div>
+        <br>
+        <div class="row no-gutters">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <div class="d-flex justify-content-between flex-wrap ">
+                    <div class="col-12 bg-members mb-2 rounded-15">
+                        <!-- get family members for hosts -->
+                        <h2 class="text-info text-center mt-1 ml-3">Family Members</h2>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <br>
+            {% if familymembers|length > 0 %}
+            {% for member in familymembers %}
+            <div class=" bg-members rounded-15 mt-3 col-lg-8 offset-lg-2">
+                <h4 class="ml-3 mt-3">Name:&nbsp;&nbsp;{{member.first_name}}&nbsp;{{member.last_name}}</h4>
+                <div class="ml-5 mb-0">
+                    <p class="mb-0">Gender:&nbsp;&nbsp;{{member.gender}}</p>
+                    <p class="mb-0">Email:&nbsp;&nbsp;{{member.email}}</p>
+                {% if member.is_adult %}
+                    <p>Adult</p>
+                {% else %}
+                    <p>Child</p>
+                    <p>Age:&nbsp;{{member.child_age}}</p>
+                {% endif %}
+            <!-- get todays date in required format -->
+                    {% now "d m Y" as current_date %}
+                    <!-- check if dbs valid -->
+                    {% if member.dbs_date|date:"dmY"  > current_date  %}
+                        <p class="text-edit mb-0">Valid DBS</p>
+                        <p class="text-edit">DBS Expiry:&nbsp;{{member.dbs_date}}</p>   
+                    {% else %}
+                        <p class="text-danger mb-0">No Valid DBS</p>
+                        {% if member.dbs_date is None %}
+                            <p class="text-danger mt-0">No DBS on record</p>
+                        {% else %}
+                            <p class="text-danger mt-0">DBS Expired On:&nbsp;&nbsp;{{member.dbs_date}}</p>
+                        {%endif %}
+                    {% endif %}
+                    <p>Host:&nbsp;&nbsp;{{member.host}}<span>
+                    <button class="mr-3 mb-4 rounded-15 btn btn-success float-right">
+                        <a class ="text-white" href="{% url 'edit_member' member.id %}">Edit</a>
+                    </button></span></p>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+                <p class="text-center">There are no Family members for this Host</p>
+            {% endif %}
             </div>
         </div>
     </div>
