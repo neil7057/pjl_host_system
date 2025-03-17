@@ -526,11 +526,14 @@ textarea {
 /* Slightly larger container on xl screens */
 
 @media (min-width: 1200px) {
-  .container {
+    .container {
     max-width: 80%;
     }
     img {
         height: 180px !important;
+    }
+    h1 {
+        margin-top: 3rem;
     }
 }
 

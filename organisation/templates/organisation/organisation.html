@@ -23,7 +23,7 @@
     <!-- Title Section -->
     <div class="row">
         <div class="col-12 col-lg-10 offset-lg-1 px-0">
-            <h1 class="mt-5 text-edit text-center">PJL Organisation Records</h1>
+            <h1 class="text-edit text-center">PJL Organisation Records</h1>
         </div>
     </div>
 
@@ -71,13 +71,48 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row no-gutters" >
+                <!-- <div class="col-12 col-lg-8 offset-lg-2 p-3 "> -->
+                <div class="col-12 col-lg-8 bg-teamlead rounded-15 offset-lg-2">
+                    <h2 class="text-edit text-center">Team Leaders for&nbsp;
+                        <span class="font-weight-bold">{{organisation.orgname}}</span></h2>    
+                </div>
+            </div>
+            <div class="mb-1"></div>
+            <div>
+                {% if teamleaders|length > 0 %}
+                <!-- get only the teamleaders for this organisation -->
+                {% for teamlead in organisation.org.all %}               
+                    <!-- teamlead Record -->
+                    <div class="row no-gutters">
+                        <div class="col-12 col-lg-8 offset-lg-2 bg-teamlead mb-3 rounded-15">
+                            <br>
+                            <div class="ml-3 mr-3">
+                                <p><span class="text-edit">First Name:&nbsp;</span>{{teamlead.first_name}}</p>
+                                <p><span class="mb-1 text-edit">Last Name:&nbsp;</span>{{teamlead.last_name}}</p>
+                                <p><span class="mb-1 text-edit">Email:&nbsp;</span>{{teamlead.email}}</p>
+                                <p><span class="mb-1 text-edit">Mobile:&nbsp;</span>{{teamlead.mobile}}</p>
+                                <p><span class="mb-1 text-edit">Organisation:&nbsp;</span>{{teamlead.org}}</p>
+                                <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">                                    <a class ="text-white" href="{% url 'edit_teamlead' teamlead.id %}">Edit</a>
+                                </button></span></p>
+                            </div>
+                        </div>
+                    </div>                
                 {% endfor %}
                 {% else %}
-                <div class="col-12 text-center py-3">
-                    <p class="font-body weight-semibold text-dark-grey">No Organisation Records To Display</p>
+                <div class="row no-gutters">
+                    <div class="col-12 col-lg-8 offset-lg-2 bg-teamlead mb-3 rounded-15">
+                        <p class="font-body weight-semibold mt-2 text-center text-dark-grey">No Team Leaders To Display</p>
+                    </div>
                 </div>
                 {% endif %}
+            {% endfor %}
+            {% else %}
+            <div class="col-12 text-center py-3">
+                <p class="font-body weight-semibold text-dark-grey">No Organisation Records To Display</p>
             </div>
+            {% endif %}
         </div>
     </div>
     <div class="mb-3"></div>

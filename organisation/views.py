@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Organisation
+from teamlead.models import Teamlead
 from .forms import OrganisationForm
 
 
@@ -10,9 +11,15 @@ def all_organisations(request):
     """ A view to show all organisations """
 
     organisations = Organisation.objects.all()
+    teamleaders = Teamlead.objects.all()
+
+    # get all teamleaders and filter in html.
+    # number of organisations is small and number of teamleaders
+    # is mall so no real processing overhead
 
     context = {
         'organisations': organisations,
+        'teamleaders': teamleaders,
     }
 
     return render(request, 'organisation/organisation.html', context)

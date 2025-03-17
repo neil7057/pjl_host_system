@@ -113,10 +113,6 @@
                     <p class="mb-0">Email:&nbsp;&nbsp;{{member.email}}</p>
                 {% if member.is_adult %}
                     <p>Adult</p>
-                {% else %}
-                    <p>Child</p>
-                    <p>Age:&nbsp;{{member.child_age}}</p>
-                {% endif %}
             <!-- get todays date in required format -->
                     {% now "d m Y" as current_date %}
                     <!-- check if dbs valid -->
@@ -131,6 +127,11 @@
                             <p class="text-danger mt-0">DBS Expired On:&nbsp;&nbsp;{{member.dbs_date}}</p>
                         {%endif %}
                     {% endif %}
+                {% else %}
+                    <p>Child</p>
+                    <p>Age:&nbsp;{{member.child_age}}</p>
+                    <p class="text-edit mb-2">DBS not required</p>
+                {% endif %}
                     <p>Host:&nbsp;&nbsp;{{member.host}}<span>
                     <button class="mr-3 mb-4 rounded-15 btn btn-success float-right">
                         <a class ="text-white" href="{% url 'edit_member' member.id %}">Edit</a>
