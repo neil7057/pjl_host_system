@@ -382,6 +382,40 @@ textarea {
     width: 35vw;
 }
 
+/* select2 */
+
+option:checked {
+    background-color: lightblue;
+}
+
+
+.select2-results__option--selected {
+    background-color: #646aed !important;
+    color: #fff;
+    border-radius: 15px !important;
+}
+
+.select2-selection__choice__remove {
+    color: red !important;
+}
+
+.select2-selection__choice {
+    background-color: #646aed !important;
+    color: #fff;
+    border-radius: 15px !important;
+}
+
+.select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: #fff !important;
+    color: #555555 !important;
+    border-radius: 15px !important;
+}
+
+.select2-selection--multiple {
+    border-radius: 15px !important;
+}
+
+
 /* Product Form */
 
 .btn-file {

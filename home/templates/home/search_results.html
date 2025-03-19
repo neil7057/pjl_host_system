@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- Hosts {% endblock %}
+
+{% block extra_meta %}
+    <meta name="description" content="Search results page.">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid h-100">
+    <!-- Title Section -->
+    <div class="row h-100">
+        <div class="col">
+            <br>
+            <h1 class="text-center text-review">Search Results for "{{ search_term }}"</h1>
+      <br>
+      {% if hosts|length > 0 %}
+        <div>
+        {% for host in hosts %}
+          <div class="">
+            <div class="">
+              <h3 class="">{{ host.orgname }}</h3>
+            </div>
+            <div class="container-fluid">
+              <div class="row indent-post">
+                {% for category in categories %}
+                <div><span class="tag-format text-center">spam spam</span></div>  
+                {% endfor %}
+              </div>
+            </div>
+        {% endfor %}
+          </div> 
+        {% else %}
+        <h2 class="btn-center btn-review p-3 rounded-15"> No Results Found</h2>    
+        {% endif %}
+    </div>
+  </div>
+</div>     
+{% endblock %}
