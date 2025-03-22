@@ -57,35 +57,101 @@
                     <div class="col-12 py-0 bg-members rounded-15 mt-0">
                         <br>
                         <h4 class="ml-3 ">Name:&nbsp;&nbsp;{{member.first_name}}&nbsp;{{member.last_name}}</h4>
-                        <div class="ml-5 mb-0">
-                            <p class="mb-0">Gender:&nbsp;&nbsp;{{member.gender}}</p>
-                            <p class="mb-0">Email:&nbsp;&nbsp;{{member.email}}</p>
-                            {% if member.is_adult %}
-                                <p>Adult</p>
-                            <!-- get todays date in required format -->
-                            {% now "d m Y" as current_date %}
-                            <!-- check if dbs valid -->
-                            {% if member.dbs_date|date:"dmY"  > current_date  %}
-                                <p class="text-edit mb-0">Valid DBS</p>
-                                <p class="text-edit">DBS Expiry:&nbsp;{{member.dbs_date}}</p>   
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Gender:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ member.gender }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">email:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ member.email }}</p>
+                            </div>
+                        </div>
+                        {% if member.is_adult %}
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 text-edit font-weight-bold">Adult</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <!-- get todays date in required format -->
+                                {% now "d m Y" as current_date %}
+                                <!-- check if dbs valid -->
+                                {% if member.dbs_date|date:"dmY"  > current_date  %}
+                                <p class="text-edit mb-0 ml-2 font-weight-bold">Valid DBS</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="text-edit mb-0 ml-2 font-weight-bold">DBS Expiry:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4">
+                                <p class="mb-0 text-black">{{member.dbs_date}}</p>
+                            </div>
+                        </div>            
+                        {% else %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="text-danger mb-0 ml-2 font-weight-bold">No Valid DBS</p>
+                            </div>
+                        </div>
+                            {% if member.dbs_date is None %}
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="text-danger mb-0 ml-2 font-weight-bold">No DBS on record</p>
+                            </div>
+                        </div>
                             {% else %}
-                                <p class="text-danger mb-0">No Valid DBS</p>
-                                {% if member.dbs_date is None %}
-                                    <p class="text-danger mt-0">No DBS on record</p>
-                                {% else %}
-                                    <p class="text-danger mt-0">DBS Expired On:&nbsp;&nbsp;{{member.dbs_date}}</p>
-                                {%endif %}
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                            <p class="text-danger mb-0 ml-2 font-weight-bold">DBS Expired On:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4">
+                                <p class="text-danger">{{member.dbs_date}}</p>
+                            </div>
+                        </div>
+                            {% endif %}
                             {% endif %}
                             {% else %}
-                                <p>Child</p>
-                                <p>Age:&nbsp;{{member.child_age}}</p>
-                                <p class="text-edit mb-2">DBS not required</p>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 text-info font-weight-bold">Child</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Age</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ member.child_age }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="text-edit mb-0 ml-2 font-weight-bold">DBS not required</p>
+                            </div>
+                        </div>
                             {% endif %}
-                            <p>Host:&nbsp;&nbsp;{{member.host}}<span>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Host:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ member.host }}</p>
+                            </div>
+                        </div>
                             <button class="mr-3 mb-4 rounded-15 btn btn-success float-right">
                                 <a class ="text-white" href="{% url 'edit_member' member.id %}">Edit</a>
                             </button></span></p>
-                        </div>
                     </div>
                 </div>
                 <br>

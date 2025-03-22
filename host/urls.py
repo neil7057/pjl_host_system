@@ -6,4 +6,5 @@ urlpatterns = [
     path('<int:host_id>/', views.host_detail, name='host_detail'),
     path('add/', views.add_host, name='add_host'),
     path('edit/<int:host_id>/', views.edit_host, name='edit_host'),
+    path('hosts_by_cat/', views.hosts_by_cat, name='hosts_by_cat'),
 ]

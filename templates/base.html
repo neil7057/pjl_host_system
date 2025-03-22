@@ -45,15 +45,16 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-pjl pt-lg-2 d-none d-lg-flex">
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+        <div id="topnav" class="row bg-pjl pt-lg-2 d-none d-lg-flex rounded-tb15">
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left ">
           <a href="{% url 'home' %}" class="nav-link main-logo-link">
             <img src="{{ MEDIA_URL }}pjl-logo.jpg" alt="pjl logo" height=127>
           </a>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
         {% if request.user.is_authenticated %}
-          <form method="GET" action="{% url 'search' %}">
+          <!-- <form method="GET" action="{% url 'search' %}"> -->
+            <form method="GET" action="{% url 'search' %}">
               <div class="input-group w-100">
                   <input class="form-control border border-info rounded-15 hide-labels" type="text"
                    name="q" placeholder="Search our site"
@@ -97,7 +98,7 @@
               </li>
         </div>
         </div>
-        <div class="row bg-pjl rounded-tb15">
+        <div class="row bg-pjl rounded-tb15 d-lg-none d-md-block">
             <nav class="navbar navbar-expand-lg navbar-dark w-100">
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">

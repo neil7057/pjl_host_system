@@ -51,20 +51,53 @@
             <div>
                 {% if teamleaders|length > 0 %}
                 {% for teamlead in teamleaders %}
-                <!-- Pupil Record -->
+                <!-- Team Leader Record -->
                 <div class="row no-gutters">
                     <div class="col-12 col-lg-8 offset-lg-2 bg-teamlead mb-3 rounded-15">
                         <br>
-                        <div class="ml-3 mr-3">
-                            <p><span class="text-edit">First Name:&nbsp;</span>{{teamlead.first_name}}</p>
-                            <p><span class="mb-1 text-edit">Last Name:&nbsp;</span>{{teamlead.last_name}}</p>
-                            <p><span class="mb-1 text-edit">Email:&nbsp;</span>{{teamlead.email}}</p>
-                            <p><span class="mb-1 text-edit">Mobile:&nbsp;</span>{{teamlead.mobile}}</p>
-                            <p><span class="mb-1 text-edit">Organisation:&nbsp;</span>{{teamlead.org}}</p>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">First Name:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ teamlead.first_name }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Last Name:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ teamlead.last_name }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Email:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ teamlead.email }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Mobile:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ teamlead.mobile }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Organisation:</p>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 ">
+                                <p class="mb-0 text-black">{{ teamlead.org }}</p>
+                            </div>
+                        </div>
                             <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
                                 <a class ="text-white" href="{% url 'edit_teamlead' teamlead.id %}">Edit</a>
                             </button></span></p>
-                        </div>
                     </div>
                 </div>
                 {% endfor %}

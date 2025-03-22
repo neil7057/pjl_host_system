@@ -195,16 +195,33 @@ input[name='q']::placeholder {
     line-height: 100px;
 }
 
+p {
+    margin-bottom: .3rem;
+}
+
 .rounded-bt15 {
     border-radius: 15px 15px 0 0 !important;
 }
-
 
 hr.host {
     border-top: 1px solid gray;
 }
 .product-sub-header {
     margin-top: 20px;
+}
+
+.host-search-box {
+    margin-right: auto;
+    margin-left: auto;
+    width: 260px;
+}
+
+.host-search-border {
+    border: 2px solid #f9e2f5;
+}
+
+.search-record-title {
+    font-weight: bold !important;
 }
 
 /* ------------------------------- category styling */

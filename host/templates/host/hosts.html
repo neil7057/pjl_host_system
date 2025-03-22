@@ -46,6 +46,24 @@
             <div class="col-12 my-0 bg-hosts rounded-15">
                 <h2 class="text-edit text-center">Host Records</h2>    
             </div>
+
+            <form method="GET" action="{% url 'hosts_by_cat' %}">
+                <div class="host-search-box input-group mt-3 mb-0">
+                    <input class="form-control host-search-border rounded-15 hide-labels" type="text"
+                     name="q" placeholder="Search for catgeories"
+                     aria-label="search term">
+                    <div class="input-group-append">
+                        <button aria-label="search button" class="form-control btn bg-white ml-2 host-search-border rounded-15" type="submit">
+                            <span class="icon">
+                                <i class="text-pjl fas fa-search"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div class="col-12 col-lg-8 offset-lg-2 ">
+
             <br>
             <div>
                 {% if hosts|length > 0 %}

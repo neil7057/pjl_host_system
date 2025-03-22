@@ -99,3 +99,19 @@ def edit_host(request, host_id):
     }
 
     return render(request, template, context)
+
+
+def hosts_by_cat(request):
+    """ A view to show all hosts by category"""
+
+    hosts = ""
+    if 'q' in request.GET:
+        q = request.GET['q']
+        hosts = Host.objects.filter(categories__friendly_name__icontains=q)
+
+    context = {
+        'hosts': hosts,
+        'search_term': q
+    }
+
+    return render(request, 'host/search_results.html', context)

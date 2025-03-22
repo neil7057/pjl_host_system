@@ -55,32 +55,84 @@
                 <div class="row no-gutters">
                     <div class="col-12 col-lg-8 offset-lg-2 bg-organisation mb-3 rounded-15">
                         <br>
-                        <h4 class="ml-3">Organisation:&nbsp;&nbsp;{{organisation.orgname}}</h4>
-                        <div class="ml-4">
-                            <p>Address 1:&nbsp;&nbsp;{{organisation.address1}}</p>
-                            <p>Address 1:&nbsp;&nbsp;{{organisation.address2}}</p> 
-                            <p>Address 1:&nbsp;&nbsp;{{organisation.town}}</p> 
-                            <p>Address 1:&nbsp;&nbsp;{{organisation.postcode}}</p> 
-                            <p>Address 1:&nbsp;&nbsp;{{organisation.county}}</p> 
-                            <p>Address 1:&nbsp;&nbsp;{{organisation.telephone}}</p>
-                            <p>Address 1:&nbsp;&nbsp;{{organisation.contact_name}}</p>
-                            <p>Address 1:&nbsp;&nbsp;{{organisation.email}}</p>
+                        <h4 class="text-center">Organisation:&nbsp;&nbsp;{{organisation.orgname}}</h4>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Address Line 1:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ organisation.address1 }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Address Line 2:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ organisation.address2 }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Town:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ organisation.town }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Postcode:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ organisation.postcode }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">County:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ organisation.county }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Telephone:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ organisation.telephone }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Contact Name:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ organisation.contact_name }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Email:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ organisation.email }}</p>
+                            </div>
+                        </div>
                             <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
                                 <a class ="text-white" href="{% url 'edit_organisation' organisation.id %}">Edit</a>
                             </button></span></p>
-                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row no-gutters" >
-                <!-- <div class="col-12 col-lg-8 offset-lg-2 p-3 "> -->
-                <div class="col-12 col-lg-8 bg-teamlead rounded-15 offset-lg-2">
-                    <h2 class="text-edit text-center">Team Leaders for&nbsp;
-                        <span class="font-weight-bold">{{organisation.orgname}}</span></h2>    
+                <div class="row no-gutters" >
+                    <div class="col-12 col-lg-8 bg-teamlead rounded-15 offset-lg-2">
+                        <h2 class="text-edit text-center">Team Leaders for:</h2>
+                        <h2 class="font-weight-bold text-center">{{organisation.orgname}}</h2>    
+                    </div>
                 </div>
-            </div>
-            <div class="mb-1"></div>
-            <div>
+                <div class="mb-1"></div>
+                <div>
                 {% if teamleaders|length > 0 %}
                 <!-- get only the teamleaders for this organisation -->
                 {% for teamlead in organisation.org.all %}               
@@ -88,13 +140,48 @@
                     <div class="row no-gutters">
                         <div class="col-12 col-lg-8 offset-lg-2 bg-teamlead mb-3 rounded-15">
                             <br>
-                            <div class="ml-3 mr-3">
-                                <p><span class="text-edit">First Name:&nbsp;</span>{{teamlead.first_name}}</p>
-                                <p><span class="mb-1 text-edit">Last Name:&nbsp;</span>{{teamlead.last_name}}</p>
-                                <p><span class="mb-1 text-edit">Email:&nbsp;</span>{{teamlead.email}}</p>
-                                <p><span class="mb-1 text-edit">Mobile:&nbsp;</span>{{teamlead.mobile}}</p>
-                                <p><span class="mb-1 text-edit">Organisation:&nbsp;</span>{{teamlead.org}}</p>
-                                <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">                                    <a class ="text-white" href="{% url 'edit_teamlead' teamlead.id %}">Edit</a>
+                            <div class="row">
+                                <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                    <p class="mb-0 ml-2 font-weight-bold">First Name:</p>
+                                </div>
+                                <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                    <p class="mb-0 text-black">{{ teamlead.first_name }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                    <p class="mb-0 ml-2 font-weight-bold">Last Name:</p>
+                                </div>
+                                <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                    <p class="mb-0 text-black">{{ teamlead.last_name }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                    <p class="mb-0 ml-2 font-weight-bold">Email:</p>
+                                </div>
+                                <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                    <p class="mb-0 text-black">{{ teamlead.email }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                    <p class="mb-0 ml-2 font-weight-bold">Mobile:</p>
+                                </div>
+                                <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                    <p class="mb-0 text-black">{{ teamlead.mobile }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                    <p class="mb-0 ml-2 font-weight-bold">Organisation:</p>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 ">
+                                    <p class="mb-0 text-black">{{ teamlead.org }}</p>
+                                </div>
+                            </div>
+                                <button class="mr-3 mb-3 rounded-15 btn btn-success float-right">
+                                    <a class ="text-white" href="{% url 'edit_teamlead' teamlead.id %}">Edit</a>
                                 </button></span></p>
                             </div>
                         </div>
