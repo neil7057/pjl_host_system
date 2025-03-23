@@ -42,6 +42,7 @@ def search(request):
         multiple_q = Q(Q(first_name__icontains=q) |
                        Q(preferred_name__icontains=q) |
                        Q(last_name__icontains=q) |
+                       Q(org__orgname__icontains=q) |
                        Q(team__first_name__icontains=q))
         pupils = Pupil.objects.filter(multiple_q)
 

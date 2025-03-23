@@ -71,8 +71,9 @@
                 <!-- Host Record -->
                 <div class="row no-gutters">
                     <div class="col-12 bg-hosts rounded-15 mt-0">
-                        <h4 class="ml-3 mt-2">{{host.hostname}}</h4>
-                        <div class="ml-5">
+                        <h4 class="text-center mt-2">Host:&nbsp;&nbsp;
+                            <span class="search-record-title">{{host.hostname}}</span></h4>
+                        <div class="text-center">
                             <p>{{host.address1}}&nbsp;&nbsp;{{host.town}}&nbsp;&nbsp;{{host.telephone}}</p>
                             <p class="mb-0">Maximum Occupancy:&nbsp;&nbsp;{{host.max_occupants}}:&nbsp;&nbsp;<span>
                             {% if host.gas_safety %}

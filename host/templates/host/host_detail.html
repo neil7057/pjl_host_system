@@ -57,24 +57,86 @@
                     <div class="d-flex justify-content-between flex-wrap ">
                         <div class="col-12 bg-hosts mb-2 rounded-15">
                         <br>
-                        <h4 class="ml-3"> Hostname:&nbsp;&nbsp;{{host.hostname}}<span>
-                            <button class="mr-3 rounded-15 btn btn-success float-right">
-                                <a class ="text-white" href="{% url 'edit_host' host.id %}">Edit</a>
-                            </button>
-                        </span></h4>
-                        <div class="ml-5 my-0 ">
-                            <p class="my-0">{{host.address1}}</p>
-                            <p class="my-0">{{host.address2}}</p>
-                            <p class="my-0">{{host.town}}</p>
-                            <p class="my-0">{{host.postcode}}</p>
-                            <p class="my-0">{{host.county}}</p>
-                            <p class="mt-1 mb-0">Telephone:&nbsp;&nbsp;{{host.telephone}}</p>
-                            <p class="mt-1 mb-0">Maximum Occupancy:&nbsp;&nbsp;{{host.max_occupants}}</p>
-                            {% if host.gas_safety %}
-                                <p>Gas Safety is valid Until:&nbsp;&nbsp;{{host.gas_safety_date}}</p>
-                            {% else %}
-                                <p class="text-danger">No Gas Safety Certificate</p>
-                            {% endif %}
+                        <h4 class="text-center"> Hostname:&nbsp;&nbsp;
+                            <span class="search-record-title">{{host.hostname}}</span></h4>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Address Line 1:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ host.address1 }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Address Line 2:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ host.address2 }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Town:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ host.town }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">PostCode:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ host.postcode }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">County:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ host.county }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">telephone:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ host.telephone }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                <p class="mb-0 ml-2 font-weight-bold">Maximum Occupancy:</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                <p class="mb-0 text-black">{{ host.max_occupants }}</p>
+                            </div>
+                        </div>
+                        {% if host.gas_safety %}
+                            <div class="row">
+                                <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                    <p class="mb-0 ml-2 font-weight-bold">Gas Safety is valid Until:</p>
+                                </div>
+                                <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                    <p class="mb-0 text-black">{{ host.gas_safety_date }}</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="row">
+                                <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                                    <p class="mb-0 ml-2 font-weight-bold">Gas Safety is valid Until:</p>
+                                </div>
+                                <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                                    <p class="text-danger">No Gas Safety Certificate</p>
+                                </div>
+                            </div>        
+                        {% endif %}
+                        <button class="mb-2 rounded-15 btn btn-success float-right">
+                            <a class ="text-white" href="{% url 'edit_host' host.id %}">Edit</a>
+                        </button>
                         </div>
                     </div>
                 </div>
@@ -109,49 +171,120 @@
         <div class="row no-gutters">
             <div class="col-12 col-lg-8 offset-lg-2">
                 <div class="d-flex justify-content-between flex-wrap ">
-                    <div class="col-12 bg-members mb-2 rounded-15">
+                    <div class="col-12 bg-members mb-4 rounded-15">
                         <!-- get family members for hosts -->
                         <h2 class="text-info text-center mt-1 ml-3">Family Members</h2>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row no-gutters">
-            <br>
             {% if familymembers|length > 0 %}
             {% for member in familymembers %}
-            <div class=" bg-members rounded-15 mt-3 col-lg-8 offset-lg-2">
-                <h4 class="ml-3 mt-3">Name:&nbsp;&nbsp;{{member.first_name}}&nbsp;{{member.last_name}}</h4>
-                <div class="ml-5 mb-0">
-                    <p class="mb-0">Gender:&nbsp;&nbsp;{{member.gender}}</p>
-                    <p class="mb-0">Email:&nbsp;&nbsp;{{member.email}}</p>
+            <!-- Member Records -->
+          <div class="row no-gutters">
+            <div class="col-12 bg-members rounded-15 col-lg-8 offset-lg-2 mt-0">
+                <br>
+                <h4 class="text-center">Name:&nbsp;&nbsp;
+                  <span class="search-record-title">{{member.first_name}}&nbsp;{{member.last_name}}</span></h4>
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <p class="mb-0 ml-2 font-weight-bold">Gender:</p>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                        <p class="mb-0 text-black">{{ member.gender }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <p class="mb-0 ml-2 font-weight-bold">email:</p>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                        <p class="mb-0 text-black">{{ member.email }}</p>
+                    </div>
+                </div>
                 {% if member.is_adult %}
-                    <p>Adult</p>
-            <!-- get todays date in required format -->
-                    {% now "d m Y" as current_date %}
-                    <!-- check if dbs valid -->
-                    {% if member.dbs_date|date:"dmY"  > current_date  %}
-                        <p class="text-edit mb-0">Valid DBS</p>
-                        <p class="text-edit">DBS Expiry:&nbsp;{{member.dbs_date}}</p>   
-                    {% else %}
-                        <p class="text-danger mb-0">No Valid DBS</p>
-                        {% if member.dbs_date is None %}
-                            <p class="text-danger mt-0">No DBS on record</p>
-                        {% else %}
-                            <p class="text-danger mt-0">DBS Expired On:&nbsp;&nbsp;{{member.dbs_date}}</p>
-                        {%endif %}
-                    {% endif %}
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <p class="mb-0 ml-2 text-edit font-weight-bold">Adult</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <!-- get todays date in required format -->
+                        {% now "d m Y" as current_date %}
+                        <!-- check if dbs valid -->
+                        {% if member.dbs_date|date:"dmY"  > current_date  %}
+                        <p class="text-edit mb-0 ml-2 font-weight-bold">Valid DBS</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <p class="text-edit mb-0 ml-2 font-weight-bold">DBS Expiry:</p>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-5 col-lg-4">
+                        <p class="mb-0 text-black">{{member.dbs_date}}</p>
+                    </div>
+                </div>            
                 {% else %}
-                    <p>Child</p>
-                    <p>Age:&nbsp;{{member.child_age}}</p>
-                    <p class="text-edit mb-2">DBS not required</p>
-                {% endif %}
-                    <p>Host:&nbsp;&nbsp;{{member.host}}<span>
-                    <button class="mr-3 mb-4 rounded-15 btn btn-success float-right">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <p class="text-danger mb-0 ml-2 font-weight-bold">No Valid DBS</p>
+                    </div>
+                </div>
+                    {% if member.dbs_date is None %}
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <p class="text-danger mb-0 ml-2 font-weight-bold">No DBS on record</p>
+                    </div>
+                </div>
+                    {% else %}
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                    <p class="text-danger mb-0 ml-2 font-weight-bold">DBS Expired On:</p>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-5 col-lg-4">
+                        <p class="text-danger">{{member.dbs_date}}</p>
+                    </div>
+                </div>
+                    {% endif %}
+                    {% endif %}
+                    {% else %}
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <p class="mb-0 ml-2 text-info font-weight-bold">Child</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <p class="mb-0 ml-2 font-weight-bold">Age</p>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                        <p class="mb-0 text-black">{{ member.child_age }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <p class="text-edit mb-0 ml-2 font-weight-bold">DBS not required</p>
+                    </div>
+                </div>
+                    {% endif %}
+                <div class="row">
+                    <div class="col-6 offset-sm-1 col-sm-4 col-md-4 col-lg-4">
+                        <p class="mb-0 ml-2 font-weight-bold">Host:</p>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-5 col-lg-4 ">
+                        <p class="mb-0 text-black">{{ member.host }}</p>
+                    </div>
+                </div>
+                    <button class="mr-3 mb-2 rounded-15 btn btn-success float-right">
                         <a class ="text-white" href="{% url 'edit_member' member.id %}">Edit</a>
                     </button></span></p>
                 </div>
             </div>
+          </div>
+          <br>
             {% endfor %}
             {% else %}
                 <p class="text-center">There are no Family members for this Host</p>
